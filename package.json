@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jquery": "^1.10.30",
     "@types/react": "^0.14.32",
     "@types/react-dom": "^0.14.15",
+    "jquery": "^3.1.0",
     "jspm": "^0.17.0-beta.27",
     "react": "^15.3.1",
     "react-dom": "^15.3.1"
@@ -20,9 +22,12 @@
     "name": "molviewer",
     "main": "molviewer.js",
     "dependencies": {
+      "3dmol/3Dmol.js": "github:3dmol/3Dmol.js@^1.0.6",
+      "jquery": "npm:jquery@^3.1.0",
       "react-dom": "npm:react-dom@^15.3.1"
     },
     "devDependencies": {
+      "@types/jquery": "npm:@types/jquery@^1.10.30",
       "@types/react": "npm:@types/react@^0.14.32",
       "@types/react-dom": "npm:@types/react-dom@^0.14.15",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^5.0.18"
@@ -50,6 +55,10 @@
       "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
     },
     "overrides": {
+      "github:3dmol/3Dmol.js@1.0.6": {
+        "main": "release/3Dmol.js",
+        "format": "global"
+      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",

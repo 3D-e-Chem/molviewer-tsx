@@ -11,7 +11,8 @@ SystemJS.config({
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.0.18",
       "@types/react": "npm:@types/react@0.14.32",
-      "@types/react-dom": "npm:@types/react-dom@0.14.15"
+      "@types/react-dom": "npm:@types/react-dom@0.14.15",
+      "@types/jquery": "npm:@types/jquery@1.10.30"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.0.18": {
@@ -31,7 +32,11 @@ SystemJS.config({
     "module": "system",
     "typeCheck": "strict",
     "tsconfig": true,
-    "types": ["react", "react-dom"]
+    "types": [
+      "react",
+      "react-dom",
+      "jquery"
+    ]
   },
   packages: {
     "molviewer": {
@@ -56,6 +61,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "3dmol/3Dmol.js": "github:3dmol/3Dmol.js@1.0.6",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
@@ -66,6 +72,7 @@ SystemJS.config({
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
+    "jquery": "npm:jquery@3.1.0",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
