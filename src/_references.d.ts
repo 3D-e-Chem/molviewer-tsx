@@ -6,8 +6,17 @@ interface SphereSpec {
   color: string;
 }
 
+interface AtomSpec {
+  ss: string;
+}
+
 interface GLShape {
   addSphere(spec: SphereSpec): GLShape;
+}
+
+interface GLModel {
+  setStyle(sel: any, style: any): void;
+  setColorByFunction(sel: any, func: Function): void;
 }
 
 interface GLViewer {
@@ -15,6 +24,8 @@ interface GLViewer {
   zoomTo(): void;
   render(): void;
   zoom(factor: number, animationDuration: number): void;
+  setBackgroundColor(hex: number, alpha?: number): void;
+  addModel(data: string, format: string): GLModel;
 }
 
 interface $3DmolStatic {
