@@ -2,11 +2,10 @@ Visualize protein with it's natural ligand and candidates.
 
 Technical exercise to combine:
 
-* jspm
-* react
-* jsx
-* typescript
-* 3Dmol
+* jspm (http://jspm.io)
+* react and jsx (https://facebook.github.io/react/)
+* typescript (https://www.typescriptlang.org/)
+* 3Dmol (http://3dmol.csb.pitt.edu/)
 
 TODO:
 
@@ -16,7 +15,6 @@ TODO:
 * test coverage
 * tslint
 * tsdoc
-* badges
 
 # Install
 
@@ -28,10 +26,12 @@ jspm install
 
 # Development
 
+Start bundle watcher, will rebuild if any file in src/ dir changes.
 ```
 jspm bundle src/molviewer.tsx -wid
 ```
-In another terminal host directory
+In another terminal host directory using a webserver. For example with [caddy](https://caddyserver.com/)
 ```
 caddy
 ```
+Open http://localhost:2015 in web browser.
