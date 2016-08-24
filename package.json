@@ -12,10 +12,12 @@
   "devDependencies": {
     "@types/jquery": "^1.10.30",
     "@types/react": "^0.14.32",
+    "@types/react-bootstrap": "0.0.31",
     "@types/react-dom": "^0.14.15",
     "jquery": "^3.1.0",
     "jspm": "^0.17.0-beta.27",
     "react": "^15.3.1",
+    "react-bootstrap": "^0.30.3",
     "react-dom": "^15.3.1"
   },
   "jspm": {
@@ -24,11 +26,13 @@
     "dependencies": {
       "3dmol/3Dmol.js": "github:3dmol/3Dmol.js@^1.0.6",
       "jquery": "npm:jquery@^3.1.0",
-      "react-dom": "npm:react-dom@^15.3.1"
+      "react-bootstrap": "npm:react-bootstrap@^0.30.3",
+      "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha.3"
     },
     "devDependencies": {
       "@types/jquery": "npm:@types/jquery@^1.10.30",
       "@types/react": "npm:@types/react@^0.14.32",
+      "@types/react-bootstrap": "npm:@types/react-bootstrap@^0.0.31",
       "@types/react-dom": "npm:@types/react-dom@^0.14.15",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^5.0.18"
     },
@@ -47,6 +51,7 @@
       "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
       "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
       "react": "npm:react@^15.3.1",
+      "react-dom": "npm:react-dom@^15.3.1",
       "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
       "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
       "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
@@ -58,6 +63,35 @@
       "github:3dmol/3Dmol.js@1.0.6": {
         "main": "release/3Dmol.js",
         "format": "global"
+      },
+      "github:HubSpot/tether@1.3.4": {
+        "main": "js/tether",
+        "directories": {
+          "lib": "dist"
+        },
+        "meta": {
+          "js/tether.js": {
+            "exports": "Tether",
+            "format": "global"
+          }
+        }
+      },
+      "github:twbs/bootstrap@4.0.0-alpha.3": {
+        "files": null,
+        "dependencies": {
+          "jquery": "2",
+          "tether": "github:HubSpot/tether@^1.1.1"
+        },
+        "meta": {
+          "js/bootstrap.js": {
+            "deps": [
+              "jquery",
+              "tether"
+            ],
+            "exports": "$",
+            "format": "global"
+          }
+        }
       },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
@@ -72,6 +106,9 @@
         "ignore": [
           "test.js"
         ]
+      },
+      "npm:jquery@2.2.4": {
+        "format": "amd"
       },
       "npm:typescript@2.0.0": {
         "browser": {},
