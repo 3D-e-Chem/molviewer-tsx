@@ -49,7 +49,7 @@ export class MolContainer extends React.Component<{}, {}> {
     return (
       <div style={{
          display: 'flex',
-         height: '700px'
+         height: '900px'
       }}>
         <div style={{
           width: '300px',

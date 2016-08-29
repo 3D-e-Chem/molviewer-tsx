@@ -29,9 +29,10 @@ jspm install
 # Development
 
 ```
-jspm bundle src/molviewer.tsx -wid
+npm run watch
 ```
 In another terminal host directory
 ```
 caddy
 ```
+

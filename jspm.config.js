@@ -9,18 +9,10 @@ SystemJS.config({
     "bundles": {
       "build.js": [
         "molviewer/molviewer.tsx",
-        "molviewer/_references.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
-        "npm:typescript@2.0.0/lib/lib.es6.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
-        "npm:typescript@2.0.0.json",
-        "github:frankwallis/plugin-typescript@5.0.18.json",
         "molviewer/component.tsx",
-        "molviewer/molcontainer.tsx",
-        "npm:@types/react-bootstrap@0.0.31/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
-        "npm:@types/react-bootstrap@0.0.31.json",
-        "npm:@types/react@0.14.32/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
-        "npm:@types/react@0.14.32.json",
-        "npm:@types/jquery@1.10.30/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
-        "npm:@types/jquery@1.10.30.json",
+        "molviewer/molcontainer.tsx"
+      ],
+      "dependency-bundle.js": [
         "npm:react-bootstrap@0.30.3/lib/index.js",
         "npm:react-bootstrap@0.30.3.json",
         "github:jspm/nodelibs-process@0.2.0-alpha/process.js",
@@ -461,13 +453,23 @@ SystemJS.config({
         "npm:react-bootstrap@0.30.3/lib/Badge.js",
         "npm:react-bootstrap@0.30.3/lib/Alert.js",
         "npm:react-bootstrap@0.30.3/lib/Accordion.js",
-        "github:3dmol/3Dmol.js@1.0.6/release/3Dmol.js",
-        "github:3dmol/3Dmol.js@1.0.6.json",
         "npm:jquery@3.1.0/dist/jquery.js",
         "npm:jquery@3.1.0.json",
         "npm:@types/react-dom@0.14.15/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
         "npm:@types/react-dom@0.14.15.json",
-        "npm:@types/react-dom@0.14.15/react-dom.server.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js"
+        "molviewer/_references.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:typescript@2.0.0/lib/lib.es6.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:typescript@2.0.0.json",
+        "github:frankwallis/plugin-typescript@5.0.18.json",
+        "npm:@types/react@0.14.32/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:@types/react@0.14.32.json",
+        "npm:@types/react-dom@0.14.15/react-dom.server.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:@types/react-bootstrap@0.0.31/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:@types/react-bootstrap@0.0.31.json",
+        "npm:@types/jquery@1.10.30/index.d.ts!github:frankwallis/plugin-typescript@5.0.18/plugin.js",
+        "npm:@types/jquery@1.10.30.json",
+        "github:3dmol/3Dmol.js@1.0.6/release/3Dmol.js",
+        "github:3dmol/3Dmol.js@1.0.6.json"
       ]
     }
   },
