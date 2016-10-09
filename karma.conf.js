@@ -7,17 +7,19 @@ module.exports = function (config) {
     jspm: {
       config: "jspm.config.js",
       loadFiles: ['src/**/*.spec.tsx'],
-      serveFiles: ['src/**/*.tsx']
+      serveFiles: ['src/**/*.tsx'],
+      coverage: ['src/**/!(*.spec).tsx'],
     },
     proxies: {
       '/src/': '/base/src/',
-      '/jspm_packages/': '/base/jspm_packages/'
+      '/jspm_packages/': '/base/jspm_packages/',
     },
     preprocessors: {
     },
     reporters: [
       'progress',
-      'mocha'
+      'mocha',
+      'jspm',
     ],
     mochaReporter: {
       output: 'minimal',
@@ -25,7 +27,21 @@ module.exports = function (config) {
     },
     port: 9876,
     colors: true,
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
+    coverageReporter: {
+      dir: 'test_results/coverage/',
+      reporters: [
+        {
+          type: 'cobertura',
+          subdir: './',
+          file: 'cobertura.xml'
+        }, {
+          type: 'html',
+          subdir: './report_html'
+        }
+      ],
+      includeAllSources: true
+    },
     autoWatch: false,
     browsers: ['Chrome'],
     singleRun: true,
