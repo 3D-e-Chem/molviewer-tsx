@@ -14,7 +14,10 @@ SystemJS.config({
       "@types/react-dom": "npm:@types/react-dom@0.14.17",
       "@types/mocha": "npm:@types/mocha@2.2.32",
       "mocha": "npm:mocha@3.1.0",
-      "@types/chai": "npm:@types/chai@3.4.34"
+      "@types/chai": "npm:@types/chai@3.4.34",
+      "chai": "npm:chai@3.5.0",
+      "less": "github:systemjs/plugin-less@0.1.2",
+      "css": "github:systemjs/plugin-css@0.1.31"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -59,6 +62,23 @@ SystemJS.config({
           "lodash.isarray": "npm:lodash.isarray@3.0.4",
           "lodash.isarguments": "npm:lodash.isarguments@3.1.0"
         }
+      },
+      "npm:chai@3.5.0": {
+        "map": {
+          "assertion-error": "npm:assertion-error@1.0.2",
+          "deep-eql": "npm:deep-eql@0.1.3",
+          "type-detect": "npm:type-detect@1.0.0"
+        }
+      },
+      "npm:deep-eql@0.1.3": {
+        "map": {
+          "type-detect": "npm:type-detect@0.1.1"
+        }
+      },
+      "github:systemjs/plugin-less@0.1.2": {
+        "map": {
+          "css": "github:systemjs/plugin-css@0.1.30"
+        }
       }
     }
   },
@@ -84,9 +104,8 @@ SystemJS.config({
       }
     }
   },
+  separateCSS: true,
   typescriptOptions: {
-    // TODO have single tsconfig block in tsconfig.json file 
-    // Inlining contents of tsconfig.json otherwise karma-jspm will error with 404 /tsconfig.json
     "target": "es6",
     "module": "system",
     "emitDecoratorMetadata": true,
@@ -119,17 +138,14 @@ SystemJS.config({
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "chai": "npm:chai@3.5.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-    "css": "github:systemjs/plugin-css@0.1.31",
     "domain": "github:jspm/nodelibs-domain@0.2.0-alpha",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
-    "less": "github:systemjs/plugin-less@0.1.2",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
@@ -480,23 +496,6 @@ SystemJS.config({
       "map": {
         "querystring": "npm:querystring@0.2.0",
         "punycode": "npm:punycode@1.3.2"
-      }
-    },
-    "github:systemjs/plugin-less@0.1.2": {
-      "map": {
-        "css": "github:systemjs/plugin-css@0.1.31"
-      }
-    },
-    "npm:chai@3.5.0": {
-      "map": {
-        "deep-eql": "npm:deep-eql@0.1.3",
-        "type-detect": "npm:type-detect@1.0.0",
-        "assertion-error": "npm:assertion-error@1.0.2"
-      }
-    },
-    "npm:deep-eql@0.1.3": {
-      "map": {
-        "type-detect": "npm:type-detect@0.1.1"
       }
     }
   }

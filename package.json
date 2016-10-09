@@ -8,9 +8,6 @@
     "main": "molviewer.js",
     "dependencies": {
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
-      "chai": "npm:chai@^3.5.0",
-      "css": "github:systemjs/plugin-css@^0.1.30",
-      "less": "github:systemjs/plugin-less@^0.1.2",
       "react-bootstrap": "npm:react-bootstrap@^0.30.5"
     },
     "devDependencies": {
@@ -18,6 +15,9 @@
       "@types/mocha": "npm:@types/mocha@^2.2.32",
       "@types/react": "npm:@types/react@^0.14.39",
       "@types/react-dom": "npm:@types/react-dom@^0.14.17",
+      "chai": "npm:chai@^3.5.0",
+      "css": "github:systemjs/plugin-css@^0.1.31",
+      "less": "github:systemjs/plugin-less@^0.1.2",
       "mocha": "npm:mocha@^3.1.0",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.7"
     },
@@ -159,6 +159,16 @@
   },
   "scripts": {
     "tslint": "tslint --config tslint.json src/**/*.ts src/**/*.tsx",
+    "clean": "npm run dist:clean && npm run test:clean",
+    "dist:clean": "rm -rf dist",
+    "dist:prep": "mkdir dist",
+    "dist:bundle-deps": "jspm bundle src/molviewer.tsx - [src/**/*] dist/dependency-bundle.js --minify --skip-source-maps",
+    "dist:bundle-app": "jspm bundle src/molviewer.tsx - dist/dependency-bundle.js dist/app-bundle.js --skip-source-maps # TODO add --minify, but with flag got Error: SyntaxError: Unexpected token: name (HelloWorld)",
+    "dist:copy:systemjs": "cp jspm_packages/system.js jspm.config.js dist/",
+    "dist:copy:html": "cp index-dist.html dist/index.html",
+    "dist:copy": "npm run dist:copy:html && npm run dist:copy:systemjs",
+    "dist": "npm run dist:prep && npm run dist:bundle-deps && npm run dist:bundle-app && npm run dist:copy",
+    "test:clean": "rm -rf test_results",
     "test": "karma start"
   },
   "author": "me",

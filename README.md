@@ -29,6 +29,14 @@ Enable tslinting inside Visual Studio Code with
 1. Open the command palette CRTL + P
 2. Run `ext install tslint`
 
+# Build distro
+
+```
+npm run dist
+```
+
+The `dist/` directory contains the application in transpiled/concatenated/minified format.
+
 # DONE
 
 * jspm + typescript + react
@@ -37,11 +45,13 @@ Enable tslinting inside Visual Studio Code with
 * Unit test using mocha/chai
 * Karma runner using Chrome with reporting and coverage
 * Linting using tslint with jsx rules
+* Use bundles (deps + app) for distro
 
 # TODO
 
 * Use production version of karma-jspm with coverage support instead of pull request https://github.com/Workiva/karma-jspm/pull/178
-* Use bundles (vendor + app) for distro
 * Single install of library and it's types, now it's installed in jspm and npm
 * linting with eslint
-* api doc generation with typedoc
+* api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config
+* Speed up development cycle by using watchers, aka changed file should trigger tslint, karma run, hot reload of page
+* Speed up loading development page, atm transpilation is done in browser and over 370 network requests are made
