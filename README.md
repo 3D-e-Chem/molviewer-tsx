@@ -6,7 +6,7 @@ To make jspm and editor happy
 
 ```
 jspm install <lib>
-jspm install --dev @types/<lib>
+jspm install --dev npm:@types/<lib>
 npm install -D <lib> @types/<lib>
 ```
 

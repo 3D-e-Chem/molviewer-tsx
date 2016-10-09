@@ -10,7 +10,7 @@
             true,
             "spaces"
         ],
-        "jsx-no-lambda": true,
+        "jsx-no-lambda": false,
         "jsx-no-string-ref": true,
         "jsx-no-multiline-js": true,
         "jsx-self-close": true,

@@ -17,7 +17,8 @@ SystemJS.config({
       "@types/chai": "npm:@types/chai@3.4.34",
       "chai": "npm:chai@3.5.0",
       "less": "github:systemjs/plugin-less@0.1.2",
-      "css": "github:systemjs/plugin-css@0.1.31"
+      "css": "github:systemjs/plugin-css@0.1.31",
+      "@types/react-bootstrap": "npm:@types/react-bootstrap@0.0.33"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -79,6 +80,11 @@ SystemJS.config({
         "map": {
           "css": "github:systemjs/plugin-css@0.1.30"
         }
+      },
+      "npm:@types/react-bootstrap@0.0.33": {
+        "map": {
+          "@types/react": "npm:@types/react@0.14.39"
+        }
       }
     }
   },
@@ -120,6 +126,7 @@ SystemJS.config({
     "types": [
       "react",
       "react-dom",
+      "react-bootstrap",
       "mocha",
       "chai"
     ],
@@ -360,58 +367,11 @@ SystemJS.config({
         "buffer-shims": "npm:buffer-shims@1.0.0"
       }
     },
-    "npm:react-bootstrap@0.30.5": {
-      "map": {
-        "dom-helpers": "npm:dom-helpers@2.4.0",
-        "keycode": "npm:keycode@2.1.7",
-        "classnames": "npm:classnames@2.2.5",
-        "react-prop-types": "npm:react-prop-types@0.4.0",
-        "warning": "npm:warning@3.0.0",
-        "babel-runtime": "npm:babel-runtime@6.11.6",
-        "react-overlays": "npm:react-overlays@0.6.10",
-        "invariant": "npm:invariant@2.2.1",
-        "uncontrollable": "npm:uncontrollable@4.0.3"
-      }
-    },
-    "npm:react-prop-types@0.4.0": {
-      "map": {
-        "warning": "npm:warning@3.0.0"
-      }
-    },
-    "npm:react-overlays@0.6.10": {
-      "map": {
-        "classnames": "npm:classnames@2.2.5",
-        "dom-helpers": "npm:dom-helpers@2.4.0",
-        "react-prop-types": "npm:react-prop-types@0.4.0",
-        "warning": "npm:warning@3.0.0"
-      }
-    },
-    "npm:uncontrollable@4.0.3": {
-      "map": {
-        "invariant": "npm:invariant@2.2.1"
-      }
-    },
     "npm:react@15.3.2": {
       "map": {
         "loose-envify": "npm:loose-envify@1.2.0",
         "object-assign": "npm:object-assign@4.1.0",
         "fbjs": "npm:fbjs@0.8.5"
-      }
-    },
-    "npm:warning@3.0.0": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0"
-      }
-    },
-    "npm:invariant@2.2.1": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0"
-      }
-    },
-    "npm:babel-runtime@6.11.6": {
-      "map": {
-        "regenerator-runtime": "npm:regenerator-runtime@0.9.5",
-        "core-js": "npm:core-js@2.4.1"
       }
     },
     "npm:fbjs@0.8.5": {
@@ -496,6 +456,53 @@ SystemJS.config({
       "map": {
         "querystring": "npm:querystring@0.2.0",
         "punycode": "npm:punycode@1.3.2"
+      }
+    },
+    "npm:react-bootstrap@0.30.5": {
+      "map": {
+        "babel-runtime": "npm:babel-runtime@6.11.6",
+        "dom-helpers": "npm:dom-helpers@2.4.0",
+        "classnames": "npm:classnames@2.2.5",
+        "keycode": "npm:keycode@2.1.7",
+        "react-prop-types": "npm:react-prop-types@0.4.0",
+        "invariant": "npm:invariant@2.2.1",
+        "react-overlays": "npm:react-overlays@0.6.10",
+        "uncontrollable": "npm:uncontrollable@4.0.3",
+        "warning": "npm:warning@3.0.0"
+      }
+    },
+    "npm:react-prop-types@0.4.0": {
+      "map": {
+        "warning": "npm:warning@3.0.0"
+      }
+    },
+    "npm:react-overlays@0.6.10": {
+      "map": {
+        "classnames": "npm:classnames@2.2.5",
+        "dom-helpers": "npm:dom-helpers@2.4.0",
+        "react-prop-types": "npm:react-prop-types@0.4.0",
+        "warning": "npm:warning@3.0.0"
+      }
+    },
+    "npm:uncontrollable@4.0.3": {
+      "map": {
+        "invariant": "npm:invariant@2.2.1"
+      }
+    },
+    "npm:babel-runtime@6.11.6": {
+      "map": {
+        "core-js": "npm:core-js@2.4.1",
+        "regenerator-runtime": "npm:regenerator-runtime@0.9.5"
+      }
+    },
+    "npm:invariant@2.2.1": {
+      "map": {
+        "loose-envify": "npm:loose-envify@1.2.0"
+      }
+    },
+    "npm:warning@3.0.0": {
+      "map": {
+        "loose-envify": "npm:loose-envify@1.2.0"
       }
     }
   }

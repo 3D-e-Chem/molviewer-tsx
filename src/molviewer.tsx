@@ -2,9 +2,9 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-import {HelloWorld} from './hello';
+import {SdfPdbViewer} from './sdfpdbviewer';
 
 import 'bootstrap/dist/css/bootstrap.css!';
 
 let container = document.getElementById('container');
-ReactDOM.render(<HelloWorld />, container);
+ReactDOM.render(<SdfPdbViewer />, container);
