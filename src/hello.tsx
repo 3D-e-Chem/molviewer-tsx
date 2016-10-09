@@ -1,11 +1,11 @@
 import React from 'react';
 
 export class HelloWorld extends React.Component<{}, {}> {
-  render() {
+  public render() {
     return <h1>{this.saying()}</h1>;
   }
 
-  saying() {
+  public saying() {
     return 'Hello World!';
   }
 }
