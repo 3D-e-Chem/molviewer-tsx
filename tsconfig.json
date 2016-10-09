@@ -13,7 +13,9 @@
         "noUnusedParameters": true,
         "types": [
             "react",
-            "react-dom"
+            "react-dom",
+            "mocha",
+            "chai"
         ],
         "jsx": "react"
     },
