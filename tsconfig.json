@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "system",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "rootDir": ".",
+        "baseUrl": ".",
+        "strictNullChecks": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "types": [
+            "react",
+            "react-dom"
+        ],
+        "jsx": "react"
+    },
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "files": [
+        "./src/molviewer.tsx"
+    ]
+}

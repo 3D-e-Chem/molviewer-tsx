@@ -4,4 +4,4 @@ import {HelloWorld} from './hello';
 import 'bootstrap/dist/css/bootstrap.css!';
 
 let container = document.getElementById('container');
-let component = ReactDOM.render(<HelloWorld/>, container);
+ReactDOM.render(<HelloWorld />, container);

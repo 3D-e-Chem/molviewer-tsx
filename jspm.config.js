@@ -9,12 +9,19 @@ SystemJS.config({
   },
   devConfig: {
     "map": {
-      "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7"
+      "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
+      "@types/react": "npm:@types/react@0.14.39",
+      "@types/react-dom": "npm:@types/react-dom@0.14.17"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
         "map": {
           "typescript": "npm:typescript@2.0.3"
+        }
+      },
+      "npm:@types/react-dom@0.14.17": {
+        "map": {
+          "@types/react": "npm:@types/react@0.14.39"
         }
       }
     }
@@ -40,6 +47,10 @@ SystemJS.config({
         }
       }
     }
+  },
+  typescriptOptions: {
+    "tsconfig": true,
+    "typeCheck": "strict",
   }
 });
 

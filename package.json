@@ -13,6 +13,8 @@
       "react-bootstrap": "npm:react-bootstrap@^0.30.5"
     },
     "devDependencies": {
+      "@types/react": "npm:@types/react@^0.14.39",
+      "@types/react-dom": "npm:@types/react-dom@^0.14.17",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^5.2.7"
     },
     "peerDependencies": {
@@ -94,5 +96,12 @@
     "test": "karma start"
   },
   "author": "me",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@types/react": "^0.14.39",
+    "@types/react-dom": "^0.14.17",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "typescript": "^2.1.0-dev.20161009"
+  }
 }
