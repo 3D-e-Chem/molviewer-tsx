@@ -11,4 +11,4 @@ describe('hello', () => {
             expect(hello.saying()).to.equals(expected);
         });
     });
-})
+});

@@ -85,6 +85,7 @@ SystemJS.config({
     }
   },
   typescriptOptions: {
+    // TODO have single tsconfig block in tsconfig.json file 
     // Inlining contents of tsconfig.json otherwise karma-jspm will error with 404 /tsconfig.json
     "target": "es6",
     "module": "system",

@@ -18,6 +18,12 @@ Also add `<lib>` to types array in tsconfig.json file.
 npm test
 ```
 
+# Linting
+
+```
+npm run tslint
+```
+
 # DONE
 
 * jspm + typescript + react
