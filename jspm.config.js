@@ -11,7 +11,10 @@ SystemJS.config({
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
       "@types/react": "npm:@types/react@0.14.39",
-      "@types/react-dom": "npm:@types/react-dom@0.14.17"
+      "@types/react-dom": "npm:@types/react-dom@0.14.17",
+      "@types/mocha": "npm:@types/mocha@2.2.32",
+      "mocha": "npm:mocha@3.1.0",
+      "@types/chai": "npm:@types/chai@3.4.34"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -22,6 +25,39 @@ SystemJS.config({
       "npm:@types/react-dom@0.14.17": {
         "map": {
           "@types/react": "npm:@types/react@0.14.39"
+        }
+      },
+      "npm:mocha@3.1.0": {
+        "map": {
+          "json3": "npm:json3@3.3.2",
+          "lodash.create": "npm:lodash.create@3.1.1",
+          "debug": "npm:debug@2.2.0",
+          "css": "github:systemjs/plugin-css@0.1.31"
+        }
+      },
+      "npm:lodash.create@3.1.1": {
+        "map": {
+          "lodash._baseassign": "npm:lodash._baseassign@3.2.0",
+          "lodash._isiterateecall": "npm:lodash._isiterateecall@3.0.9",
+          "lodash._basecreate": "npm:lodash._basecreate@3.0.3"
+        }
+      },
+      "npm:lodash._baseassign@3.2.0": {
+        "map": {
+          "lodash._basecopy": "npm:lodash._basecopy@3.0.1",
+          "lodash.keys": "npm:lodash.keys@3.1.2"
+        }
+      },
+      "npm:debug@2.2.0": {
+        "map": {
+          "ms": "npm:ms@0.7.1"
+        }
+      },
+      "npm:lodash.keys@3.1.2": {
+        "map": {
+          "lodash._getnative": "npm:lodash._getnative@3.9.1",
+          "lodash.isarray": "npm:lodash.isarray@3.0.4",
+          "lodash.isarguments": "npm:lodash.isarguments@3.1.0"
         }
       }
     }
@@ -49,8 +85,26 @@ SystemJS.config({
     }
   },
   typescriptOptions: {
-    "tsconfig": true,
-    "typeCheck": "strict",
+    // Inlining contents of tsconfig.json otherwise karma-jspm will error with 404 /tsconfig.json
+    "target": "es6",
+    "module": "system",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "types": [
+      "react",
+      "react-dom",
+      "mocha",
+      "chai"
+    ],
+    "jsx": "react",
+    "typeCheck": "strict"
   }
 });
 
@@ -64,10 +118,11 @@ SystemJS.config({
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
+    "chai": "npm:chai@3.5.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-    "css": "github:systemjs/plugin-css@0.1.30",
+    "css": "github:systemjs/plugin-css@0.1.31",
     "domain": "github:jspm/nodelibs-domain@0.2.0-alpha",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
@@ -428,7 +483,19 @@ SystemJS.config({
     },
     "github:systemjs/plugin-less@0.1.2": {
       "map": {
-        "css": "github:systemjs/plugin-css@0.1.30"
+        "css": "github:systemjs/plugin-css@0.1.31"
+      }
+    },
+    "npm:chai@3.5.0": {
+      "map": {
+        "deep-eql": "npm:deep-eql@0.1.3",
+        "type-detect": "npm:type-detect@1.0.0",
+        "assertion-error": "npm:assertion-error@1.0.2"
+      }
+    },
+    "npm:deep-eql@0.1.3": {
+      "map": {
+        "type-detect": "npm:type-detect@0.1.1"
       }
     }
   }
