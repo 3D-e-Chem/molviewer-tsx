@@ -1,4 +1,15 @@
+# Setup
 
+```
+sudo npm install -g jspm
+npm install
+jspm install
+```
+
+# Editing
+
+Use Visual Studio Code v1.5 or later.
+When editing *.tsx files use Typescript inside the repo and not the Typescript shipped with VSCode.
 
 # Adding library
 
@@ -59,3 +70,5 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Use redux to toggle visibility of molecules
 * Use redux-thunk to load molecules from server
 * Embed 3dmol or litemol to render molecules in 3D
+* Add to Travis-CI
+* Add to Codacy with code coverage
