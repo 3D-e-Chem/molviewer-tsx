@@ -3,7 +3,6 @@
 ```
 sudo npm install -g jspm
 npm install
-jspm install
 ```
 
 # Editing
@@ -64,7 +63,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Single install of library and it's types, now it's installed in jspm and npm
 * Single tsconfig, atm it is in jspm.config.js and tsconfig.js, Inlining contents of tsconfig.json into jspm.config.js otherwise karma-jspm will error with 404 /tsconfig.json
 * linting with eslint
-* api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config
+* api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config https://github.com/TypeStrong/typedoc/issues/303
 * Speed up development cycle by using watchers, aka changed file should trigger tslint, karma run, hot reload of page
 * Speed up loading development page, atm transpilation is done in browser and over 370 network requests are made
 * Use redux to toggle visibility of molecules

@@ -159,6 +159,7 @@
     }
   },
   "scripts": {
+    "postinstall": "jspm install",
     "tslint": "tslint --config tslint.json src/**/*.ts src/**/*.tsx",
     "clean": "npm run dist:clean && npm run test:clean",
     "dist:clean": "rm -rf dist",
