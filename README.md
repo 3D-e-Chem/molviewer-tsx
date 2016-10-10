@@ -56,3 +56,6 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config
 * Speed up development cycle by using watchers, aka changed file should trigger tslint, karma run, hot reload of page
 * Speed up loading development page, atm transpilation is done in browser and over 370 network requests are made
+* Use redux to toggle visibility of molecules
+* Use redux-thunk to load molecules from server
+* Embed 3dmol or litemol to render molecules in 3D
