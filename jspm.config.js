@@ -127,6 +127,7 @@ SystemJS.config({
       "react",
       "react-dom",
       "react-bootstrap",
+      "isomorphic-fetch",
       "mocha",
       "chai"
     ],
@@ -142,6 +143,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@0.0.31",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
@@ -153,6 +155,7 @@ SystemJS.config({
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
+    "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",

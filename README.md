@@ -56,6 +56,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Karma runner using Chrome with reporting and coverage
 * Linting using tslint with jsx rules
 * Use bundles (deps + app) for distro
+* Fetch ligands from json file
 
 # TODO
 

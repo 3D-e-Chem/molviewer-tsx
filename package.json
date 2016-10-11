@@ -7,7 +7,9 @@
     "name": "molviewer",
     "main": "molviewer.js",
     "dependencies": {
+      "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@^0.0.31",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
+      "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
       "react-bootstrap": "npm:react-bootstrap@^0.30.5"
     },
     "devDependencies": {
@@ -177,11 +179,13 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/chai": "^3.4.34",
+    "@types/isomorphic-fetch": "0.0.31",
     "@types/mocha": "^2.2.32",
     "@types/react": "^0.14.39",
     "@types/react-bootstrap": "0.0.33",
     "@types/react-dom": "^0.14.17",
     "chai": "^3.5.0",
+    "isomorphic-fetch": "^2.2.1",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
