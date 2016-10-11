@@ -2,3 +2,5 @@ jspm_packages/
 node_modules/
 test_results/
 dist/
+.vscode
+

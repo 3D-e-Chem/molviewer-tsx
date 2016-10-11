@@ -1,8 +1,8 @@
 // TODO replace with `import React from 'react'`, but tslint complains see https://github.com/palantir/tslint/issues/893
 import * as React from 'react';
 
-import {ILigand} from './ligand';
-import {LigandList} from './ligandlist';
+import { ILigand } from './ligand';
+import { LigandList } from './ligandlist';
 
 interface ISdfPdbViewerState {
     ligands: ILigand[];
@@ -23,8 +23,23 @@ export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
     public render() {
         return <div>
             <h1>Sdf & Pdb viewer</h1>
-            <LigandList ligands={this.state.ligands}/>
+            <LigandList
+                ligands={this.state.ligands}
+                onLigandVisibilityClick={this.onLigandVisibilityClick.bind(this)}
+            />
         </div>;
+    }
+
+    protected onLigandVisibilityClick(ligandId: string) {
+        const newLigands = this.state.ligands.map((ligand) => {
+            if (ligand.id === ligandId) {
+                return Object.assign({}, ligand, {
+                    visible: !ligand.visible,
+                });
+            }
+            return ligand;
+        });
+        this.setState({ ligands: newLigands });
     }
 
 }

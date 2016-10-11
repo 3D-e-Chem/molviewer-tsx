@@ -2,7 +2,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-import {SdfPdbViewer} from './sdfpdbviewer';
+import { SdfPdbViewer } from './sdfpdbviewer';
 
 import 'bootstrap/dist/css/bootstrap.css!';
 
