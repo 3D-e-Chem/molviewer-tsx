@@ -163,7 +163,7 @@
     "tslint": "tslint --config tslint.json src/**/*.ts src/**/*.tsx",
     "clean": "npm run dist:clean && npm run test:clean",
     "dist:clean": "rm -rf dist",
-    "dist:prep": "mkdir dist",
+    "dist:prep": "mkdir dist || true",
     "dist:bundle-deps": "jspm bundle src/molviewer.tsx - [src/**/*] dist/dependency-bundle.js --minify --skip-source-maps",
     "dist:bundle-app": "jspm bundle src/molviewer.tsx - dist/dependency-bundle.js dist/app-bundle.js --skip-source-maps # TODO add --minify, but with flag got Error: SyntaxError: Unexpected token: name (HelloWorld)",
     "dist:copy:systemjs": "cp jspm_packages/system.js jspm.config.js dist/",
