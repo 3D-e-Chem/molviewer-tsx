@@ -31,6 +31,7 @@ declare namespace $3Dmol {
             zoom(factor: number, animationDuration: number): void;
             setBackgroundColor(hex: number, alpha?: number): void;
             addModel(data: string, format: string): GLModel;
+            removeModel(model: GLModel): void;
             setViewStyle(style: any): void;
         }
 
