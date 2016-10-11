@@ -18,7 +18,8 @@ SystemJS.config({
       "chai": "npm:chai@3.5.0",
       "less": "github:systemjs/plugin-less@0.1.2",
       "css": "github:systemjs/plugin-css@0.1.31",
-      "@types/react-bootstrap": "npm:@types/react-bootstrap@0.0.33"
+      "@types/react-bootstrap": "npm:@types/react-bootstrap@0.0.33",
+      "@types/jquery": "npm:@types/jquery@2.0.33"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -128,9 +129,14 @@ SystemJS.config({
       "react-dom",
       "react-bootstrap",
       "isomorphic-fetch",
+      "3Dmol",
+      "jquery",
       "mocha",
       "chai"
     ],
+    "typings": {
+      "3Dmol": "index.d.ts",
+    },
     "jsx": "react",
     "typeCheck": "strict"
   }
@@ -143,6 +149,7 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "3Dmol": "github:3dmol/3Dmol.js@1.0.6",
     "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@0.0.31",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
@@ -156,6 +163,7 @@ SystemJS.config({
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
+    "jquery": "npm:jquery@3.1.1",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",

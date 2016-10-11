@@ -4,6 +4,7 @@ import * as React from 'react';
 
 import { ILigand, IRestLigand } from './ligand';
 import { LigandList } from './ligandlist';
+import { MolCanvas } from './molcanvas';
 
 interface ISdfPdbViewerState {
     ligands: ILigand[];
@@ -44,10 +45,17 @@ export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
     public render() {
         return <div>
             <h1>Sdf & Pdb viewer</h1>
-            <LigandList
-                ligands={this.state.ligands}
-                onLigandVisibilityClick={this.onLigandVisibilityClick.bind(this)}
-            />
+            <div style={{ display: 'flex', height: '900px' }}>
+                <div style={{ marginLeft: '10px', width: '300px'}}>
+                    <LigandList
+                        ligands={this.state.ligands}
+                        onLigandVisibilityClick={this.onLigandVisibilityClick.bind(this)}
+                    />
+                </div>
+                <div style={{ flexGrow: 1, position: 'relative'}}>
+                    <MolCanvas ligands={this.state.ligands}/>
+                </div>
+            </div>
         </div>;
     }
 

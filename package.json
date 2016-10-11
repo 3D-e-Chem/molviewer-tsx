@@ -7,13 +7,16 @@
     "name": "molviewer",
     "main": "molviewer.js",
     "dependencies": {
+      "3Dmol": "github:3dmol/3Dmol.js@^1.0.6",
       "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@^0.0.31",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
       "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
+      "jquery": "npm:jquery@^3.1.1",
       "react-bootstrap": "npm:react-bootstrap@^0.30.5"
     },
     "devDependencies": {
       "@types/chai": "npm:@types/chai@^3.4.34",
+      "@types/jquery": "npm:@types/jquery@^2.0.33",
       "@types/mocha": "npm:@types/mocha@^2.2.32",
       "@types/react": "npm:@types/react@^0.14.39",
       "@types/react-bootstrap": "npm:@types/react-bootstrap@^0.0.33",
@@ -48,6 +51,10 @@
       "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
     },
     "overrides": {
+      "github:3dmol/3Dmol.js@1.0.6": {
+        "format": "global",
+        "main": "release/3Dmol-min.js"
+      },
       "github:twbs/bootstrap@3.3.7": {
         "main": "js/bootstrap.js",
         "dependencies": {
@@ -178,6 +185,7 @@
   "author": "me",
   "license": "Apache-2.0",
   "devDependencies": {
+    "3Dmol": "github:3dmol/3Dmol.js",
     "@types/chai": "^3.4.34",
     "@types/isomorphic-fetch": "0.0.31",
     "@types/mocha": "^2.2.32",

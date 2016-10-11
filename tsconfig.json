@@ -16,6 +16,8 @@
             "react-dom",
             "react-bootstrap",
             "isomorphic-fetch",
+            "3Dmol",
+            "jquery",
             "mocha",
             "chai"
         ],
@@ -24,6 +26,7 @@
     "compileOnSave": false,
     "buildOnSave": false,
     "files": [
+        "./@types/3Dmol/index.d.ts",
         "./src/molviewer.tsx"
     ]
 }

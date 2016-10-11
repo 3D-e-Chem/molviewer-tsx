@@ -22,6 +22,35 @@ npm install -D <lib> @types/<lib>
 
 Also add `<lib>` to types array in compilerOptions of tsconfig.json file and in typescriptOptions of jspm.config.js file.
 
+## Manual external Typescript declaration
+
+In library has no declaration in npm:@types repository.
+
+1. Write your own TypeScript declaration file and store it in `@types/<lib>/index.d.ts` file.
+2. Install in jspm with `jspm install <lib>`
+3. Install in npm with `npm install -D <lib>`
+4. Add `<lib>` to types array in compilerOptions of tsconfig.json file and in typescriptOptions of jspm.config.js file.
+5. Add `@types/<lib>/index.d.ts` to files array in tsconfig.json
+6. Add key `<lib>` and value `@types/<lib>/index.d.ts` to typescriptOptions.types object in jspm.config.js file
+
+## Libary has no main specified and uses global
+
+Instal in jspm with
+```
+jspm install <name>=<target> -o "{format: 'global', main: '<main file>'
+```
+
+Where:
+
+* name: how you want to import it with `import <name>`
+* target: valid jspm target like github:mylib/mylib
+* main file: The main file to include when import is used
+
+For example:
+```
+jspm install 3Dmol=github:3dmol/3Dmol.js -o "{format: 'global', main: 'release/3Dmol-min.js'}"
+```
+
 # Unit test
 
 ```
@@ -72,3 +101,4 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Embed 3dmol or litemol to render molecules in 3D
 * Add to Travis-CI
 * Add to Codacy with code coverage
+* Easier manual external declaration inclusion
