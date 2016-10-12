@@ -78,18 +78,17 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 
 # DONE
 
-* jspm + typescript + react
 * Typescript declerations using @types instead of typings or `/// <reference`
-* Styling using bootstrap and react-bootstrap
 * Unit test using mocha/chai
 * Karma runner using Chrome with reporting and coverage
-* Linting using tslint with jsx rules
 * Use bundles (deps + app) for distro
-* Fetch ligands from json file
-* Embed 3dmol (or litemol) to render molecules in 3D
 
 # TODO
 
+* jspm + typescript + angular2
+* Styling using bootstrap 
+* Fetch ligands from json file
+* Embed 3dmol (or litemol) to render molecules in 3D
 * Use production version of karma-jspm with coverage support instead of pull request https://github.com/Workiva/karma-jspm/pull/178
 * Single install of library and it's types, now it's installed in jspm and npm
 * Single tsconfig, atm it is in jspm.config.js and tsconfig.js, Inlining contents of tsconfig.json into jspm.config.js otherwise karma-jspm will error with 404 /tsconfig.json

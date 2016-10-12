@@ -12,16 +12,12 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "types": [
-            "react",
-            "react-dom",
-            "react-bootstrap",
             "isomorphic-fetch",
             "3Dmol",
             "jquery",
             "mocha",
             "chai"
-        ],
-        "jsx": "react"
+        ]
     },
     "compileOnSave": false,
     "buildOnSave": false,

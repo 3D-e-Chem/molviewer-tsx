@@ -10,26 +10,18 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
-      "@types/react": "npm:@types/react@0.14.39",
-      "@types/react-dom": "npm:@types/react-dom@0.14.17",
       "@types/mocha": "npm:@types/mocha@2.2.32",
       "mocha": "npm:mocha@3.1.0",
       "@types/chai": "npm:@types/chai@3.4.34",
       "chai": "npm:chai@3.5.0",
       "less": "github:systemjs/plugin-less@0.1.2",
       "css": "github:systemjs/plugin-css@0.1.31",
-      "@types/react-bootstrap": "npm:@types/react-bootstrap@0.0.33",
       "@types/jquery": "npm:@types/jquery@2.0.33"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
         "map": {
           "typescript": "npm:typescript@2.0.3"
-        }
-      },
-      "npm:@types/react-dom@0.14.17": {
-        "map": {
-          "@types/react": "npm:@types/react@0.14.39"
         }
       },
       "npm:mocha@3.1.0": {
@@ -81,11 +73,6 @@ SystemJS.config({
         "map": {
           "css": "github:systemjs/plugin-css@0.1.30"
         }
-      },
-      "npm:@types/react-bootstrap@0.0.33": {
-        "map": {
-          "@types/react": "npm:@types/react@0.14.39"
-        }
       }
     }
   },
@@ -125,9 +112,6 @@ SystemJS.config({
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "types": [
-      "react",
-      "react-dom",
-      "react-bootstrap",
       "isomorphic-fetch",
       "3Dmol",
       "jquery",
@@ -135,9 +119,8 @@ SystemJS.config({
       "chai"
     ],
     "typings": {
-      "3Dmol": "index.d.ts",
+      "3Dmol": "index.d.ts"
     },
-    "jsx": "react",
     "typeCheck": "strict"
   }
 });
@@ -167,9 +150,6 @@ SystemJS.config({
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
-    "react": "npm:react@15.3.2",
-    "react-bootstrap": "npm:react-bootstrap@0.30.5",
-    "react-dom": "npm:react-dom@15.3.2",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -378,34 +358,6 @@ SystemJS.config({
         "buffer-shims": "npm:buffer-shims@1.0.0"
       }
     },
-    "npm:react@15.3.2": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0",
-        "object-assign": "npm:object-assign@4.1.0",
-        "fbjs": "npm:fbjs@0.8.5"
-      }
-    },
-    "npm:fbjs@0.8.5": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0",
-        "object-assign": "npm:object-assign@4.1.0",
-        "promise": "npm:promise@7.1.1",
-        "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
-        "ua-parser-js": "npm:ua-parser-js@0.7.10",
-        "core-js": "npm:core-js@1.2.7",
-        "immutable": "npm:immutable@3.8.1"
-      }
-    },
-    "npm:loose-envify@1.2.0": {
-      "map": {
-        "js-tokens": "npm:js-tokens@1.0.3"
-      }
-    },
-    "npm:promise@7.1.1": {
-      "map": {
-        "asap": "npm:asap@2.0.5"
-      }
-    },
     "npm:isomorphic-fetch@2.2.1": {
       "map": {
         "node-fetch": "npm:node-fetch@1.6.3",
@@ -467,53 +419,6 @@ SystemJS.config({
       "map": {
         "querystring": "npm:querystring@0.2.0",
         "punycode": "npm:punycode@1.3.2"
-      }
-    },
-    "npm:react-bootstrap@0.30.5": {
-      "map": {
-        "babel-runtime": "npm:babel-runtime@6.11.6",
-        "dom-helpers": "npm:dom-helpers@2.4.0",
-        "classnames": "npm:classnames@2.2.5",
-        "keycode": "npm:keycode@2.1.7",
-        "react-prop-types": "npm:react-prop-types@0.4.0",
-        "invariant": "npm:invariant@2.2.1",
-        "react-overlays": "npm:react-overlays@0.6.10",
-        "uncontrollable": "npm:uncontrollable@4.0.3",
-        "warning": "npm:warning@3.0.0"
-      }
-    },
-    "npm:react-prop-types@0.4.0": {
-      "map": {
-        "warning": "npm:warning@3.0.0"
-      }
-    },
-    "npm:react-overlays@0.6.10": {
-      "map": {
-        "classnames": "npm:classnames@2.2.5",
-        "dom-helpers": "npm:dom-helpers@2.4.0",
-        "react-prop-types": "npm:react-prop-types@0.4.0",
-        "warning": "npm:warning@3.0.0"
-      }
-    },
-    "npm:uncontrollable@4.0.3": {
-      "map": {
-        "invariant": "npm:invariant@2.2.1"
-      }
-    },
-    "npm:babel-runtime@6.11.6": {
-      "map": {
-        "core-js": "npm:core-js@2.4.1",
-        "regenerator-runtime": "npm:regenerator-runtime@0.9.5"
-      }
-    },
-    "npm:invariant@2.2.1": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0"
-      }
-    },
-    "npm:warning@3.0.0": {
-      "map": {
-        "loose-envify": "npm:loose-envify@1.2.0"
       }
     }
   }
