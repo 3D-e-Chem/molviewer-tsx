@@ -86,6 +86,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Linting using tslint with jsx rules
 * Use bundles (deps + app) for distro
 * Fetch ligands from json file
+* Embed 3dmol (or litemol) to render molecules in 3D
 
 # TODO
 
@@ -98,7 +99,6 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Speed up loading development page, atm transpilation is done in browser and over 370 network requests are made
 * Use redux to toggle visibility of molecules
 * Use redux-thunk to load molecules from server
-* Embed 3dmol or litemol to render molecules in 3D
 * Add to Travis-CI
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
