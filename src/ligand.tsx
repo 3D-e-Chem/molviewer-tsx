@@ -1,4 +1,4 @@
-// TODO rename file to ligand.d.ts, but import gets defaultExtension (.tsx) appended
+import fetch from 'isomorphic-fetch';
 
 export interface IRestLigand {
   id: string;
@@ -8,4 +8,16 @@ export interface IRestLigand {
 
 export interface ILigand extends IRestLigand {
   visible: boolean;
+}
+
+export function prepLigand(restLigand: IRestLigand) {
+  const ligand = restLigand as ILigand;
+  ligand.visible = true;
+  return ligand;
+}
+
+export function fetchLigands(url = '/api/ligands') {
+  return fetch(url)
+    .then<IRestLigand[]>(response => response.json())
+    .then<ILigand[]>((restLigands) => restLigands.map(prepLigand));
 }

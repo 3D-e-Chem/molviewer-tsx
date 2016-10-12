@@ -1,13 +1,14 @@
-// TODO replace with `import React from 'react'`, but tslint complains see https://github.com/palantir/tslint/issues/893
-import fetch from 'isomorphic-fetch';
 import * as React from 'react';
 
-import { ILigand, IRestLigand } from './ligand';
+import { ILigand, fetchLigands } from './ligand';
 import { LigandList } from './ligandlist';
 import { MolCanvas } from './molcanvas';
+import { IProtein, fetchProteins } from './protein';
+import { ProteinList} from './proteinlist';
 
 interface ISdfPdbViewerState {
     ligands: ILigand[];
+    proteins: IProtein[];
 }
 
 export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
@@ -15,45 +16,46 @@ export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
         super();
         this.state = {
             ligands: [],
+            proteins: [],
         };
     }
 
-    public fetchLigands() {
-        return fetch('/api/ligands')
-        .then(response => response.json())
-        .then(this.addLigands.bind(this));
-    }
-
-    public addLigand(restLigand: IRestLigand) {
-        const ligand = restLigand as ILigand;
-        ligand.visible = true;
-        return ligand;
-    }
-
-    public addLigands(ligands: IRestLigand[]) {
+    public addLigands(ligands: ILigand[]) {
         this.setState({
-            ligands: ligands.map((ligand) => {
-                return this.addLigand(ligand);
-            }),
+            ligands,
+            proteins: this.state.proteins,
+        });
+    }
+
+    public addProteins(proteins: IProtein[]) {
+        this.setState({
+            ligands: this.state.ligands,
+            proteins,
         });
     }
 
     public componentDidMount() {
-        this.fetchLigands();
+        fetchLigands().then(this.addLigands.bind(this));
+        fetchProteins().then(this.addProteins.bind(this));
     }
 
     public render() {
         return <div>
-            <h1>Sdf & Pdb viewer</h1>
+            <h1>Ligands and proteins viewer</h1>
             <div style={{ display: 'flex', height: '900px' }}>
                 <div style={{ marginLeft: '10px', width: '300px'}}>
                     <LigandList
                         ligands={this.state.ligands}
                         onLigandVisibilityClick={this.onLigandVisibilityClick.bind(this)}
                     />
+                    <ProteinList
+                        proteins={this.state.proteins}
+                        onProteinVisibilityClick={this.onProteinVisibilityClick.bind(this)}
+                        onHeteroVisibilityClick={this.onHeteroVisibilityClick.bind(this)}
+                    />
                 </div>
                 <div style={{ flexGrow: 1, position: 'relative'}}>
-                    <MolCanvas ligands={this.state.ligands}/>
+                    <MolCanvas ligands={this.state.ligands} proteins={this.state.proteins}/>
                 </div>
             </div>
         </div>;
@@ -68,6 +70,39 @@ export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
             }
             return ligand;
         });
-        this.setState({ ligands: newLigands });
+        this.setState({
+            ligands: newLigands,
+            proteins: this.state.proteins,
+        });
+    }
+
+    protected onProteinVisibilityClick(proteinId: string) {
+        const newProteins = this.state.proteins.map((protein) => {
+            if (protein.id === proteinId) {
+                return Object.assign({}, protein, {
+                    visible: !protein.visible,
+                });
+            }
+            return protein;
+        });
+        this.setState({
+            ligands: this.state.ligands,
+            proteins: newProteins,
+        });
+    }
+
+    protected onHeteroVisibilityClick(proteinId: string) {
+        const newProteins = this.state.proteins.map((protein) => {
+            if (protein.id === proteinId) {
+                return Object.assign({}, protein, {
+                    hetVisible: !protein.hetVisible,
+                });
+            }
+            return protein;
+        });
+        this.setState({
+            ligands: this.state.ligands,
+            proteins: newProteins,
+        });
     }
 }

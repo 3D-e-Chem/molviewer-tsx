@@ -1,12 +1,14 @@
-import {$3Dmol} from '3Dmol';
+import { $3Dmol } from '3Dmol';
 import $ from 'jquery';
 import * as React from 'react';
 
-import {LigandGLModel} from './glmodel';
-import {ILigand} from './ligand';
+import { LigandGLModel, ProteinGLModel } from './glmodel';
+import { ILigand } from './ligand';
+import { IProtein } from './protein';
 
 interface IMolCanvasProps {
     ligands: ILigand[];
+    proteins: IProtein[];
 }
 
 export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
@@ -14,15 +16,16 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     private viewer: $3Dmol.GLViewer;
 
     public render() {
-        const glmodels: JSX.Element[] = [];
-        // ligands
-        this.props.ligands.forEach((ligand) => {
-            glmodels.push(<LigandGLModel key={ligand.id} {...ligand} format='sdf' viewer={this.viewer}/>);
-        });
-
-        return <div style={{height: '100%', width: '100%'}} ref={(c) => this.canvasContainerEl = c}>
-                   {glmodels}
-               </div>;
+        const ligands = this.props.ligands.map((ligand) => (
+            <LigandGLModel key={ligand.id} {...ligand} format='sdf' viewer={this.viewer} />
+        ));
+        const proteins = this.props.proteins.map((protein) => (
+            <ProteinGLModel key={protein.id} {...protein} format='pdb' viewer={this.viewer} />
+        ));
+        return <div style={{ height: '100%', width: '100%' }} ref={(c) => this.canvasContainerEl = c}>
+            {ligands}
+            {proteins}
+        </div>;
     }
 
     public componentDidMount() {

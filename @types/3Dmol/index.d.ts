@@ -35,12 +35,9 @@ declare namespace $3Dmol {
             setViewStyle(style: any): void;
         }
 
-        interface ssColors {
-            pyMol: Object;
-            Jmol: Object;
-        }
-
-        interface $3DmolStatic {
+        module ssColors {
+            var pyMol: Object;
+            var Jmol: Object;
         }
     }
 }
