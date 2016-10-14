@@ -3,7 +3,7 @@
 		<tr *ngFor="let ligand of ligands">
 			<td>{{ligand.label}}</td>
 			<td>
-				<button class="btn btn-small" (click)="onVisibilityClick(ligand.id)">
+				<button class="btn btn-default btn-small" (click)="onVisibilityClick(ligand)">
                     <span class="glyphicon" [ngClass]="{'glyphicon-eye-open': ligand.visible, 'glyphicon-eye-close': !ligand.visible}"></span>
                 </button>
 			</td>
