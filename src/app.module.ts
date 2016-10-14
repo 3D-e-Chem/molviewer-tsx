@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { ThreeDmolViewerService } from './3dmol-viewer.service';
 import { AppComponent } from './app.component';
+import { LigandGLModels } from './ligand-glmodels.component';
 import { LigandListComponent } from './ligand-list.component';
 import { LigandService } from './ligand.service';
 import { MolCanvasComponent } from './mol-canvas.component';
@@ -14,6 +16,7 @@ import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
     declarations: [
         AppComponent,
         SdfPdbViewerComponent,
+        LigandGLModels,
         LigandListComponent,
         ProteinListComponent,
         MolCanvasComponent,
@@ -22,6 +25,9 @@ import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
         BrowserModule,
         HttpModule,
     ],
-    providers: [LigandService],
+    providers: [
+        LigandService,
+        ThreeDmolViewerService,
+    ],
 })
 export class AppModule { }

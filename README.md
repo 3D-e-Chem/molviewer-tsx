@@ -97,11 +97,11 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Use bundles (deps + app) for distro
 * jspm + typescript + angular2
 * Styling using bootstrap 
+* Fetch ligands from json file using @angular/http promise
+* Embed 3dmol (or litemol) to render molecules in 3D
 
 # TODO
 
-* Fetch ligands from json file using fetch or @angular/http observable
-* Embed 3dmol (or litemol) to render molecules in 3D
 * Karma runner using Chrome with reporting and coverage
 * Use production version of karma-jspm with coverage support instead of pull request https://github.com/Workiva/karma-jspm/pull/178
 * Single install of library and it's types, now it's installed in jspm and npm
