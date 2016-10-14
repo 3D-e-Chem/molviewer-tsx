@@ -111,6 +111,7 @@ SystemJS.config({
       "@angular/core": "index.d.ts",
       "@angular/platform-browser": "index.d.ts",
       "@angular/platform-browser-dynamic": "index.d.ts",
+      "@angular/http": "index.d.ts",
       "rxjs": "Rx.d.ts"
     }
   }
@@ -127,6 +128,7 @@ SystemJS.config({
     "@angular/common": "npm:@angular/common@2.1.0",
     "@angular/compiler": "npm:@angular/compiler@2.1.0",
     "@angular/core": "npm:@angular/core@2.1.0",
+    "@angular/http": "npm:@angular/http@2.1.0",
     "@angular/platform-browser": "npm:@angular/platform-browser@2.1.0",
     "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.1.0",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
@@ -351,7 +353,7 @@ SystemJS.config({
     },
     "npm:rxjs@5.0.0-beta.12": {
       "map": {
-        "symbol-observable": "npm:symbol-observable@1.0.3"
+        "symbol-observable": "npm:symbol-observable@1.0.4"
       }
     },
     "github:jspm/nodelibs-timers@0.2.0-alpha": {

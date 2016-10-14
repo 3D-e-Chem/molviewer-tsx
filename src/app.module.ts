@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
 import { LigandListComponent } from './ligand-list.component';
-import { ProteinListComponent } from './protein-list.component';
 import { MolCanvasComponent } from './mol-canvas.component';
+import { ProteinListComponent } from './protein-list.component';
+import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
 
 @NgModule({
-    imports: [BrowserModule],
+    bootstrap: [AppComponent],
     declarations: [
         AppComponent,
         SdfPdbViewerComponent,
@@ -16,6 +17,9 @@ import { MolCanvasComponent } from './mol-canvas.component';
         ProteinListComponent,
         MolCanvasComponent,
     ],
-    bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        HttpModule,
+    ],
 })
 export class AppModule { }
