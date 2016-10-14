@@ -10,14 +10,14 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
-      "text": "github:systemjs/plugin-text@0.0.9",
       "css": "github:systemjs/plugin-css@0.1.31",
       "mocha": "npm:mocha@3.1.2",
       "chai": "npm:chai@3.5.0",
       "@types/chai": "npm:@types/chai@3.4.34",
       "@types/mocha": "npm:@types/mocha@2.2.32",
       "@types/jquery": "npm:@types/jquery@2.0.33",
-      "less": "github:systemjs/plugin-less@0.1.2"
+      "less": "github:systemjs/plugin-less@0.1.2",
+      "text": "github:systemjs/plugin-text@0.0.9"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {

@@ -100,10 +100,11 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Fetch ligands from json file using @angular/http promise
 * Embed 3dmol (or litemol) to render molecules in 3D
 * Single tsconfig
+* Karma runner using Chrome with reporting and coverage
 
 # TODO
 
-* Karma runner using Chrome with reporting and coverage
+* Distro, which includes bootstrap css and does not fail on missing plugin-text
 * Use production version of karma-jspm with coverage support instead of pull request https://github.com/Workiva/karma-jspm/pull/178
 * Single install of library and it's types, now it's installed in jspm and npm
 * linting with eslint
