@@ -10,13 +10,14 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
-      "@types/mocha": "npm:@types/mocha@2.2.32",
-      "mocha": "npm:mocha@3.1.0",
-      "@types/chai": "npm:@types/chai@3.4.34",
-      "chai": "npm:chai@3.5.0",
-      "less": "github:systemjs/plugin-less@0.1.2",
+      "text": "github:systemjs/plugin-text@0.0.9",
       "css": "github:systemjs/plugin-css@0.1.31",
-      "@types/jquery": "npm:@types/jquery@2.0.33"
+      "mocha": "npm:mocha@3.1.2",
+      "chai": "npm:chai@3.5.0",
+      "@types/chai": "npm:@types/chai@3.4.34",
+      "@types/mocha": "npm:@types/mocha@2.2.32",
+      "@types/jquery": "npm:@types/jquery@2.0.33",
+      "less": "github:systemjs/plugin-less@0.1.2"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -24,7 +25,19 @@ SystemJS.config({
           "typescript": "npm:typescript@2.0.3"
         }
       },
-      "npm:mocha@3.1.0": {
+      "npm:chai@3.5.0": {
+        "map": {
+          "type-detect": "npm:type-detect@1.0.0",
+          "deep-eql": "npm:deep-eql@0.1.3",
+          "assertion-error": "npm:assertion-error@1.0.2"
+        }
+      },
+      "npm:deep-eql@0.1.3": {
+        "map": {
+          "type-detect": "npm:type-detect@0.1.1"
+        }
+      },
+      "npm:mocha@3.1.2": {
         "map": {
           "json3": "npm:json3@3.3.2",
           "lodash.create": "npm:lodash.create@3.1.1",
@@ -35,8 +48,13 @@ SystemJS.config({
       "npm:lodash.create@3.1.1": {
         "map": {
           "lodash._baseassign": "npm:lodash._baseassign@3.2.0",
-          "lodash._isiterateecall": "npm:lodash._isiterateecall@3.0.9",
-          "lodash._basecreate": "npm:lodash._basecreate@3.0.3"
+          "lodash._basecreate": "npm:lodash._basecreate@3.0.3",
+          "lodash._isiterateecall": "npm:lodash._isiterateecall@3.0.9"
+        }
+      },
+      "npm:debug@2.2.0": {
+        "map": {
+          "ms": "npm:ms@0.7.1"
         }
       },
       "npm:lodash._baseassign@3.2.0": {
@@ -45,28 +63,11 @@ SystemJS.config({
           "lodash.keys": "npm:lodash.keys@3.1.2"
         }
       },
-      "npm:debug@2.2.0": {
-        "map": {
-          "ms": "npm:ms@0.7.1"
-        }
-      },
       "npm:lodash.keys@3.1.2": {
         "map": {
-          "lodash._getnative": "npm:lodash._getnative@3.9.1",
           "lodash.isarray": "npm:lodash.isarray@3.0.4",
-          "lodash.isarguments": "npm:lodash.isarguments@3.1.0"
-        }
-      },
-      "npm:chai@3.5.0": {
-        "map": {
-          "assertion-error": "npm:assertion-error@1.0.2",
-          "deep-eql": "npm:deep-eql@0.1.3",
-          "type-detect": "npm:type-detect@1.0.0"
-        }
-      },
-      "npm:deep-eql@0.1.3": {
-        "map": {
-          "type-detect": "npm:type-detect@0.1.1"
+          "lodash.isarguments": "npm:lodash.isarguments@3.1.0",
+          "lodash._getnative": "npm:lodash._getnative@3.9.1"
         }
       },
       "github:systemjs/plugin-less@0.1.2": {
@@ -79,9 +80,8 @@ SystemJS.config({
   transpiler: "plugin-typescript",
   packages: {
     "molviewer": {
-      "main": "molviewer.tsx",
-      "defaultExtension": "tsx",
-      "format": "esm",
+      "main": "index.ts",
+      "defaultExtension": "ts",
       "meta": {
         "*.ts": {
           "loader": "plugin-typescript"
@@ -100,28 +100,16 @@ SystemJS.config({
   },
   separateCSS: true,
   typescriptOptions: {
-    "target": "es6",
-    "module": "system",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "types": [
-      "isomorphic-fetch",
-      "3Dmol",
-      "jquery",
-      "mocha",
-      "chai"
-    ],
+    "typeCheck": "strict",
+    "tsconfig": true,
     "typings": {
-      "3Dmol": "index.d.ts"
-    },
-    "typeCheck": "strict"
+      "@angular/common": "index.d.ts",
+      "@angular/compiler": "index.d.ts",
+      "@angular/core": "index.d.ts",
+      "@angular/platform-browser": "index.d.ts",
+      "@angular/platform-browser-dynamic": "index.d.ts",
+      "rxjs": "Rx.d.ts"
+    }
   }
 });
 
@@ -133,29 +121,29 @@ SystemJS.config({
   ],
   map: {
     "3Dmol": "github:3dmol/3Dmol.js@1.0.6",
-    "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@0.0.31",
+    "@angular/common": "npm:@angular/common@2.1.0",
+    "@angular/compiler": "npm:@angular/compiler@2.1.0",
+    "@angular/core": "npm:@angular/core@2.1.0",
+    "@angular/platform-browser": "npm:@angular/platform-browser@2.1.0",
+    "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.1.0",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-    "domain": "github:jspm/nodelibs-domain@0.2.0-alpha",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
-    "http": "github:jspm/nodelibs-http@0.2.0-alpha",
-    "https": "github:jspm/nodelibs-https@0.2.0-alpha",
-    "isomorphic-fetch": "npm:isomorphic-fetch@2.2.1",
-    "jquery": "npm:jquery@3.1.1",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+    "reflect-metadata": "npm:reflect-metadata@0.1.8",
+    "rxjs": "npm:rxjs@5.0.0-beta.12",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
-    "url": "github:jspm/nodelibs-url@0.2.0-alpha",
+    "timers": "github:jspm/nodelibs-timers@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
-    "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha"
+    "zone.js": "npm:zone.js@0.6.25"
   },
   packages: {
     "github:jspm/nodelibs-os@0.2.0-alpha": {
@@ -170,69 +158,35 @@ SystemJS.config({
     },
     "npm:crypto-browserify@3.11.0": {
       "map": {
-        "browserify-cipher": "npm:browserify-cipher@1.0.0",
-        "create-ecdh": "npm:create-ecdh@4.0.0",
         "browserify-sign": "npm:browserify-sign@4.0.0",
-        "diffie-hellman": "npm:diffie-hellman@5.0.2",
-        "randombytes": "npm:randombytes@2.0.3",
-        "inherits": "npm:inherits@2.0.3",
-        "public-encrypt": "npm:public-encrypt@4.0.0",
-        "create-hmac": "npm:create-hmac@1.1.4",
+        "browserify-cipher": "npm:browserify-cipher@1.0.0",
         "create-hash": "npm:create-hash@1.1.2",
-        "pbkdf2": "npm:pbkdf2@3.0.9"
+        "create-ecdh": "npm:create-ecdh@4.0.0",
+        "create-hmac": "npm:create-hmac@1.1.4",
+        "diffie-hellman": "npm:diffie-hellman@5.0.2",
+        "public-encrypt": "npm:public-encrypt@4.0.0",
+        "pbkdf2": "npm:pbkdf2@3.0.9",
+        "inherits": "npm:inherits@2.0.3",
+        "randombytes": "npm:randombytes@2.0.3"
       }
     },
     "npm:browserify-sign@4.0.0": {
       "map": {
+        "create-hash": "npm:create-hash@1.1.2",
         "create-hmac": "npm:create-hmac@1.1.4",
-        "create-hash": "npm:create-hash@1.1.2",
         "inherits": "npm:inherits@2.0.3",
-        "parse-asn1": "npm:parse-asn1@5.0.0",
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
-        "elliptic": "npm:elliptic@6.3.2",
-        "bn.js": "npm:bn.js@4.11.6"
-      }
-    },
-    "npm:diffie-hellman@5.0.2": {
-      "map": {
-        "randombytes": "npm:randombytes@2.0.3",
-        "miller-rabin": "npm:miller-rabin@4.0.0",
-        "bn.js": "npm:bn.js@4.11.6"
-      }
-    },
-    "npm:public-encrypt@4.0.0": {
-      "map": {
-        "create-hash": "npm:create-hash@1.1.2",
-        "randombytes": "npm:randombytes@2.0.3",
         "parse-asn1": "npm:parse-asn1@5.0.0",
-        "browserify-rsa": "npm:browserify-rsa@4.0.1",
-        "bn.js": "npm:bn.js@4.11.6"
-      }
-    },
-    "npm:browserify-cipher@1.0.0": {
-      "map": {
-        "browserify-des": "npm:browserify-des@1.0.0",
-        "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
-        "browserify-aes": "npm:browserify-aes@1.0.6"
-      }
-    },
-    "npm:create-ecdh@4.0.0": {
-      "map": {
-        "elliptic": "npm:elliptic@6.3.2",
-        "bn.js": "npm:bn.js@4.11.6"
+        "bn.js": "npm:bn.js@4.11.6",
+        "elliptic": "npm:elliptic@6.3.2"
       }
     },
     "npm:create-hash@1.1.2": {
       "map": {
         "inherits": "npm:inherits@2.0.3",
-        "sha.js": "npm:sha.js@2.4.5",
+        "cipher-base": "npm:cipher-base@1.0.3",
         "ripemd160": "npm:ripemd160@1.0.1",
-        "cipher-base": "npm:cipher-base@1.0.3"
-      }
-    },
-    "npm:pbkdf2@3.0.9": {
-      "map": {
-        "create-hmac": "npm:create-hmac@1.1.4"
+        "sha.js": "npm:sha.js@2.4.5"
       }
     },
     "npm:create-hmac@1.1.4": {
@@ -241,20 +195,64 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.3"
       }
     },
+    "npm:diffie-hellman@5.0.2": {
+      "map": {
+        "randombytes": "npm:randombytes@2.0.3",
+        "bn.js": "npm:bn.js@4.11.6",
+        "miller-rabin": "npm:miller-rabin@4.0.0"
+      }
+    },
+    "npm:public-encrypt@4.0.0": {
+      "map": {
+        "create-hash": "npm:create-hash@1.1.2",
+        "randombytes": "npm:randombytes@2.0.3",
+        "browserify-rsa": "npm:browserify-rsa@4.0.1",
+        "parse-asn1": "npm:parse-asn1@5.0.0",
+        "bn.js": "npm:bn.js@4.11.6"
+      }
+    },
+    "npm:browserify-cipher@1.0.0": {
+      "map": {
+        "browserify-des": "npm:browserify-des@1.0.0",
+        "browserify-aes": "npm:browserify-aes@1.0.6",
+        "evp_bytestokey": "npm:evp_bytestokey@1.0.0"
+      }
+    },
+    "npm:pbkdf2@3.0.9": {
+      "map": {
+        "create-hmac": "npm:create-hmac@1.1.4"
+      }
+    },
+    "npm:create-ecdh@4.0.0": {
+      "map": {
+        "bn.js": "npm:bn.js@4.11.6",
+        "elliptic": "npm:elliptic@6.3.2"
+      }
+    },
     "npm:browserify-des@1.0.0": {
       "map": {
-        "cipher-base": "npm:cipher-base@1.0.3",
         "inherits": "npm:inherits@2.0.3",
+        "cipher-base": "npm:cipher-base@1.0.3",
         "des.js": "npm:des.js@1.0.0"
       }
     },
     "npm:browserify-aes@1.0.6": {
       "map": {
-        "cipher-base": "npm:cipher-base@1.0.3",
-        "create-hash": "npm:create-hash@1.1.2",
-        "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
         "inherits": "npm:inherits@2.0.3",
+        "cipher-base": "npm:cipher-base@1.0.3",
+        "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
+        "create-hash": "npm:create-hash@1.1.2",
         "buffer-xor": "npm:buffer-xor@1.0.3"
+      }
+    },
+    "npm:evp_bytestokey@1.0.0": {
+      "map": {
+        "create-hash": "npm:create-hash@1.1.2"
+      }
+    },
+    "npm:cipher-base@1.0.3": {
+      "map": {
+        "inherits": "npm:inherits@2.0.3"
       }
     },
     "npm:browserify-rsa@4.0.1": {
@@ -263,9 +261,13 @@ SystemJS.config({
         "bn.js": "npm:bn.js@4.11.6"
       }
     },
-    "npm:evp_bytestokey@1.0.0": {
+    "npm:parse-asn1@5.0.0": {
       "map": {
-        "create-hash": "npm:create-hash@1.1.2"
+        "browserify-aes": "npm:browserify-aes@1.0.6",
+        "create-hash": "npm:create-hash@1.1.2",
+        "pbkdf2": "npm:pbkdf2@3.0.9",
+        "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
+        "asn1.js": "npm:asn1.js@4.8.1"
       }
     },
     "npm:miller-rabin@4.0.0": {
@@ -274,34 +276,7 @@ SystemJS.config({
         "brorand": "npm:brorand@1.0.6"
       }
     },
-    "npm:parse-asn1@5.0.0": {
-      "map": {
-        "create-hash": "npm:create-hash@1.1.2",
-        "browserify-aes": "npm:browserify-aes@1.0.6",
-        "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
-        "pbkdf2": "npm:pbkdf2@3.0.9",
-        "asn1.js": "npm:asn1.js@4.8.1"
-      }
-    },
-    "npm:elliptic@6.3.2": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3",
-        "bn.js": "npm:bn.js@4.11.6",
-        "brorand": "npm:brorand@1.0.6",
-        "hash.js": "npm:hash.js@1.0.3"
-      }
-    },
     "npm:sha.js@2.4.5": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3"
-      }
-    },
-    "npm:cipher-base@1.0.3": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3"
-      }
-    },
-    "npm:hash.js@1.0.3": {
       "map": {
         "inherits": "npm:inherits@2.0.3"
       }
@@ -312,11 +287,24 @@ SystemJS.config({
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
     },
+    "npm:elliptic@6.3.2": {
+      "map": {
+        "bn.js": "npm:bn.js@4.11.6",
+        "inherits": "npm:inherits@2.0.3",
+        "brorand": "npm:brorand@1.0.6",
+        "hash.js": "npm:hash.js@1.0.3"
+      }
+    },
     "npm:asn1.js@4.8.1": {
       "map": {
         "bn.js": "npm:bn.js@4.11.6",
         "inherits": "npm:inherits@2.0.3",
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
+      }
+    },
+    "npm:hash.js@1.0.3": {
+      "map": {
+        "inherits": "npm:inherits@2.0.3"
       }
     },
     "github:jspm/nodelibs-buffer@0.2.0-alpha": {
@@ -338,8 +326,8 @@ SystemJS.config({
     "npm:buffer@4.9.1": {
       "map": {
         "base64-js": "npm:base64-js@1.2.0",
-        "isarray": "npm:isarray@1.0.0",
-        "ieee754": "npm:ieee754@1.1.8"
+        "ieee754": "npm:ieee754@1.1.8",
+        "isarray": "npm:isarray@1.0.0"
       }
     },
     "github:jspm/nodelibs-string_decoder@0.2.0-alpha": {
@@ -350,75 +338,32 @@ SystemJS.config({
     "npm:readable-stream@2.1.5": {
       "map": {
         "inherits": "npm:inherits@2.0.3",
-        "string_decoder": "npm:string_decoder@0.10.31",
         "isarray": "npm:isarray@1.0.0",
+        "string_decoder": "npm:string_decoder@0.10.31",
+        "buffer-shims": "npm:buffer-shims@1.0.0",
         "process-nextick-args": "npm:process-nextick-args@1.0.7",
         "util-deprecate": "npm:util-deprecate@1.0.2",
-        "core-util-is": "npm:core-util-is@1.0.2",
-        "buffer-shims": "npm:buffer-shims@1.0.0"
+        "core-util-is": "npm:core-util-is@1.0.2"
       }
     },
-    "npm:isomorphic-fetch@2.2.1": {
+    "npm:rxjs@5.0.0-beta.12": {
       "map": {
-        "node-fetch": "npm:node-fetch@1.6.3",
-        "whatwg-fetch": "npm:whatwg-fetch@1.0.0"
+        "symbol-observable": "npm:symbol-observable@1.0.3"
       }
     },
-    "npm:node-fetch@1.6.3": {
+    "github:jspm/nodelibs-timers@0.2.0-alpha": {
       "map": {
-        "is-stream": "npm:is-stream@1.1.0",
-        "encoding": "npm:encoding@0.1.12"
+        "timers-browserify": "npm:timers-browserify@1.4.2"
+      }
+    },
+    "npm:timers-browserify@1.4.2": {
+      "map": {
+        "process": "npm:process@0.11.9"
       }
     },
     "github:twbs/bootstrap@3.3.7": {
       "map": {
         "jquery": "npm:jquery@3.1.1"
-      }
-    },
-    "npm:encoding@0.1.12": {
-      "map": {
-        "iconv-lite": "npm:iconv-lite@0.4.13"
-      }
-    },
-    "github:jspm/nodelibs-domain@0.2.0-alpha": {
-      "map": {
-        "domain-browserify": "npm:domain-browser@1.1.7"
-      }
-    },
-    "github:jspm/nodelibs-zlib@0.2.0-alpha": {
-      "map": {
-        "zlib-browserify": "npm:browserify-zlib@0.1.4"
-      }
-    },
-    "github:jspm/nodelibs-http@0.2.0-alpha": {
-      "map": {
-        "http-browserify": "npm:stream-http@2.4.0"
-      }
-    },
-    "github:jspm/nodelibs-url@0.2.0-alpha": {
-      "map": {
-        "url-browserify": "npm:url@0.11.0"
-      }
-    },
-    "npm:stream-http@2.4.0": {
-      "map": {
-        "inherits": "npm:inherits@2.0.3",
-        "readable-stream": "npm:readable-stream@2.1.5",
-        "xtend": "npm:xtend@4.0.1",
-        "builtin-status-codes": "npm:builtin-status-codes@2.0.0",
-        "to-arraybuffer": "npm:to-arraybuffer@1.0.1"
-      }
-    },
-    "npm:browserify-zlib@0.1.4": {
-      "map": {
-        "readable-stream": "npm:readable-stream@2.1.5",
-        "pako": "npm:pako@0.2.9"
-      }
-    },
-    "npm:url@0.11.0": {
-      "map": {
-        "querystring": "npm:querystring@0.2.0",
-        "punycode": "npm:punycode@1.3.2"
       }
     }
   }

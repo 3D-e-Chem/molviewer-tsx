@@ -1,28 +1,19 @@
 {
     "compilerOptions": {
-        "target": "es6",
+        "target": "es5",
         "module": "system",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
+        "moduleResolution": "node",
         "rootDir": ".",
         "baseUrl": ".",
-        "strictNullChecks": true,
+        "sourceMap": true,
+        "strictNullChecks": false,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "types": [
-            "isomorphic-fetch",
-            "3Dmol",
-            "jquery",
-            "mocha",
-            "chai"
-        ]
+        "noUnusedParameters": true
     },
     "compileOnSave": false,
-    "buildOnSave": false,
-    "files": [
-        "./@types/3Dmol/index.d.ts",
-        "./src/molviewer.tsx"
-    ]
+    "buildOnSave": false
 }
