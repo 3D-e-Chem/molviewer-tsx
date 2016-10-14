@@ -15,6 +15,7 @@ function prepLigand(restLigand: RestLigand) {
 @Injectable()
 export class LigandService {
     public visibilityAnnouncer$: Observable<Ligand>;
+    private ligandsPromise: Promise<Ligand[]>;
     private visibilitySource = new Subject<Ligand>();
     private ligandsUrl = '/api/ligands';
 
@@ -23,10 +24,13 @@ export class LigandService {
     }
 
     public getLigands(): Promise<Ligand[]> {
-        return this.http.get(this.ligandsUrl)
-            .toPromise()
-            .then(response => response.json() as RestLigand[])
-            .then(restLigands => restLigands.map(prepLigand));
+        if (!this.ligandsPromise) {
+            this.ligandsPromise = this.http.get(this.ligandsUrl)
+                .toPromise()
+                .then(response => response.json() as RestLigand[])
+                .then(restLigands => restLigands.map(prepLigand));
+        }
+        return this.ligandsPromise;
     }
 
     public toggleVisibility(ligand: Ligand) {

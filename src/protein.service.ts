@@ -29,6 +29,7 @@ export class ProteinService {
     private visibilitySource = new Subject<Protein>();
     private heteroVisibilitySource = new Subject<Protein>();
     private proteinsUrl = '/api/proteins';
+    private proteinsPromise: Promise<Protein[]>;
 
     constructor(private http: Http) {
         this.visibilityAnnouncer$ = this.visibilitySource.asObservable();
@@ -36,10 +37,13 @@ export class ProteinService {
     }
 
     public getProteins(): Promise<Protein[]> {
-        return this.http.get(this.proteinsUrl)
-            .toPromise()
-            .then(response => response.json() as RestProtein[])
-            .then(restProteins => restProteins.map(prepProtein));
+        if (!this.proteinsPromise) {
+            this.proteinsPromise = this.http.get(this.proteinsUrl)
+                .toPromise()
+                .then(response => response.json() as RestProtein[])
+                .then(restProteins => restProteins.map(prepProtein));
+        }
+        return this.proteinsPromise;
     }
 
     public toggleVisibility(protein: Protein) {
