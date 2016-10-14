@@ -10,10 +10,10 @@ function prepLigand(restLigand: RestLigand) {
   return ligand;
 }
 
-
 @Injectable()
 export class LigandService {
     private ligandsUrl = '/api/ligands';
+
     constructor(private http: Http) {
 
     }
@@ -23,5 +23,9 @@ export class LigandService {
             .toPromise()
             .then(response => response.json() as RestLigand[])
             .then(restLigands => restLigands.map(prepLigand));
+    }
+
+    public toggleVisibility(ligand: Ligand) {
+        ligand.visible = !ligand.visible;
     }
 }

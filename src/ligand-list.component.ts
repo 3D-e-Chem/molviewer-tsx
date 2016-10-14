@@ -20,7 +20,11 @@ export class LigandListComponent implements OnInit {
         this.getLigands();
     }
 
-    private getLigands() {
+    public getLigands() {
         this.ligandService.getLigands().then(ligands => this.ligands = ligands);
+    }
+
+    public onVisibilityClick(ligand: Ligand) {
+        this.ligandService.toggleVisibility(ligand);
     }
 }
