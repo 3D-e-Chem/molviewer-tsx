@@ -12,12 +12,18 @@
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true
+        "noUnusedParameters": true,
+        "types": [
+            "3Dmol",
+            "jquery",
+            "core-js"
+        ]
     },
     "compileOnSave": false,
     "buildOnSave": false,
     "files": [
         "./src/index.ts",
-        "./src/_references.d.ts"
+        "./src/_references.d.ts",
+        "./@types/3Dmol/index.d.ts"
     ]
 }
