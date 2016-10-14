@@ -6,5 +6,4 @@ import appTemplate from './app.component.html';
     selector: 'molviewer-app',
     template: appTemplate,
 })
-export class AppComponent { 
-}
+export class AppComponent { }

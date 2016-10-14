@@ -4,8 +4,6 @@ import sdfPdbViewerTemplate from './sdf-pdb-viewer.component.html';
 
 @Component({
     selector: 'sdf-pdb-viewer',
-    template: sdfPdbViewerTemplate
+    template: sdfPdbViewerTemplate,
 })
-export class SdfPdbViewerComponent {
-
-} 
+export class SdfPdbViewerComponent { }

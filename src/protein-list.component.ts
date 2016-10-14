@@ -4,8 +4,6 @@ import proteinListTemplate from './protein-list.component.html';
 
 @Component({
     selector: 'protein-list',
-    template: proteinListTemplate
+    template: proteinListTemplate,
 })
-export class ProteinListComponent {
-
-}
+export class ProteinListComponent { }
