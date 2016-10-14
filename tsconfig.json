@@ -15,5 +15,9 @@
         "noUnusedParameters": true
     },
     "compileOnSave": false,
-    "buildOnSave": false
+    "buildOnSave": false,
+    "files": [
+        "./src/index.ts",
+        "./src/_references.d.ts"
+    ]
 }

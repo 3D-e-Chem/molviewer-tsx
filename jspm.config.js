@@ -94,6 +94,9 @@ SystemJS.config({
         },
         "*.css": {
           "loader": "css"
+        },
+        "*.html": {
+          "loader": "text"
         }
       }
     }

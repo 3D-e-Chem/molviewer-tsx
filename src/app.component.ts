@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 
+import appTemplate from './app.component.html';
+
 @Component({
     selector: 'molviewer-app',
-    template: '<h1>My First Angular App</h1>'
+    template: appTemplate,
 })
 export class AppComponent { 
 }
