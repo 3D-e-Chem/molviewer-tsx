@@ -1,5 +1,4 @@
-import 'reflect-metadata';
-import 'zone.js';
+import './polyfills';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

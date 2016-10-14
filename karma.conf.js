@@ -6,13 +6,15 @@ module.exports = function (config) {
     frameworks: ['jspm', 'mocha'],
     jspm: {
       config: "jspm.config.js",
-      loadFiles: ['src/**/*.spec.tsx'],
-      serveFiles: ['src/**/*.tsx'],
-      coverage: ['src/**/!(*.spec).tsx'],
+      loadFiles: ['src/polyfills.ts', 'src/**/*.spec.ts'],
+      serveFiles: ['src/**/*.ts', 'tsconfig.json', '@types/**/*.d.ts'],
+      coverage: ['src/**/!(*.spec).ts'],
     },
     proxies: {
+      '/tsconfig.json': '/base/tsconfig.json',
       '/src/': '/base/src/',
       '/jspm_packages/': '/base/jspm_packages/',
+      '/@types': '/base/@types',
     },
     preprocessors: {
     },
@@ -45,6 +47,7 @@ module.exports = function (config) {
     autoWatch: false,
     browsers: ['Chrome'],
     singleRun: true,
-    concurrency: Infinity
+    concurrency: Infinity,
+    browserNoActivityTimeout: 60000
   })
 }

@@ -16,13 +16,14 @@
         "types": [
             "3Dmol",
             "jquery",
-            "core-js"
+            "core-js",
+            "chai",
+            "mocha"
         ]
     },
     "compileOnSave": false,
     "buildOnSave": false,
     "files": [
-        "./src/index.ts",
         "./src/_references.d.ts",
         "./@types/3Dmol/index.d.ts"
     ]
