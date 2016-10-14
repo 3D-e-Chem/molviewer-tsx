@@ -1,0 +1,12 @@
+<table className="table table-condensed">
+	<tbody>
+		<tr *ngFor="let ligand of ligands">
+			<td>{{ligand.label}}</td>
+			<td>
+				<button class="btn btn-small" (click)="onVisibilityClick(ligand.id)">
+                    <span class="glyphicon" [ngClass]="{'glyphicon-eye-open': ligand.visible, 'glyphicon-eye-close': !ligand.visible}"></span>
+                </button>
+			</td>
+		</tr>
+	</tbody>
+</table>

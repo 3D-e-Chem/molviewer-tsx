@@ -1,0 +1,17 @@
+<table className="table table-condensed">
+	<tbody>
+		<tr *ngFor="let protein of proteins">
+			<td>{{protein.label}}</td>
+			<td>
+				<div class="btn-group" role="group">
+					<button class="btn btn-small" (click)="onProteinVisibilityClick(protein.id)">
+                	    <span class="glyphicon" [ngClass]="{'glyphicon-eye-open': protein.visible, 'glyphicon-eye-close': !protein.visible}"></span>
+                	</button>
+					<button class="btn btn-small" (click)="onHeteroVisibilityClick(protein.id)">
+                    	<span class="glyphicon" [ngClass]="{'glyphicon-eye-open': protein.hetVisible, 'glyphicon-eye-close': !protein.hetVisible}"></span>
+                	</button>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
