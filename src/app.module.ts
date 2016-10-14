@@ -8,7 +8,9 @@ import { LigandGLModels } from './ligand-glmodels.component';
 import { LigandListComponent } from './ligand-list.component';
 import { LigandService } from './ligand.service';
 import { MolCanvasComponent } from './mol-canvas.component';
+import { ProteinGLModels } from './protein-glmodels.component';
 import { ProteinListComponent } from './protein-list.component';
+import { ProteinService} from './protein.service';
 import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
 
 @NgModule({
@@ -18,6 +20,7 @@ import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
         SdfPdbViewerComponent,
         LigandGLModels,
         LigandListComponent,
+        ProteinGLModels,
         ProteinListComponent,
         MolCanvasComponent,
     ],
@@ -27,6 +30,7 @@ import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
     ],
     providers: [
         LigandService,
+        ProteinService,
         ThreeDmolViewerService,
     ],
 })

@@ -4,10 +4,12 @@
 			<td>{{protein.label}}</td>
 			<td>
 				<div class="btn-group" role="group">
-					<button class="btn btn-default btn-small" (click)="onProteinVisibilityClick(protein.id)">
+					<button class="btn btn-default btn-small" title='All' (click)="onVisibilityClick(protein)">
+						A&nbsp;
                 	    <span class="glyphicon" [ngClass]="{'glyphicon-eye-open': protein.visible, 'glyphicon-eye-close': !protein.visible}"></span>
                 	</button>
-					<button class="btn btn-default btn-small" (click)="onHeteroVisibilityClick(protein.id)">
+					<button class="btn btn-default btn-small" title='Hetero' (click)="onHeteroVisibilityClick(protein)">
+						H&nbsp;
                     	<span class="glyphicon" [ngClass]="{'glyphicon-eye-open': protein.hetVisible, 'glyphicon-eye-close': !protein.hetVisible}"></span>
                 	</button>
 				</div>

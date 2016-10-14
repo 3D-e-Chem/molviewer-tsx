@@ -27,12 +27,8 @@ export class LigandGLModels implements OnDestroy, OnInit {
 
     public addLigand(ligand: Ligand) {
         const model = this.viewer.addModel(ligand.data, this.format);
-        this.styleModel(model);
-        this.models.set(ligand.id, model);
-    }
-
-    public styleModel(model: $3Dmol.GLModel) {
         model.setStyle({}, { stick: { colorscheme: 'greenCarbon' } });
+        this.models.set(ligand.id, model);
     }
 
     public addLigands(ligands: Ligand[]) {

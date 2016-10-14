@@ -113,3 +113,4 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Add to Travis-CI
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
+* Reduce duplication
