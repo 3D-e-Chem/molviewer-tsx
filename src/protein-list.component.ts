@@ -30,4 +30,3 @@ export class ProteinListComponent {
         this.proteinService.toggleHeteroVisibility(protein);
     }
 }
-
