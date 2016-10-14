@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Observable }    from 'rxjs/Observable';
+import { Subject }    from 'rxjs/Subject';
 
 import { Ligand, RestLigand } from './ligand';
 
@@ -12,10 +14,12 @@ function prepLigand(restLigand: RestLigand) {
 
 @Injectable()
 export class LigandService {
+    public visibilityAnnouncer$: Observable<Ligand>;
+    private visibilitySource = new Subject<Ligand>();
     private ligandsUrl = '/api/ligands';
 
     constructor(private http: Http) {
-
+        this.visibilityAnnouncer$ = this.visibilitySource.asObservable();
     }
 
     public getLigands(): Promise<Ligand[]> {
@@ -27,5 +31,6 @@ export class LigandService {
 
     public toggleVisibility(ligand: Ligand) {
         ligand.visible = !ligand.visible;
+        this.visibilitySource.next(ligand);
     }
 }

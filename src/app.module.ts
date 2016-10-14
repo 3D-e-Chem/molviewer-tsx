@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { LigandListComponent } from './ligand-list.component';
+import { LigandService } from './ligand.service';
 import { MolCanvasComponent } from './mol-canvas.component';
 import { ProteinListComponent } from './protein-list.component';
 import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
@@ -21,5 +22,6 @@ import { SdfPdbViewerComponent } from './sdf-pdb-viewer.component';
         BrowserModule,
         HttpModule,
     ],
+    providers: [LigandService],
 })
 export class AppModule { }

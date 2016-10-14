@@ -5,7 +5,6 @@ import ligandListTemplate from './ligand-list.component.html';
 import {LigandService} from './ligand.service';
 
 @Component({
-    providers: [LigandService],
     selector: 'ligand-list',
     template: ligandListTemplate,
 })
