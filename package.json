@@ -174,7 +174,7 @@
     "dist:clean": "rm -rf dist",
     "dist:prep": "mkdir dist || true",
     "dist:bundle-deps": "jspm bundle src/molviewer.tsx - [src/**/*] dist/dependency-bundle.js --minify --skip-source-maps",
-    "dist:bundle-app": "jspm bundle src/molviewer.tsx - dist/dependency-bundle.js dist/app-bundle.js --skip-source-maps # TODO add --minify, but with flag got Error: SyntaxError: Unexpected token: name (HelloWorld)",
+    "dist:bundle-app": "jspm bundle src/molviewer.tsx - dist/dependency-bundle.js dist/app-bundle.js --minify --skip-source-maps",
     "dist:copy:systemjs": "cp jspm_packages/system.js jspm.config.js dist/",
     "dist:copy:html": "cp index-dist.html dist/index.html",
     "dist:copy:fonts": "mkdir -p dist/jspm_packages/github/twbs/bootstrap@3.3.7/dist && cp -r jspm_packages/github/twbs/bootstrap@3.3.7/dist/fonts dist/jspm_packages/github/twbs/bootstrap@3.3.7/dist/",
