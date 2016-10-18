@@ -20,7 +20,7 @@ jspm install --dev npm:@types/<lib>
 npm install -D <lib> @types/<lib>
 ```
 
-Also add `<lib>` to types array in compilerOptions of tsconfig.json file and in typescriptOptions of jspm.config.js file.
+Also add `<lib>` to types array in compilerOptions of tsconfig.json file.
 
 ## Manual external Typescript declaration
 
@@ -29,7 +29,7 @@ In library has no declaration in npm:@types repository.
 1. Write your own TypeScript declaration file and store it in `@types/<lib>/index.d.ts` file.
 2. Install in jspm with `jspm install <lib>`
 3. Install in npm with `npm install -D <lib>`
-4. Add `<lib>` to types array in compilerOptions of tsconfig.json file and in typescriptOptions of jspm.config.js file.
+4. Add `<lib>` to types array in compilerOptions of tsconfig.json file.
 5. Add `@types/<lib>/index.d.ts` to files array in tsconfig.json
 6. Add key `<lib>` and value `@types/<lib>/index.d.ts` to typescriptOptions.types object in jspm.config.js file
 
@@ -87,12 +87,12 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Use bundles (deps + app) for distro
 * Fetch ligands from json file
 * Embed 3dmol (or litemol) to render molecules in 3D
+* Single tsconfig
 
 # TODO
 
 * Use production version of karma-jspm with coverage support instead of pull request https://github.com/Workiva/karma-jspm/pull/178
 * Single install of library and it's types, now it's installed in jspm and npm
-* Single tsconfig, atm it is in jspm.config.js and tsconfig.js, Inlining contents of tsconfig.json into jspm.config.js otherwise karma-jspm will error with 404 /tsconfig.json
 * linting with eslint
 * api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config https://github.com/TypeStrong/typedoc/issues/303
 * Speed up development cycle by using watchers, aka changed file should trigger tslint, karma run, hot reload of page

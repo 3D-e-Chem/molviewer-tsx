@@ -113,31 +113,10 @@ SystemJS.config({
   },
   separateCSS: true,
   typescriptOptions: {
-    "target": "es6",
-    "module": "system",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "rootDir": ".",
-    "baseUrl": ".",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "types": [
-      "react",
-      "react-dom",
-      "react-bootstrap",
-      "isomorphic-fetch",
-      "3Dmol",
-      "jquery",
-      "mocha",
-      "chai"
-    ],
+    "tsconfig": true,
     "typings": {
       "3Dmol": "index.d.ts",
     },
-    "jsx": "react",
     "typeCheck": "strict"
   }
 });

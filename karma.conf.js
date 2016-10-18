@@ -7,12 +7,14 @@ module.exports = function (config) {
     jspm: {
       config: "jspm.config.js",
       loadFiles: ['src/**/*.spec.tsx'],
-      serveFiles: ['src/**/*.tsx'],
+      serveFiles: ['src/**/*.tsx', 'tsconfig.json', '@types/**/*.d.ts'],
       coverage: ['src/**/!(*.spec).tsx'],
     },
     proxies: {
       '/src/': '/base/src/',
       '/jspm_packages/': '/base/jspm_packages/',
+      '/tsconfig.json': '/base/tsconfig.json',
+      '/@types': '/base/@types',
     },
     preprocessors: {
     },
