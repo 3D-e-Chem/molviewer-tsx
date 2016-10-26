@@ -178,7 +178,7 @@
     "dist:copy:systemjs": "cp jspm_packages/system.js jspm.config.js dist/",
     "dist:copy:html": "cp index-dist.html dist/index.html",
     "dist:copy:fonts": "mkdir -p dist/jspm_packages/github/twbs/bootstrap@3.3.7/dist && cp -r jspm_packages/github/twbs/bootstrap@3.3.7/dist/fonts dist/jspm_packages/github/twbs/bootstrap@3.3.7/dist/",
-    "dist:copy": "npm run dist:copy:html && npm run dist:copy:systemjs && dist:copy:fonts",
+    "dist:copy": "npm run dist:copy:html && npm run dist:copy:systemjs && npm run dist:copy:fonts",
     "dist": "npm run dist:prep && npm run dist:bundle-deps && npm run dist:bundle-app && npm run dist:copy",
     "test:clean": "rm -rf test_results",
     "test": "karma start"
