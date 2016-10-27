@@ -88,6 +88,8 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Fetch ligands from json file
 * Embed 3dmol (or litemol) to render molecules in 3D
 * Single tsconfig
+* Use redux to toggle visibility of molecules
+* Use redux-thunk to load molecules from server
 
 # TODO
 
@@ -97,8 +99,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * api doc generation with typedoc, atm typedoc chokes on typescript 2.0 config https://github.com/TypeStrong/typedoc/issues/303
 * Speed up development cycle by using watchers, aka changed file should trigger tslint, karma run, hot reload of page
 * Speed up loading development page, atm transpilation is done in browser and over 370 network requests are made
-* Use redux to toggle visibility of molecules
-* Use redux-thunk to load molecules from server
 * Add to Travis-CI
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
+* Minify app bundle

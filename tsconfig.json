@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "module": "system",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -15,6 +15,9 @@
             "react",
             "react-dom",
             "react-bootstrap",
+            "redux",
+            "react-redux",
+            "redux-saga",
             "isomorphic-fetch",
             "3Dmol",
             "jquery",

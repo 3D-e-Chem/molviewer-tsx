@@ -10,7 +10,7 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
-      "@types/react": "npm:@types/react@0.14.39",
+      "@types/react": "npm:@types/react@0.14.43",
       "@types/react-dom": "npm:@types/react-dom@0.14.17",
       "@types/mocha": "npm:@types/mocha@2.2.32",
       "mocha": "npm:mocha@3.1.0",
@@ -19,7 +19,10 @@ SystemJS.config({
       "less": "github:systemjs/plugin-less@0.1.2",
       "css": "github:systemjs/plugin-css@0.1.31",
       "@types/react-bootstrap": "npm:@types/react-bootstrap@0.0.33",
-      "@types/jquery": "npm:@types/jquery@2.0.33"
+      "@types/jquery": "npm:@types/jquery@2.0.33",
+      "@types/redux": "npm:@types/redux@3.6.31",
+      "@types/react-redux": "npm:@types/react-redux@4.4.32",
+      "@types/redux-saga": "npm:@types/redux-saga@0.9.30"
     },
     "packages": {
       "github:frankwallis/plugin-typescript@5.2.7": {
@@ -29,7 +32,7 @@ SystemJS.config({
       },
       "npm:@types/react-dom@0.14.17": {
         "map": {
-          "@types/react": "npm:@types/react@0.14.39"
+          "@types/react": "npm:@types/react@0.14.43"
         }
       },
       "npm:mocha@3.1.0": {
@@ -84,7 +87,18 @@ SystemJS.config({
       },
       "npm:@types/react-bootstrap@0.0.33": {
         "map": {
-          "@types/react": "npm:@types/react@0.14.39"
+          "@types/react": "npm:@types/react@0.14.43"
+        }
+      },
+      "npm:@types/react-redux@4.4.32": {
+        "map": {
+          "@types/redux": "npm:@types/redux@3.6.31",
+          "@types/react": "npm:@types/react@0.14.43"
+        }
+      },
+      "npm:@types/redux-saga@0.9.30": {
+        "map": {
+          "@types/redux": "npm:@types/redux@3.6.31"
         }
       }
     }
@@ -115,7 +129,7 @@ SystemJS.config({
   typescriptOptions: {
     "tsconfig": true,
     "typings": {
-      "3Dmol": "index.d.ts",
+      "3Dmol": "index.d.ts"
     },
     "typeCheck": "strict"
   }
@@ -149,6 +163,9 @@ SystemJS.config({
     "react": "npm:react@15.3.2",
     "react-bootstrap": "npm:react-bootstrap@0.30.5",
     "react-dom": "npm:react-dom@15.3.2",
+    "react-redux": "npm:react-redux@4.4.5",
+    "redux": "npm:redux@3.6.0",
+    "redux-saga": "npm:redux-saga@0.12.0",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -493,6 +510,22 @@ SystemJS.config({
     "npm:warning@3.0.0": {
       "map": {
         "loose-envify": "npm:loose-envify@1.2.0"
+      }
+    },
+    "npm:react-redux@4.4.5": {
+      "map": {
+        "lodash": "npm:lodash@4.16.4",
+        "hoist-non-react-statics": "npm:hoist-non-react-statics@1.2.0",
+        "loose-envify": "npm:loose-envify@1.2.0",
+        "invariant": "npm:invariant@2.2.1"
+      }
+    },
+    "npm:redux@3.6.0": {
+      "map": {
+        "lodash": "npm:lodash@4.16.4",
+        "loose-envify": "npm:loose-envify@1.2.0",
+        "symbol-observable": "npm:symbol-observable@1.0.4",
+        "lodash-es": "npm:lodash-es@4.16.4"
       }
     }
   }

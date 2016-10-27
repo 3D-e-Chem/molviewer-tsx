@@ -1,42 +1,45 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 
-import { ILigand, fetchLigands } from './ligand';
+import * as ligandActions from './actions/ligands';
+import * as proteinActions from './actions/proteins';
+import { ILigand} from './ligand';
 import { LigandList } from './ligandlist';
 import { MolCanvas } from './molcanvas';
-import { IProtein, fetchProteins } from './protein';
+import { IProtein } from './protein';
 import { ProteinList} from './proteinlist';
 
-interface ISdfPdbViewerState {
+interface IStateProps {
     ligands: ILigand[];
     proteins: IProtein[];
 }
 
-export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
-    public constructor() {
-        super();
-        this.state = {
-            ligands: [],
-            proteins: [],
-        };
-    }
+interface IDispatchProps {
+    fetchLigands(): void;
+    fetchProteins(): void;
+    onHeteroVisibilityClick(id: string): void;
+    onLigandVisibilityClick(id: string): void;
+    onProteinVisibilityClick(id: string): void;
+}
 
-    public addLigands(ligands: ILigand[]) {
-        this.setState({
-            ligands,
-            proteins: this.state.proteins,
-        });
-    }
+type IComponentProps = IStateProps & IDispatchProps;
 
-    public addProteins(proteins: IProtein[]) {
-        this.setState({
-            ligands: this.state.ligands,
-            proteins,
-        });
-    }
+const mapStateToProps = (state: IStateProps) => state;
+const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
+    return {
+        fetchLigands: () => dispatch(ligandActions.fetchRequested()),
+        fetchProteins: () => dispatch(proteinActions.fetchRequested()),
+        onHeteroVisibilityClick: (id: string) => dispatch(proteinActions.toggleHetVisibility(id)),
+        onLigandVisibilityClick: (id: string) => dispatch(ligandActions.toggleVisibility(id)),
+        onProteinVisibilityClick: (id: string) => dispatch(proteinActions.toggleVisibility(id)),
+    };
+};
 
+// @connect<IStateProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps)
+export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
     public componentDidMount() {
-        fetchLigands().then(this.addLigands.bind(this));
-        fetchProteins().then(this.addProteins.bind(this));
+        this.props.fetchLigands();
+        this.props.fetchProteins();
     }
 
     public render() {
@@ -45,64 +48,22 @@ export class SdfPdbViewer extends React.Component<{}, ISdfPdbViewerState> {
             <div style={{ display: 'flex', height: '900px' }}>
                 <div style={{ marginLeft: '10px', width: '300px'}}>
                     <LigandList
-                        ligands={this.state.ligands}
-                        onLigandVisibilityClick={this.onLigandVisibilityClick.bind(this)}
+                        ligands={this.props.ligands}
+                        onLigandVisibilityClick={this.props.onLigandVisibilityClick}
                     />
                     <ProteinList
-                        proteins={this.state.proteins}
-                        onProteinVisibilityClick={this.onProteinVisibilityClick.bind(this)}
-                        onHeteroVisibilityClick={this.onHeteroVisibilityClick.bind(this)}
+                        proteins={this.props.proteins}
+                        onProteinVisibilityClick={this.props.onProteinVisibilityClick}
+                        onHeteroVisibilityClick={this.props.onHeteroVisibilityClick}
                     />
                 </div>
                 <div style={{ flexGrow: 1, position: 'relative'}}>
-                    <MolCanvas ligands={this.state.ligands} proteins={this.state.proteins}/>
+                    <MolCanvas ligands={this.props.ligands} proteins={this.props.proteins}/>
                 </div>
             </div>
         </div>;
     }
-
-    protected onLigandVisibilityClick(ligandId: string) {
-        const newLigands = this.state.ligands.map((ligand) => {
-            if (ligand.id === ligandId) {
-                return Object.assign({}, ligand, {
-                    visible: !ligand.visible,
-                });
-            }
-            return ligand;
-        });
-        this.setState({
-            ligands: newLigands,
-            proteins: this.state.proteins,
-        });
-    }
-
-    protected onProteinVisibilityClick(proteinId: string) {
-        const newProteins = this.state.proteins.map((protein) => {
-            if (protein.id === proteinId) {
-                return Object.assign({}, protein, {
-                    visible: !protein.visible,
-                });
-            }
-            return protein;
-        });
-        this.setState({
-            ligands: this.state.ligands,
-            proteins: newProteins,
-        });
-    }
-
-    protected onHeteroVisibilityClick(proteinId: string) {
-        const newProteins = this.state.proteins.map((protein) => {
-            if (protein.id === proteinId) {
-                return Object.assign({}, protein, {
-                    hetVisible: !protein.hetVisible,
-                });
-            }
-            return protein;
-        });
-        this.setState({
-            ligands: this.state.ligands,
-            proteins: newProteins,
-        });
-    }
 }
+
+// TODO replace with decorator, now gives typescript error
+export const ConnectedSdfPdbViewer = connect(mapStateToProps, mapDispatchToProps)(SdfPdbViewer);
