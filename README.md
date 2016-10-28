@@ -90,6 +90,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Single tsconfig
 * Use redux to toggle visibility of molecules
 * Use redux-thunk to load molecules from server
+* Use Server Sent Events to listen for events from server, also added development buttons to simulate server events.
 
 # TODO
 

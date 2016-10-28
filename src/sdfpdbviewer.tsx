@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 
 import * as ligandActions from './actions/ligands';
 import * as proteinActions from './actions/proteins';
-import { ILigand} from './ligand';
+import { DisconnectedModal } from './disconnected';
+import { ILigand } from './ligand';
 import { LigandList } from './ligandlist';
 import { MolCanvas } from './molcanvas';
+import { NavBar } from './navbar';
 import { IProtein } from './protein';
-import { ProteinList} from './proteinlist';
+import { ProteinList } from './proteinlist';
 
 interface IStateProps {
     ligands: ILigand[];
     proteins: IProtein[];
+    connected: boolean;
 }
 
 interface IDispatchProps {
@@ -25,7 +28,7 @@ interface IDispatchProps {
 type IComponentProps = IStateProps & IDispatchProps;
 
 const mapStateToProps = (state: IStateProps) => state;
-const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
+const mapDispatchToProps = (dispatch: any): IDispatchProps => {
     return {
         fetchLigands: () => dispatch(ligandActions.fetchRequested()),
         fetchProteins: () => dispatch(proteinActions.fetchRequested()),
@@ -44,9 +47,10 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
 
     public render() {
         return <div>
-            <h1>Ligands and proteins viewer</h1>
+            <NavBar title='Ligands and proteins viewer'/>
+            <DisconnectedModal connected={this.props.connected} />
             <div style={{ display: 'flex', height: '900px' }}>
-                <div style={{ marginLeft: '10px', width: '300px'}}>
+                <div style={{ marginLeft: '10px', width: '300px' }}>
                     <LigandList
                         ligands={this.props.ligands}
                         onLigandVisibilityClick={this.props.onLigandVisibilityClick}
@@ -57,8 +61,11 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
                         onHeteroVisibilityClick={this.props.onHeteroVisibilityClick}
                     />
                 </div>
-                <div style={{ flexGrow: 1, position: 'relative'}}>
-                    <MolCanvas ligands={this.props.ligands} proteins={this.props.proteins}/>
+                <div style={{ flexGrow: 1, position: 'relative' }}>
+                    <MolCanvas
+                        ligands={this.props.ligands}
+                        proteins={this.props.proteins}
+                    />
                 </div>
             </div>
         </div>;
