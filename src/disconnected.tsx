@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Glyphicon, Modal } from 'react-bootstrap';
 
-interface IProps {
+export interface IProps {
     connected: boolean;
 }
 
@@ -13,7 +13,7 @@ export const DisconnectedModal = ({connected}: IProps) => (
         show={!connected}
         enforceFocus={true}
         onHide={() => ({})}
-        >
+    >
         <Modal.Header >
             <Modal.Title style={{ 'font-size': '3.5em' }}>
                 <Glyphicon glyph='exclamation-sign' style={{ 'vertical-align': 'text-top' }} />

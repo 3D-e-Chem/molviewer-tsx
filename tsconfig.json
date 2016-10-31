@@ -22,7 +22,8 @@
             "3Dmol",
             "jquery",
             "mocha",
-            "chai"
+            "chai",
+            "enzyme"
         ],
         "jsx": "react"
     },
