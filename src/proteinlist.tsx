@@ -18,7 +18,7 @@ export const ProteinList = (props: IProteinListProps) => {
         listactions = <ListActions hideAll={props.onHideAllClick} showAll={props.onShowAllClick}/>;
     }
     return <div style={{ overflowY: 'auto'}}>
-        <h4>Proteins</h4>
+        <h5>Proteins</h5>
         {listactions}
         <table className='table table-condensed'><tbody>
             {props.proteins.map((protein) => (

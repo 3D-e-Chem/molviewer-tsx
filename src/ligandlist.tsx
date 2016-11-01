@@ -18,7 +18,7 @@ export const LigandList = ({ligands, onLigandVisibilityClick, onShowAllClick, on
         listactions = <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}/>;
     }
     return <div style={{ height: '85%', overflowY: 'auto'}}>
-        <h4>Ligands</h4>
+        <h5>Ligands</h5>
         {listactions}
         <table className='table table-condensed'><tbody>
             {ligands.map((ligand) => (
