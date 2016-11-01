@@ -17,10 +17,10 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
 
     public render() {
         const ligands = this.props.ligands.map((ligand) => (
-            <LigandGLModel key={ligand.id} {...ligand} format='sdf' viewer={this.viewer} />
+            <LigandGLModel key={ligand.id} {...ligand} viewer={this.viewer} />
         ));
         const proteins = this.props.proteins.map((protein) => (
-            <ProteinGLModel key={protein.id} {...protein} format='pdb' viewer={this.viewer} />
+            <ProteinGLModel key={protein.id} {...protein} viewer={this.viewer} />
         ));
         return <div style={{ height: '100%', width: '100%' }} ref={(c) => this.canvasContainerEl = c}>
             {ligands}
