@@ -3,6 +3,8 @@ import {
     LIGANDS_FETCH_FAILED,
     LIGANDS_FETCH_REQUESTED,
     LIGANDS_FETCH_SUCCEEDED,
+    LIGANDS_HIDE,
+    LIGANDS_SHOW,
     LIGAND_TOGGLE_VISIBILITY,
 } from '../constants';
 import {ILigand} from '../ligand';
@@ -45,4 +47,20 @@ export const fetchFailed = (error: string): fetchFailed => ({
   error,
 });
 
-export type LigandAction = toggleVisibility | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
+export type showAll = {
+  type: LIGANDS_SHOW,
+};
+export const showAll = (): showAll => ({
+  type: LIGANDS_SHOW,
+});
+
+export type hideAll = {
+  type: LIGANDS_HIDE,
+};
+export const hideAll = (): hideAll => ({
+  type: LIGANDS_HIDE,
+});
+
+type toggleVisibilityAction = toggleVisibility | showAll | hideAll;
+
+export type LigandAction = toggleVisibilityAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;

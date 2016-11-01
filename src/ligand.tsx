@@ -11,9 +11,11 @@ export interface ILigand extends IRestLigand {
   visible: boolean;
 }
 
-export function prepLigand(restLigand: IRestLigand) {
+const initialShownMolecules = 1;
+
+export function prepLigand(restLigand: IRestLigand, index: Number) {
   const ligand = restLigand as ILigand;
-  ligand.visible = true;
+  ligand.visible = index < initialShownMolecules;
   return ligand;
 }
 

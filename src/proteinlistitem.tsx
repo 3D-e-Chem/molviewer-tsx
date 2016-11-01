@@ -16,7 +16,7 @@ export const ProteinListItem = ({label,
                                 }: IProteinListItemProps) => (
     <tr>
         <td>{label}</td>
-        <td>
+        <td style={{textAlign: 'right'}}>
             <ButtonGroup>
                 <Button bsSize='small' title='All' onClick={onProteinVisibilityClick}>
                     A&nbsp;

@@ -12,9 +12,11 @@ export interface IProtein extends IRestProtein {
   hetVisible: boolean;
 }
 
-export function prepProtein(restProtein: IRestProtein) {
+const initialShownMolecules = 1;
+
+export function prepProtein(restProtein: IRestProtein, index: Number) {
   const protein = restProtein as IProtein;
-  protein.visible = true;
+  protein.visible = index < initialShownMolecules;
   protein.hetVisible = true;
   return protein;
 }

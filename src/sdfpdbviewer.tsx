@@ -23,6 +23,10 @@ interface IDispatchProps {
     onHeteroVisibilityClick(id: string): void;
     onLigandVisibilityClick(id: string): void;
     onProteinVisibilityClick(id: string): void;
+    onHideLigands(): void;
+    onHideProteins(): void;
+    onShowLigands(): void;
+    onShowProteins(): void;
 }
 
 type IComponentProps = IStateProps & IDispatchProps;
@@ -33,8 +37,12 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => {
         fetchLigands: () => dispatch(ligandActions.fetchRequested()),
         fetchProteins: () => dispatch(proteinActions.fetchRequested()),
         onHeteroVisibilityClick: (id: string) => dispatch(proteinActions.toggleHetVisibility(id)),
+        onHideLigands: () => dispatch(ligandActions.hideAll()),
+        onHideProteins: () => dispatch(proteinActions.hideAll()),
         onLigandVisibilityClick: (id: string) => dispatch(ligandActions.toggleVisibility(id)),
         onProteinVisibilityClick: (id: string) => dispatch(proteinActions.toggleVisibility(id)),
+        onShowLigands: () => dispatch(ligandActions.showAll()),
+        onShowProteins: () => dispatch(proteinActions.showAll()),
     };
 };
 
@@ -54,11 +62,15 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
                     <LigandList
                         ligands={this.props.ligands}
                         onLigandVisibilityClick={this.props.onLigandVisibilityClick}
+                        onHideAllClick={this.props.onHideLigands}
+                        onShowAllClick={this.props.onShowLigands}
                     />
                     <ProteinList
                         proteins={this.props.proteins}
                         onProteinVisibilityClick={this.props.onProteinVisibilityClick}
                         onHeteroVisibilityClick={this.props.onHeteroVisibilityClick}
+                        onHideAllClick={this.props.onHideProteins}
+                        onShowAllClick={this.props.onShowProteins}
                     />
                 </div>
                 <div style={{ flexGrow: 1, position: 'relative' }}>

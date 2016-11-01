@@ -39,8 +39,12 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
 
     public componentDidMount() {
         this.model = this.props.viewer.addModel(this.props.data, this.props.format);
-        this.props.viewer.zoomTo();
-        this.props.viewer.render();
+        if (this.props.visible) {
+            this.props.viewer.zoomTo();
+            this.props.viewer.render();
+        } else {
+            this.model.hide();
+        }
     }
 }
 

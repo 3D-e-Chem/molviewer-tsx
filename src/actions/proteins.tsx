@@ -3,6 +3,8 @@ import {
     PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
+    PROTEINS_HIDE,
+    PROTEINS_SHOW,
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
 } from '../constants';
@@ -56,6 +58,20 @@ export const fetchFailed = (error: string): fetchFailed => ({
   error,
 });
 
-type toggleAction = toggleHetVisibility | toggleVisibility;
+export type showAll = {
+  type: PROTEINS_SHOW,
+};
+export const showAll = (): showAll => ({
+  type: PROTEINS_SHOW,
+});
+
+export type hideAll = {
+  type: PROTEINS_HIDE,
+};
+export const hideAll = (): hideAll => ({
+  type: PROTEINS_HIDE,
+});
+
+type toggleAction = toggleHetVisibility | toggleVisibility | showAll | hideAll;
 
 export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;

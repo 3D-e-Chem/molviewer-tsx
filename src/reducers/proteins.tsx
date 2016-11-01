@@ -1,6 +1,12 @@
 import { OtherAction } from '../actions';
 import { ProteinAction } from '../actions/proteins';
-import { PROTEINS_FETCH_SUCCEEDED, PROTEIN_TOGGLE_HETVISIBILITY, PROTEIN_TOGGLE_VISIBILITY } from '../constants';
+import { 
+    PROTEINS_FETCH_SUCCEEDED,
+    PROTEINS_HIDE,
+    PROTEINS_SHOW,
+    PROTEIN_TOGGLE_HETVISIBILITY,
+    PROTEIN_TOGGLE_VISIBILITY,
+} from '../constants';
 import { IProtein } from '../protein';
 
 export default function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
@@ -23,6 +29,28 @@ export default function proteins(state: IProtein[] = [], action: ProteinAction =
                     // return { ...protein, hetVisible: !protein.hetVisible};
                     return Object.assign({}, protein, {
                         hetVisible: !protein.hetVisible,
+                    });
+                }
+                return protein;
+            });
+        case PROTEINS_SHOW:
+            return state.map(protein => {
+                if (!protein.visible) {
+                    // TODO when object spread is avialable in TypeScript use:
+                    // return { ...protein, visible: !protein.visible};
+                    return Object.assign({}, protein, {
+                        visible: !protein.visible,
+                    });
+                }
+                return protein;
+            });
+        case PROTEINS_HIDE:
+            return state.map(protein => {
+                if (protein.visible) {
+                    // TODO when object spread is avialable in TypeScript use:
+                    // return { ...protein, visible: !protein.visible};
+                    return Object.assign({}, protein, {
+                        visible: !protein.visible,
                     });
                 }
                 return protein;
