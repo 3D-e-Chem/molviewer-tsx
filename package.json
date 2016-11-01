@@ -9,6 +9,7 @@
     "dependencies": {
       "3Dmol": "github:3dmol/3Dmol.js@^1.0.6",
       "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@^0.0.31",
+      "@types/react": "npm:@types/react@^0.14.44",
       "bootstrap": "github:twbs/bootstrap@^3.3.7",
       "isomorphic-fetch": "npm:isomorphic-fetch@^2.2.1",
       "jquery": "npm:jquery@^3.1.1",
@@ -22,7 +23,6 @@
       "@types/enzyme": "npm:@types/enzyme@^2.5.37",
       "@types/jquery": "npm:@types/jquery@^2.0.33",
       "@types/mocha": "npm:@types/mocha@^2.2.32",
-      "@types/react": "npm:@types/react@^0.14.39",
       "@types/react-bootstrap": "npm:@types/react-bootstrap@^0.0.33",
       "@types/react-dom": "npm:@types/react-dom@^0.14.17",
       "@types/react-redux": "npm:@types/react-redux@^4.4.32",
@@ -132,9 +132,6 @@
           "buffer": "@empty",
           "process": "@empty"
         }
-      },
-      "npm:@types/chai-enzyme@0.5.4": {
-        "typings": "chai-enzyme.d.ts"
       },
       "npm:enzyme@2.5.1": {
         "map": {

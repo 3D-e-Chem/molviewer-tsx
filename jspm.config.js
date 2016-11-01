@@ -10,7 +10,6 @@ SystemJS.config({
   devConfig: {
     "map": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@5.2.7",
-      "@types/react": "npm:@types/react@0.14.44",
       "@types/react-dom": "npm:@types/react-dom@0.14.17",
       "@types/mocha": "npm:@types/mocha@2.2.32",
       "mocha": "npm:mocha@3.1.0",
@@ -273,6 +272,7 @@ SystemJS.config({
   map: {
     "3Dmol": "github:3dmol/3Dmol.js@1.0.6",
     "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@0.0.31",
+    "@types/react": "npm:@types/react@0.14.44",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
