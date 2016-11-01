@@ -89,7 +89,7 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Embed 3dmol (or litemol) to render molecules in 3D
 * Single tsconfig
 * Use redux to toggle visibility of molecules
-* Use redux-thunk to load molecules from server
+* Use redux-saga to load molecules from server
 * Use Server Sent Events to listen for events from server, also added development buttons to simulate server events.
 * hide/show all ligands/proteins
 * initially only show first ligand and protein in 3Dmol viewer
@@ -105,5 +105,6 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Add to Travis-CI
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
-* Minify app bundle
+* Minify app bundle, or switch from redux-saga to redux-thunk
 * Environment flag to toggle debug buttons in navbar using http://jspm.io/0.17-beta-guide/conditional-loading.html
+* App bundle should not include jquery, it is already in deps bundle
