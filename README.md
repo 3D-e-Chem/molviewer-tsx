@@ -104,3 +104,4 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
 * Minify app bundle
+* Environment flag to toggle debug buttons in navbar using http://jspm.io/0.17-beta-guide/conditional-loading.html
