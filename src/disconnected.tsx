@@ -15,7 +15,7 @@ export const DisconnectedModal = ({connected}: IProps) => (
         onHide={() => ({})}
         >
         <Modal.Header >
-            <Modal.Title style={{ 'font-size': '3.5em' }}>
+            <Modal.Title style={{ 'font-size': '2.5em' }}>
                 <Glyphicon glyph='exclamation-sign' style={{ 'vertical-align': 'text-top' }} />
                 <span>Disconnected from KNIME</span>
             </Modal.Title>
