@@ -21,7 +21,6 @@ SystemJS.config({
       "@types/jquery": "npm:@types/jquery@2.0.33",
       "@types/redux": "npm:@types/redux@3.6.31",
       "@types/react-redux": "npm:@types/react-redux@4.4.32",
-      "@types/redux-saga": "npm:@types/redux-saga@0.9.30",
       "enzyme": "npm:enzyme@2.5.1",
       "@types/enzyme": "npm:@types/enzyme@2.5.37",
       "react-addons-test-utils": "npm:react-addons-test-utils@15.3.2",
@@ -98,11 +97,6 @@ SystemJS.config({
         "map": {
           "@types/redux": "npm:@types/redux@3.6.31",
           "@types/react": "npm:@types/react@0.14.44"
-        }
-      },
-      "npm:@types/redux-saga@0.9.30": {
-        "map": {
-          "@types/redux": "npm:@types/redux@3.6.31"
         }
       },
       "npm:enzyme@2.5.1": {
@@ -273,6 +267,7 @@ SystemJS.config({
     "3Dmol": "github:3dmol/3Dmol.js@1.0.6",
     "@types/isomorphic-fetch": "npm:@types/isomorphic-fetch@0.0.31",
     "@types/react": "npm:@types/react@0.14.44",
+    "@types/redux-thunk": "npm:@types/redux-thunk@2.1.31",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "bootstrap": "github:twbs/bootstrap@3.3.7",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
@@ -294,7 +289,7 @@ SystemJS.config({
     "react-dom": "npm:react-dom@15.3.2",
     "react-redux": "npm:react-redux@4.4.5",
     "redux": "npm:redux@3.6.0",
-    "redux-saga": "npm:redux-saga@0.12.0",
+    "redux-thunk": "npm:redux-thunk@2.1.0",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
@@ -660,6 +655,11 @@ SystemJS.config({
         "inherits": "npm:inherits@2.0.3",
         "xtend": "npm:xtend@4.0.1",
         "to-arraybuffer": "npm:to-arraybuffer@1.0.1"
+      }
+    },
+    "npm:@types/redux-thunk@2.1.31": {
+      "map": {
+        "@types/redux": "npm:@types/redux@3.6.31"
       }
     }
   }

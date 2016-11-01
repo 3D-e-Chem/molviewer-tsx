@@ -17,7 +17,7 @@
             "react-bootstrap",
             "redux",
             "react-redux",
-            "redux-saga",
+            "redux-thunk",
             "isomorphic-fetch",
             "3Dmol",
             "jquery",
