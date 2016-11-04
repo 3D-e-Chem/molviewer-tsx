@@ -1,36 +1,20 @@
 {
     "compilerOptions": {
         "target": "es6",
-        "module": "system",
+        "module": "es6",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "rootDir": ".",
-        "baseUrl": ".",
+        "moduleResolution": "node",
+        "jsx": "preserve",
         "strictNullChecks": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true,
-        "types": [
-            "react",
-            "react-dom",
-            "react-bootstrap",
-            "redux",
-            "react-redux",
-            "redux-saga",
-            "isomorphic-fetch",
-            "3Dmol",
-            "jquery",
-            "mocha",
-            "chai",
-            "enzyme"
-        ],
-        "jsx": "react"
+        "noUnusedParameters": true
     },
-    "compileOnSave": false,
-    "buildOnSave": false,
     "files": [
-        "./@types/3Dmol/index.d.ts",
-        "./src/molviewer.tsx"
+        "src/typings.d.ts",
+        "src/3dmol.d.ts",
+        "src/index.tsx"
     ]
 }

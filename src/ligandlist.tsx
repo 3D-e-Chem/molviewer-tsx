@@ -1,6 +1,3 @@
-// TODO replace with `import React from 'react'`, but tslint complains see https://github.com/palantir/tslint/issues/893
-import * as React from 'react';
-
 import { ILigand } from './ligand';
 import { LigandListItem } from './ligandlistitem';
 import { ListActions } from './ListActions';
@@ -20,7 +17,7 @@ export const LigandList = ({ligands, onLigandVisibilityClick, onShowAllClick, on
     return <div style={{ height: '85%', overflowY: 'auto'}}>
         <h5>Ligands</h5>
         {listactions}
-        <table className='table table-condensed'><tbody>
+        <table className="table table-condensed"><tbody>
             {ligands.map((ligand) => (
                 <LigandListItem
                     key={ligand.id}

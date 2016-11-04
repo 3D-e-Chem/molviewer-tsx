@@ -1,5 +1,3 @@
-import fetch from 'isomorphic-fetch';
-
 export interface IRestProtein {
   id: string;
   label: string;

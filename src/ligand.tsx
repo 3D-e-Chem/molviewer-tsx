@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-fetch';
 
 export interface IRestLigand {
   id: string;

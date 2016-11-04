@@ -1,6 +1,4 @@
-// TODO replace with `import React from 'react'`, but tslint complains see https://github.com/palantir/tslint/issues/893
-import * as React from 'react';
-import ReactDOM from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
@@ -10,7 +8,7 @@ import rootSaga from './sagas';
 import { ConnectedSdfPdbViewer } from './sdfpdbviewer';
 import { ServerListener } from './serverlistener';
 
-import 'bootstrap/dist/css/bootstrap.css!';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

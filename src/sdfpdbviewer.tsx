@@ -55,7 +55,7 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
 
     public render() {
         return <div>
-            <NavBar title='Ligands and proteins viewer'/>
+            <NavBar title="Ligands and proteins viewer"/>
             <DisconnectedModal connected={this.props.connected} />
             <div style={{ display: 'flex', height: '900px' }}>
                 <div style={{ marginLeft: '10px', width: '300px' }}>

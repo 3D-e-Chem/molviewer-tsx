@@ -1,26 +1,11 @@
-# Setup
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) using scripts package [@nlesc/react-scripts](https://github.com/NLeSC/create-react-app).
 
-```
-sudo npm install -g jspm
-npm install
-```
+* [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
 # Editing
 
 Use Visual Studio Code v1.5 or later.
 When editing *.tsx files use Typescript inside the repo and not the Typescript shipped with VSCode.
-
-# Adding library
-
-To make jspm and editor happy
-
-```
-jspm install <lib>
-jspm install --dev npm:@types/<lib>
-npm install -D <lib> @types/<lib>
-```
-
-Also add `<lib>` to types array in compilerOptions of tsconfig.json file.
 
 ## Manual external Typescript declaration
 

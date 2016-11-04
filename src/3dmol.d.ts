@@ -42,6 +42,6 @@ declare namespace $3Dmol {
     }
 }
 
-declare module '3Dmol' {
+declare module '3Dmol/release/3Dmol' {
     export = $3Dmol;
 }

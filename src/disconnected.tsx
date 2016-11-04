@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Glyphicon, Modal } from 'react-bootstrap';
 
 export interface IProps {
@@ -9,14 +8,14 @@ export const DisconnectedModal = ({connected}: IProps) => (
     // once disconnected it is not possible to reconnect
     // so modal is not closable, call dummy function on onHide
     <Modal
-        bsSize='large'
+        bsSize="large"
         show={!connected}
         enforceFocus={true}
         onHide={() => ({})}
     >
         <Modal.Header >
             <Modal.Title style={{ 'font-size': '2.5em' }}>
-                <Glyphicon glyph='exclamation-sign' style={{ 'vertical-align': 'text-top' }} />
+                <Glyphicon glyph="exclamation-sign" style={{ 'vertical-align': 'text-top' }} />
                 <span>Disconnected from KNIME</span>
             </Modal.Title>
         </Modal.Header>

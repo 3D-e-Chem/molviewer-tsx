@@ -15,6 +15,7 @@
         "jsx-no-string-ref": true,
         "jsx-no-multiline-js": false,
         "jsx-self-close": true,
+        "member-access": false,
         "no-duplicate-variable": true,
         "no-eval": true,
         "no-internal-module": true,
@@ -26,9 +27,11 @@
             "check-open-brace",
             "check-whitespace"
         ],
+        "ordered-imports": false,
         "quotemark": [
             true,
-            "single"
+            "single",
+            "jsx-double"
         ],
         "semicolon": [
             true,

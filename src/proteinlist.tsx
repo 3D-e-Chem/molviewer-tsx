@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { ListActions } from './ListActions';
 import { IProtein } from './protein';
 import { ProteinListItem } from './proteinlistitem';
@@ -20,7 +18,7 @@ export const ProteinList = (props: IProteinListProps) => {
     return <div style={{ overflowY: 'auto'}}>
         <h5>Proteins</h5>
         {listactions}
-        <table className='table table-condensed'><tbody>
+        <table className="table table-condensed"><tbody>
             {props.proteins.map((protein) => (
                 <ProteinListItem
                     key={protein.id}

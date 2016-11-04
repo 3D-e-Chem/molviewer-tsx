@@ -1,5 +1,5 @@
-import { $3Dmol } from '3Dmol';
-import $ from 'jquery';
+import { $3Dmol } from '3Dmol/release/3Dmol';
+import * as $ from 'jquery';
 import * as React from 'react';
 
 import { LigandGLModel, ProteinGLModel } from './glmodel';

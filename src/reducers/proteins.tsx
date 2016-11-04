@@ -1,6 +1,6 @@
 import { OtherAction } from '../actions';
 import { ProteinAction } from '../actions/proteins';
-import { 
+import {
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW,

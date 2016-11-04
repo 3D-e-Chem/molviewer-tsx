@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
@@ -29,24 +28,24 @@ export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
         debugButtons = <div>
                 <Button
                     onClick={props.serverModelChanged}
-                    className='navbar-btn navbar-right'
-                    title='Refresh'
+                    className="navbar-btn navbar-right"
+                    title="Refresh"
                 >
-                    <Glyphicon glyph='refresh'/>
+                    <Glyphicon glyph="refresh"/>
                 </Button>
                 <Button
                     onClick={props.serverDisconnect}
-                    className='navbar-btn navbar-right'
-                    title='Disconnect'
+                    className="navbar-btn navbar-right"
+                    title="Disconnect"
                 >
-                    <Glyphicon glyph='ban-circle'/>
+                    <Glyphicon glyph="ban-circle"/>
                 </Button>
             </div>;
     }
-    return <nav className='navbar navbar-default'>
-        <div className='container-fluid'>
-            <div className='navbar-header'>
-                <a className='navbar-brand' href='#'>{props.title}</a>
+    return <nav className="navbar navbar-default">
+        <div className="container-fluid">
+            <div className="navbar-header">
+                <a className="navbar-brand" href="#">{props.title}</a>
             </div>
             {debugButtons}
         </div>
