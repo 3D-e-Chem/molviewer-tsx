@@ -1,5 +1,3 @@
-import { $3Dmol } from '3Dmol/release/3Dmol';
-import * as $ from 'jquery';
 import * as React from 'react';
 
 import { LigandGLModel, ProteinGLModel } from './glmodel';
@@ -29,7 +27,7 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     }
 
     public componentDidMount() {
-        const element = $(this.canvasContainerEl);
+        const element = jQuery(this.canvasContainerEl);
         let config = {};
         this.viewer = $3Dmol.createViewer(element, config);
         this.viewer.setBackgroundColor(0xffffff);

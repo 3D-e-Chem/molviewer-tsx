@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
 import { IProtein } from './protein';

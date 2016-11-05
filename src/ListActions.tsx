@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 interface IProps {
     showAll(): void;
     hideAll(): void;

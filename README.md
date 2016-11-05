@@ -2,39 +2,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
+# Development setup
+
+The api/ directory contains an example dataset which can be used during development and testing.
+In production the /api url is server by an application server.
+
+1. Start web server on port 2015 to host api/ directory.
+```
+caddy
+```
+
+2. Start development web server
+
+```
+npm start
+```
+
+Browser should open on http://localhost:3000
+
 # Editing
 
 Use Visual Studio Code v1.5 or later.
 When editing *.tsx files use Typescript inside the repo and not the Typescript shipped with VSCode.
-
-## Manual external Typescript declaration
-
-In library has no declaration in npm:@types repository.
-
-1. Write your own TypeScript declaration file and store it in `@types/<lib>/index.d.ts` file.
-2. Install in jspm with `jspm install <lib>`
-3. Install in npm with `npm install -D <lib>`
-4. Add `<lib>` to types array in compilerOptions of tsconfig.json file.
-5. Add `@types/<lib>/index.d.ts` to files array in tsconfig.json
-6. Add key `<lib>` and value `@types/<lib>/index.d.ts` to typescriptOptions.types object in jspm.config.js file
-
-## Libary has no main specified and uses global
-
-Instal in jspm with
-```
-jspm install <name>=<target> -o "{format: 'global', main: '<main file>'
-```
-
-Where:
-
-* name: how you want to import it with `import <name>`
-* target: valid jspm target like github:mylib/mylib
-* main file: The main file to include when import is used
-
-For example:
-```
-jspm install 3Dmol=github:3dmol/3Dmol.js -o "{format: 'global', main: 'release/3Dmol-min.js'}"
-```
 
 # Unit test
 
@@ -45,21 +34,13 @@ npm test
 # Linting
 
 ```
-npm run tslint
+npm run lint
 ```
 
 Enable tslinting inside Visual Studio Code with
 
 1. Open the command palette CRTL + P
 2. Run `ext install tslint`
-
-# Build distro
-
-```
-npm run dist
-```
-
-The `dist/` directory contains the application in transpiled/concatenated/minified format.
 
 # DONE
 
@@ -93,3 +74,5 @@ The `dist/` directory contains the application in transpiled/concatenated/minifi
 * Minify app bundle, or switch from redux-saga to redux-thunk
 * Environment flag to toggle debug buttons in navbar using http://jspm.io/0.17-beta-guide/conditional-loading.html
 * App bundle should not include jquery, it is already in deps bundle
+* mock 3Dmol in tests
+* user friendly error when webgl support is missing

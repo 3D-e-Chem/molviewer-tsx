@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
@@ -21,5 +22,5 @@ sagaMiddleware.run(rootSaga);
 const serverlistener = new ServerListener(store.dispatch);
 serverlistener.listen();
 
-const container = document.getElementById('container');
+const container = document.getElementById('root');
 ReactDOM.render(<Provider store={store}><ConnectedSdfPdbViewer /></Provider>, container);

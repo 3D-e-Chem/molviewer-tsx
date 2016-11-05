@@ -1,6 +1,5 @@
 import * as chai from 'chai';
 import { ShallowWrapper, shallow  } from 'enzyme';
-import 'mocha';
 import * as React from 'react';
 
 import { Modal } from 'react-bootstrap';

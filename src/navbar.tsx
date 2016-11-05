@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 

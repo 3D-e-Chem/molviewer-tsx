@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { ILigand } from './ligand';
 import { LigandListItem } from './ligandlistitem';
 import { ListActions } from './ListActions';

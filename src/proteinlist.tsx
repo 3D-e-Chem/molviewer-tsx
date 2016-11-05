@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 import { ListActions } from './ListActions';
 import { IProtein } from './protein';
 import { ProteinListItem } from './proteinlistitem';

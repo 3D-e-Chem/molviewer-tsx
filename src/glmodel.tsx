@@ -1,4 +1,3 @@
-import { $3Dmol } from '3Dmol/release/3Dmol';
 import * as React from 'react';
 
 interface IGLModelProps {
