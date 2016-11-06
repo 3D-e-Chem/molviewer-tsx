@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface IGLModelProps {
-    viewer: $3Dmol.GLViewer;
+    viewer: $3Dmol.IGLViewer;
     visible: boolean;
     data: string;
     format: string; // TODO use enum
@@ -12,7 +12,7 @@ interface IProteinGLModelProps extends IGLModelProps {
 }
 
 export class GLModel extends React.Component<IGLModelProps, {}> {
-    protected model: $3Dmol.GLModel;
+    protected model: $3Dmol.IGLModel;
 
     public render() {
         this.props.viewer.render();

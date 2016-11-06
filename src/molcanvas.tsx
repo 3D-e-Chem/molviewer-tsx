@@ -11,7 +11,7 @@ interface IMolCanvasProps {
 
 export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     private canvasContainerEl: Element;
-    private viewer: $3Dmol.GLViewer;
+    private viewer: $3Dmol.IGLViewer;
 
     public render() {
         const ligands = this.props.ligands.map((ligand) => (
