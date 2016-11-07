@@ -18,7 +18,7 @@ export function prepLigand(restLigand: IRestLigand, index: Number) {
   return ligand;
 }
 
-export function fetchLigands(url = '/api/ligands') {
+export function fetchLigands(url: string = '/api/ligands') {
   return fetch(url)
     .then<IRestLigand[]>(response => response.json())
     .then<ILigand[]>((restLigands) => restLigands.map(prepLigand));

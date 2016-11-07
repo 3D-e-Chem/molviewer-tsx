@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import ligands from './reducers/ligands';
-import proteins from './reducers/proteins';
-import connected from './reducers/server';
+import { ligands } from './reducers/ligands';
+import { proteins } from './reducers/proteins';
+import { server } from './reducers/server';
 
 const rootReducer = combineReducers({
     ligands,
     proteins,
-    connected,
+    server,
 });
 
 export default rootReducer;

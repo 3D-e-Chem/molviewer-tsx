@@ -1,15 +1,15 @@
 import { OtherAction } from '../actions';
 import { ProteinAction } from '../actions/proteins';
 import {
+    PROTEIN_TOGGLE_HETVISIBILITY,
+    PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW,
-    PROTEIN_TOGGLE_HETVISIBILITY,
-    PROTEIN_TOGGLE_VISIBILITY,
 } from '../constants';
 import { IProtein } from '../protein';
 
-export default function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
+export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
             return state.map(protein => {

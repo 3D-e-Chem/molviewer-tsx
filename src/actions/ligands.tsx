@@ -1,11 +1,11 @@
 import {OtherAction} from '../actions';
 import {
+    LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_FAILED,
     LIGANDS_FETCH_REQUESTED,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
     LIGANDS_SHOW,
-    LIGAND_TOGGLE_VISIBILITY,
 } from '../constants';
 import {ILigand} from '../ligand';
 

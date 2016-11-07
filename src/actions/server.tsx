@@ -7,7 +7,7 @@ export type serverDisconnect = {
 
 export function serverDisconnect(): serverDisconnect {
     return { type: SERVER_DISCONNECT };
-};
+}
 
 export type serverModelChanged = {
     type: SERVER_MODEL_CHANGED,
@@ -15,6 +15,6 @@ export type serverModelChanged = {
 
 export function serverModelChanged(): serverModelChanged {
     return { type: SERVER_MODEL_CHANGED };
-};
+}
 
 export type connectedAction = serverDisconnect | serverModelChanged | OtherAction;

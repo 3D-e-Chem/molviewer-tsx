@@ -1,14 +1,14 @@
 import { OtherAction } from '../actions';
 import { LigandAction } from '../actions/ligands';
 import {
+    LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
     LIGANDS_SHOW,
-    LIGAND_TOGGLE_VISIBILITY,
 } from '../constants';
 import { ILigand } from '../ligand';
 
-export default function ligands(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
+export function ligands(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
     switch (action.type) {
         case LIGAND_TOGGLE_VISIBILITY:
             return state.map(ligand => {

@@ -1,12 +1,12 @@
 import {OtherAction} from '../actions';
 import {
+    PROTEIN_TOGGLE_HETVISIBILITY,
+    PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW,
-    PROTEIN_TOGGLE_HETVISIBILITY,
-    PROTEIN_TOGGLE_VISIBILITY,
 } from '../constants';
 import {IProtein} from '../protein';
 

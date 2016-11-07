@@ -1,20 +1,20 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "module": "es6",
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
         "jsx": "preserve",
-        "strictNullChecks": true,
+        "module": "es6",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
         "noImplicitAny": true,
         "noImplicitThis": true,
+        "noImplicitReturns": true,
         "noUnusedLocals": false,
-        "noUnusedParameters": true
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "target": "es6"
     },
     "files": [
         "src/typings.d.ts",
-        "src/3dmol.d.ts",
         "src/index.tsx"
     ]
 }
