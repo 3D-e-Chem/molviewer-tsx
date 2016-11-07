@@ -11,7 +11,7 @@
             "spaces"
         ],
         "jsx-alignment": true,
-        "jsx-no-lambda": false,
+        "jsx-no-lambda": true,
         "jsx-no-string-ref": true,
         "jsx-no-multiline-js": false,
         "jsx-self-close": true,
