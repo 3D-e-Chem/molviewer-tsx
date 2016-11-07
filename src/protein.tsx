@@ -19,7 +19,7 @@ export function prepProtein(restProtein: IRestProtein, index: Number) {
   return protein;
 }
 
-export function fetchProteins(url = '/api/proteins') {
+export function fetchProteins(url: string = '/api/proteins') {
   return fetch(url)
     .then<IRestProtein[]>(response => response.json())
     .then<IProtein[]>(restProteins => restProteins.map(prepProtein));

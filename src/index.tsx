@@ -4,20 +4,20 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import { reducers } from './reducers';
+import { sagas } from './sagas';
 import { ConnectedSdfPdbViewer } from './sdfpdbviewer';
-import { ServerListener } from './serverlistener';
+import { ServerListener } from './ServerListener';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-    rootReducer,
+    reducers,
     applyMiddleware(sagaMiddleware),
 );
 
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(sagas);
 
 const serverlistener = new ServerListener(store.dispatch);
 serverlistener.listen();

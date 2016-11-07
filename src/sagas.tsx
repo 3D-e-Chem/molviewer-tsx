@@ -9,7 +9,7 @@ import { fetchLigandsWorker } from './sagas/ligands';
 import { fetchProteinsWorker } from './sagas/proteins';
 import { modelChangedWorker } from './sagas/server';
 
-export default function* rootSaga() {
+export function* sagas() {
   yield* [
     takeLatest(PROTEINS_FETCH_REQUESTED, fetchProteinsWorker),
     takeLatest(LIGANDS_FETCH_REQUESTED, fetchLigandsWorker),

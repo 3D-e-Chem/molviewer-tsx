@@ -25,7 +25,7 @@ export const ProteinList = (props: IProteinListProps) => {
         <ProteinListItem
             key={protein.id}
             {...protein}
-            onProteinVisibilityClick={onClick(props.onProteinVisibilityClick,protein.id)}
+            onProteinVisibilityClick={onClick(props.onProteinVisibilityClick, protein.id)}
             onHeteroVisibilityClick={onClick(props.onHeteroVisibilityClick, protein.id)}
         />
     ));

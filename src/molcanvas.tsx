@@ -33,7 +33,7 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
 
     public componentDidMount() {
         const element = jQuery(this.canvasContainerEl);
-        let config = {};
+        const config = {};
         this.viewer = $3Dmol.createViewer(element, config);
         this.viewer.setBackgroundColor(0xffffff);
         this.viewer.render();
