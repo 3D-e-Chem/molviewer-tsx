@@ -6,6 +6,10 @@ export interface IProps {
     connected: boolean;
 }
 
+function noop() {
+    // do nothing
+}
+
 export const DisconnectedModal = ({connected}: IProps) => (
     // once disconnected it is not possible to reconnect
     // so modal is not closable, call dummy function on onHide
@@ -13,7 +17,7 @@ export const DisconnectedModal = ({connected}: IProps) => (
         bsSize="large"
         show={!connected}
         enforceFocus={true}
-        onHide={() => ({})}
+        onHide={noop}
     >
         <Modal.Header >
             <Modal.Title style={{ 'font-size': '2.5em' }}>
