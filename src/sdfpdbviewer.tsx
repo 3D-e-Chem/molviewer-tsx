@@ -25,6 +25,7 @@ interface IDispatchProps {
     onProteinVisibilityClick(id: string): void;
     onHideLigands(): void;
     onHideProteins(): void;
+    onHiLiteShown(ids: string[]): void;
     onShowLigands(): void;
     onShowProteins(): void;
 }
@@ -39,6 +40,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => {
         onHeteroVisibilityClick: (id: string) => dispatch(proteinActions.toggleHetVisibility(id)),
         onHideLigands: () => dispatch(ligandActions.hideAll()),
         onHideProteins: () => dispatch(proteinActions.hideAll()),
+        onHiLiteShown: (ids: string[]) => dispatch(ligandActions.hiLiteShown(ids)),
         onLigandVisibilityClick: (id: string) => dispatch(ligandActions.toggleVisibility(id)),
         onProteinVisibilityClick: (id: string) => dispatch(proteinActions.toggleVisibility(id)),
         onShowLigands: () => dispatch(ligandActions.showAll()),
@@ -63,6 +65,7 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
                         ligands={this.props.ligands}
                         onLigandVisibilityClick={this.props.onLigandVisibilityClick}
                         onHideAllClick={this.props.onHideLigands}
+                        onHiLiteShownClick={this.props.onHiLiteShown}
                         onShowAllClick={this.props.onShowLigands}
                     />
                     <ProteinList

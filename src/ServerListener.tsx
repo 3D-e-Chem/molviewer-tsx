@@ -1,8 +1,8 @@
 import {Dispatch} from 'redux';
 
-import {serverDisconnect, serverModelChanged} from './actions/server';
+import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from './actions/server';
 
-type TDispatchActions = serverDisconnect | serverModelChanged;
+type TDispatchActions = serverDisconnect | serverHiLiteChanged | serverModelChanged;
 
 export class ServerListener {
     private url: string;
@@ -26,6 +26,11 @@ export class ServerListener {
                 break;
             case 'modelChanged':
                 this.dispatch(serverModelChanged());
+                break;
+            case 'hiLite':
+            case 'unHiLite':
+            case 'unHiLiteAll':
+                this.dispatch(serverHiLiteChanged());
                 break;
             default:
                 break;

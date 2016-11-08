@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 
-import { fetchFailed, fetchSucceeded } from '../actions/ligands';
-import { fetchLigands } from '../ligand';
+import { fetchFailed, fetchSucceeded, hiLitefetchFailed, hiLitefetchSucceeded } from '../actions/ligands';
+import { fetchHiLiteLigands, fetchLigands, submitHiLiteLigands } from '../ligand';
 
 export function* fetchLigandsWorker() {
     try {
@@ -10,4 +10,18 @@ export function* fetchLigandsWorker() {
     } catch (e) {
         yield put(fetchFailed(e.message));
     }
+}
+
+export function* fetchHiLiteLigandsWorker() {
+    try {
+        const highlightedLigands = yield call(fetchHiLiteLigands);
+        yield put(hiLitefetchSucceeded(highlightedLigands));
+    } catch (e) {
+        yield put(hiLitefetchFailed(e.message));
+    }
+}
+
+// any should be hiLiteShown, but then this func can't be used in the sagas module
+export function* submitHiLiteLigandsWorker(action: any) {
+    yield call(submitHiLiteLigands, action.highlightedLigands);
 }

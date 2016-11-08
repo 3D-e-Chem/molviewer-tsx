@@ -5,6 +5,9 @@ import {
     LIGANDS_FETCH_REQUESTED,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
+    LIGANDS_HILITE_FETCH_FAILED,
+    LIGANDS_HILITE_FETCH_SUCCEEDED,
+    LIGANDS_HILITE_SHOWN,
     LIGANDS_SHOW,
 } from '../constants';
 import {ILigand} from '../ligand';
@@ -61,6 +64,35 @@ export const hideAll = (): hideAll => ({
   type: LIGANDS_HIDE,
 });
 
+export type hiLiteShown = {
+  type: LIGANDS_HILITE_SHOWN,
+  highlightedLigands: string[],
+}
+export const hiLiteShown = (highlightedLigands: string[]): hiLiteShown => ({
+  type: LIGANDS_HILITE_SHOWN,
+  highlightedLigands,
+});
+
+export type hiLitefetchSucceeded = {
+  type: LIGANDS_HILITE_FETCH_SUCCEEDED,
+  highlightedLigands: string[],
+}
+export const hiLitefetchSucceeded = (highlightedLigands: string[]): hiLitefetchSucceeded => ({
+  type: LIGANDS_HILITE_FETCH_SUCCEEDED,
+  highlightedLigands,
+});
+
+export type hiLitefetchFailed = {
+  type: LIGANDS_HILITE_FETCH_FAILED,
+  error: string,
+}
+export const hiLitefetchFailed = (error: string): hiLitefetchFailed => ({
+  type: LIGANDS_HILITE_FETCH_FAILED,
+  error,
+});
+
 type toggleVisibilityAction = toggleVisibility | showAll | hideAll;
 
-export type LigandAction = toggleVisibilityAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
+type hiLiteAction = hiLiteShown | hiLitefetchFailed | hiLitefetchSucceeded;
+
+export type LigandAction = toggleVisibilityAction | fetchFailed | fetchRequested | fetchSucceeded | hiLiteAction | OtherAction;
