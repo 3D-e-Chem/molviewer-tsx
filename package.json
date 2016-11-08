@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@nlesc/react-scripts": "0.0.16",
+    "@nlesc/react-scripts": "0.0.15",
     "@types/chai": "^3.4.34",
     "@types/enzyme": "^2.5.37",
     "@types/isomorphic-fetch": "0.0.31",

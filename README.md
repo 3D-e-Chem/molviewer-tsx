@@ -42,6 +42,18 @@ Enable tslinting inside Visual Studio Code with
 1. Open the command palette CRTL + P
 2. Run `ext install tslint`
 
+# Deploy
+
+First build with:
+```
+npm run build
+```
+
+Then copy essential build files to deployment target:
+```
+rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
+```
+
 # DONE
 
 * jspm + typescript + react

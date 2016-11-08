@@ -47,7 +47,7 @@ export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
     return <nav className="navbar navbar-default">
         <div className="container-fluid">
             <div className="navbar-header">
-                <a className="navbar-brand" href="#">{props.title}</a>
+                <span className="navbar-brand">{props.title}</span>
             </div>
             {debugButtons}
         </div>
