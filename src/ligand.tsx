@@ -33,6 +33,9 @@ export function submitHiLiteLigands(highlightedLigands: string[], url: string = 
   const init = {
     method: 'POST',
     body: JSON.stringify(highlightedLigands),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
   };
   return fetch(url, init);
 }

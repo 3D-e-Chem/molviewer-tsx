@@ -71,6 +71,8 @@ rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
 * Use Server Sent Events to listen for events from server, also added development buttons to simulate server events.
 * hide/show all ligands/proteins
 * initially only show first ligand and protein in 3Dmol viewer
+* listen for hilite changes from server
+* propagate hilite selection to server
 
 # TODO
 
