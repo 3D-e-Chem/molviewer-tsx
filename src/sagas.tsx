@@ -5,11 +5,11 @@ import {
   LIGANDS_HILITE_SHOWN,
   PROTEINS_FETCH_REQUESTED,
   SERVER_HILITE_CHANGED,
-  SERVER_MODEL_CHANGED,
+  SERVER_MODEL_CHANGED
 } from './constants';
+import { fetchProteinsWorker } from './sagas/fetchProteinsWorker';
 import { fetchHiLiteLigandsWorker, fetchLigandsWorker, submitHiLiteLigandsWorker } from './sagas/ligands';
-import { fetchProteinsWorker } from './sagas/proteins';
-import { modelChangedWorker } from './sagas/server';
+import { modelChangedWorker } from './sagas/modelChangedWorker';
 
 export function* sagas() {
   yield* [
@@ -17,6 +17,6 @@ export function* sagas() {
     takeLatest(LIGANDS_FETCH_REQUESTED, fetchLigandsWorker),
     takeLatest(SERVER_HILITE_CHANGED, fetchHiLiteLigandsWorker),
     takeLatest(LIGANDS_HILITE_SHOWN, submitHiLiteLigandsWorker),
-    takeLatest(SERVER_MODEL_CHANGED, modelChangedWorker),
+    takeLatest(SERVER_MODEL_CHANGED, modelChangedWorker)
   ];
 }

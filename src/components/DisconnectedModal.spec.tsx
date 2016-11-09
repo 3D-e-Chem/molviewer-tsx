@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { Modal } from 'react-bootstrap';
 
-import { DisconnectedModal, IProps } from './disconnected';
+import { DisconnectedModal, IProps } from './DisconnectedModal';
 
 describe('<DisconnectedModal />', () => {
     describe('when connected', () => {

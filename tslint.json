@@ -3,8 +3,6 @@
         "@nlesc/tslint-config-react-app"
     ],
     "rules": {
-        "export-name": false,
-        "trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
         "no-suspicious-comment": false
     }
 }

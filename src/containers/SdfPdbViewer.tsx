@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import * as ligandActions from './actions/ligands';
-import * as proteinActions from './actions/proteins';
-import { DisconnectedModal } from './disconnected';
-import { ILigand } from './ligand';
-import { LigandList } from './ligandlist';
-import { MolCanvas } from './molcanvas';
-import { NavBar } from './navbar';
-import { IProtein } from './protein';
-import { ProteinList } from './proteinlist';
+import * as ligandActions from '../actions/ligands';
+import * as proteinActions from '../actions/proteins';
+import { DisconnectedModal } from '../components/DisconnectedModal';
+import { LigandList } from '../components/LigandList';
+import { MolCanvas } from '../components/MolCanvas';
+import { NavBar } from '../components/NavBar';
+import { ProteinList } from '../components/ProteinList';
+import { ILigand } from '../services/ligand';
+import { IProtein } from '../services/protein';
 
 interface IStateProps {
     ligands: ILigand[];
@@ -44,7 +44,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => {
         onLigandVisibilityClick: (id: string) => dispatch(ligandActions.toggleVisibility(id)),
         onProteinVisibilityClick: (id: string) => dispatch(proteinActions.toggleVisibility(id)),
         onShowLigands: () => dispatch(ligandActions.showAll()),
-        onShowProteins: () => dispatch(proteinActions.showAll()),
+        onShowProteins: () => dispatch(proteinActions.showAll())
     };
 };
 

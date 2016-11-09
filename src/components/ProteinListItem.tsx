@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
-import { IProtein } from './protein';
+import { IProtein } from '../services/protein';
 
 interface IProteinListItemProps extends IProtein {
     onProteinVisibilityClick(): void;
@@ -13,7 +13,7 @@ export const ProteinListItem = ({label,
                                  visible,
                                  hetVisible,
                                  onProteinVisibilityClick,
-                                 onHeteroVisibilityClick,
+                                 onHeteroVisibilityClick
                                 }: IProteinListItemProps) => (
     <tr>
         <td>{label}</td>

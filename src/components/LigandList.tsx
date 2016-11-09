@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ILigand } from './ligand';
-import { LigandListItem } from './ligandlistitem';
+import { ILigand } from '../services/ligand';
+import { LigandListItem } from './LigandListItem';
 import { ListActions } from './ListActions';
 
 interface ILigandListProps {

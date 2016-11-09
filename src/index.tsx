@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
+import { ConnectedSdfPdbViewer } from './containers/SdfPdbViewer';
 import { reducers } from './reducers';
 import { sagas } from './sagas';
-import { ConnectedSdfPdbViewer } from './sdfpdbviewer';
-import { ServerListener } from './ServerListener';
+import { ServerListener } from './services/ServerListener';
 
 import 'bootstrap/dist/css/bootstrap.css';
 

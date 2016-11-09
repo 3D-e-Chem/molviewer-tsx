@@ -5,9 +5,9 @@ import {
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
-    PROTEINS_SHOW,
+    PROTEINS_SHOW
 } from '../constants';
-import { IProtein } from '../protein';
+import { IProtein } from '../services/protein';
 
 export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
@@ -17,7 +17,7 @@ export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAc
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...protein, visible: !protein.visible};
                     return Object.assign({}, protein, {
-                        visible: !protein.visible,
+                        visible: !protein.visible
                     });
                 }
                 return protein;
@@ -28,7 +28,7 @@ export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAc
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...protein, hetVisible: !protein.hetVisible};
                     return Object.assign({}, protein, {
-                        hetVisible: !protein.hetVisible,
+                        hetVisible: !protein.hetVisible
                     });
                 }
                 return protein;
@@ -39,7 +39,7 @@ export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAc
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...protein, visible: !protein.visible};
                     return Object.assign({}, protein, {
-                        visible: !protein.visible,
+                        visible: !protein.visible
                     });
                 }
                 return protein;
@@ -50,7 +50,7 @@ export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAc
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...protein, visible: !protein.visible};
                     return Object.assign({}, protein, {
-                        visible: !protein.visible,
+                        visible: !protein.visible
                     });
                 }
                 return protein;

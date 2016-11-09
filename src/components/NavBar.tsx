@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import {serverDisconnect, serverModelChanged} from './actions/server';
+import {serverDisconnect, serverModelChanged} from '../actions/server';
 
 interface IDispatchProps {
     serverDisconnect(): void;
@@ -18,7 +18,7 @@ const mapStateToProps = (_state: {}, ownProps: IComponentProps) => (ownProps);
 const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
     return {
         serverDisconnect: () => dispatch(serverDisconnect()),
-        serverModelChanged: () => dispatch(serverModelChanged()),
+        serverModelChanged: () => dispatch(serverModelChanged())
     };
 };
 

@@ -5,9 +5,9 @@ import {
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
     LIGANDS_HILITE_FETCH_SUCCEEDED,
-    LIGANDS_SHOW,
+    LIGANDS_SHOW
 } from '../constants';
-import { ILigand } from '../ligand';
+import { ILigand } from '../services/ligand';
 
 export function ligands(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
     switch (action.type) {
@@ -17,7 +17,7 @@ export function ligands(state: ILigand[] = [], action: LigandAction = OtherActio
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...ligand, visible: !ligand.visible};
                     return Object.assign({}, ligand, {
-                        visible: !ligand.visible,
+                        visible: !ligand.visible
                     });
                 }
                 return ligand;
@@ -28,7 +28,7 @@ export function ligands(state: ILigand[] = [], action: LigandAction = OtherActio
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...ligand, visible: !ligand.visible};
                     return Object.assign({}, ligand, {
-                        visible: !ligand.visible,
+                        visible: !ligand.visible
                     });
                 }
                 return ligand;
@@ -39,7 +39,7 @@ export function ligands(state: ILigand[] = [], action: LigandAction = OtherActio
                     // TODO when object spread is avialable in TypeScript use:
                     // return { ...ligand, visible: !ligand.visible};
                     return Object.assign({}, ligand, {
-                        visible: !ligand.visible,
+                        visible: !ligand.visible
                     });
                 }
                 return ligand;
@@ -52,7 +52,7 @@ export function ligands(state: ILigand[] = [], action: LigandAction = OtherActio
                 const mustShow = ids2show.has(ligand.id);
                 if (ligand.visible !== mustShow) {
                     return Object.assign({}, ligand, {
-                        visible: !ligand.visible,
+                        visible: !ligand.visible
                     });
                 }
                 return ligand;
