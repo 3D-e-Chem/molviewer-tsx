@@ -12,10 +12,6 @@ interface ILigandListProps {
     onHiLiteShownClick(ids: string[]): void;
 }
 
-function onClick(func: (id: string) => void, id: string) {
-    return () => func(id);
-}
-
 function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) {
     // ids of all shown ligands
     const ids = ligands.filter(l => l.visible).map(l => l.id);
@@ -42,7 +38,7 @@ export const LigandList = ({ligands, onLigandVisibilityClick, onShowAllClick, on
         <LigandListItem
             key={ligand.id}
             {...ligand}
-            onVisibilityClick={onClick(onLigandVisibilityClick, ligand.id)}
+            onVisibilityClick={onLigandVisibilityClick}
         />
     ));
     return <div style={{ height: '85%', overflowY: 'auto'}}>

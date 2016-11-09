@@ -12,10 +12,6 @@ interface IProteinListProps {
     onHideAllClick(): void;
 }
 
-function onClick(func: (id: string) => void, id: string) {
-    return () => func(id);
-}
-
 export const ProteinList = (props: IProteinListProps) => {
     let listactions: JSX.Element = <div/>;
     if (props.proteins.length > 1) {
@@ -25,8 +21,8 @@ export const ProteinList = (props: IProteinListProps) => {
         <ProteinListItem
             key={protein.id}
             {...protein}
-            onProteinVisibilityClick={onClick(props.onProteinVisibilityClick, protein.id)}
-            onHeteroVisibilityClick={onClick(props.onHeteroVisibilityClick, protein.id)}
+            onProteinVisibilityClick={props.onProteinVisibilityClick}
+            onHeteroVisibilityClick={props.onHeteroVisibilityClick}
         />
     ));
     return <div style={{ overflowY: 'auto'}}>
