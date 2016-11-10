@@ -2,6 +2,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
+# Installation
+
+```
+npm install
+```
+
 # Development setup
 
 The api/ directory contains an example dataset which can be used during development and testing.
@@ -90,3 +96,4 @@ rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
 * App bundle should not include jquery, it is already in deps bundle
 * mock 3Dmol in tests
 * user friendly error when webgl support is missing
+* user friendly error when fetch error occurs

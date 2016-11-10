@@ -16,7 +16,7 @@
     "@types/redux": "^3.6.31",
     "@types/redux-saga": "^0.9.30",
     "chai": "^3.5.0",
-    "enzyme": "^2.5.1",
+    "enzyme": "^2.6.0",
     "react-addons-test-utils": "^15.3.2"
   },
   "dependencies": {
