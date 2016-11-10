@@ -1,5 +1,5 @@
 import { OtherAction } from '../actions';
-import { SERVER_DISCONNECT, SERVER_HILITE_CHANGED, SERVER_MODEL_CHANGED } from '../constants';
+import { SERVER_DISCONNECT, SERVER_HILITE_CHANGED, SERVER_MODEL_CHANGED } from './constants';
 
 export type serverDisconnect = {
     type: SERVER_DISCONNECT,
@@ -26,3 +26,5 @@ export function serverHiLiteChanged(): serverHiLiteChanged {
 }
 
 export type connectedAction = serverDisconnect | serverHiLiteChanged | serverModelChanged | OtherAction;
+
+export { OtherAction};

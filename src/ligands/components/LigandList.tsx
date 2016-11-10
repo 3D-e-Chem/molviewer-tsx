@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { ILigand } from '../services/ligand';
+import { ListActions } from '../../components/ListActions';
+import { ILigand } from '../types';
 import { LigandListItem } from './LigandListItem';
-import { ListActions } from './ListActions';
 
 interface ILigandListProps {
     ligands: ILigand[];

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { IProtein } from '../services/protein';
-import { ListActions } from './ListActions';
+import { ListActions } from '../../components/ListActions';
+import { IProtein } from '../types';
 import { ProteinListItem } from './ProteinListItem';
 
 interface IProteinListProps {

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
-import { IProtein } from '../services/protein';
+import { IProtein } from '../types';
 
 interface IProteinListItemProps extends IProtein {
     onProteinVisibilityClick(id: string): void;

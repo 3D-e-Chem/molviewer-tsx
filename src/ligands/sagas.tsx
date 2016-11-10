@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 
-import { fetchFailed, fetchSucceeded, hiLitefetchFailed, hiLitefetchSucceeded } from '../actions/ligands';
-import { fetchHiLiteLigands, fetchLigands, submitHiLiteLigands } from '../services/ligand';
+import { fetchFailed, fetchSucceeded, hiLitefetchFailed, hiLitefetchSucceeded } from './actions';
+import { fetchHiLiteLigands, fetchLigands, submitHiLiteLigands } from './services';
 
 export function* fetchLigandsWorker() {
     try {

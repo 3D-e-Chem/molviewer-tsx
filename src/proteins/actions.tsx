@@ -7,8 +7,8 @@ import {
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW
-} from '../constants';
-import {IProtein} from '../services/protein';
+} from './constants';
+import {IProtein} from './types';
 
 export type toggleVisibility = {
   type: PROTEIN_TOGGLE_VISIBILITY,
@@ -75,3 +75,4 @@ export const hideAll = (): hideAll => ({
 type toggleAction = toggleHetVisibility | toggleVisibility | showAll | hideAll;
 
 export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
+export { OtherAction };

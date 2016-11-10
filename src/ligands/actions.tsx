@@ -9,8 +9,8 @@ import {
     LIGANDS_HILITE_FETCH_SUCCEEDED,
     LIGANDS_HILITE_SHOWN,
     LIGANDS_SHOW
-} from '../constants';
-import {ILigand} from '../services/ligand';
+} from './constants';
+import { ILigand } from './types';
 
 export type toggleVisibility = {
   type: LIGAND_TOGGLE_VISIBILITY,
@@ -96,3 +96,5 @@ type toggleVisibilityAction = toggleVisibility | showAll | hideAll;
 type hiLiteAction = hiLiteShown | hiLitefetchFailed | hiLitefetchSucceeded;
 
 export type LigandAction = toggleVisibilityAction | fetchFailed | fetchRequested | fetchSucceeded | hiLiteAction | OtherAction;
+
+export { OtherAction };

@@ -1,4 +1,4 @@
-import { GLModel, IGLModelProps} from './GLModel';
+import { GLModel, IGLModelProps} from '../../components/GLModel';
 
 interface IProteinGLModelProps extends IGLModelProps {
     hetVisible: boolean;

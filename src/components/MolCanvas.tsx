@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { ILigand } from '../services/ligand';
-import { IProtein } from '../services/protein';
-import { LigandGLModel } from './LigandGLModel';
-import { ProteinGLModel } from './ProteinGLModel';
+import { ILigand } from '../ligands';
+import { LigandGLModel } from '../ligands/components/LigandGLModel';
+import { IProtein } from '../proteins';
+import { ProteinGLModel } from '../proteins/components/ProteinGLModel';
 
 interface IMolCanvasProps {
     ligands: ILigand[];

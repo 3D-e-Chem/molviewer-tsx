@@ -1,15 +1,14 @@
-import { OtherAction } from '../actions';
-import { ProteinAction } from '../actions/proteins';
+import { OtherAction, ProteinAction } from './actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW
-} from '../constants';
-import { IProtein } from '../services/protein';
+} from './constants';
+import { IProtein } from './types';
 
-export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
+export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
             return state.map(protein => {

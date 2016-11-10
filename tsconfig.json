@@ -13,9 +13,8 @@
         "strictNullChecks": true,
         "target": "es6"
     },
-    "files": [
-        "src/3dmol.d.ts",
-        "src/typings.d.ts",
-        "src/index.tsx"
+    "filesGlob": [
+        "src/**/*ts",
+        "src/**/*tsx"
     ]
 }

@@ -1,15 +1,14 @@
-import { OtherAction } from '../actions';
-import { LigandAction } from '../actions/ligands';
+import { LigandAction, OtherAction } from './actions';
 import {
     LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
     LIGANDS_HILITE_FETCH_SUCCEEDED,
     LIGANDS_SHOW
-} from '../constants';
-import { ILigand } from '../services/ligand';
+} from './constants';
+import { ILigand } from './types';
 
-export function ligands(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
+export function reducer(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
     switch (action.type) {
         case LIGAND_TOGGLE_VISIBILITY:
             return state.map(ligand => {

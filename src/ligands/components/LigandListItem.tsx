@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
-import { ILigand } from '../services/ligand';
+import { ILigand } from '../types';
 
 interface ILigandListItemProps extends ILigand {
     onVisibilityClick(id: string): void;

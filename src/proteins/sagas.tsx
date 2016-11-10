@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 
-import { fetchFailed, fetchSucceeded } from '../actions/proteins';
-import { fetchProteins } from '../services/protein';
+import { fetchFailed, fetchSucceeded } from './actions';
+import { fetchProteins } from './services';
 
 export function* fetchProteinsWorker() {
     try {

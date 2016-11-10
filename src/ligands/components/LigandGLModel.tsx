@@ -1,4 +1,4 @@
-import { GLModel} from './GLModel';
+import { GLModel} from '../../components/GLModel';
 
 export class LigandGLModel extends GLModel {
     public componentDidMount() {

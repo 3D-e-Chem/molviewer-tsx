@@ -5,19 +5,19 @@ import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import { ConnectedSdfPdbViewer } from './containers/SdfPdbViewer';
-import { reducers } from './reducers';
-import { sagas } from './sagas';
-import { ServerListener } from './services/ServerListener';
+import { mainSaga } from './mainSaga';
+import { rootReducer } from './rootReducer';
+import { ServerListener } from './sse';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
-    reducers,
+    rootReducer,
     applyMiddleware(sagaMiddleware),
 );
 
-sagaMiddleware.run(sagas);
+sagaMiddleware.run(mainSaga);
 
 const serverlistener = new ServerListener(store.dispatch);
 serverlistener.listen();

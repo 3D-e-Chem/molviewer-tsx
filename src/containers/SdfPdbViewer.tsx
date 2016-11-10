@@ -1,19 +1,18 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import * as ligandActions from '../actions/ligands';
-import * as proteinActions from '../actions/proteins';
-import { DisconnectedModal } from '../components/DisconnectedModal';
-import { LigandList } from '../components/LigandList';
+import * as ligands from '../ligands';
+import * as proteins from '../proteins';
+
 import { MolCanvas } from '../components/MolCanvas';
 import { NavBar } from '../components/NavBar';
-import { ProteinList } from '../components/ProteinList';
-import { ILigand } from '../services/ligand';
-import { IProtein } from '../services/protein';
+import { LigandList } from '../ligands/components/LigandList';
+import { ProteinList } from '../proteins/components/ProteinList';
+import { DisconnectedModal } from '../sse/components/DisconnectedModal';
 
 interface IStateProps {
-    ligands: ILigand[];
-    proteins: IProtein[];
+    ligands: ligands.ILigand[];
+    proteins: proteins.IProtein[];
     connected: boolean;
 }
 
@@ -35,16 +34,16 @@ type IComponentProps = IStateProps & IDispatchProps;
 const mapStateToProps = (state: IStateProps) => state;
 const mapDispatchToProps = (dispatch: any): IDispatchProps => {
     return {
-        fetchLigands: () => dispatch(ligandActions.fetchRequested()),
-        fetchProteins: () => dispatch(proteinActions.fetchRequested()),
-        onHeteroVisibilityClick: (id: string) => dispatch(proteinActions.toggleHetVisibility(id)),
-        onHideLigands: () => dispatch(ligandActions.hideAll()),
-        onHideProteins: () => dispatch(proteinActions.hideAll()),
-        onHiLiteShown: (ids: string[]) => dispatch(ligandActions.hiLiteShown(ids)),
-        onLigandVisibilityClick: (id: string) => dispatch(ligandActions.toggleVisibility(id)),
-        onProteinVisibilityClick: (id: string) => dispatch(proteinActions.toggleVisibility(id)),
-        onShowLigands: () => dispatch(ligandActions.showAll()),
-        onShowProteins: () => dispatch(proteinActions.showAll())
+        fetchLigands: () => dispatch(ligands.actions.fetchRequested()),
+        fetchProteins: () => dispatch(proteins.actions.fetchRequested()),
+        onHeteroVisibilityClick: (id: string) => dispatch(proteins.actions.toggleHetVisibility(id)),
+        onHideLigands: () => dispatch(ligands.actions.hideAll()),
+        onHideProteins: () => dispatch(proteins.actions.hideAll()),
+        onHiLiteShown: (ids: string[]) => dispatch(ligands.actions.hiLiteShown(ids)),
+        onLigandVisibilityClick: (id: string) => dispatch(ligands.actions.toggleVisibility(id)),
+        onProteinVisibilityClick: (id: string) => dispatch(proteins.actions.toggleVisibility(id)),
+        onShowLigands: () => dispatch(ligands.actions.showAll()),
+        onShowProteins: () => dispatch(proteins.actions.showAll())
     };
 };
 

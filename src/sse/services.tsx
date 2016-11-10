@@ -1,6 +1,6 @@
 import {Dispatch} from 'redux';
 
-import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from '../actions/server';
+import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from './actions';
 
 type TDispatchActions = serverDisconnect | serverHiLiteChanged | serverModelChanged;
 
