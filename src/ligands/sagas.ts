@@ -21,7 +21,7 @@ export function* fetchHiLiteLigandsWorker() {
     }
 }
 
-// any should be hiLiteShown, but then this func can't be used in the sagas module
+// any should be hiLiteShown, but then this func can't be used in the mainSaga module
 export function* submitHiLiteLigandsWorker(action: any) {
     yield call(submitHiLiteLigands, action.highlightedLigands);
 }
