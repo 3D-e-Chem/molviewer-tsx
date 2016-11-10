@@ -1,16 +1,20 @@
 {
     "compilerOptions": {
-        "module": "system",
-        "jsx": "react",
-        "noImplicitAny": true
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "preserve",
+        "module": "es6",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "target": "es6"
     },
-    "exclude": [
-        "node_modules",
-        "jspm_packages"
-    ],
-    "compileOnSave": false,
-    "files": [
-        "./src/molviewer.tsx",
-        "./src/_references.d.ts"
+    "filesGlob": [
+        "src/**/*ts",
+        "src/**/*tsx"
     ]
 }

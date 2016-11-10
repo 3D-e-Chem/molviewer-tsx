@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "@nlesc/tslint-config-react-app"
+    ],
+    "rules": {
+        "export-name": false,
+        "no-suspicious-comment": false
+    }
+}

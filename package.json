@@ -1,129 +1,40 @@
 {
-  "name": "molviewer-tsx",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle-deps": "jspm bundle src/**/* - [src/**/*] dependency-bundle.js --inject",
-    "bundle": "npm run bundle-deps && jspm bundle src/molviewer.tsx - dependency-bundle.js build.js --inject",
-    "watch": "npm run bundle && jspm bundle src/molviewer.tsx - dependency-bundle.js build.js -wd"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "name": "molviewer",
+  "proxy": "http://localhost:2015",
+  "version": "0.1.0",
+  "private": true,
   "devDependencies": {
-    "@types/jquery": "^1.10.30",
-    "@types/react": "^0.14.32",
-    "@types/react-bootstrap": "0.0.31",
-    "@types/react-dom": "^0.14.15",
-    "jquery": "^3.1.0",
-    "jspm": "^0.17.0-beta.27",
-    "react": "^15.3.1",
-    "react-bootstrap": "^0.30.3",
-    "react-dom": "^15.3.1"
+    "@nlesc/react-scripts": "0.0.15",
+    "@types/chai": "^3.4.34",
+    "@types/enzyme": "^2.5.37",
+    "@types/isomorphic-fetch": "0.0.31",
+    "@types/jquery": "^2.0.33",
+    "@types/react": "^0.14.44",
+    "@types/react-bootstrap": "0.0.33",
+    "@types/react-dom": "^0.14.18",
+    "@types/react-redux": "^4.4.32",
+    "@types/redux": "^3.6.31",
+    "@types/redux-saga": "^0.9.30",
+    "chai": "^3.5.0",
+    "enzyme": "^2.5.1",
+    "react-addons-test-utils": "^15.3.2"
   },
-  "jspm": {
-    "name": "molviewer",
-    "main": "molviewer.js",
-    "dependencies": {
-      "3dmol/3Dmol.js": "github:3dmol/3Dmol.js@^1.0.6",
-      "jquery": "npm:jquery@^3.1.0",
-      "react-bootstrap": "npm:react-bootstrap@^0.30.3",
-      "twbs/bootstrap": "github:twbs/bootstrap@4.0.0-alpha.3"
-    },
-    "devDependencies": {
-      "@types/jquery": "npm:@types/jquery@^1.10.30",
-      "@types/react": "npm:@types/react@^0.14.32",
-      "@types/react-bootstrap": "npm:@types/react-bootstrap@^0.0.31",
-      "@types/react-dom": "npm:@types/react-dom@^0.14.15",
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.0.18"
-    },
-    "peerDependencies": {
-      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
-      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
-      "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
-      "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
-      "domain": "github:jspm/nodelibs-domain@^0.2.0-alpha",
-      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
-      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
-      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
-      "https": "github:jspm/nodelibs-https@^0.2.0-alpha",
-      "os": "github:jspm/nodelibs-os@^0.2.0-alpha",
-      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
-      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
-      "react": "npm:react@^15.3.1",
-      "react-dom": "npm:react-dom@^15.3.1",
-      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
-      "string_decoder": "github:jspm/nodelibs-string_decoder@^0.2.0-alpha",
-      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
-      "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
-      "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
-      "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha"
-    },
-    "overrides": {
-      "github:3dmol/3Dmol.js@1.0.6": {
-        "main": "release/3Dmol.js",
-        "format": "global"
-      },
-      "github:HubSpot/tether@1.3.4": {
-        "main": "js/tether",
-        "directories": {
-          "lib": "dist"
-        },
-        "meta": {
-          "js/tether.js": {
-            "exports": "Tether",
-            "format": "global"
-          }
-        }
-      },
-      "github:twbs/bootstrap@4.0.0-alpha.3": {
-        "files": null,
-        "dependencies": {
-          "jquery": "2",
-          "tether": "github:HubSpot/tether@^1.1.1"
-        },
-        "meta": {
-          "js/bootstrap.js": {
-            "deps": [
-              "jquery",
-              "tether"
-            ],
-            "exports": "$",
-            "format": "global"
-          }
-        }
-      },
-      "npm:browserify-zlib@0.1.4": {
-        "dependencies": {
-          "readable-stream": "^2.0.2",
-          "pako": "~0.2.0"
-        },
-        "map": {
-          "_stream_transform": "readable-stream/transform"
-        }
-      },
-      "npm:inherits@2.0.1": {
-        "ignore": [
-          "test.js"
-        ]
-      },
-      "npm:jquery@2.2.4": {
-        "format": "amd"
-      },
-      "npm:typescript@2.0.0": {
-        "browser": {},
-        "map": {
-          "buffer": "@empty",
-          "child_process": "@empty",
-          "fs": "@empty",
-          "path": "@empty",
-          "process": "@empty",
-          "readline": "@empty"
-        }
-      }
-    }
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "isomorphic-fetch": "^2.2.1",
+    "jquery": "^3.1.1",
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.12.0"
+  },
+  "scripts": {
+    "lint": "react-scripts lint",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
