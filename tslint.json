@@ -3,6 +3,8 @@
         "@nlesc/tslint-config-react-app"
     ],
     "rules": {
+        "prefer-type-cast": false,
+        "no-angle-bracket-type-assertion": true,
         "export-name": false,
         "no-suspicious-comment": false
     }
