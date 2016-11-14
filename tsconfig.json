@@ -13,8 +13,7 @@
         "strictNullChecks": true,
         "target": "es6"
     },
-    "filesGlob": [
-        "src/**/*ts",
-        "src/**/*tsx"
+    "exclude": [
+        "node_modules/**/*"
     ]
 }
