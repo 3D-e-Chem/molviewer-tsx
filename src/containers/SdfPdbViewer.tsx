@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import * as ligands from '../ligands';
 import * as proteins from '../proteins';
 
+import { Layout } from '../components/Layout';
 import { MolCanvas } from '../components/MolCanvas';
-import { NavBar } from '../components/NavBar';
 import { LigandList } from '../ligands/components/LigandList';
 import { ProteinList } from '../proteins/components/ProteinList';
-import { DisconnectedModal } from '../sse/components/DisconnectedModal';
 
 interface IStateProps {
     ligands: ligands.ILigand[];
@@ -55,34 +54,28 @@ export class SdfPdbViewer extends React.Component<IComponentProps, {}> {
     }
 
     public render() {
-        return <div>
-            <NavBar title="Ligands and proteins viewer"/>
-            <DisconnectedModal connected={this.props.connected} />
-            <div style={{ display: 'flex', height: '900px' }}>
-                <div style={{ marginLeft: '10px', width: '300px' }}>
-                    <LigandList
-                        ligands={this.props.ligands}
-                        onLigandVisibilityClick={this.props.onLigandVisibilityClick}
-                        onHideAllClick={this.props.onHideLigands}
-                        onHiLiteShownClick={this.props.onHiLiteShown}
-                        onShowAllClick={this.props.onShowLigands}
-                    />
-                    <ProteinList
-                        proteins={this.props.proteins}
-                        onProteinVisibilityClick={this.props.onProteinVisibilityClick}
-                        onHeteroVisibilityClick={this.props.onHeteroVisibilityClick}
-                        onHideAllClick={this.props.onHideProteins}
-                        onShowAllClick={this.props.onShowProteins}
-                    />
-                </div>
-                <div style={{ flexGrow: 1, position: 'relative' }}>
-                    <MolCanvas
-                        ligands={this.props.ligands}
-                        proteins={this.props.proteins}
-                    />
-                </div>
-            </div>
+        const title = 'Ligands and proteins viewer';
+        const sidebar = <div>
+            <LigandList
+                ligands={this.props.ligands}
+                onLigandVisibilityClick={this.props.onLigandVisibilityClick}
+                onHideAllClick={this.props.onHideLigands}
+                onHiLiteShownClick={this.props.onHiLiteShown}
+                onShowAllClick={this.props.onShowLigands}
+            />
+            <ProteinList
+                proteins={this.props.proteins}
+                onProteinVisibilityClick={this.props.onProteinVisibilityClick}
+                onHeteroVisibilityClick={this.props.onHeteroVisibilityClick}
+                onHideAllClick={this.props.onHideProteins}
+                onShowAllClick={this.props.onShowProteins}
+            />
         </div>;
+        const main = <MolCanvas
+            ligands={this.props.ligands}
+            proteins={this.props.proteins}
+        />;
+        return <Layout title={title} sidebar={sidebar} main={main}/>;
     }
 }
 
