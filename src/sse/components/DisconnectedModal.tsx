@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 
 import { Glyphicon, Modal } from 'react-bootstrap';
 
@@ -11,7 +10,7 @@ export interface IProps {
     connected: boolean;
 }
 
-export const DisconnectedModalComp = ({connected}: IProps) => (
+export const DisconnectedModal = ({connected}: IProps) => (
     // once disconnected it is not possible to reconnect
     // so modal is not closable, call dummy function on onHide
     <Modal
@@ -32,7 +31,3 @@ export const DisconnectedModalComp = ({connected}: IProps) => (
         </Modal.Body>
     </Modal>
 );
-
-const mapStateToProps = (state: IProps) => state;
-const mapDispatchToProps = () => ({});
-export const DisconnectedModal = connect(mapStateToProps, mapDispatchToProps)(DisconnectedModalComp);

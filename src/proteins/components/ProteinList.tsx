@@ -4,15 +4,20 @@ import { ListActions } from '../../components/ListActions';
 import { IProtein } from '../types';
 import { ProteinListItem } from './ProteinListItem';
 
-interface IProteinListProps {
+export interface IOwnProps {
     proteins: IProtein[];
+}
+
+export interface IDispatchProps {
     onProteinVisibilityClick(proteinId: string): void;
     onHeteroVisibilityClick(proteinId: string): void;
     onShowAllClick(): void;
     onHideAllClick(): void;
 }
 
-export const ProteinList = (props: IProteinListProps) => {
+type IProps = IOwnProps & IDispatchProps;
+
+export const ProteinList = (props: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (props.proteins.length > 1) {
         listactions = <ListActions hideAll={props.onHideAllClick} showAll={props.onShowAllClick}/>;

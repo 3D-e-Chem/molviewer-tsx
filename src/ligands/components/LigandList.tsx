@@ -4,13 +4,18 @@ import { ListActions } from '../../components/ListActions';
 import { ILigand } from '../types';
 import { LigandListItem } from './LigandListItem';
 
-interface ILigandListProps {
+export interface IOwnProps {
     ligands: ILigand[];
-    onLigandVisibilityClick(ligandId: string): void;
-    onShowAllClick(): void;
+}
+
+export interface IDispatchProps {
+    onVisibilityClick(id: string): void;
     onHideAllClick(): void;
     onHiLiteShownClick(ids: string[]): void;
+    onShowAllClick(): void;
 }
+
+type IProps = IOwnProps & IDispatchProps;
 
 function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) {
     // ids of all shown ligands
@@ -18,7 +23,7 @@ function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) 
     return () => func(ids);
 }
 
-export const LigandList = ({ligands, onLigandVisibilityClick, onShowAllClick, onHideAllClick, onHiLiteShownClick}: ILigandListProps) => {
+export const LigandList = ({ligands, onVisibilityClick, onShowAllClick, onHideAllClick, onHiLiteShownClick}: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (ligands.length > 1) {
         listactions = <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}>
@@ -38,7 +43,7 @@ export const LigandList = ({ligands, onLigandVisibilityClick, onShowAllClick, on
         <LigandListItem
             key={ligand.id}
             {...ligand}
-            onVisibilityClick={onLigandVisibilityClick}
+            onVisibilityClick={onVisibilityClick}
         />
     ));
     return <div style={{ height: '85%', overflowY: 'auto'}}>

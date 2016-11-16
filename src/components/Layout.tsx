@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { DisconnectedModal } from '../sse/components/DisconnectedModal';
+import { DisconnectedModal } from '../sse/containers/DisconnectedModal';
 import { NavBar } from './NavBar';
 
 interface IProps {
