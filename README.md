@@ -57,7 +57,7 @@ npm run build
 
 Then copy essential build files to deployment target:
 ```
-rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
+./deploy.sh <target>/
 ```
 
 # DONE
