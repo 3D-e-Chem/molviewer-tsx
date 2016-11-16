@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
+import { environment } from '../environment';
 import { actions } from '../sse';
 
 interface IDispatchProps {
@@ -22,11 +23,9 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
     };
 };
 
-const developmentMode = true;
-
 export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
     let debugButtons = <div/>;
-    if (developmentMode) {
+    if (environment === 'development') {
         debugButtons = <div>
                 <Button
                     onClick={props.serverModelChanged}

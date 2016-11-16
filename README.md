@@ -79,6 +79,7 @@ rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
 * initially only show first ligand and protein in 3Dmol viewer
 * listen for hilite changes from server
 * propagate hilite selection to server
+* Environment flag to toggle debug buttons in navbar using js file with process.env.NODE_ENV
 
 # TODO
 
@@ -92,7 +93,6 @@ rsync -a --exclude \*.map --exclude asset-manifest.json build/ <target>/
 * Add to Codacy with code coverage
 * Easier manual external declaration inclusion
 * Minify app bundle, or switch from redux-saga to redux-thunk
-* Environment flag to toggle debug buttons in navbar using http://jspm.io/0.17-beta-guide/conditional-loading.html
 * App bundle should not include jquery, it is already in deps bundle
 * mock 3Dmol in tests
 * user friendly error when webgl support is missing
