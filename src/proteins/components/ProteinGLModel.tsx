@@ -11,7 +11,7 @@ export class ProteinGLModel extends GLModel {
         super.componentDidMount();
         this.model.setStyle({ cartoon: { colorscheme: { map: $3Dmol.ssColors.Jmol, prop: 'ss' } } });
         this.model.setStyle({ hetflag: true }, this.hetStyle);
-        this.props.viewer.render();
+        this.context.viewer.render();
     }
 
     public shouldComponentUpdate(nextProps: IProteinGLModelProps) {
