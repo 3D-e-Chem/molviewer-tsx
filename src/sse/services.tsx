@@ -1,3 +1,5 @@
+import 'event-source-polyfill';
+
 import {Dispatch} from 'redux';
 
 import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from './actions';
