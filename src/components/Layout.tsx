@@ -17,7 +17,7 @@ export const Layout = ({title, sidebar, main}: IProps) => (
             <div style={{ marginLeft: '10px', width: '300px' }}>
                 {sidebar}
             </div>
-            <div style={{ flexGrow: 1, position: 'relative' }}>
+            <div style={{ flexGrow: 1, position: 'relative', height: '100%' }}>
                 {main}
             </div>
         </div>
