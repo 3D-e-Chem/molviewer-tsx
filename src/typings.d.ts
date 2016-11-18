@@ -1,3 +1,5 @@
+/* tslint:disable */
+
 /* import all svg files as strings */
 declare module '*.svg' {
     const __path__: string;

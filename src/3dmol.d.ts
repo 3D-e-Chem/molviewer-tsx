@@ -1,3 +1,4 @@
+/* tslint:disable */
 
 declare namespace $3Dmol {
     function createViewer(element: any, config: any): IGLViewer;
