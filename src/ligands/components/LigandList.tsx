@@ -46,7 +46,7 @@ export const LigandList = ({ligands, onVisibilityClick, onShowAllClick, onHideAl
             onVisibilityClick={onVisibilityClick}
         />
     ));
-    return <div style={{ height: '85%', overflowY: 'auto'}}>
+    return <div style={{ height: 700, overflowY: 'auto'}}>
         <h5>Ligands</h5>
         {listactions}
         <table className="table table-condensed"><tbody>
