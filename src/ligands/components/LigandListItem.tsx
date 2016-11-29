@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
+import { EllipsisText } from '../../components/EllipsisText';
 import { ILigand } from '../types';
 
 interface ILigandListItemProps extends ILigand {
@@ -20,7 +21,9 @@ export class LigandListItem extends React.Component<ILigandListItemProps, {}> {
 
     render() {
         return <tr>
-            <td>{this.props.label}</td>
+            <td className="item-label">
+                <EllipsisText maxLength={32} text={this.props.label} tooltipId={ 'ligand-label-tooltip' + this.props.id}/>
+            </td>
             <td style={{textAlign: 'right'}}>
                 <ButtonGroup>
                     <Button bsSize="small" onClick={this.onVisibilityClick}>

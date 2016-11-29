@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 
+import { EllipsisText } from '../../components/EllipsisText';
 import { IProtein } from '../types';
 
 interface IProteinListItemProps extends IProtein {
@@ -26,7 +27,9 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
 
     render() {
         return <tr>
-            <td>{this.props.label}</td>
+            <td>
+                <EllipsisText maxLength={25} text={this.props.label} tooltipId={ 'protein-label-tooltip' + this.props.id}/>
+            </td>
             <td style={{textAlign: 'right'}}>
                 <ButtonGroup>
                     <Button bsSize="small" title="All" onClick={this.onProteinVisibilityClick}>
