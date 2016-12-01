@@ -1,5 +1,7 @@
 Web application to visualize protein with it's natural ligand and candidates.
 
+[![Build Status](https://travis-ci.org/3D-e-Chem/molviewer-tsx.svg?branch=master)](https://travis-ci.org/3D-e-Chem/molviewer-tsx)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) using scripts package [@nlesc/react-scripts](https://github.com/NLeSC/create-react-app).
 
 * [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
