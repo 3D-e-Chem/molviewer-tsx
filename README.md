@@ -39,6 +39,12 @@ When editing *.tsx files use Typescript inside the repo and not the Typescript s
 npm test
 ```
 
+To also get coverage run
+```
+npm test -- --coverage
+```
+The coverage reports will be written to `coverage/remapped` directory.
+
 # Linting
 
 ```

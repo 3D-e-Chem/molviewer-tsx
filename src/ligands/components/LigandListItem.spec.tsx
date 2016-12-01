@@ -6,7 +6,7 @@ import { LigandListItem } from './LigandListItem';
 
 describe('<LigandListItem />', () => {
     describe('render', () => {
-        it('should contain label', () => {
+        it('should contain single button', () => {
             const props = {
                 id: 'id1',
                 label: 'label1',
@@ -20,7 +20,7 @@ describe('<LigandListItem />', () => {
 
             const wrapper = shallow(<LigandListItem {...props} />);
 
-            expect(wrapper.text().includes('label1')).toBeTruthy();
+            expect(wrapper.find('Button').length).toBe(1);
         });
     });
 });
