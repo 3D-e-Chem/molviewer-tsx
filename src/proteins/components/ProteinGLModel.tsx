@@ -5,13 +5,19 @@ interface IProteinGLModelProps extends IGLModelProps {
 }
 
 export class ProteinGLModel extends GLModel {
-    private hetStyle = { stick: { colorscheme: 'orangeCarbon' } };
+    private hetero: NGL.RepresentationComponent;
 
-    public componentDidMount() {
-        super.componentDidMount();
-        this.model.setStyle({ cartoon: { colorscheme: { map: $3Dmol.ssColors.Jmol, prop: 'ss' } } });
-        this.model.setStyle({ hetflag: true }, this.hetStyle);
-        this.context.viewer.render();
+    public modelLoaded() {
+        super.modelLoaded();
+        this.model.addRepresentation('cartoon', {
+            colorScheme: 'sstruc'
+        });
+        this.hetero = this.model.addRepresentation('licorice', {
+            sele: 'hetero and not ( water or ion )',
+            colorScheme: 'element',
+            colorValue: '#FF8C00',
+            multipleBond: 'symmetric'
+        });
     }
 
     public shouldComponentUpdate(nextProps: IProteinGLModelProps) {
@@ -21,11 +27,7 @@ export class ProteinGLModel extends GLModel {
 
     public componentDidUpdate() {
         const props = this.props as IProteinGLModelProps;
-        if (props.hetVisible) {
-            this.model.setStyle({ hetflag: true }, this.hetStyle);
-        } else {
-            this.model.setStyle({ hetflag: true }, {});
-        }
+        this.hetero.setVisibility(props.hetVisible);
         super.componentDidUpdate();
     }
 }

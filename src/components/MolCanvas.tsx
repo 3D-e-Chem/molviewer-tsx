@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 interface IMolCanvasProps {
+    id: string;
     children?: React.ReactNode[];
 }
 
 export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
-    private canvasContainerEl: Element;
-    private viewer: $3Dmol.IGLViewer;
+    private viewer: NGL.Stage;
 
     static childContextTypes = {
         viewer: React.PropTypes.object
@@ -28,14 +28,11 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     }
 
     componentDidMount() {
-        const element = jQuery(this.canvasContainerEl);
-        const config = {};
-        this.viewer = $3Dmol.createViewer(element, config);
-        this.viewer.setBackgroundColor(0xffffff);
-        this.viewer.render();
+        const config = { backgroundColor: 'white' };
+        this.viewer = new NGL.Stage(this.props.id, config);
     }
 
     private canvasRefHandler(ref: Element) {
-        this.canvasContainerEl = ref;
+        ref.id = this.props.id;
     }
 }

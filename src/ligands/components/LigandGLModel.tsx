@@ -1,9 +1,12 @@
 import { GLModel} from '../../components/GLModel';
 
 export class LigandGLModel extends GLModel {
-    public componentDidMount() {
-        super.componentDidMount();
-        this.model.setStyle({}, { stick: { colorscheme: 'greenCarbon' } });
-        this.context.viewer.render();
+    public modelLoaded() {
+        super.modelLoaded();
+        this.model.addRepresentation('licorice', {
+            colorScheme: 'element',
+            colorValue: '#32CD32',
+            multipleBond: 'symmetric'
+        });
     }
 }
