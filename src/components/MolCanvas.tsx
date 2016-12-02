@@ -6,10 +6,10 @@ interface IMolCanvasProps {
 }
 
 export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
-    private viewer: NGL.Stage;
+    private stage: NGL.Stage;
 
     static childContextTypes = {
-        viewer: React.PropTypes.object
+        stage: React.PropTypes.object
     };
 
     constructor() {
@@ -18,7 +18,7 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     }
 
     getChildContext() {
-        return {viewer: this.viewer};
+        return {stage: this.stage};
     }
 
     render() {
@@ -29,7 +29,7 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
 
     componentDidMount() {
         const config = { backgroundColor: 'white' };
-        this.viewer = new NGL.Stage(this.props.id, config);
+        this.stage = new NGL.Stage(this.props.id, config);
     }
 
     private canvasRefHandler(ref: Element) {

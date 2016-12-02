@@ -25,6 +25,7 @@ declare namespace NGL {
 
     class Stage {
         constructor(eid: string, params?: StageParameters);
+        centerView(): void;
         loadFile(path: String|File|Blob, params: loadFileParameters): Promise<StructureComponent>;
         remove(component: StructureComponent): void;
     }

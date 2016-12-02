@@ -7,7 +7,7 @@ export interface IGLModelProps {
 }
 
 interface IContext {
-    viewer: NGL.Stage;
+    stage: NGL.Stage;
 }
 
 export class GLModel extends React.Component<IGLModelProps, {}> {
@@ -15,7 +15,7 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
     public context: IContext;
 
     static contextTypes = {
-        viewer: React.PropTypes.object
+        stage: React.PropTypes.object
     };
 
     public render() {
@@ -23,7 +23,7 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
     }
 
     public componentWillUnmount() {
-        this.context.viewer.remove(this.model);
+        this.context.stage.remove(this.model);
     }
 
     public shouldComponentUpdate(nextProps: IGLModelProps) {
@@ -37,13 +37,14 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
     public modelLoaded() {
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
+            // TODO center on whole stage instead of model
             this.model.centerView();
         }
     }
 
     public componentDidMount() {
         const blob = new Blob([this.props.data], { type: 'text/plain'});
-        this.context.viewer.loadFile(blob, { ext: this.props.format}).then(comp => {
+        this.context.stage.loadFile(blob, { ext: this.props.format}).then(comp => {
             this.model = comp;
             this.modelLoaded();
         });
