@@ -22,7 +22,7 @@ export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
     }
 
     render() {
-        return <div style={{ height: '100%', width: '100%' }} ref={this.canvasRefHandler}>
+        return <div style={{ height: '100%' }} ref={this.canvasRefHandler}>
             {this.props.children}
         </div>;
     }

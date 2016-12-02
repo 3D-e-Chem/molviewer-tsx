@@ -6,6 +6,7 @@ import { LigandListItem } from './LigandListItem';
 
 export interface IOwnProps {
     ligands: ILigand[];
+    height: string | number;
 }
 
 export interface IDispatchProps {
@@ -23,7 +24,7 @@ function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) 
     return () => func(ids);
 }
 
-export const LigandList = ({ligands, onVisibilityClick, onShowAllClick, onHideAllClick, onHiLiteShownClick}: IProps) => {
+export const LigandList = ({ligands, onVisibilityClick, onShowAllClick, onHideAllClick, onHiLiteShownClick, height}: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (ligands.length > 1) {
         listactions = <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}>
@@ -46,7 +47,7 @@ export const LigandList = ({ligands, onVisibilityClick, onShowAllClick, onHideAl
             onVisibilityClick={onVisibilityClick}
         />
     ));
-    return <div style={{ height: 700, overflowY: 'auto'}}>
+    return <div style={{ height, overflowY: 'auto'}}>
         <h5>Ligands</h5>
         {listactions}
         <table className="table table-condensed"><tbody>

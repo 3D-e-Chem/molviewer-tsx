@@ -3,21 +3,23 @@ import * as React from 'react';
 import { DisconnectedModal } from '../sse/containers/DisconnectedModal';
 import { NavBar } from './NavBar';
 
+import './Layout.css';
+
 interface IProps {
     title: string;
-    sidebar: JSX.Element;
+    sidebar: JSX.Element | JSX.Element[];
     main: JSX.Element;
 }
 
 export const Layout = ({title, sidebar, main}: IProps) => (
-    <div>
+    <div className="full-screen">
         <NavBar title={title}/>
         <DisconnectedModal/>
-        <div style={{ display: 'flex', height: '900px' }}>
-            <div style={{ marginLeft: '10px', width: '300px' }}>
+        <div className="wrapper">
+            <div className="sidebar">
                 {sidebar}
             </div>
-            <div style={{ flexGrow: 1, position: 'relative', height: '100%' }}>
+            <div className="main">
                 {main}
             </div>
         </div>

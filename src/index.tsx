@@ -9,6 +9,7 @@ import { mainSaga } from './mainSaga';
 import { rootReducer } from './rootReducer';
 import { ServerListener } from './sse';
 
+import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 const sagaMiddleware = createSagaMiddleware();

@@ -1,0 +1,31 @@
+.full-screen {
+    height: 100%;
+}
+
+.full-screen {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.full-screen > * {
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+.full-screen > .wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+}
+
+.full-screen > .wrapper > .sidebar {
+    padding: 5px;
+    width: 300px;
+    height: 100%;
+}
+
+.full-screen > .wrapper > .main {
+    flex: 1 1 auto;
+}

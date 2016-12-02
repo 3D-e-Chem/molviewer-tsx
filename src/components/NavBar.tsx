@@ -43,7 +43,7 @@ export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
                 </Button>
             </div>;
     }
-    return <nav className="navbar navbar-default">
+    return <nav className="navbar navbar-default" style={{marginBottom:0, borderRadius: '0px'}}>
         <div className="container-fluid">
             <div className="navbar-header">
                 <span className="navbar-brand">{props.title}</span>
