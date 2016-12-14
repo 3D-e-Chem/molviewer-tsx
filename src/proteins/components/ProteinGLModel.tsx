@@ -1,3 +1,5 @@
+import * as NGL from 'ngl';
+
 import { GLModel, IGLModelProps} from '../../components/GLModel';
 
 interface IProteinGLModelProps extends IGLModelProps {

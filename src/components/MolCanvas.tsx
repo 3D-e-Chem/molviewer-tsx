@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import * as NGL from 'ngl';
+
 interface IMolCanvasProps {
     id: string;
     children?: React.ReactNode[];

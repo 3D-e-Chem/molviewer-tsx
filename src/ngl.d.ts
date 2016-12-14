@@ -1,5 +1,5 @@
 
-declare namespace NGL {
+declare module 'ngl' {
     interface StageParameters {
         backgroundColor: string;
     }
