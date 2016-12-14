@@ -8,7 +8,7 @@ export interface IGLModelProps {
     format: string; // TODO use enum
 }
 
-interface IContext {
+export interface IContext {
     stage: NGL.Stage;
 }
 
@@ -36,7 +36,8 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
         this.model.setVisibility(this.props.visible);
     }
 
-    public modelLoaded() {
+    public modelLoaded(comp: NGL.StructureComponent) {
+        this.model = comp;
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
             // TODO center on whole stage instead of model
@@ -46,9 +47,7 @@ export class GLModel extends React.Component<IGLModelProps, {}> {
 
     public componentDidMount() {
         const blob = new Blob([this.props.data], { type: 'text/plain'});
-        this.context.stage.loadFile(blob, { ext: this.props.format}).then(comp => {
-            this.model = comp;
-            this.modelLoaded();
-        });
+        this.context.stage.loadFile(blob, { ext: this.props.format})
+            .then(this.modelLoaded.bind(this));
     }
 }

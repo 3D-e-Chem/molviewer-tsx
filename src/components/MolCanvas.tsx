@@ -2,12 +2,12 @@ import * as React from 'react';
 
 import * as NGL from 'ngl';
 
-interface IMolCanvasProps {
+export interface IProps {
     id: string;
     children?: React.ReactNode[];
 }
 
-export class MolCanvas extends React.Component<IMolCanvasProps, {}> {
+export class MolCanvas extends React.Component<IProps, {}> {
     private stage: NGL.Stage;
 
     static childContextTypes = {

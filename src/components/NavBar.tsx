@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { environment } from '../environment';
 import { actions } from '../sse';
 
-interface IDispatchProps {
+export interface IDispatchProps {
     serverDisconnect(): void;
     serverModelChanged(): void;
 }

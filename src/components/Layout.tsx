@@ -5,7 +5,7 @@ import { NavBar } from './NavBar';
 
 import './Layout.css';
 
-interface IProps {
+export interface IProps {
     title: string;
     sidebar: JSX.Element | JSX.Element[];
     main: JSX.Element;

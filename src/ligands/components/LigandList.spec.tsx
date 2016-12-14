@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { shallow, ShallowWrapper } from 'enzyme';
+import { CommonWrapper, shallow } from 'enzyme';
 
 import { ListActions } from '../../components/ListActions';
 import { IDispatchProps, IProps, LigandList } from './LigandList';
@@ -9,7 +9,7 @@ import { LigandListItem } from './LigandListItem';
 describe('<LigandList />', () => {
     describe('render', () => {
         let clickers: IDispatchProps;
-        let wrapper: ShallowWrapper<IProps, {}>;
+        let wrapper: CommonWrapper<IProps, {}>;
 
         beforeEach(() => {
             clickers = {
@@ -115,6 +115,13 @@ describe('<LigandList />', () => {
 
             it('should have list actions', () => {
                 expect(wrapper.find(ListActions).length).toEqual(1);
+            });
+
+            describe('when HiLite shown button is clicked', () => {
+                it('should call onHiLiteShownClick()', () => {
+                    wrapper.find('button').simulate('click');
+                    expect(clickers.onHiLiteShownClick).toHaveBeenCalledWith(['id1']);
+                });
             });
         });
     });
