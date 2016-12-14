@@ -4,7 +4,7 @@ import {Dispatch} from 'redux';
 
 import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from './actions';
 
-type TDispatchActions = serverDisconnect | serverHiLiteChanged | serverModelChanged;
+export type TDispatchActions = serverDisconnect | serverHiLiteChanged | serverModelChanged;
 
 export class ServerListener {
     private url: string;

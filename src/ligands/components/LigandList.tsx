@@ -16,7 +16,7 @@ export interface IDispatchProps {
     onShowAllClick(): void;
 }
 
-type IProps = IOwnProps & IDispatchProps;
+export type IProps = IOwnProps & IDispatchProps;
 
 function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) {
     // ids of all shown ligands
