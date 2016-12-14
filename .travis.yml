@@ -3,5 +3,5 @@ node_js: 6
 sudo: false
 script:
 - npm test -- --coverage
-- cat coverage/remapped/lcov.info | ./node_modules/.bin/codacy-coverage
+- cat coverage/remapped/lcov.info | ./node_modules/.bin/codacy-coverage -p .
 - npm run lint
