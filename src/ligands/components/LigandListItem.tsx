@@ -22,7 +22,7 @@ export class LigandListItem extends React.Component<ILigandListItemProps, {}> {
     render() {
         return <tr>
             <td className="item-label">
-                <EllipsisText maxLength={32} text={this.props.label} tooltipId={ 'ligand-label-tooltip' + this.props.id}/>
+                <EllipsisText maxLength={32} text={this.props.label} tooltipId={'ligand-label-tooltip' + this.props.id}/>
             </td>
             <td style={{textAlign: 'right'}}>
                 <ButtonGroup>

@@ -28,7 +28,7 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
     render() {
         return <tr>
             <td>
-                <EllipsisText maxLength={25} text={this.props.label} tooltipId={ 'protein-label-tooltip' + this.props.id}/>
+                <EllipsisText maxLength={25} text={this.props.label} tooltipId={'protein-label-tooltip' + this.props.id}/>
             </td>
             <td style={{textAlign: 'right'}}>
                 <ButtonGroup>
