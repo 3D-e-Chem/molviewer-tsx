@@ -2,5 +2,6 @@ language: node_js
 node_js: 6
 sudo: false
 script:
-- npm test
+- npm test -- --coverage
+- cat coverage/remapped/lcov.info | ./node_modules/.bin/codacy-coverage
 - npm run lint

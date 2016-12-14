@@ -1,6 +1,7 @@
 Web application to visualize protein with it's natural ligand and candidates.
 
 [![Build Status](https://travis-ci.org/3D-e-Chem/molviewer-tsx.svg?branch=master)](https://travis-ci.org/3D-e-Chem/molviewer-tsx)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e80c537a04c34a508709c839940d5bfe)](https://www.codacy.com/app/3D-e-Chem/molviewer-tsx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=3D-e-Chem/molviewer-tsx&amp;utm_campaign=Badge_Grade)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) using scripts package [@nlesc/react-scripts](https://github.com/NLeSC/create-react-app).
 
