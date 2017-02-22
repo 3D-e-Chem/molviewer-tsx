@@ -16,17 +16,19 @@ export class ProteinGLModel extends GLModel {
         this.model.addRepresentation('cartoon', {
             colorScheme: 'sstruc'
         });
+
+        const heteroSelection = new NGL.Selection( 'hetero and not ( water or ion )' );
+        const heteroAtoms = this.model.structure.getAtomSet( heteroSelection );
         this.hetero = this.model.addRepresentation('licorice', {
-            sele: 'hetero and not ( water or ion )',
+            sele: heteroAtoms.toSeleString(),
             colorScheme: 'element',
             colorValue: '#FF8C00',
             multipleBond: 'symmetric'
         });
 
+        // ToDo: link selectionRadius to a slider or input box
         const selectionRadius = 5;
-        const initialSelection = new NGL.Selection( 'hetero and not ( water or ion )' );
-        const pocketAtoms = this.model.structure.getAtomSetWithinSelection( initialSelection, selectionRadius );
-        const heteroAtoms = this.model.structure.getAtomSetWithinSelection( initialSelection, 0 );
+        const pocketAtoms = this.model.structure.getAtomSetWithinSelection( heteroSelection, selectionRadius );
         const pocketResidues = this.model.structure.getAtomSetWithinGroup( pocketAtoms );
         this.pocket = this.model.addRepresentation('ball+stick', {
             sele: pocketResidues.new_difference(heteroAtoms).toSeleString(),

@@ -20,8 +20,9 @@ declare module 'ngl' {
     }
 
     class Structure {
-        getAtomSetWithinSelection(selection: Selection, radius: number): TypedFastBitSet;
+        getAtomSet(selection: Selection): TypedFastBitSet;
         getAtomSetWithinGroup(selection: TypedFastBitSet): TypedFastBitSet;
+        getAtomSetWithinSelection(selection: Selection, radius: number): TypedFastBitSet;
     }
 
     class TypedFastBitSet {
