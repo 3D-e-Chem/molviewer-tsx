@@ -6,6 +6,7 @@ export function prepProtein(restProtein: IRestProtein, index: Number) {
   const protein = restProtein as IProtein;
   protein.visible = index < initialShownMolecules;
   protein.hetVisible = true;
+  protein.pocketVisible = true;
   return protein;
 }
 

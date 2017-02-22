@@ -8,17 +8,23 @@ import { IProtein } from '../types';
 interface IProteinListItemProps extends IProtein {
     onProteinVisibilityClick(id: string): void;
     onHeteroVisibilityClick(id: string): void;
+    onPocketVisibilityClick(id: string): void;
 }
 
 export class ProteinListItem extends React.Component<IProteinListItemProps, {}> {
     constructor() {
         super();
         this.onHeteroVisibilityClick = this.onHeteroVisibilityClick.bind(this);
+        this.onPocketVisibilityClick = this.onPocketVisibilityClick.bind(this);
         this.onProteinVisibilityClick = this.onProteinVisibilityClick.bind(this);
     }
 
     onHeteroVisibilityClick() {
         this.props.onHeteroVisibilityClick(this.props.id);
+    }
+
+    onPocketVisibilityClick() {
+        this.props.onPocketVisibilityClick(this.props.id);
     }
 
     onProteinVisibilityClick() {
@@ -39,6 +45,10 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
                     <Button bsSize="small" title="Hetero" onClick={this.onHeteroVisibilityClick}>
                         H&nbsp;
                         <Glyphicon glyph={this.props.hetVisible ? 'eye-open' : 'eye-close'} />
+                    </Button>
+                    <Button bsSize="small" title="Pocket" onClick={this.onPocketVisibilityClick}>
+                        P&nbsp;
+                        <Glyphicon glyph={this.props.pocketVisible ? 'eye-open' : 'eye-close'} />
                     </Button>
                 </ButtonGroup>
             </td>

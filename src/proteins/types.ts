@@ -8,4 +8,5 @@ export interface IRestProtein {
 export interface IProtein extends IRestProtein {
   visible: boolean;
   hetVisible: boolean;
+  pocketVisible: boolean;
 }

@@ -12,6 +12,7 @@ const mapDispatchToProps = (dispatch: any): IDispatchProps => {
     return {
         onHideAllClick: () => dispatch(actions.hideAll()),
         onHeteroVisibilityClick: (id: string) => dispatch(actions.toggleHetVisibility(id)),
+        onPocketVisibilityClick: (id: string) => dispatch(actions.togglePocketVisibility(id)),
         onProteinVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id)),
         onShowAllClick: () => dispatch(actions.showAll())
     };

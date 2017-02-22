@@ -1,6 +1,7 @@
 import { OtherAction, ProteinAction } from './actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
+    PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
@@ -28,6 +29,17 @@ export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAct
                     // return { ...protein, hetVisible: !protein.hetVisible};
                     return Object.assign({}, protein, {
                         hetVisible: !protein.hetVisible
+                    });
+                }
+                return protein;
+            });
+        case PROTEIN_TOGGLE_POCKETVISIBILITY:
+            return state.map(protein => {
+                if (protein.id === action.id) {
+                    // TODO when object spread is avialable in TypeScript use:
+                    // return { ...protein, pocketVisible: !protein.pocketVisible};
+                    return Object.assign({}, protein, {
+                        pocketVisible: !protein.pocketVisible
                     });
                 }
                 return protein;

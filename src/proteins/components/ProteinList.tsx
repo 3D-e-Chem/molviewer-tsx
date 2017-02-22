@@ -11,6 +11,7 @@ export interface IOwnProps {
 export interface IDispatchProps {
     onProteinVisibilityClick(proteinId: string): void;
     onHeteroVisibilityClick(proteinId: string): void;
+    onPocketVisibilityClick(proteinId: string): void;
     onShowAllClick(): void;
     onHideAllClick(): void;
 }
@@ -27,6 +28,7 @@ export const ProteinList = (props: IProps) => {
             key={protein.id}
             {...protein}
             onProteinVisibilityClick={props.onProteinVisibilityClick}
+            onPocketVisibilityClick={props.onPocketVisibilityClick}
             onHeteroVisibilityClick={props.onHeteroVisibilityClick}
         />
     ));

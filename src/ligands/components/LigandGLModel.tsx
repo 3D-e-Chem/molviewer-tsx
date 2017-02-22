@@ -1,8 +1,10 @@
-import { GLModel} from '../../components/GLModel';
+import * as NGL from 'ngl';
+
+import { GLModel } from '../../components/GLModel';
 
 export class LigandGLModel extends GLModel {
-    public modelLoaded() {
-        super.modelLoaded();
+    public modelLoaded(comp: NGL.StructureComponent) {
+        super.modelLoaded(comp);
         this.model.addRepresentation('licorice', {
             colorScheme: 'element',
             colorValue: '#32CD32',

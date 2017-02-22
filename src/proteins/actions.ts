@@ -1,6 +1,7 @@
 import {OtherAction} from '../actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
+    PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
@@ -27,6 +28,16 @@ export type toggleHetVisibility = {
 
 export const toggleHetVisibility = (id: string): toggleHetVisibility => ({
     type: PROTEIN_TOGGLE_HETVISIBILITY,
+    id
+});
+
+export type togglePocketVisibility = {
+  type: PROTEIN_TOGGLE_POCKETVISIBILITY,
+  id: string
+};
+
+export const togglePocketVisibility = (id: string): togglePocketVisibility => ({
+    type: PROTEIN_TOGGLE_POCKETVISIBILITY,
     id
 });
 
@@ -72,7 +83,7 @@ export const hideAll = (): hideAll => ({
   type: PROTEINS_HIDE
 });
 
-type toggleAction = toggleHetVisibility | toggleVisibility | showAll | hideAll;
+type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | showAll | hideAll;
 
 export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
 export { OtherAction };

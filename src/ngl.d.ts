@@ -14,10 +14,28 @@ declare module 'ngl' {
     }
 
     class RepresentationComponent {
+        selection: Selection;
+        getParameter(): void;
         setVisibility(value: boolean): void;
     }
 
+    class Structure {
+        getAtomSetWithinSelection(selection: Selection, radius: number): TypedFastBitSet;
+        getAtomSetWithinGroup(selection: TypedFastBitSet): TypedFastBitSet;
+    }
+
+    class TypedFastBitSet {
+        toSeleString(): string;
+        new_difference(map: TypedFastBitSet): TypedFastBitSet;
+    }
+
+    class Selection{
+        constructor(selection: string);
+        parse(string: string): string;
+    }
+
     class StructureComponent {
+        structure: Structure;
         setVisibility(value: boolean): void;
         centerView(): void;
         addRepresentation(type: string, params: any): RepresentationComponent;
