@@ -3,6 +3,7 @@ import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
+    PROTEINS_ADJUST_POCKETRADIUS,
     PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
@@ -39,6 +40,16 @@ export type togglePocketVisibility = {
 export const togglePocketVisibility = (id: string): togglePocketVisibility => ({
     type: PROTEIN_TOGGLE_POCKETVISIBILITY,
     id
+});
+
+export type adjustPocketRadius = {
+    type: PROTEINS_ADJUST_POCKETRADIUS,
+    radius: number
+};
+
+export const adjustPocketRadius = (radius: number): adjustPocketRadius => ({
+    type: PROTEINS_ADJUST_POCKETRADIUS,
+    radius
 });
 
 export type fetchRequested = {
@@ -83,7 +94,7 @@ export const hideAll = (): hideAll => ({
   type: PROTEINS_HIDE
 });
 
-type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | showAll | hideAll;
+type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | adjustPocketRadius | showAll | hideAll;
 
 export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
 export { OtherAction };

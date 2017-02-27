@@ -3,6 +3,7 @@ import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
+    PROTEINS_ADJUST_POCKETRADIUS,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW
@@ -43,6 +44,18 @@ export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAct
                     });
                 }
                 return protein;
+            });
+        case PROTEINS_ADJUST_POCKETRADIUS:
+            return state.map(protein => {
+                //if (protein.id === action.id) {
+                    // TODO when object spread is avialable in TypeScript use:
+                    // return { ...protein, hetVisible: !protein.hetVisible};
+                    return Object.assign({}, protein, {
+                        pocketUpdated: true,
+                        selectionRadius: action.radius
+                    });
+                //}
+                //return protein;
             });
         case PROTEINS_SHOW:
             return state.map(protein => {

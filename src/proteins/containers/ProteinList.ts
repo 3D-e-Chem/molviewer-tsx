@@ -10,6 +10,7 @@ import {
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
 const mapDispatchToProps = (dispatch: any): IDispatchProps => {
     return {
+        onPocketRadiusChange: (radius: number) => dispatch(actions.adjustPocketRadius(radius)),
         onHideAllClick: () => dispatch(actions.hideAll()),
         onHeteroVisibilityClick: (id: string) => dispatch(actions.toggleHetVisibility(id)),
         onPocketVisibilityClick: (id: string) => dispatch(actions.togglePocketVisibility(id)),

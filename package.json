@@ -26,6 +26,7 @@
     "event-source-polyfill": "0.0.7",
     "isomorphic-fetch": "^2.2.1",
     "ngl": "github:arose/ngl#v0.10.0-dev.5",
+    "rc-slider": "~6.1.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",

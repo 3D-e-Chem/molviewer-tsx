@@ -14,7 +14,6 @@ declare module 'ngl' {
     }
 
     class RepresentationComponent {
-        selection: Selection;
         getParameter(): void;
         setVisibility(value: boolean): void;
     }

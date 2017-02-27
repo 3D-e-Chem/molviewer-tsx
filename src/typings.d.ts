@@ -6,6 +6,9 @@ declare module '*.svg' {
     export default __path__;
 }
 
+declare module 'rc-slider*';
+declare module 'rc-util*';
+
 // Type definitions for Server-Sent Events
 // Specification: http://dev.w3.org/html5/eventsource/
 // Definitions by: Yannik Hampe <https://github.com/yankee42
