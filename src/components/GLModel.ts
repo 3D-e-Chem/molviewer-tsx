@@ -12,7 +12,7 @@ export interface IContext {
     stage: NGL.Stage;
 }
 
-export class GLModel extends React.Component<IGLModelProps, {}> {
+export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
     protected model: NGL.StructureComponent;
     public context: IContext;
 

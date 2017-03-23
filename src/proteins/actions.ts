@@ -94,7 +94,8 @@ export const hideAll = (): hideAll => ({
   type: PROTEINS_HIDE
 });
 
-type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | adjustPocketRadius | showAll | hideAll;
+type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | showAll | hideAll;
 
 export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
+export type PocketAction = adjustPocketRadius | OtherAction;
 export { OtherAction };

@@ -1,4 +1,4 @@
-import { OtherAction, ProteinAction } from './actions';
+import { OtherAction, PocketAction, ProteinAction } from './actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
@@ -10,7 +10,16 @@ import {
 } from './constants';
 import { IProtein } from './types';
 
-export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
+export function pocketRadius(state: number = 5.0, action: PocketAction = OtherAction): number {
+    switch (action.type) {
+        case PROTEINS_ADJUST_POCKETRADIUS:
+            return action.radius;
+        default:
+            return state;
+    }
+}
+
+export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
             return state.map(protein => {
@@ -44,18 +53,6 @@ export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAct
                     });
                 }
                 return protein;
-            });
-        case PROTEINS_ADJUST_POCKETRADIUS:
-            return state.map(protein => {
-                //if (protein.id === action.id) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, hetVisible: !protein.hetVisible};
-                    return Object.assign({}, protein, {
-                        pocketUpdated: true,
-                        selectionRadius: action.radius
-                    });
-                //}
-                //return protein;
             });
         case PROTEINS_SHOW:
             return state.map(protein => {

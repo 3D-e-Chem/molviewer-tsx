@@ -5,7 +5,7 @@ import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
 import { EllipsisText } from '../../components/EllipsisText';
 import { IProtein } from '../types';
 
-interface IProteinListItemProps extends IProtein {
+export interface IProteinListItemProps extends IProtein {
     onProteinVisibilityClick(id: string): void;
     onHeteroVisibilityClick(id: string): void;
     onPocketVisibilityClick(id: string): void;

@@ -1,8 +1,8 @@
 import * as NGL from 'ngl';
 
-import { GLModel } from '../../components/GLModel';
+import { GLModel, IGLModelProps } from '../../components/GLModel';
 
-export class LigandGLModel extends GLModel {
+export class LigandGLModel extends GLModel<IGLModelProps, {}> {
     public modelLoaded(comp: NGL.StructureComponent) {
         super.modelLoaded(comp);
         this.model.addRepresentation('licorice', {

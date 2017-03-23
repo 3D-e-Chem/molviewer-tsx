@@ -13,6 +13,7 @@ import { ProteinList } from '../proteins/containers/ProteinList';
 export interface IStateProps {
     ligands: ligands.ILigand[];
     proteins: proteins.IProtein[];
+    pocketRadius: number;
 }
 
 export interface IDispatchProps {
@@ -30,13 +31,13 @@ export class LigandsAndProteinsViewer extends React.Component<IStateProps & IDis
         const title = 'Ligands and proteins viewer';
         const sidebar = [
             <LigandList key="ligands" height="80%" ligands={this.props.ligands}/>,
-            <ProteinList key="proteins" proteins={this.props.proteins}/>
+            <ProteinList key="proteins" proteins={this.props.proteins} pocketRadius={this.props.pocketRadius}/>
         ];
         const ligands = this.props.ligands.map((ligand) => (
             <LigandGLModel key={ligand.id} {...ligand}/>
         ));
         const proteins = this.props.proteins.map((protein) => (
-            <ProteinGLModel key={protein.id} {...protein}/>
+            <ProteinGLModel key={protein.id} {...protein} pocketRadius={this.props.pocketRadius}/>
         ));
         const main = <MolCanvas id="canvas">
             {ligands}
