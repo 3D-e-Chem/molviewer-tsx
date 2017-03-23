@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import { CommonWrapper, shallow } from 'enzyme';
 
-import { IDispatchProps, NavBarComp } from './NavBar';
+import { IDispatchProps, NavBar } from './NavBar';
 
-describe('<NavBarComp />', () => {
+describe('<NavBar />', () => {
     describe('render', () => {
         let wrapper: CommonWrapper<any, {}>;
         let clickers: IDispatchProps;
@@ -14,7 +14,7 @@ describe('<NavBarComp />', () => {
                 serverDisconnect: jest.fn(),
                 serverModelChanged: jest.fn()
             };
-            const comp = <NavBarComp
+            const comp = <NavBar
                 title="My title"
                 serverDisconnect={clickers.serverDisconnect}
                 serverModelChanged={clickers.serverModelChanged}

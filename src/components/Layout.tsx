@@ -1,7 +1,7 @@
 import * as React from 'react';
 
+import { NavBar } from '../containers/NavBar';
 import { DisconnectedModal } from '../sse/containers/DisconnectedModal';
-import { NavBar } from './NavBar';
 
 import './Layout.css';
 

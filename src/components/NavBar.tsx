@@ -1,29 +1,19 @@
 import * as React from 'react';
 
 import { Button, Glyphicon } from 'react-bootstrap';
-import { connect } from 'react-redux';
 
 import { environment } from '../environment';
-import { actions } from '../sse';
 
 export interface IDispatchProps {
     serverDisconnect(): void;
     serverModelChanged(): void;
 }
 
-interface IComponentProps {
+export interface IOwnProps {
     title: string;
 }
 
-const mapStateToProps = (_state: {}, ownProps: IComponentProps) => (ownProps);
-const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
-    return {
-        serverDisconnect: () => dispatch(actions.serverDisconnect()),
-        serverModelChanged: () => dispatch(actions.serverModelChanged())
-    };
-};
-
-export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
+export const NavBar = (props: IDispatchProps & IOwnProps) => {
     let debugButtons = <div/>;
     if (environment === 'development') {
         debugButtons = <div>
@@ -52,5 +42,3 @@ export const NavBarComp = (props: IDispatchProps & IComponentProps) => {
         </div>
     </nav>;
 };
-
-export const NavBar = connect(mapStateToProps, mapDispatchToProps)(NavBarComp);
