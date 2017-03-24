@@ -29,7 +29,6 @@ describe('reducer', () => {
             expect(state).toEqual(5.0);
         });
 
-
         describe('adjust', () => {
             it('should be set to radius of action', () => {
                 const action = actions.adjustPocketRadius(3.0);
