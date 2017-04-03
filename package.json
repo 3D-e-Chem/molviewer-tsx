@@ -14,7 +14,6 @@
     "@types/react-dom": "^0.14.18",
     "@types/react-redux": "^4.4.32",
     "@types/react-router": "^2.0.39",
-    "@types/redux": "^3.6.31",
     "@types/redux-saga": "^0.9.30",
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.0",
