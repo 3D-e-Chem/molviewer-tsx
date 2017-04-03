@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { CommonWrapper, shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 
 import { ListActions } from '../../components/ListActions';
 import { IDispatchProps, IProps, LigandList } from './LigandList';
@@ -9,7 +9,7 @@ import { LigandListItem } from './LigandListItem';
 describe('<LigandList />', () => {
     describe('render', () => {
         let clickers: IDispatchProps;
-        let wrapper: CommonWrapper<IProps, {}>;
+        let wrapper: ShallowWrapper<IProps, {}>;
 
         beforeEach(() => {
             clickers = {

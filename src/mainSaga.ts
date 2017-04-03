@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeLatest } from 'redux-saga/effects';
 
 import * as ligands from './ligands';
 import * as proteins from './proteins';

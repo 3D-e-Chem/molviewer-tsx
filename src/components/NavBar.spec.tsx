@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import { CommonWrapper, shallow } from 'enzyme';
+import { shallow, ShallowWrapper  } from 'enzyme';
 
 import { IDispatchProps, NavBar } from './NavBar';
 
 describe('<NavBar />', () => {
     describe('render', () => {
-        let wrapper: CommonWrapper<any, {}>;
+        let wrapper: ShallowWrapper<any, {}>;
         let clickers: IDispatchProps;
 
         beforeEach(() => {
@@ -29,11 +29,11 @@ describe('<NavBar />', () => {
         });
 
         it('should not have Disconnect button in test environment', () => {
-            expect(wrapper.find('[title="Refresh"]').isEmpty()).toBeTruthy();
+            expect(wrapper.find('[title="Refresh"]').exists()).toBeFalsy();
         });
 
         it('should not have Refresh button in test environment', () => {
-            expect(wrapper.find('[title="Refresh"]').isEmpty()).toBeTruthy();
+            expect(wrapper.find('[title="Refresh"]').exists()).toBeFalsy();
         });
     });
 });

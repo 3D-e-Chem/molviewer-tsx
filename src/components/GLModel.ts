@@ -40,7 +40,7 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
         this.model = comp;
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
-            this.model.centerView();
+            this.model.autoView();
         }
     }
 

@@ -4,7 +4,7 @@ import { GLModel, IGLModelProps } from './GLModel';
 
 function mockedComponent() {
     return {
-        centerView: jest.fn(),
+        autoView: jest.fn(),
         setVisibility: jest.fn()
     } as any as NGL.StructureComponent;
 }
@@ -69,14 +69,19 @@ describe('<GLModel />', () => {
                 expect(comp.setVisibility).toHaveBeenCalledWith(true);
             });
 
-            it('should call centerView on component when it is visible', () => {
-                expect(comp.centerView).toHaveBeenCalled();
+            it('should call autoView on component when it is visible', () => {
+                expect(comp.autoView).toHaveBeenCalled();
             });
         });
 
         describe('visible===false', () => {
             beforeEach(() => {
-                model.props.visible = false;
+                const props = {
+                    data: '...',
+                    format: 'mol2',
+                    visible: false
+                };
+                model = new GLModel(props);
                 model.modelLoaded(comp);
             });
 
@@ -84,8 +89,8 @@ describe('<GLModel />', () => {
                 expect(comp.setVisibility).toHaveBeenCalledWith(false);
             });
 
-            it('should not call centerView on component when it is not visible', () => {
-                expect(comp.centerView).not.toHaveBeenCalled();
+            it('should not call autoView on component when it is not visible', () => {
+                expect(comp.autoView).not.toHaveBeenCalled();
             });
         });
 

@@ -37,13 +37,12 @@ declare module 'ngl' {
     class StructureComponent {
         structure: Structure;
         setVisibility(value: boolean): void;
-        centerView(): void;
+        autoView(duration?: number): void;
         addRepresentation(type: string, params: any): RepresentationComponent;
     }
 
     class Stage {
         constructor(eid: string, params?: StageParameters);
-        centerView(): void;
         loadFile(path: String|File|Blob, params: loadFileParameters): Promise<StructureComponent>;
         remove(component: StructureComponent): void;
     }
