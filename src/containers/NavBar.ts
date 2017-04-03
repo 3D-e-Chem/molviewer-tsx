@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import {
     IDispatchProps,
@@ -8,7 +9,7 @@ import {
 import { actions } from '../sse';
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => (ownProps);
-const mapDispatchToProps = (dispatch: any): IDispatchProps  => {
+const mapDispatchToProps = (dispatch: Dispatch<actions.connectedAction>): IDispatchProps  => {
     return {
         serverDisconnect: () => dispatch(actions.serverDisconnect()),
         serverModelChanged: () => dispatch(actions.serverModelChanged())

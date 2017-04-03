@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import * as actions from '../actions';
 import {
@@ -8,7 +9,7 @@ import {
 } from '../components/LigandList';
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
-const mapDispatchToProps = (dispatch: any): IDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<actions.LigandAction>): IDispatchProps => {
     return {
         onHiLiteShownClick: (ids: string[]) => dispatch(actions.hiLiteShown(ids)),
         onHideAllClick: () => dispatch(actions.hideAll()),

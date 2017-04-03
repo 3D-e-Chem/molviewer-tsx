@@ -1,4 +1,4 @@
-import { IAction, IOtherAction, OtherAction } from '../actions';
+import { IOtherAction, OtherAction } from '../actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
@@ -12,7 +12,7 @@ import {
 } from './constants';
 import {IProtein} from './types';
 
-export interface IToggleVisibility extends IAction {
+export interface IToggleVisibility {
   type: PROTEIN_TOGGLE_VISIBILITY;
   id: string;
 }
@@ -22,7 +22,7 @@ export const toggleVisibility = (id: string): IToggleVisibility => ({
     id
 });
 
-export interface IToggleHetVisibility extends IAction {
+export interface IToggleHetVisibility {
   type: PROTEIN_TOGGLE_HETVISIBILITY;
   id: string;
 }
@@ -32,7 +32,7 @@ export const toggleHetVisibility = (id: string): IToggleHetVisibility => ({
     id
 });
 
-export interface ITogglePocketVisibility extends IAction {
+export interface ITogglePocketVisibility {
   type: PROTEIN_TOGGLE_POCKETVISIBILITY;
   id: string;
 }
@@ -42,7 +42,7 @@ export const togglePocketVisibility = (id: string): ITogglePocketVisibility => (
     id
 });
 
-export interface IAdjustPocketRadius extends IAction {
+export interface IAdjustPocketRadius {
     type: PROTEINS_ADJUST_POCKETRADIUS;
     radius: number;
 }
@@ -52,7 +52,7 @@ export const adjustPocketRadius = (radius: number): IAdjustPocketRadius => ({
     radius
 });
 
-export interface IFetchRequested extends IAction {
+export interface IFetchRequested {
   type: PROTEINS_FETCH_REQUESTED;
 }
 
@@ -60,7 +60,7 @@ export const fetchRequested = (): IFetchRequested => ({
     type: PROTEINS_FETCH_REQUESTED
 });
 
-export interface IFetchSucceeded extends IAction {
+export interface IFetchSucceeded {
   type: PROTEINS_FETCH_SUCCEEDED;
   proteins: IProtein[];
 }
@@ -70,7 +70,7 @@ export const fetchSucceeded = (proteins: IProtein[]): IFetchSucceeded => ({
   proteins
 });
 
-export interface IFetchFailed extends IAction {
+export interface IFetchFailed {
   type: PROTEINS_FETCH_FAILED;
   error: string;
 }
@@ -80,14 +80,14 @@ export const fetchFailed = (error: string): IFetchFailed => ({
   error
 });
 
-export interface IShowAll extends IAction {
+export interface IShowAll {
   type: PROTEINS_SHOW;
 }
 export const showAll = (): IShowAll => ({
   type: PROTEINS_SHOW
 });
 
-export interface IHideAll extends IAction {
+export interface IHideAll {
   type: PROTEINS_HIDE;
 }
 export const hideAll = (): IHideAll => ({

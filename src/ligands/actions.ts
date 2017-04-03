@@ -1,4 +1,4 @@
-import {IAction, IOtherAction, OtherAction} from '../actions';
+import {IOtherAction, OtherAction} from '../actions';
 import {
     LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_FAILED,
@@ -12,7 +12,7 @@ import {
 } from './constants';
 import { ILigand } from './types';
 
-export interface IToggleVisibility extends IAction {
+export interface IToggleVisibility {
   type: LIGAND_TOGGLE_VISIBILITY;
   id: string;
 }
@@ -22,7 +22,7 @@ export const toggleVisibility = (id: string): IToggleVisibility => ({
     id
 });
 
-export interface IFetchRequested extends IAction {
+export interface IFetchRequested {
   type: LIGANDS_FETCH_REQUESTED;
 }
 
@@ -40,7 +40,7 @@ export const fetchSucceeded = (ligands: ILigand[]): IFetchSucceeded => ({
   ligands
 });
 
-export interface IFetchFailed extends IAction {
+export interface IFetchFailed {
   type: LIGANDS_FETCH_FAILED;
   error: string;
 }
@@ -50,21 +50,21 @@ export const fetchFailed = (error: string): IFetchFailed => ({
   error
 });
 
-export interface IShowAll extends IAction {
+export interface IShowAll {
   type: LIGANDS_SHOW;
 }
 export const showAll = (): IShowAll => ({
   type: LIGANDS_SHOW
 });
 
-export interface IHideAll extends IAction {
+export interface IHideAll {
   type: LIGANDS_HIDE;
 }
 export const hideAll = (): IHideAll => ({
   type: LIGANDS_HIDE
 });
 
-export interface IHiLiteShown extends IAction {
+export interface IHiLiteShown {
   type: LIGANDS_HILITE_SHOWN;
   highlightedLigands: string[];
 }
@@ -73,7 +73,7 @@ export const hiLiteShown = (highlightedLigands: string[]): IHiLiteShown => ({
   highlightedLigands
 });
 
-export interface IHiLitefetchSucceeded extends IAction {
+export interface IHiLitefetchSucceeded {
   type: LIGANDS_HILITE_FETCH_SUCCEEDED;
   highlightedLigands: string[];
 }
@@ -82,7 +82,7 @@ export const hiLitefetchSucceeded = (highlightedLigands: string[]): IHiLitefetch
   highlightedLigands
 });
 
-export interface IHiLitefetchFailed extends IAction {
+export interface IHiLitefetchFailed {
   type: LIGANDS_HILITE_FETCH_FAILED;
   error: string;
 }
