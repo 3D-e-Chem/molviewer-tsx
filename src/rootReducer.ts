@@ -1,3 +1,4 @@
+import {reducer as toastrReducer} from 'react-redux-toastr'
 import { combineReducers } from 'redux';
 
 import { reducer as ligands } from './ligands';
@@ -8,5 +9,6 @@ export const rootReducer = combineReducers({
     connected: sse,
     ligands,
     pocketRadius: proteins.pocketRadius,
-    proteins: proteins.proteins
+    proteins: proteins.proteins,
+    toastr: toastrReducer
 });

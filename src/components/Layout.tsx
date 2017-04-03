@@ -1,9 +1,11 @@
 import * as React from 'react';
+import ReduxToastr from 'react-redux-toastr';
 
 import { NavBar } from '../containers/NavBar';
 import { DisconnectedModal } from '../sse/containers/DisconnectedModal';
 
 import './Layout.css';
+import './react-redux-toastr.css';
 
 export interface IProps {
     title: string;
@@ -15,6 +17,7 @@ export const Layout = ({title, sidebar, main}: IProps) => (
     <div className="full-screen">
         <NavBar title={title}/>
         <DisconnectedModal/>
+        <ReduxToastr/>
         <div className="wrapper">
             <div className="sidebar">
                 {sidebar}
