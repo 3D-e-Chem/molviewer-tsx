@@ -1,4 +1,4 @@
-import {OtherAction} from '../actions';
+import {IAction, IOtherAction, OtherAction} from '../actions';
 import {
     LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_FAILED,
@@ -12,89 +12,88 @@ import {
 } from './constants';
 import { ILigand } from './types';
 
-export type toggleVisibility = {
-  type: LIGAND_TOGGLE_VISIBILITY,
-  id: string
-};
+export interface IToggleVisibility extends IAction {
+  type: LIGAND_TOGGLE_VISIBILITY;
+  id: string;
+}
 
-export const toggleVisibility = (id: string): toggleVisibility => ({
+export const toggleVisibility = (id: string): IToggleVisibility => ({
     type: LIGAND_TOGGLE_VISIBILITY,
     id
 });
 
-export type fetchRequested = {
-  type: LIGANDS_FETCH_REQUESTED
-};
+export interface IFetchRequested extends IAction {
+  type: LIGANDS_FETCH_REQUESTED;
+}
 
-export const fetchRequested = (): fetchRequested => ({
+export const fetchRequested = (): IFetchRequested => ({
     type: LIGANDS_FETCH_REQUESTED
 });
 
-export type fetchSucceeded = {
-  type: LIGANDS_FETCH_SUCCEEDED,
-  ligands: ILigand[]
-};
+export interface IFetchSucceeded {
+  type: LIGANDS_FETCH_SUCCEEDED;
+  ligands: ILigand[];
+}
 
-export const fetchSucceeded = (ligands: ILigand[]): fetchSucceeded => ({
+export const fetchSucceeded = (ligands: ILigand[]): IFetchSucceeded => ({
   type: LIGANDS_FETCH_SUCCEEDED,
   ligands
 });
 
-export type fetchFailed = {
-  type: LIGANDS_FETCH_FAILED,
-  error: string
-};
+export interface IFetchFailed extends IAction {
+  type: LIGANDS_FETCH_FAILED;
+  error: string;
+}
 
-export const fetchFailed = (error: string): fetchFailed => ({
+export const fetchFailed = (error: string): IFetchFailed => ({
   type: LIGANDS_FETCH_FAILED,
   error
 });
 
-export type showAll = {
-  type: LIGANDS_SHOW
-};
-export const showAll = (): showAll => ({
-  type: LIGANDS_SHOW
-});
-
-export type hideAll = {
-  type: LIGANDS_HIDE
-};
-export const hideAll = (): hideAll => ({
-  type: LIGANDS_HIDE
-});
-
-export type hiLiteShown = {
-  type: LIGANDS_HILITE_SHOWN,
-  highlightedLigands: string[]
+export interface IShowAll extends IAction {
+  type: LIGANDS_SHOW;
 }
-export const hiLiteShown = (highlightedLigands: string[]): hiLiteShown => ({
+export const showAll = (): IShowAll => ({
+  type: LIGANDS_SHOW
+});
+
+export interface IHideAll extends IAction {
+  type: LIGANDS_HIDE;
+}
+export const hideAll = (): IHideAll => ({
+  type: LIGANDS_HIDE
+});
+
+export interface IHiLiteShown extends IAction {
+  type: LIGANDS_HILITE_SHOWN;
+  highlightedLigands: string[];
+}
+export const hiLiteShown = (highlightedLigands: string[]): IHiLiteShown => ({
   type: LIGANDS_HILITE_SHOWN,
   highlightedLigands
 });
 
-export type hiLitefetchSucceeded = {
-  type: LIGANDS_HILITE_FETCH_SUCCEEDED,
-  highlightedLigands: string[]
+export interface IHiLitefetchSucceeded extends IAction {
+  type: LIGANDS_HILITE_FETCH_SUCCEEDED;
+  highlightedLigands: string[];
 }
-export const hiLitefetchSucceeded = (highlightedLigands: string[]): hiLitefetchSucceeded => ({
+export const hiLitefetchSucceeded = (highlightedLigands: string[]): IHiLitefetchSucceeded => ({
   type: LIGANDS_HILITE_FETCH_SUCCEEDED,
   highlightedLigands
 });
 
-export type hiLitefetchFailed = {
-  type: LIGANDS_HILITE_FETCH_FAILED,
-  error: string
+export interface IHiLitefetchFailed extends IAction {
+  type: LIGANDS_HILITE_FETCH_FAILED;
+  error: string;
 }
-export const hiLitefetchFailed = (error: string): hiLitefetchFailed => ({
+export const hiLitefetchFailed = (error: string): IHiLitefetchFailed => ({
   type: LIGANDS_HILITE_FETCH_FAILED,
   error
 });
 
-type toggleVisibilityAction = toggleVisibility | showAll | hideAll;
-
-type hiLiteAction = hiLiteShown | hiLitefetchFailed | hiLitefetchSucceeded;
-
-export type LigandAction = toggleVisibilityAction | fetchFailed | fetchRequested | fetchSucceeded | hiLiteAction | OtherAction;
+export type LigandAction = IToggleVisibility | IShowAll | IHideAll |
+  IHiLiteShown | IHiLitefetchFailed | IHiLitefetchSucceeded |
+  IFetchFailed | IFetchRequested | IFetchSucceeded |
+  IOtherAction;
 
 export { OtherAction };

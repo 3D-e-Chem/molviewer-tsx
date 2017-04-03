@@ -36,12 +36,14 @@ export const ProteinList = (props: IProps) => {
         />
     ));
 
-    return <div style={{ overflowY: 'auto'}}>
-        <h5>Proteins</h5>
-        <PocketRadius value={props.pocketRadius} onChange={props.onPocketRadiusChange}/>
-        {listactions}
-        <table className="table table-condensed"><tbody>
-            {proteins}
-        </tbody></table>
-    </div>;
+    return (
+        <div style={{ overflowY: 'auto'}}>
+            <h5>Proteins</h5>
+            <PocketRadius value={props.pocketRadius} onChange={props.onPocketRadiusChange}/>
+            {listactions}
+            <table className="table table-condensed"><tbody>
+                {proteins}
+            </tbody></table>
+        </div>
+    );
 };

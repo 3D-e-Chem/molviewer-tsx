@@ -8,11 +8,10 @@ export interface IProps {
 }
 
 export class MolCanvas extends React.Component<IProps, {}> {
-    private stage: NGL.Stage;
-
     static childContextTypes = {
         stage: React.PropTypes.object
     };
+    private stage: NGL.Stage;
 
     constructor() {
         super();
@@ -24,9 +23,11 @@ export class MolCanvas extends React.Component<IProps, {}> {
     }
 
     render() {
-        return <div style={{ height: '100%' }} ref={this.canvasRefHandler}>
-            {this.props.children}
-        </div>;
+        return (
+            <div style={{ height: '100%' }} ref={this.canvasRefHandler}>
+                {this.props.children}
+            </div>
+        );
     }
 
     componentDidMount() {

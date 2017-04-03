@@ -1,23 +1,23 @@
 import * as NGL from 'ngl';
 
-import { GLModel } from './GLModel';
+import { GLModel, IGLModelProps } from './GLModel';
 
 function mockedComponent() {
     return {
-        setVisibility: jest.fn(),
-        centerView: jest.fn()
+        centerView: jest.fn(),
+        setVisibility: jest.fn()
     } as any as NGL.StructureComponent;
 }
 
 describe('<GLModel />', () => {
     let stage: NGL.Stage;
-    let model: GLModel;
+    let model: GLModel<IGLModelProps, {}>;
 
     beforeEach(() => {
         const props = {
-            visible: true,
             data: '...',
-            format: 'mol2'
+            format: 'mol2',
+            visible: true
         };
         model = new GLModel(props);
         const MockedStage = jest.fn();
@@ -34,9 +34,9 @@ describe('<GLModel />', () => {
     describe('shouldComponentUpdate()', () => {
         it('should not update when visible prop has not changed', () => {
             const nextProps = {
-                visible: true,
                 data: '...',
-                format: 'mol2'
+                format: 'mol2',
+                visible: true
             };
             const actual = model.shouldComponentUpdate(nextProps);
             expect(actual).toBeFalsy();
@@ -44,9 +44,9 @@ describe('<GLModel />', () => {
 
         it('should update when visible prop has changed', () => {
             const nextProps = {
-                visible: false,
                 data: '...',
-                format: 'mol2'
+                format: 'mol2',
+                visible: false
             };
             const actual = model.shouldComponentUpdate(nextProps);
             expect(actual).toBeTruthy();

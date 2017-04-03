@@ -32,26 +32,32 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
     }
 
     render() {
-        return <tr>
-            <td>
-                <EllipsisText maxLength={25} text={this.props.label} tooltipId={'protein-label-tooltip' + this.props.id}/>
-            </td>
-            <td style={{textAlign: 'right'}}>
-                <ButtonGroup>
-                    <Button bsSize="small" title="All" onClick={this.onProteinVisibilityClick}>
-                        A&nbsp;
-                        <Glyphicon glyph={this.props.visible ? 'eye-open' : 'eye-close'} />
-                    </Button>
-                    <Button bsSize="small" title="Hetero" onClick={this.onHeteroVisibilityClick}>
-                        H&nbsp;
-                        <Glyphicon glyph={this.props.hetVisible ? 'eye-open' : 'eye-close'} />
-                    </Button>
-                    <Button bsSize="small" title="Pocket" onClick={this.onPocketVisibilityClick}>
-                        P&nbsp;
-                        <Glyphicon glyph={this.props.pocketVisible ? 'eye-open' : 'eye-close'} />
-                    </Button>
-                </ButtonGroup>
-            </td>
-        </tr>;
+        return (
+            <tr>
+                <td>
+                    <EllipsisText
+                        maxLength={25}
+                        text={this.props.label}
+                        tooltipId={'protein-label-tooltip' + this.props.id}
+                    />
+                </td>
+                <td style={{textAlign: 'right'}}>
+                    <ButtonGroup>
+                        <Button bsSize="small" title="All" onClick={this.onProteinVisibilityClick}>
+                            A&nbsp;
+                            <Glyphicon glyph={this.props.visible ? 'eye-open' : 'eye-close'} />
+                        </Button>
+                        <Button bsSize="small" title="Hetero" onClick={this.onHeteroVisibilityClick}>
+                            H&nbsp;
+                            <Glyphicon glyph={this.props.hetVisible ? 'eye-open' : 'eye-close'} />
+                        </Button>
+                        <Button bsSize="small" title="Pocket" onClick={this.onPocketVisibilityClick}>
+                            P&nbsp;
+                            <Glyphicon glyph={this.props.pocketVisible ? 'eye-open' : 'eye-close'} />
+                        </Button>
+                    </ButtonGroup>
+                </td>
+            </tr>
+        );
     }
 }

@@ -1,3 +1,9 @@
+export interface IAction {
+    type: string;
+}
 
-export type OtherAction = { type: '' };
-export const OtherAction: OtherAction = { type: '' };
+export interface IOtherAction extends IAction {
+    type: '';
+}
+
+export const OtherAction: IOtherAction = {type: ''};

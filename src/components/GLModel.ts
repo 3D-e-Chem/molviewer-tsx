@@ -5,7 +5,7 @@ import * as NGL from 'ngl';
 export interface IGLModelProps {
     visible: boolean;
     data: string;
-    format: string; // TODO use enum
+    format: string;
 }
 
 export interface IContext {
@@ -13,12 +13,12 @@ export interface IContext {
 }
 
 export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
-    protected model: NGL.StructureComponent;
-    public context: IContext;
-
     static contextTypes = {
         stage: React.PropTypes.object
     };
+
+    public context: IContext;
+    protected model: NGL.StructureComponent;
 
     public render() {
         return null;
@@ -40,7 +40,6 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
         this.model = comp;
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
-            // TODO center on whole stage instead of model
             this.model.centerView();
         }
     }

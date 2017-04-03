@@ -1,4 +1,4 @@
-import {OtherAction} from '../actions';
+import { IAction, IOtherAction, OtherAction } from '../actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
@@ -12,90 +12,90 @@ import {
 } from './constants';
 import {IProtein} from './types';
 
-export type toggleVisibility = {
-  type: PROTEIN_TOGGLE_VISIBILITY,
-  id: string
-};
+export interface IToggleVisibility extends IAction {
+  type: PROTEIN_TOGGLE_VISIBILITY;
+  id: string;
+}
 
-export const toggleVisibility = (id: string): toggleVisibility => ({
+export const toggleVisibility = (id: string): IToggleVisibility => ({
     type: PROTEIN_TOGGLE_VISIBILITY,
     id
 });
 
-export type toggleHetVisibility = {
-  type: PROTEIN_TOGGLE_HETVISIBILITY,
-  id: string
-};
+export interface IToggleHetVisibility extends IAction {
+  type: PROTEIN_TOGGLE_HETVISIBILITY;
+  id: string;
+}
 
-export const toggleHetVisibility = (id: string): toggleHetVisibility => ({
+export const toggleHetVisibility = (id: string): IToggleHetVisibility => ({
     type: PROTEIN_TOGGLE_HETVISIBILITY,
     id
 });
 
-export type togglePocketVisibility = {
-  type: PROTEIN_TOGGLE_POCKETVISIBILITY,
-  id: string
-};
+export interface ITogglePocketVisibility extends IAction {
+  type: PROTEIN_TOGGLE_POCKETVISIBILITY;
+  id: string;
+}
 
-export const togglePocketVisibility = (id: string): togglePocketVisibility => ({
+export const togglePocketVisibility = (id: string): ITogglePocketVisibility => ({
     type: PROTEIN_TOGGLE_POCKETVISIBILITY,
     id
 });
 
-export type adjustPocketRadius = {
-    type: PROTEINS_ADJUST_POCKETRADIUS,
-    radius: number
-};
+export interface IAdjustPocketRadius extends IAction {
+    type: PROTEINS_ADJUST_POCKETRADIUS;
+    radius: number;
+}
 
-export const adjustPocketRadius = (radius: number): adjustPocketRadius => ({
+export const adjustPocketRadius = (radius: number): IAdjustPocketRadius => ({
     type: PROTEINS_ADJUST_POCKETRADIUS,
     radius
 });
 
-export type fetchRequested = {
-  type: PROTEINS_FETCH_REQUESTED
-};
+export interface IFetchRequested extends IAction {
+  type: PROTEINS_FETCH_REQUESTED;
+}
 
-export const fetchRequested = (): fetchRequested => ({
+export const fetchRequested = (): IFetchRequested => ({
     type: PROTEINS_FETCH_REQUESTED
 });
 
-export type fetchSucceeded = {
-  type: PROTEINS_FETCH_SUCCEEDED,
-  proteins: IProtein[]
-};
+export interface IFetchSucceeded extends IAction {
+  type: PROTEINS_FETCH_SUCCEEDED;
+  proteins: IProtein[];
+}
 
-export const fetchSucceeded = (proteins: IProtein[]): fetchSucceeded => ({
+export const fetchSucceeded = (proteins: IProtein[]): IFetchSucceeded => ({
   type: PROTEINS_FETCH_SUCCEEDED,
   proteins
 });
 
-export type fetchFailed = {
-  type: PROTEINS_FETCH_FAILED,
-  error: string
-};
+export interface IFetchFailed extends IAction {
+  type: PROTEINS_FETCH_FAILED;
+  error: string;
+}
 
-export const fetchFailed = (error: string): fetchFailed => ({
+export const fetchFailed = (error: string): IFetchFailed => ({
   type: PROTEINS_FETCH_FAILED,
   error
 });
 
-export type showAll = {
-  type: PROTEINS_SHOW
-};
-export const showAll = (): showAll => ({
+export interface IShowAll extends IAction {
+  type: PROTEINS_SHOW;
+}
+export const showAll = (): IShowAll => ({
   type: PROTEINS_SHOW
 });
 
-export type hideAll = {
-  type: PROTEINS_HIDE
-};
-export const hideAll = (): hideAll => ({
+export interface IHideAll extends IAction {
+  type: PROTEINS_HIDE;
+}
+export const hideAll = (): IHideAll => ({
   type: PROTEINS_HIDE
 });
 
-type toggleAction = toggleHetVisibility | togglePocketVisibility | toggleVisibility | showAll | hideAll;
+type toggleAction = IToggleHetVisibility | ITogglePocketVisibility | IToggleVisibility | IShowAll | IHideAll;
 
-export type ProteinAction = toggleAction | fetchFailed | fetchRequested | fetchSucceeded | OtherAction;
-export type PocketAction = adjustPocketRadius | OtherAction;
+export type ProteinAction = toggleAction | IFetchFailed | IFetchRequested | IFetchSucceeded | IOtherAction;
+export type PocketAction = IAdjustPocketRadius | IOtherAction;
 export { OtherAction };

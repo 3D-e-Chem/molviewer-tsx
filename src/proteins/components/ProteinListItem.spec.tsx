@@ -12,16 +12,16 @@ describe('<ProteinListItem/>', () => {
 
         beforeEach(() => {
             props = {
+                data: '...',
+                format: 'sdf',
+                hetVisible: true,
                 id: 'id1',
                 label: 'label1',
-                visible: true,
-                format: 'sdf',
-                data: '...',
-                hetVisible: true,
-                pocketVisible: true,
-                onProteinVisibilityClick: jest.fn(),
                 onHeteroVisibilityClick: jest.fn(),
-                onPocketVisibilityClick: jest.fn()
+                onPocketVisibilityClick: jest.fn(),
+                onProteinVisibilityClick: jest.fn(),
+                pocketVisible: true,
+                visible: true
             };
             wrapper = shallow(<ProteinListItem {...props} />);
         });

@@ -13,23 +13,25 @@ describe('<LigandList />', () => {
 
         beforeEach(() => {
             clickers = {
-                onVisibilityClick: jest.fn(),
-                onHideAllClick: jest.fn(),
                 onHiLiteShownClick: jest.fn(),
-                onShowAllClick: jest.fn()
+                onHideAllClick: jest.fn(),
+                onShowAllClick: jest.fn(),
+                onVisibilityClick: jest.fn()
             };
         });
 
         describe('zero items', () => {
             beforeEach(() => {
-                const comp = <LigandList
-                    ligands={[]}
-                    height="100%"
-                    onVisibilityClick={clickers.onVisibilityClick}
-                    onHideAllClick={clickers.onHideAllClick}
-                    onHiLiteShownClick={clickers.onHiLiteShownClick}
-                    onShowAllClick={clickers.onShowAllClick}
-                />;
+                const comp = (
+                    <LigandList
+                        ligands={[]}
+                        height="100%"
+                        onVisibilityClick={clickers.onVisibilityClick}
+                        onHideAllClick={clickers.onHideAllClick}
+                        onHiLiteShownClick={clickers.onHiLiteShownClick}
+                        onShowAllClick={clickers.onShowAllClick}
+                    />
+                );
                 wrapper = shallow(comp);
             });
 
@@ -49,20 +51,22 @@ describe('<LigandList />', () => {
         describe('single item', () => {
             beforeEach(() => {
                 const ligands = [{
+                    data: '...',
+                    format: 'sdf',
                     id: 'id1',
                     label: 'label1',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...'
+                    visible: true
                 }];
-                const comp = <LigandList
-                    ligands={ligands}
-                    height="100%"
-                    onVisibilityClick={clickers.onVisibilityClick}
-                    onHideAllClick={clickers.onHideAllClick}
-                    onHiLiteShownClick={clickers.onHiLiteShownClick}
-                    onShowAllClick={clickers.onShowAllClick}
-                />;
+                const comp = (
+                    <LigandList
+                        ligands={ligands}
+                        height="100%"
+                        onVisibilityClick={clickers.onVisibilityClick}
+                        onHideAllClick={clickers.onHideAllClick}
+                        onHiLiteShownClick={clickers.onHiLiteShownClick}
+                        onShowAllClick={clickers.onShowAllClick}
+                    />
+                );
                 wrapper = shallow(comp);
             });
 
@@ -82,26 +86,28 @@ describe('<LigandList />', () => {
         describe('two items', () => {
             beforeEach(() => {
                 const ligands = [{
+                    data: '...',
+                    format: 'sdf',
                     id: 'id1',
                     label: 'label1',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...'
+                    visible: true
                 }, {
+                    data: '...',
+                    format: 'sdf',
                     id: 'id2',
                     label: 'label2',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...'
+                    visible: false
                 }];
-                const comp = <LigandList
-                    ligands={ligands}
-                    height="100%"
-                    onVisibilityClick={clickers.onVisibilityClick}
-                    onHideAllClick={clickers.onHideAllClick}
-                    onHiLiteShownClick={clickers.onHiLiteShownClick}
-                    onShowAllClick={clickers.onShowAllClick}
-                />;
+                const comp = (
+                    <LigandList
+                        ligands={ligands}
+                        height="100%"
+                        onVisibilityClick={clickers.onVisibilityClick}
+                        onHideAllClick={clickers.onHideAllClick}
+                        onHiLiteShownClick={clickers.onHiLiteShownClick}
+                        onShowAllClick={clickers.onShowAllClick}
+                    />
+                );
                 wrapper = shallow(comp);
             });
 

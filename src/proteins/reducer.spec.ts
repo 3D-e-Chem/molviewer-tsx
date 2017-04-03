@@ -4,21 +4,21 @@ import { IProtein } from './types';
 
 function sampleState(): IProtein[] {
     return [{
+        data: '...',
+        format: 'sdf',
+        hetVisible: true,
         id: 'id1',
         label: 'label1',
-        visible: true,
-        format: 'sdf',
-        data: '...',
-        hetVisible: true,
-        pocketVisible: true
+        pocketVisible: true,
+        visible: true
     }, {
+        data: '...',
+        format: 'sdf',
+        hetVisible: true,
         id: 'id2',
         label: 'label2',
-        visible: false,
-        format: 'sdf',
-        data: '...',
-        hetVisible: true,
-        pocketVisible: true
+        pocketVisible: true,
+        visible: false
     }];
 }
 
@@ -66,21 +66,21 @@ describe('reducer', () => {
                 const newState = reducer.proteins(state, action);
 
                 const expected = [{
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id1',
                     label: 'label1',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }, {
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id2',
                     label: 'label2',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }];
                 expect(newState).toEqual(expected);
             });
@@ -94,21 +94,21 @@ describe('reducer', () => {
                 const newState = reducer.proteins(state, action);
 
                 const expected = [{
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: false,
                     id: 'id1',
                     label: 'label1',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: false,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: true
                 }, {
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id2',
                     label: 'label2',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }];
                 expect(newState).toEqual(expected);
             });
@@ -122,21 +122,21 @@ describe('reducer', () => {
                 const newState = reducer.proteins(state, action);
 
                 const expected = [{
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id1',
                     label: 'label1',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: false
+                    pocketVisible: false,
+                    visible: true
                 }, {
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id2',
                     label: 'label2',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }];
                 expect(newState).toEqual(expected);
             });
@@ -150,21 +150,21 @@ describe('reducer', () => {
                 const newState = reducer.proteins(state, action);
 
                 const expected = [{
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id1',
                     label: 'label1',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }, {
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id2',
                     label: 'label2',
-                    visible: false,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: false
                 }];
                 expect(newState).toEqual(expected);
             });
@@ -178,21 +178,21 @@ describe('reducer', () => {
                 const newState = reducer.proteins(state, action);
 
                 const expected = [{
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id1',
                     label: 'label1',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: true
                 }, {
+                    data: '...',
+                    format: 'sdf',
+                    hetVisible: true,
                     id: 'id2',
                     label: 'label2',
-                    visible: true,
-                    format: 'sdf',
-                    data: '...',
-                    hetVisible: true,
-                    pocketVisible: true
+                    pocketVisible: true,
+                    visible: true
                 }];
                 expect(newState).toEqual(expected);
             });

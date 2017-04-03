@@ -16,7 +16,8 @@ export interface IOwnProps {
 export const NavBar = (props: IDispatchProps & IOwnProps) => {
     let debugButtons = <div/>;
     if (environment === 'development') {
-        debugButtons = <div>
+        debugButtons = (
+            <div>
                 <Button
                     onClick={props.serverModelChanged}
                     className="navbar-btn navbar-right"
@@ -31,14 +32,17 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
                 >
                     <Glyphicon glyph="ban-circle"/>
                 </Button>
-            </div>;
-    }
-    return <nav className="navbar navbar-default" style={{marginBottom:0, borderRadius: '0px'}}>
-        <div className="container-fluid">
-            <div className="navbar-header">
-                <span className="navbar-brand">{props.title}</span>
             </div>
-            {debugButtons}
-        </div>
-    </nav>;
+        );
+    }
+    return (
+        <nav className="navbar navbar-default" style={{marginBottom: 0, borderRadius: '0px'}}>
+            <div className="container-fluid">
+                <div className="navbar-header">
+                    <span className="navbar-brand">{props.title}</span>
+                </div>
+                {debugButtons}
+            </div>
+        </nav>
+    );
 };

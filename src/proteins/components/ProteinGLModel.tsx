@@ -23,31 +23,14 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
         this.heteroSelection = new NGL.Selection( 'hetero and not ( water or ion )' );
         const heteroAtoms = this.model.structure.getAtomSet( this.heteroSelection );
         this.hetero = this.model.addRepresentation('licorice', {
-            sele: heteroAtoms.toSeleString(),
             colorScheme: 'element',
             colorValue: '#FF8C00',
-            multipleBond: 'symmetric'
+            multipleBond: 'symmetric',
+            sele: heteroAtoms.toSeleString()
         });
         if (this.props.pocketRadius !== this.pocketRadius) {
             this.definePocket(this.props.pocketRadius);
         }
-    }
-
-    private definePocket(radius: number) {
-        this.pocketRadius = radius;
-        if (this.pocket != null) {
-            this.pocket.setVisibility(false);
-        }
-
-        const heteroAtoms = this.model.structure.getAtomSet( this.heteroSelection );
-        const pocketAtoms = this.model.structure.getAtomSetWithinSelection( this.heteroSelection, this.pocketRadius );
-        const pocketResidues = this.model.structure.getAtomSetWithinGroup( pocketAtoms );
-        this.pocket = this.model.addRepresentation('ball+stick', {
-            sele: pocketResidues.new_difference(heteroAtoms).toSeleString(),
-            colorScheme: 'element',
-            colorValue: '#D9D9D9',
-            multipleBond: 'symmetric'
-        });
     }
 
     public shouldComponentUpdate(nextProps: IProteinGLModelProps) {
@@ -67,5 +50,22 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
         this.pocket.setVisibility(props.pocketVisible);
 
         super.componentDidUpdate();
+    }
+
+    private definePocket(radius: number) {
+        this.pocketRadius = radius;
+        if (this.pocket != null) {
+            this.pocket.setVisibility(false);
+        }
+
+        const heteroAtoms = this.model.structure.getAtomSet( this.heteroSelection );
+        const pocketAtoms = this.model.structure.getAtomSetWithinSelection( this.heteroSelection, this.pocketRadius );
+        const pocketResidues = this.model.structure.getAtomSetWithinGroup( pocketAtoms );
+        this.pocket = this.model.addRepresentation('ball+stick', {
+            colorScheme: 'element',
+            colorValue: '#D9D9D9',
+            multipleBond: 'symmetric',
+            sele: pocketResidues.new_difference(heteroAtoms).toSeleString()
+        });
     }
 }

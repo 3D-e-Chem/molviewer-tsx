@@ -4,17 +4,17 @@ import { ILigand } from './types';
 
 function sampleState(): ILigand[] {
     return [{
+        data: '...',
+        format: 'sdf',
         id: 'id1',
         label: 'label1',
-        visible: true,
-        format: 'sdf',
-        data: '...'
+        visible: true
     }, {
+        data: '...',
+        format: 'sdf',
         id: 'id2',
         label: 'label2',
-        visible: false,
-        format: 'sdf',
-        data: '...'
+        visible: false
     }];
 }
 
@@ -44,17 +44,17 @@ describe('reducer', () => {
             const newState = reducer(state, action);
 
             const expected = [{
+                data: '...',
+                format: 'sdf',
                 id: 'id1',
                 label: 'label1',
-                visible: false,
-                format: 'sdf',
-                data: '...'
+                visible: false
             }, {
+                data: '...',
+                format: 'sdf',
                 id: 'id2',
                 label: 'label2',
-                visible: false,
-                format: 'sdf',
-                data: '...'
+                visible: false
             }];
             expect(newState).toEqual(expected);
         });

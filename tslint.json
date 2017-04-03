@@ -4,9 +4,6 @@
     ],
     "rules": {
         "prefer-type-cast": false,
-        "no-angle-bracket-type-assertion": true,
-        "export-name": false,
-        "no-suspicious-comment": false,
-        "react-tsx-curly-spacing": [true, "never"]
+        "no-angle-bracket-type-assertion": true
     }
 }

@@ -14,11 +14,13 @@ describe('<NavBar />', () => {
                 serverDisconnect: jest.fn(),
                 serverModelChanged: jest.fn()
             };
-            const comp = <NavBar
-                title="My title"
-                serverDisconnect={clickers.serverDisconnect}
-                serverModelChanged={clickers.serverModelChanged}
-            />;
+            const comp = (
+                <NavBar
+                    title="My title"
+                    serverDisconnect={clickers.serverDisconnect}
+                    serverModelChanged={clickers.serverModelChanged}
+                />
+            );
             wrapper = shallow(comp);
         });
 

@@ -14,8 +14,10 @@ export const EllipsisText = ({text, maxLength, tooltipId, placement = 'right'}: 
             return <span>{text}</span>;
         }
         const tooltip = <Tooltip id={tooltipId}>{text}</Tooltip>;
-        return <span>
-            <span>{text.substr(0, maxLength)}</span>
-            <OverlayTrigger placement={placement} overlay={tooltip}><span>…</span></OverlayTrigger>
-        </span>;
+        return (
+            <span>
+                <span>{text.substr(0, maxLength)}</span>
+                <OverlayTrigger placement={placement} overlay={tooltip}><span>…</span></OverlayTrigger>
+            </span>
+        );
 };

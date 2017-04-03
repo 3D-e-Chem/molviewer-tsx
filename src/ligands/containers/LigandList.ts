@@ -10,11 +10,12 @@ import {
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
 const mapDispatchToProps = (dispatch: any): IDispatchProps => {
     return {
-        onHideAllClick: () => dispatch(actions.hideAll()),
         onHiLiteShownClick: (ids: string[]) => dispatch(actions.hiLiteShown(ids)),
-        onVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id)),
-        onShowAllClick: () => dispatch(actions.showAll())
+        onHideAllClick: () => dispatch(actions.hideAll()),
+        onShowAllClick: () => dispatch(actions.showAll()),
+        onVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id))
     };
 };
 
-export const LigandList = connect<{}, IDispatchProps, IOwnProps>(mapStateToProps, mapDispatchToProps)(LigandListComponent);
+const connector = connect<{}, IDispatchProps, IOwnProps>(mapStateToProps, mapDispatchToProps);
+export const LigandList = connector(LigandListComponent);

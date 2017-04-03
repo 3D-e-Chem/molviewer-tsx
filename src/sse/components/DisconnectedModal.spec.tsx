@@ -26,7 +26,8 @@ describe('<DisconnectedModal />', () => {
         });
 
         it('should display warning text', () => {
-            chai.expect(wrapper.contains(<span>Disconnected from KNIME</span>)).to.equal(true, 'expected modal to be shown');
+            const target = wrapper.contains(<span>Disconnected from KNIME</span>);
+            chai.expect(target).to.equal(true, 'expected modal to be shown');
         });
     });
 });

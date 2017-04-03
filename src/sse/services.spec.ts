@@ -1,9 +1,9 @@
 import { createStore, Store } from 'redux';
 
-import { OtherAction, serverDisconnect, serverHiLiteChanged, serverModelChanged } from './actions';
+import { IOtherAction, OtherAction, serverDisconnect, serverHiLiteChanged, serverModelChanged } from './actions';
 import { ServerListener, TDispatchActions } from './services';
 
-function reducer(_state: TDispatchActions | OtherAction, action: TDispatchActions) {
+function reducer(_state: TDispatchActions | IOtherAction, action: TDispatchActions) {
     return action;
 }
 

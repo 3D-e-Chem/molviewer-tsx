@@ -39,10 +39,12 @@ export class LigandsAndProteinsViewer extends React.Component<IStateProps & IDis
         const proteins = this.props.proteins.map((protein) => (
             <ProteinGLModel key={protein.id} {...protein} pocketRadius={this.props.pocketRadius}/>
         ));
-        const main = <MolCanvas id="canvas">
-            {ligands}
-            {proteins}
-        </MolCanvas>;
+        const main = (
+            <MolCanvas id="canvas">
+                {ligands}
+                {proteins}
+            </MolCanvas>
+        );
         return <Layout title={title} sidebar={sidebar} main={main}/>;
     }
 }

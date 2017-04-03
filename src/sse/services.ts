@@ -2,9 +2,12 @@ import 'event-source-polyfill';
 
 import {Dispatch} from 'redux';
 
-import {serverDisconnect, serverHiLiteChanged, serverModelChanged} from './actions';
+import {
+    IServerDisconnect, IServerHiLiteChanged, IServerModelChanged,
+    serverDisconnect, serverHiLiteChanged, serverModelChanged
+} from './actions';
 
-export type TDispatchActions = serverDisconnect | serverHiLiteChanged | serverModelChanged;
+export type TDispatchActions = IServerDisconnect | IServerHiLiteChanged | IServerModelChanged;
 
 export class ServerListener {
     private url: string;

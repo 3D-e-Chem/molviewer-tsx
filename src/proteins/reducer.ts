@@ -22,57 +22,37 @@ export function pocketRadius(state: number = 5.0, action: PocketAction = OtherAc
 export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
-            return state.map(protein => {
+            return state.map((protein) => {
                 if (protein.id === action.id) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, visible: !protein.visible};
-                    return Object.assign({}, protein, {
-                        visible: !protein.visible
-                    });
+                    return { ...protein, visible: !protein.visible};
                 }
                 return protein;
             });
         case PROTEIN_TOGGLE_HETVISIBILITY:
-            return state.map(protein => {
+            return state.map((protein) => {
                 if (protein.id === action.id) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, hetVisible: !protein.hetVisible};
-                    return Object.assign({}, protein, {
-                        hetVisible: !protein.hetVisible
-                    });
+                    return { ...protein, hetVisible: !protein.hetVisible};
                 }
                 return protein;
             });
         case PROTEIN_TOGGLE_POCKETVISIBILITY:
-            return state.map(protein => {
+            return state.map((protein) => {
                 if (protein.id === action.id) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, pocketVisible: !protein.pocketVisible};
-                    return Object.assign({}, protein, {
-                        pocketVisible: !protein.pocketVisible
-                    });
+                    return { ...protein, pocketVisible: !protein.pocketVisible};
                 }
                 return protein;
             });
         case PROTEINS_SHOW:
-            return state.map(protein => {
+            return state.map((protein) => {
                 if (!protein.visible) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, visible: !protein.visible};
-                    return Object.assign({}, protein, {
-                        visible: !protein.visible
-                    });
+                    return { ...protein, visible: !protein.visible};
                 }
                 return protein;
             });
         case PROTEINS_HIDE:
-            return state.map(protein => {
+            return state.map((protein) => {
                 if (protein.visible) {
-                    // TODO when object spread is avialable in TypeScript use:
-                    // return { ...protein, visible: !protein.visible};
-                    return Object.assign({}, protein, {
-                        visible: !protein.visible
-                    });
+                    return { ...protein, visible: !protein.visible};
                 }
                 return protein;
             });

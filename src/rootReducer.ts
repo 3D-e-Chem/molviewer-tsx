@@ -5,8 +5,8 @@ import { reducers as proteins } from './proteins';
 import { reducer as sse } from './sse';
 
 export const rootReducer = combineReducers({
+    connected: sse,
     ligands,
-    proteins: proteins.proteins,
     pocketRadius: proteins.pocketRadius,
-    connected: sse
+    proteins: proteins.proteins
 });
