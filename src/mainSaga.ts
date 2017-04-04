@@ -5,7 +5,7 @@ import * as ligands from './ligands';
 import * as proteins from './proteins';
 import * as sse from './sse';
 
-function* fetchFailedWorker(action: ligands.actions.IFetchFailed | proteins.actions.IFetchFailed) {
+export function* fetchFailedWorker(action: ligands.actions.IFetchFailed | proteins.actions.IFetchFailed) {
   const toast = toastrActions.add({
     message: action.error,
     title: 'Unable to fetch molecules from server',
