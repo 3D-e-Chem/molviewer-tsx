@@ -108,13 +108,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-redux-toastr@^3.7.3":
-  version "3.7.3"
-  resolved "https://registry.yarnpkg.com/@types/react-redux-toastr/-/react-redux-toastr-3.7.3.tgz#c57fba21ca3963500f06fb96cd245b8c3c4fdb83"
-  dependencies:
-    "@types/react" "*"
-    redux "^3.6.0"
-
 "@types/react-redux@^4.4.38":
   version "4.4.38"
   resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-4.4.38.tgz#771c9293fa835107eb5ac2e4ef8d52e54f2ed4ff"

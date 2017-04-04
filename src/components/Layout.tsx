@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReduxToastr from 'react-redux-toastr';
+import { default as ReduxToastr } from 'react-redux-toastr';
 
 import { NavBar } from '../containers/NavBar';
 import { DisconnectedModal } from '../sse/containers/DisconnectedModal';

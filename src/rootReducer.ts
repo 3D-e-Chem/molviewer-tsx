@@ -1,4 +1,4 @@
-import {reducer as toastrReducer} from 'react-redux-toastr'
+import { reducer as toastrReducer } from 'react-redux-toastr';
 import { combineReducers } from 'redux';
 
 import { reducer as ligands } from './ligands';

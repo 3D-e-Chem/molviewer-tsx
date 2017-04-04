@@ -6,7 +6,12 @@ import * as proteins from './proteins';
 import * as sse from './sse';
 
 function* fetchFailedWorker(action: ligands.actions.IFetchFailed | proteins.actions.IFetchFailed) {
-  yield put('something');
+  const toast = toastrActions.add({
+    message: action.error,
+    title: 'Unable to fetch molecules from server',
+    type: 'error'
+  });
+  yield put(toast);
 }
 
 export function* mainSaga() {
