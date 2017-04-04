@@ -1,7 +1,8 @@
 language: node_js
-node_js: 6
+node_js: 7
 sudo: false
 script:
-- npm test -- --coverage
+- yarn test -- --coverage
 - cat coverage/remapped/lcov.info | ./node_modules/.bin/codacy-coverage -p .
-- npm run lint
+- yarn lint
+cache: yarn

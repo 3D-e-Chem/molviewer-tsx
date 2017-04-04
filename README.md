@@ -8,10 +8,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
+# Dependencies
+
+* yarn, https://yarnpkg.com/en/
+
 # Installation
 
 ```
-npm install
+yarn install
 ```
 
 # Development setup
@@ -27,7 +31,7 @@ caddy
 2. Start development web server
 
 ```
-npm start
+yarn start
 ```
 
 Browser should open on http://localhost:3000
@@ -40,19 +44,19 @@ When editing *.tsx files use Typescript inside the repo and not the Typescript s
 # Unit test
 
 ```
-npm test
+yarn test
 ```
 
 To also get coverage run
 ```
-npm test -- --coverage
+yarn test -- --coverage
 ```
 The coverage reports will be written to `coverage/remapped` directory.
 
 # Linting
 
 ```
-npm run lint
+yarn lint
 ```
 
 Enable tslinting inside Visual Studio Code with
@@ -64,7 +68,7 @@ Enable tslinting inside Visual Studio Code with
 
 First build with:
 ```
-npm run build
+yarn build
 ```
 
 Then copy essential build files to deployment target:
