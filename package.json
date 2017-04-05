@@ -9,6 +9,7 @@
     "@types/enzyme": "2.7.7",
     "@types/isomorphic-fetch": "0.0.33",
     "@types/jquery": "^2.0.41",
+    "@types/node": "^7.0.12",
     "@types/react": "^15.0.21",
     "@types/react-bootstrap": "0.0.47",
     "@types/react-dom": "^0.14.23",

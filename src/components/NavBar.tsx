@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { Button, Glyphicon } from 'react-bootstrap';
 
-import { environment } from '../environment';
-
 export interface IDispatchProps {
     serverDisconnect(): void;
     serverModelChanged(): void;
@@ -15,7 +13,7 @@ export interface IOwnProps {
 
 export const NavBar = (props: IDispatchProps & IOwnProps) => {
     let debugButtons = <div/>;
-    if (environment === 'development') {
+    if (process.env.NODE_ENV === 'development') {
         debugButtons = (
             <div>
                 <Button
