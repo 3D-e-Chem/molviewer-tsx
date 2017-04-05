@@ -20,8 +20,11 @@ describe('<GLModel />', () => {
             visible: true
         };
         model = new GLModel(props);
-        const MockedStage = jest.fn();
-        stage = new MockedStage() as NGL.Stage;
+        const mockedStage = {
+            loadFile: jest.fn(),
+            remove: jest.fn()
+        };
+        stage = mockedStage as NGL.Stage;
         model.context = { stage };
     });
 
@@ -93,6 +96,16 @@ describe('<GLModel />', () => {
                 expect(comp.autoView).not.toHaveBeenCalled();
             });
         });
+    });
 
+    describe('componentWillUnmount()', () => {
+        it('should remove model from stage', () => {
+            const comp = mockedComponent();
+            model.modelLoaded(comp);
+
+            model.componentWillUnmount();
+
+            expect(stage.remove).toHaveBeenCalledWith(comp);
+        });
     });
 });
