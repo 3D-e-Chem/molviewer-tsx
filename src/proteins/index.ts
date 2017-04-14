@@ -1,7 +1,7 @@
 import * as actions from './actions';
 import * as constants from './constants';
+import { epic, epicActions } from './epic';
 import * as reducers from './reducer';
-import * as sagas from './sagas';
 import { IProtein } from './types';
 
-export { actions, constants, IProtein, reducers, sagas };
+export { actions, constants, epic, epicActions, IProtein, reducers };
