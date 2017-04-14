@@ -49,7 +49,7 @@ yarn test
 
 To also get coverage run
 ```
-yarn test -- --coverage
+yarn test -- --coverage --no-cache -w 1
 ```
 The coverage reports will be written to `coverage/remapped` directory.
 
