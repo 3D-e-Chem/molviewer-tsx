@@ -18,7 +18,7 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
     };
 
     public context: IContext;
-    protected model: NGL.StructureComponent;
+    protected model: NGL.Component;
 
     public render() {
         return null;
@@ -36,7 +36,7 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
         this.model.setVisibility(this.props.visible);
     }
 
-    public modelLoaded(comp: NGL.StructureComponent) {
+    public modelLoaded(comp: NGL.Component) {
         this.model = comp;
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
