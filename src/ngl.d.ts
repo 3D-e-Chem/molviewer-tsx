@@ -46,4 +46,8 @@ declare module 'ngl' {
         loadFile(path: String|File|Blob, params: loadFileParameters): Promise<StructureComponent>;
         remove(component: StructureComponent): void;
     }
+
+    class ParserRegistry {
+        add(key: string, value: any): void;
+    }
 }
