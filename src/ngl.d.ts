@@ -49,8 +49,8 @@ declare module 'ngl' {
         remove(component: Component): void;
     }
 
-    class ParserRegistry {
-        add(key: string, value: any): void;
+    namespace ParserRegistry {
+        function add(key: string, value: any): void;
     }
 
     class Streamer {

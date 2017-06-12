@@ -9,6 +9,7 @@ interface IProteinGLModelProps extends IGLModelProps {
 }
 
 export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
+    protected model: NGL.StructureComponent;
     private hetero: NGL.RepresentationComponent;
     private heteroSelection: NGL.Selection;
     private pocket: NGL.RepresentationComponent;

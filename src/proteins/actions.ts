@@ -3,7 +3,6 @@ import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
-    PROTEINS_ADJUST_POCKETRADIUS,
     PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
@@ -40,16 +39,6 @@ export interface ITogglePocketVisibility {
 export const togglePocketVisibility = (id: string): ITogglePocketVisibility => ({
     type: PROTEIN_TOGGLE_POCKETVISIBILITY,
     id
-});
-
-export interface IAdjustPocketRadius {
-    type: PROTEINS_ADJUST_POCKETRADIUS;
-    radius: number;
-}
-
-export const adjustPocketRadius = (radius: number): IAdjustPocketRadius => ({
-    type: PROTEINS_ADJUST_POCKETRADIUS,
-    radius
 });
 
 export interface IFetchRequested {
@@ -97,5 +86,4 @@ export const hideAll = (): IHideAll => ({
 type toggleAction = IToggleHetVisibility | ITogglePocketVisibility | IToggleVisibility | IShowAll | IHideAll;
 
 export type ProteinAction = toggleAction | IFetchFailed | IFetchRequested | IFetchSucceeded | IOtherAction;
-export type PocketAction = IAdjustPocketRadius | IOtherAction;
 export { OtherAction };

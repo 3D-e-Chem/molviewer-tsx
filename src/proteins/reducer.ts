@@ -1,25 +1,15 @@
-import { OtherAction, PocketAction, ProteinAction } from './actions';
+import { OtherAction, ProteinAction } from './actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
-    PROTEINS_ADJUST_POCKETRADIUS,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
     PROTEINS_SHOW
 } from './constants';
 import { IProtein } from './types';
 
-export function pocketRadius(state: number = 5.0, action: PocketAction = OtherAction): number {
-    switch (action.type) {
-        case PROTEINS_ADJUST_POCKETRADIUS:
-            return action.radius;
-        default:
-            return state;
-    }
-}
-
-export function proteins(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
+export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
             return state.map((protein) => {

@@ -6,20 +6,22 @@ import * as actions from '../actions';
 import {
     IDispatchProps,
     IOwnProps,
-    ProteinList as ProteinListComponent
-} from '../components/ProteinList';
+    PharmacophoreList as PharmacophoreListComponent
+} from '../components/PharmacophoreList';
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
-const mapDispatchToProps = (dispatch: Dispatch<pactions.PocketAction | actions.ProteinAction>): IDispatchProps => {
+type TDispatch = pactions.PocketAction | actions.PharmacophoreAction;
+const mapDispatchToProps = (dispatch: Dispatch<TDispatch>): IDispatchProps => {
     return {
-        onHeteroVisibilityClick: (id: string) => dispatch(actions.toggleHetVisibility(id)),
         onHideAllClick: () => dispatch(actions.hideAll()),
+        onLigandVisibilityClick: (id: string) => dispatch(actions.toggleLigandVisibility(id)),
+        onPharmacophoreVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id)),
         onPocketRadiusChange: (radius: number) => dispatch(pactions.adjustPocketRadius(radius)),
         onPocketVisibilityClick: (id: string) => dispatch(actions.togglePocketVisibility(id)),
-        onProteinVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id)),
+        onProteinVisibilityClick: (id: string) => dispatch(actions.toggleProteinVisibility(id)),
         onShowAllClick: () => dispatch(actions.showAll())
     };
 };
 
 const connector = connect<{}, IDispatchProps, IOwnProps>(mapStateToProps, mapDispatchToProps);
-export const ProteinList = connector(ProteinListComponent);
+export const PharmacophoreList = connector(PharmacophoreListComponent);

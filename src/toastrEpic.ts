@@ -6,6 +6,10 @@ import {
     constants as ligandsConstants
 } from './ligands';
 import {
+    actions as pharmacophoresActions,
+    constants as pharmacophoresConstants
+} from './pharmacophores';
+import {
     actions as proteinsActions,
     constants as proteinsConstants
 } from './proteins';
@@ -32,9 +36,24 @@ const toastWhenProteinsFetchFailed: Epic<proteinsActions.IFetchFailed, {}> = (ac
         )
 ;
 
-export type epicActions = ligandsActions.IFetchFailed | proteinsActions.IFetchFailed;
+const toastWhenPharmacophoresFetchFailed: Epic<pharmacophoresActions.IFetchFailed, {}> = (action$) =>
+    action$.ofType(pharmacophoresConstants.PHARMACOPHORES_FETCH_FAILED)
+        .map((action) =>
+            toastrActions.add({
+                message: action.error,
+                title: 'Unable to fetch proteins from server',
+                type: 'error'
+            })
+        )
+;
+
+export type epicActions = ligandsActions.IFetchFailed |
+    pharmacophoresActions.IFetchFailed |
+    proteinsActions.IFetchFailed
+;
 
 export const toastrEpic = combineEpics<epicActions, {}>(
     toastWhenLigandsFetchFailed,
+    toastWhenPharmacophoresFetchFailed,
     toastWhenProteinsFetchFailed
 );

@@ -5,6 +5,10 @@ import {
     epicActions as ligandsActions
 } from './ligands';
 import {
+    epic as pharmacophoreEpic,
+    EpicActions as pharmacophoresActions
+} from './pharmacophores';
+import {
     epic as proteinsEpic,
     epicActions as proteinsActions
 } from './proteins';
@@ -17,10 +21,11 @@ import {
     toastrEpic
 } from './toastrEpic';
 
-type rootEpicActions = ligandsActions | proteinsActions | sseActions | toastrEpicActions;
+type rootEpicActions = ligandsActions | pharmacophoresActions | proteinsActions | sseActions | toastrEpicActions;
 
 export const rootEpic = combineEpics<rootEpicActions, {}>(
     ligandsEpic,
+    pharmacophoreEpic,
     proteinsEpic,
     sseEpic,
     toastrEpic

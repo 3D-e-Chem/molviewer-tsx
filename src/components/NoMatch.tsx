@@ -7,6 +7,7 @@ export const NoMatch = () => (
         <span>Available viewers</span>
         <ul>
             <li><Link to="/ligands-and-proteins">Ligands and Proteins Viewer</Link></li>
+            <li><Link to="/pharmacophores">Pharmacophores Viewer</Link></li>
         </ul>
     </div>
 );
