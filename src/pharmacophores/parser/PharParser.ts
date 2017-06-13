@@ -1,30 +1,22 @@
 import { ParserRegistry, Shape, Streamer } from 'ngl';
+import { Color, Vector3 } from 'three';
 
-const DEFAULT_RADIUS = 4.0;
+import { pharmacophoreFunctionalTypes } from '../types';
+
+const DEFAULT_RADIUS = 0.7;
+const DEFAULT_NORMAL_RADIUS = 0.35;
 
 interface ICODE2COLOR {
-    [key: string]: [number, number, number];
+    [key: string]: Color;
 }
 
-// tslint:disable-next-line:no-suspicious-comment
-// TODO pick nice colors
-const CODE2COLOR: ICODE2COLOR = {
-    AROM: [1.0, 0.0, 0.0],
-    EXCL: [1.0, 0.0, 0.0],
-    HACC: [0.0, 1.0, 0.0],
-    HDON: [0.0, 1.0, 0.0],
-    HYBH: [1.0, 1.0, 0.0],
-    HYBL: [1.0, 1.0, 0.0],
-    LIPO: [1.0, 0.0, 1.0],
-    NEGC: [0.0, 0.0, 1.0],
-    POSC: [0.0, 0.0, 1.0]
-};
+const CODE2COLOR: ICODE2COLOR = {};
+pharmacophoreFunctionalTypes.forEach((d) => CODE2COLOR[d.label] = new Color(d.color));
 
 export class PharParser {
     streamer: Streamer;
     name: string;
     path: string;
-    shape: Shape;
 
     constructor(streamer: Streamer, params: any) {
         this.streamer = streamer;
@@ -36,6 +28,7 @@ export class PharParser {
     get __objName (){ return 'phar'; }
 
     parse() {
+        let shape = new Shape('');
         const text = this.streamer.asText();
         const lines = text.split('\n');
         lines.forEach((line, index) => {
@@ -46,43 +39,45 @@ export class PharParser {
             } else if (line === '') {
                 // Last line
             } else if (index === 0) {
-                this.shape = new Shape(line);
+                shape = new Shape(line);
             } else {
-                const cols = line.split(' ');
+                const cols = line.split(/\s/);
                 const name = cols[0];
-                const pos: [number, number, number] = [
+                const pos = new Vector3(
                     parseFloat(cols[1]),
                     parseFloat(cols[2]),
                     parseFloat(cols[3])
-                ];
+                );
                 let radius = DEFAULT_RADIUS;
-                if (cols[4] === '0') {
+                if (cols[4] !== '0') {
                     radius = parseFloat(cols[4]);
                 }
                 const color = CODE2COLOR[name];
-                this.shape.addSphere(
+                shape.addSphere(
                     pos,
                     color,
                     radius,
                     name
                 );
                 if (cols[5] === '1') {
-                    const pos2: [number, number, number] = [
+                    const normal = new Vector3(
                         parseFloat(cols[6]),
                         parseFloat(cols[7]),
                         parseFloat(cols[8])
-                    ];
-                    this.shape.addArrow(
-                        pos,
-                        pos2,
+                    );
+                    // move arrow on top of sphere surface
+                    const offset = normal.clone().add(normal.clone().sub(pos));
+                    shape.addArrow(
+                        normal,
+                        offset,
                         color,
-                        radius, // Use different radius for arrow maybe?
+                        DEFAULT_NORMAL_RADIUS,
                         name
                     );
                 }
             }
         });
-        return this.shape;
+        return shape;
     }
 
 }

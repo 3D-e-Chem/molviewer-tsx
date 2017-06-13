@@ -36,7 +36,7 @@ declare module 'ngl' {
     class Component {
         setVisibility(value: boolean): void;
         autoView(duration?: number): void;
-        addRepresentation(type: string, params: any): RepresentationComponent;
+        addRepresentation(type: string, params?: any): RepresentationComponent;
     }
 
     class StructureComponent extends Component {
@@ -45,8 +45,9 @@ declare module 'ngl' {
 
     class Stage {
         constructor(eid: string, params?: StageParameters);
-        loadFile(path: String|File|Blob, params: loadFileParameters): Promise<StructureComponent>;
+        loadFile(path: String|File|Blob, params: loadFileParameters): Promise<Component>;
         remove(component: Component): void;
+        addComponentFromObject(object: any, params: any): Component;
     }
 
     namespace ParserRegistry {
@@ -61,7 +62,7 @@ declare module 'ngl' {
         name: string;
         sphereName: string[];
         constructor(name: string);
-        addArrow(position1: [number, number, number], position2: [number, number, number], color: [number, number, number], radius: number, name: string): void;
-        addSphere(position: [number, number, number], color: [number, number, number], radius: number, name: string): void;
+        addArrow(position1: [number, number, number] | THREE.Vector3, position2: [number, number, number] | THREE.Vector3, color: [number, number, number] | THREE.Color, radius: number, name: string): void;
+        addSphere(position: [number, number, number] | THREE.Vector3, color: [number, number, number] | THREE.Color, radius: number, name: string): void;
     }
 }
