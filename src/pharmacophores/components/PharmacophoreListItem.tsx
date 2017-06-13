@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, ButtonGroup, Glyphicon } from 'react-bootstrap';
+import { Button, ButtonGroup, DropdownButton, Glyphicon, MenuItem } from 'react-bootstrap';
 
 import { EllipsisText } from '../../components/EllipsisText';
 import { IPharmacophore } from '../types';
@@ -50,21 +50,37 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                 <td style={{textAlign: 'right'}}>
                     <ButtonGroup>
                         <Button bsSize="small" title="All" onClick={this.onPharmacophoreVisibilityClick}>
-                            A&nbsp;
                             <Glyphicon glyph={this.props.visible ? 'eye-open' : 'eye-close'} />
                         </Button>
-                        <Button bsSize="small" title="Protein" onClick={this.onProteinVisibilityClick}>
-                            Pr&nbsp;
-                            <Glyphicon glyph={this.props.proteinVisible ? 'eye-open' : 'eye-close'} />
-                        </Button>
-                        <Button bsSize="small" title="Ligand" onClick={this.onLigandVisibilityClick}>
-                            L&nbsp;
-                            <Glyphicon glyph={this.props.ligandVisible ? 'eye-open' : 'eye-close'} />
-                        </Button>
-                        <Button bsSize="small" title="Pocket" onClick={this.onPocketVisibilityClick}>
-                            Po&nbsp;
-                            <Glyphicon glyph={this.props.pocketVisible ? 'eye-open' : 'eye-close'} />
-                        </Button>
+                        <DropdownButton pullRight={true} bsSize="small" id={this.props.id} title="">
+                                <MenuItem
+                                    title="Protein"
+                                    disabled={!(this.props.visible && this.props.protein)}
+                                    onSelect={this.onProteinVisibilityClick}
+                                >
+                                    <Glyphicon glyph={this.props.proteinVisible ? 'eye-open' : 'eye-close'} />
+                                    &nbsp;
+                                    Protein
+                                </MenuItem>
+                                <MenuItem
+                                    title="Ligand"
+                                    disabled={!(this.props.visible && (this.props.protein || this.props.ligand))}
+                                    onSelect={this.onLigandVisibilityClick}
+                                >
+                                    <Glyphicon glyph={this.props.ligandVisible ? 'eye-open' : 'eye-close'} />
+                                    &nbsp;
+                                    Ligand
+                                </MenuItem>
+                                <MenuItem
+                                    title="Pocket"
+                                    disabled={!(this.props.visible && this.props.protein)}
+                                    onSelect={this.onPocketVisibilityClick}
+                                >
+                                    <Glyphicon glyph={this.props.pocketVisible ? 'eye-open' : 'eye-close'} />
+                                    &nbsp;
+                                    Pocket
+                                </MenuItem>
+                        </DropdownButton>
                     </ButtonGroup>
                 </td>
             </tr>

@@ -26,11 +26,12 @@ export class PharmacophoresViewer extends React.Component<IStateProps & IDispatc
         const sidebar = [
             (
                 <PharmacophoreList
+                    key="list"
                     pharmacophores={this.props.pharmacophores}
                     pocketRadius={this.props.pocketRadius}
                 />
             ),
-            <Legend types={pharmacophoreFunctionalTypes}/>
+            <Legend key="legend" types={pharmacophoreFunctionalTypes}/>
         ];
         const pharmacophores = this.props.pharmacophores.map((pharmacophore) => (
             <PharmacophoreModel

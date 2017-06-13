@@ -3,10 +3,10 @@ export interface IRestPharmacophore {
     label: string;
     pharmacophore: string;
     pharmacophoreFormat: string;
-    protein: string;
-    proteinFormat: string;
-    ligand: string;
-    ligandFormat: string;
+    protein?: string;
+    proteinFormat?: string;
+    ligand?: string;
+    ligandFormat?: string;
 }
 
 export interface IPharmacophore extends IRestPharmacophore {
