@@ -25,39 +25,39 @@ export interface IPharmacophoreFunctionalType {
 // tslint:disable-next-line:no-suspicious-comment
 // TODO pick nice colors
 export const pharmacophoreFunctionalTypes: IPharmacophoreFunctionalType[] = [{
-    color: '#00ffff',
+    color: 'yellow',
     description: 'Aromatic ring',
     label: 'AROM'
 }, {
-    color: 'green',
+    color: 'gray',
     description: 'Exclusion sphere',
     label: 'EXCL'
 }, {
-    color: '#bfbfbf',
+    color: 'fuchsia',
     description: 'Hydrogen bond acceptor',
     label: 'HACC'
 }, {
-    color: '#00ff00',
+    color: 'aqua',
     description: 'Hydrogen bond donor',
     label: 'HDON'
 }, {
-    color: 'yellow',
+    color: '#f781bf',
     description: 'Hydrogen bond donor and acceptor',
     label: 'HYBH'
 }, {
-    color: 'purple',
+    color: 'greenyellow',
     description: 'Aromatic and lipophilic',
     label: 'HYBL'
 }, {
-    color: 'pink',
+    color: 'green',
     description: 'Lipophilic region',
     label: 'LIPO'
 }, {
-    color: '#376092',
+    color: 'red',
     description: 'Negative charge center',
     label: 'NEGC'
 }, {
-    color: '#ff9933',
+    color: 'blue',
     description: 'Positive charge center',
     label: 'POSC'
 }];
