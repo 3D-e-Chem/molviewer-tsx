@@ -21,6 +21,7 @@ describe('<GLModel />', () => {
         };
         model = new GLModel(props);
         const mockedStage = {
+            addComponentFromObject: jest.fn(),
             loadFile: jest.fn(),
             remove: jest.fn()
         };
