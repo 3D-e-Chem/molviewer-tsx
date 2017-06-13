@@ -7,7 +7,7 @@ The file is formatted as described on http://keepachangelog.com/.
 
 ### Added
 
-* Pharmacphores viewer
+* Pharmacphores viewer (#14)
 
 ### Changed
 
