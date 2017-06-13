@@ -1,4 +1,4 @@
-export interface IRestPharmacophore {
+export interface IRestPharmacophoreContainer {
     id: string;
     label: string;
     pharmacophore: string;
@@ -9,8 +9,9 @@ export interface IRestPharmacophore {
     ligandFormat?: string;
 }
 
-export interface IPharmacophore extends IRestPharmacophore {
+export interface IPharmacophoreContainer extends IRestPharmacophoreContainer {
     ligandVisible: boolean;
+    pharmacophoreVisible: boolean;
     pocketVisible: boolean;
     proteinVisible: boolean;
     visible: boolean;

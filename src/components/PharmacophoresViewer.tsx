@@ -2,13 +2,13 @@ import * as React from 'react';
 
 import { Layout } from '../components/Layout';
 import { MolCanvas } from '../components/MolCanvas';
-import { IPharmacophore, pharmacophoreFunctionalTypes } from '../pharmacophores';
+import { IPharmacophoreContainer, pharmacophoreFunctionalTypes } from '../pharmacophores';
 import { Legend } from '../pharmacophores/components/Legend';
-import { PharmacophoreModel } from '../pharmacophores/components/PharmacophoreModel';
+import { PharmacophoreContainerModel } from '../pharmacophores/components/PharmacophoreContainerModel';
 import { PharmacophoreList } from '../pharmacophores/containers/PharmacophoreList';
 
 export interface IStateProps {
-    pharmacophores: IPharmacophore[];
+    pharmacophores: IPharmacophoreContainer[];
     pocketRadius: number;
 }
 
@@ -34,7 +34,7 @@ export class PharmacophoresViewer extends React.Component<IStateProps & IDispatc
             <Legend key="legend" types={pharmacophoreFunctionalTypes}/>
         ];
         const pharmacophores = this.props.pharmacophores.map((pharmacophore) => (
-            <PharmacophoreModel
+            <PharmacophoreContainerModel
                 key={pharmacophore.id}
                 pharmacophore={pharmacophore}
                 pocketRadius={this.props.pocketRadius}

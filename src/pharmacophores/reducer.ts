@@ -1,13 +1,21 @@
 import { OtherAction, PharmacophoreAction } from './actions';
 import * as constants from './constants';
-import { IPharmacophore } from './types';
+import { IPharmacophoreContainer } from './types';
 
-export function reducer(state: IPharmacophore[] = [], action: PharmacophoreAction = OtherAction): IPharmacophore[] {
+export function reducer(state: IPharmacophoreContainer[] = [],
+                        action: PharmacophoreAction = OtherAction): IPharmacophoreContainer[] {
     switch (action.type) {
-        case constants.PHARMACOPHORE_TOGGLE_VISIBILITY:
+        case constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY:
             return state.map((phar) => {
                 if (phar.id === action.id) {
                     return { ...phar, visible: !phar.visible};
+                }
+                return phar;
+            });
+        case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY:
+            return state.map((phar) => {
+                if (phar.id === action.id) {
+                    return { ...phar, pharmacophoreVisible: !phar.pharmacophoreVisible};
                 }
                 return phar;
             });

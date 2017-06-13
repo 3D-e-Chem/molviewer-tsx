@@ -1,15 +1,25 @@
 import { IOtherAction, OtherAction } from '../actions';
 
 import * as constants from './constants';
-import { IPharmacophore } from './types';
+import { IPharmacophoreContainer } from './types';
 
-export interface IToggleVisibility {
-  type: constants.PHARMACOPHORE_TOGGLE_VISIBILITY;
+export interface IToggleContainerVisibility {
+  type: constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY;
   id: string;
 }
 
-export const toggleVisibility = (id: string): IToggleVisibility => ({
-  type: constants.PHARMACOPHORE_TOGGLE_VISIBILITY,
+export const toggleContainerVisibility = (id: string): IToggleContainerVisibility => ({
+  type: constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY,
+  id
+});
+
+export interface ITogglePharmacophoreVisibility {
+  type: constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY;
+  id: string;
+}
+
+export const togglePharmacophoreVisibility = (id: string): ITogglePharmacophoreVisibility => ({
+  type: constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY,
   id
 });
 
@@ -53,10 +63,10 @@ export const fetchRequested = (): IFetchRequested => ({
 
 export interface IFetchSucceeded {
   type: constants.PHARMACOPHORES_FETCH_SUCCEEDED;
-  payload: IPharmacophore[];
+  payload: IPharmacophoreContainer[];
 }
 
-export const fetchSucceeded = (payload: IPharmacophore[]): IFetchSucceeded => ({
+export const fetchSucceeded = (payload: IPharmacophoreContainer[]): IFetchSucceeded => ({
   type: constants.PHARMACOPHORES_FETCH_SUCCEEDED,
   payload
 });
@@ -85,7 +95,8 @@ export const hideAll = (): IHideAll => ({
   type: constants.PHARMACOPHORES_HIDE
 });
 
-type IToggleAction = IToggleVisibility |
+type IToggleAction = IToggleContainerVisibility |
+  ITogglePharmacophoreVisibility |
   IToggleLigandVisibility |
   ITogglePocketVisibility |
   IToggleProteinVisibility |

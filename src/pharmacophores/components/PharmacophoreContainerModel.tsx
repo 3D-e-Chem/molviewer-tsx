@@ -2,15 +2,15 @@ import * as React from 'react';
 
 import { LigandGLModel } from '../../ligands';
 import { ProteinGLModel } from '../../proteins';
-import { IPharmacophore } from '../types';
+import { IPharmacophoreContainer } from '../types';
 import { PharmacophoreGLModel } from './PharmacophoreGLModel';
 
 interface IProps {
-    pharmacophore: IPharmacophore;
+    pharmacophore: IPharmacophoreContainer;
     pocketRadius: number;
 }
 
-export const PharmacophoreModel = ({pharmacophore, pocketRadius}: IProps) => {
+export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProps) => {
     let protein;
     if (pharmacophore.protein !== undefined && pharmacophore.proteinFormat !== undefined) {
         protein = (
@@ -37,7 +37,7 @@ export const PharmacophoreModel = ({pharmacophore, pocketRadius}: IProps) => {
     return (
         <div>
             <PharmacophoreGLModel
-                visible={pharmacophore.visible}
+                visible={pharmacophore.visible && pharmacophore.pharmacophoreVisible}
                 data={pharmacophore.pharmacophore}
                 format={pharmacophore.pharmacophoreFormat}
             />

@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import { ListActions } from '../../components/ListActions';
 import { PocketRadius } from '../../pocketradius';
-import { IPharmacophore } from '../types';
+import { IPharmacophoreContainer } from '../types';
 import { PharmacophoreListItem } from './PharmacophoreListItem';
 
 export interface IOwnProps {
-    pharmacophores: IPharmacophore[];
+    pharmacophores: IPharmacophoreContainer[];
     pocketRadius: number;
 }
 
@@ -16,6 +16,7 @@ export interface IDispatchProps {
     onLigandVisibilityClick(id: string): void;
     onPocketVisibilityClick(id: string): void;
     onPharmacophoreVisibilityClick(id: string): void;
+    onPharmacophoreContainerVisibilityClick(id: string): void;
     onShowAllClick(): void;
     onHideAllClick(): void;
 }
@@ -35,6 +36,7 @@ export const PharmacophoreList = (props: IProps) => {
             onPocketVisibilityClick={props.onPocketVisibilityClick}
             onLigandVisibilityClick={props.onLigandVisibilityClick}
             onPharmacophoreVisibilityClick={props.onPharmacophoreVisibilityClick}
+            onPharmacophoreContainerVisibilityClick={props.onPharmacophoreContainerVisibilityClick}
         />
     ));
     return (

@@ -1,9 +1,9 @@
 import * as actions from './actions';
 import * as constants from './constants';
 import { reducer } from './reducer';
-import { IPharmacophore } from './types';
+import { IPharmacophoreContainer } from './types';
 
-function sampleState(): IPharmacophore[] {
+function sampleState(): IPharmacophoreContainer[] {
     return [{
         id: 'id1',
         label: 'label1',
@@ -12,6 +12,7 @@ function sampleState(): IPharmacophore[] {
         ligandVisible: true,
         pharmacophore: '...',
         pharmacophoreFormat: 'phar',
+        pharmacophoreVisible: true,
         pocketVisible: true,
         protein: '...',
         proteinFormat: 'pdb',
@@ -38,15 +39,28 @@ describe('reducer', () => {
         });
     });
 
-    describe(constants.PHARMACOPHORE_TOGGLE_VISIBILITY, () => {
+    describe(constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY, () => {
         it('should set pharmacophore visible to !visible', () => {
             const state = sampleState();
-            const action = actions.toggleVisibility('id1');
+            const action = actions.toggleContainerVisibility('id1');
 
             const newState = reducer(state, action);
 
             const expected = sampleState();
             expected[0].visible = false;
+            expect(newState).toEqual(expected);
+        });
+    });
+
+    describe(constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY, () => {
+        it('should set pharmacophore visible to !visible', () => {
+            const state = sampleState();
+            const action = actions.togglePharmacophoreVisibility('id1');
+
+            const newState = reducer(state, action);
+
+            const expected = sampleState();
+            expected[0].pharmacophoreVisible = false;
             expect(newState).toEqual(expected);
         });
     });
