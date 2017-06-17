@@ -1,11 +1,5 @@
 /* tslint:disable */
 
-/* import all svg files as strings */
-declare module '*.svg' {
-    const __path__: string;
-    export default __path__;
-}
-
 declare module 'rc-slider*';
 declare module 'rc-util*';
 

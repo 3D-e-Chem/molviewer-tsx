@@ -16,5 +16,5 @@ const mapDispatchToProps = (dispatch: Dispatch<actions.IFetchRequested>): IDispa
     };
 };
 
-const connector = connect<IStateProps, IDispatchProps, void>(mapStateToProps, mapDispatchToProps);
+const connector = connect<IStateProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps);
 export const PharmacophoresViewer = connector(PharmacophoresViewerComponent);

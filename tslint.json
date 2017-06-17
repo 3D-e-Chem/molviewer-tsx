@@ -4,6 +4,10 @@
     ],
     "rules": {
         "prefer-type-cast": false,
-        "no-angle-bracket-type-assertion": true
+        "newline-before-return": false,
+        "no-angle-bracket-type-assertion": true,
+        "no-import-side-effect": [true, { "ignore-pattern": "/((^rxjs)|(\\.html|\\.css)$))/" }],
+        "object-literal-sort-keys": false,
+        "prefer-template": [true, "allow-single-concat"]
     }
 }

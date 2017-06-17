@@ -20,5 +20,5 @@ const mapDispatchToProps = (dispatch: Dispatch<fetchRequested>): IDispatchProps 
     };
 };
 
-const connector = connect<IStateProps, IDispatchProps, void>(mapStateToProps, mapDispatchToProps);
+const connector = connect<IStateProps, IDispatchProps, {}>(mapStateToProps, mapDispatchToProps);
 export const LigandsAndProteinsViewer = connector(LigandsAndProteinsViewerComponent);

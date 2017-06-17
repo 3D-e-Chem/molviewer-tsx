@@ -24,8 +24,8 @@ export class PharParser {
         this.path = params.path;
     }
 
-    get type (){ return 'phar'; }
-    get __objName (){ return 'phar'; }
+    get type() { return 'phar'; }
+    get __objName() { return 'phar'; }
 
     parse() {
         let shape = new Shape('');

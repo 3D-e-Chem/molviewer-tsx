@@ -9,8 +9,12 @@ import { NoMatch } from './NoMatch';
 export const Routes = () => (
     <Router>
         <Switch>
-            <Route path="/ligands-and-proteins" component={LigandsAndProteinsViewer}/>
-            <Route path="/pharmacophores" component={PharmacophoresViewer}/>
+            <Route path="/ligands-and-proteins">
+                <LigandsAndProteinsViewer/>
+            </Route>
+            <Route path="/pharmacophores">
+                <PharmacophoresViewer/>
+            </Route>
             <Route component={NoMatch}/>
         </Switch>
     </Router>

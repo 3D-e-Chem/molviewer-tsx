@@ -22,7 +22,7 @@ export type epicActions = IFetchFailed | IFetchRequested | IFetchSucceeded;
 export const epic: Epic<epicActions, {}> = (action$) =>
     action$.ofType(PROTEINS_FETCH_REQUESTED)
         .mergeMap(() => Observable.fromPromise(fetchProteins())
-            .map((proteins) => fetchSucceeded(proteins))
+            .map(fetchSucceeded)
             .catch((error: Error) => Observable.of(fetchFailed(error.message)))
         )
 ;

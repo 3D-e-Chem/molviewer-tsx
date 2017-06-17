@@ -1,19 +1,33 @@
 {
     "compilerOptions": {
-        "forceConsistentCasingInFileNames": true,
-        "jsx": "preserve",
-        "module": "es6",
+        "outDir": "build/dist",
+        "module": "commonjs",
+        "target": "es5",
+        "lib": ["es6", "dom"],
+        "sourceMap": true,
+        "allowJs": true,
+        "jsx": "react",
         "moduleResolution": "node",
+        "rootDir": "src",
+        "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
-        "noImplicitAny": true,
-        "noImplicitThis": true,
         "noImplicitReturns": true,
-        "noUnusedLocals": false,
+        "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "strictNullChecks": true,
-        "target": "es6"
+        "strict": true,
+        "suppressImplicitAnyIndexErrors": true
     },
     "exclude": [
-        "node_modules/**/*"
+        "node_modules",
+        "build",
+        "coverage",
+        "scripts",
+        "acceptance-tests",
+        "webpack",
+        "jest",
+        "src/setupTests.ts"
+    ],
+    "types": [
+        "typePatches"
     ]
 }
