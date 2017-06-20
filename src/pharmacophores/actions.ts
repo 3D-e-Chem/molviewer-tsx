@@ -113,6 +113,13 @@ export const hiLitefetchSucceeded = (payload: string[]): IHiLitefetchSucceeded =
   payload
 });
 
+export interface IHiLitefetchRequested {
+  type: constants.PHARMACOPHORES_HILITE_FETCH_REQUESTED;
+}
+export const hiLitefetchRequested = (): IHiLitefetchRequested => ({
+  type: constants.PHARMACOPHORES_HILITE_FETCH_REQUESTED
+});
+
 type IToggleAction = IToggleContainerVisibility |
   ITogglePharmacophoreVisibility |
   ITogglePharamacophoreOpacity |
@@ -122,7 +129,7 @@ type IToggleAction = IToggleContainerVisibility |
   IShowAll |
   IHideAll;
 export type IFetchAction = IFetchRequested | IFetchSucceeded;
-export type IHiLiteAction = IHiLiteShown | IHiLitefetchSucceeded;
+export type IHiLiteAction = IHiLiteShown | IHiLitefetchRequested | IHiLitefetchSucceeded;
 
 export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction| IOtherAction;
 export { OtherAction };

@@ -1,3 +1,4 @@
+import { processStatus } from '../processStatus';
 import { IPharmacophoreContainer, IRestAnonymousMolecule, IRestPharmacophoreContainer } from './types';
 
 const initialShownMolecules = 1;
@@ -67,13 +68,17 @@ export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer
 
 export function fetchPharmacophores(url: string = '/api/pharmacophores') {
   return fetch(url)
+    .then(processStatus)
     .then<IRestPharmacophoreContainer[]>((response) => response.json())
-    .then<IPharmacophoreContainer[]>((restPharmacophores) => restPharmacophores.map(prepPharmacophore));
+    .then<IPharmacophoreContainer[]>((restPharmacophores) => restPharmacophores.map(prepPharmacophore))
+  ;
 }
 
 export function fetchHiLitePharmacophores(url: string = '/api/pharmacophores/hilite') {
   return fetch(url)
-    .then<string[]>((response) => response.json());
+    .then(processStatus)
+    .then<string[]>((response) => response.json())
+  ;
 }
 
 export function submitHiLitePharmacophores(highlighted: string[], url: string = '/api/pharmacophores/hilite') {
@@ -84,5 +89,7 @@ export function submitHiLitePharmacophores(highlighted: string[], url: string = 
     }),
     method: 'POST'
   };
-  return fetch(url, init);
+  return fetch(url, init)
+    .then(processStatus)
+  ;
 }

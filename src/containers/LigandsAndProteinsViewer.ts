@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { pageLoaded } from '../actions';
 import * as ligands from '../ligands';
 import * as proteins from '../proteins';
+import { actions as sseActions } from '../sse';
 
 import {
     IDispatchProps,
@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch: Dispatch<fetchRequested>): IDispatchProps 
     return {
         fetchLigands: () => dispatch(ligands.actions.fetchRequested()),
         fetchProteins: () => dispatch(proteins.actions.fetchRequested()),
-        pageLoaded: () => dispatch(pageLoaded(ligands.constants.LIGANDS_HILITE_FETCH_REQUESTED))
+        pageLoaded: () => dispatch(sseActions.pageLoaded('LigandsAndProteinsViewer'))
     };
 };
 
