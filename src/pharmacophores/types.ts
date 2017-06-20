@@ -1,19 +1,36 @@
+interface IRestAnonymousMolecule {
+    data: string;
+    format: string;
+}
+
 export interface IRestPharmacophoreContainer {
     id: string;
     label: string;
-    pharmacophore: string;
-    pharmacophoreFormat: string;
-    protein?: string;
-    proteinFormat?: string;
-    ligand?: string;
-    ligandFormat?: string;
+    pharmacophore: IRestAnonymousMolecule;
+    protein?: IRestAnonymousMolecule;
+    ligand?: IRestAnonymousMolecule;
 }
 
-export interface IPharmacophoreContainer extends IRestPharmacophoreContainer {
+interface IAnonymousMolecule extends IRestAnonymousMolecule {
+    visible: true;
+}
+
+interface IPharmacophore extends IAnonymousMolecule {
+    solid: boolean;
+}
+
+export interface IProtein extends IAnonymousMolecule {
+    hasHetero: boolean;
     ligandVisible: boolean;
-    pharmacophoreVisible: boolean;
     pocketVisible: boolean;
-    proteinVisible: boolean;
+}
+
+export interface IPharmacophoreContainer {
+    id: string;
+    label: string;
+    pharmacophore: IPharmacophore;
+    protein?: IProtein;
+    ligand?: IAnonymousMolecule;
     visible: boolean;
 }
 
