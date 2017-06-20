@@ -16,6 +16,7 @@ const mapDispatchToProps = (dispatch: Dispatch<TDispatch>): IDispatchProps => {
         onHideAllClick: () => dispatch(actions.hideAll()),
         onLigandVisibilityClick: (id: string) => dispatch(actions.toggleLigandVisibility(id)),
         onPharmacophoreContainerVisibilityClick: (id: string) => dispatch(actions.toggleContainerVisibility(id)),
+        onPharmacophoreSolidClick: (id: string) => dispatch(actions.togglePharmacophoreOpacity(id)),
         onPharmacophoreVisibilityClick: (id: string) => dispatch(actions.togglePharmacophoreVisibility(id)),
         onPocketRadiusChange: (radius: number) => dispatch(pactions.adjustPocketRadius(radius)),
         onPocketVisibilityClick: (id: string) => dispatch(actions.togglePocketVisibility(id)),

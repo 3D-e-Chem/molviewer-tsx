@@ -37,6 +37,7 @@ declare module 'ngl' {
         setVisibility(value: boolean): void;
         autoView(duration?: number): void;
         addRepresentation(type: string, params?: any): RepresentationComponent;
+        removeAllRepresentations(): void;
     }
 
     class StructureComponent extends Component {

@@ -15,7 +15,7 @@ interface IAnonymousMolecule extends IRestAnonymousMolecule {
     visible: boolean;
 }
 
-interface IPharmacophore extends IAnonymousMolecule {
+export interface IPharmacophore extends IAnonymousMolecule {
     solid: boolean;
 }
 

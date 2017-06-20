@@ -17,6 +17,7 @@ export interface IDispatchProps {
     onPocketVisibilityClick(id: string): void;
     onPharmacophoreVisibilityClick(id: string): void;
     onPharmacophoreContainerVisibilityClick(id: string): void;
+    onPharmacophoreSolidClick(id: string): void;
     onShowAllClick(): void;
     onHideAllClick(): void;
 }
@@ -37,6 +38,7 @@ export const PharmacophoreList = (props: IProps) => {
             onLigandVisibilityClick={props.onLigandVisibilityClick}
             onPharmacophoreVisibilityClick={props.onPharmacophoreVisibilityClick}
             onPharmacophoreContainerVisibilityClick={props.onPharmacophoreContainerVisibilityClick}
+            onPharmacophoreSolidClick={props.onPharmacophoreSolidClick}
         />
     ));
     return (

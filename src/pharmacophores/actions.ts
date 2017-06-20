@@ -23,6 +23,16 @@ export const togglePharmacophoreVisibility = (id: string): ITogglePharmacophoreV
   id
 });
 
+export interface ITogglePharamacophoreOpacity {
+  type: constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY;
+  id: string;
+}
+
+export const togglePharmacophoreOpacity = (id: string): ITogglePharamacophoreOpacity => ({
+  type: constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY,
+  id
+});
+
 export interface IToggleProteinVisibility {
   type: constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY;
   id: string;
@@ -97,6 +107,7 @@ export const hideAll = (): IHideAll => ({
 
 type IToggleAction = IToggleContainerVisibility |
   ITogglePharmacophoreVisibility |
+  ITogglePharamacophoreOpacity |
   IToggleLigandVisibility |
   ITogglePocketVisibility |
   IToggleProteinVisibility |

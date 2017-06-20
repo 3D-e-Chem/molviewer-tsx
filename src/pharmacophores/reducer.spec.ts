@@ -74,6 +74,19 @@ describe('reducer', () => {
         });
     });
 
+    describe('constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY', () => {
+        it('should set pharmacophore solid to !solid', () => {
+            const state = sampleState();
+            const action = actions.togglePharmacophoreOpacity('id1');
+
+            const newState = reducer(state, action);
+
+            const expected = sampleState();
+            expected[0].pharmacophore.solid = false;
+            expect(newState).toEqual(expected);
+        });
+    });
+
     describe(constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY, () => {
         it('should set protein visible to !visible', () => {
             const state = sampleState();

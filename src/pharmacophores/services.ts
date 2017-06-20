@@ -52,6 +52,7 @@ export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer
   const pharmacophore = restPharmacophore as IPharmacophoreContainer;
   pharmacophore.visible = index < initialShownMolecules;
   pharmacophore.pharmacophore.visible = true;
+  pharmacophore.pharmacophore.solid = index < initialShownMolecules;
   if (pharmacophore.protein !== undefined) {
     pharmacophore.protein.visible = true;
     pharmacophore.protein.hasHetero = detectHetero(pharmacophore.protein);

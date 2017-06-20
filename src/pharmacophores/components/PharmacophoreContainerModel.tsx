@@ -43,6 +43,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 visible={pharmacophore.visible && p.visible}
                 data={p.data}
                 format={p.format}
+                solid={p.solid}
             />
             {protein}
             {ligand}

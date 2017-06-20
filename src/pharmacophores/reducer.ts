@@ -1,6 +1,6 @@
 import { OtherAction, PharmacophoreAction } from './actions';
 import * as constants from './constants';
-import { IPharmacophoreContainer, IProtein } from './types';
+import { IPharmacophore, IPharmacophoreContainer, IProtein } from './types';
 
 function proteinReducer(state: IProtein, action: PharmacophoreAction = OtherAction): IProtein {
     switch (action.type) {
@@ -15,13 +15,25 @@ function proteinReducer(state: IProtein, action: PharmacophoreAction = OtherActi
     }
 }
 
-function pharmacophoreReducer(state: IPharmacophoreContainer,
-                              action: PharmacophoreAction = OtherAction): IPharmacophoreContainer {
+function pharmacophoreReducer(state: IPharmacophore, action: PharmacophoreAction = OtherAction): IPharmacophore {
+    switch (action.type) {
+        case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY:
+            return { ...state, visible: !state.visible};
+        case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY:
+            return { ...state, solid: !state.solid};
+        default:
+            return state;
+    }
+}
+
+function pharmacophoreContainerReducer(state: IPharmacophoreContainer,
+                                       action: PharmacophoreAction = OtherAction): IPharmacophoreContainer {
     switch (action.type) {
         case constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY:
             return { ...state, visible: !state.visible};
         case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY:
-            return { ...state, pharmacophore: { ...state.pharmacophore, visible: !state.pharmacophore.visible}};
+        case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY:
+            return { ...state, pharmacophore: pharmacophoreReducer(state.pharmacophore, action)};
         case constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY:
         case constants.PHARMACOPHORE_TOGGLE_POCKET_VISIBILITY:
             if (state.protein) {
@@ -58,12 +70,13 @@ export function reducer(state: IPharmacophoreContainer[] = [],
     switch (action.type) {
         case constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY:
         case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY:
+        case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_OPACITY:
         case constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY:
         case constants.PHARMACOPHORE_TOGGLE_POCKET_VISIBILITY:
         case constants.PHARMACOPHORE_TOGGLE_LIGAND_VISIBILITY:
             return state.map((phar) => {
                 if (phar.id === action.id) {
-                    return pharmacophoreReducer(phar, action);
+                    return pharmacophoreContainerReducer(phar, action);
                 }
                 return phar;
             });
