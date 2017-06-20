@@ -42,7 +42,7 @@ export const PharmacophoreList = (props: IProps) => {
         />
     ));
     return (
-        <div style={{ overflowY: 'auto'}}>
+        <div style={{ height: '100%', overflowY: 'auto'}}>
             <h5>Pharmacophores</h5>
             <PocketRadius value={props.pocketRadius} onChange={props.onPocketRadiusChange}/>
             {listactions}

@@ -1,19 +1,14 @@
 import * as React from 'react';
 
+import { ListGroupItem } from 'react-bootstrap';
+
 import { IPharmacophoreFunctionalType } from '../types';
 
-export class LegendItem extends React.Component<IPharmacophoreFunctionalType, {}> {
-
-    render() {
-        const { description, label, color} = this.props;
-        return (
-            <li
-                className="list-group-item"
-                style={{backgroundColor: color}}
-                alt={label}
-            >
-                {description}
-            </li>
-        );
-    }
-}
+export const LegendItem = ({ description, label, color}: IPharmacophoreFunctionalType) => (
+    <ListGroupItem
+        style={{backgroundColor: color}}
+        alt={label}
+    >
+        {description}
+    </ListGroupItem>
+);
