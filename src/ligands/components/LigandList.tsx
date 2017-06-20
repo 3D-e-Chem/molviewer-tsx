@@ -6,7 +6,6 @@ import { LigandListItem } from './LigandListItem';
 
 export interface IOwnProps {
     ligands: ILigand[];
-    height: string | number;
 }
 
 export interface IDispatchProps {
@@ -28,8 +27,7 @@ export const LigandList = ({ligands,
                             onVisibilityClick,
                             onShowAllClick,
                             onHideAllClick,
-                            onHiLiteShownClick,
-                            height}: IProps) => {
+                            onHiLiteShownClick}: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (ligands.length > 1) {
         listactions = (
@@ -55,7 +53,7 @@ export const LigandList = ({ligands,
         />
     ));
     return (
-        <div style={{ height, overflowY: 'auto'}}>
+        <div style={{ overflowY: 'auto'}}>
             <h5>Ligands</h5>
             {listactions}
             <table className="table table-condensed"><tbody>

@@ -30,7 +30,7 @@ export class LigandsAndProteinsViewer extends React.Component<IStateProps & IDis
     public render() {
         const title = 'Ligands and proteins viewer';
         const sidebar = [
-            <LigandList key="ligands" height="80%" ligands={this.props.ligands}/>,
+            <LigandList key="ligands" ligands={this.props.ligands}/>,
             <ProteinList key="proteins" proteins={this.props.proteins} pocketRadius={this.props.pocketRadius}/>
         ];
         const ligands = this.props.ligands.map((ligand) => (

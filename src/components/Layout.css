@@ -30,3 +30,9 @@
     flex: 1 1 auto;
     height: 100%;
 }
+
+.sidebar {
+    display: flex;                   /* defines flexbox */
+    flex-direction: column;          /* top to bottom */
+    justify-content: space-between;  /* first item at start, last at end */
+}

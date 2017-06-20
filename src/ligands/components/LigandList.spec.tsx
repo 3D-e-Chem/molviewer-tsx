@@ -25,7 +25,6 @@ describe('<LigandList />', () => {
                 const comp = (
                     <LigandList
                         ligands={[]}
-                        height="100%"
                         onVisibilityClick={clickers.onVisibilityClick}
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
@@ -60,7 +59,6 @@ describe('<LigandList />', () => {
                 const comp = (
                     <LigandList
                         ligands={ligands}
-                        height="100%"
                         onVisibilityClick={clickers.onVisibilityClick}
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
@@ -101,7 +99,6 @@ describe('<LigandList />', () => {
                 const comp = (
                     <LigandList
                         ligands={ligands}
-                        height="100%"
                         onVisibilityClick={clickers.onVisibilityClick}
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
