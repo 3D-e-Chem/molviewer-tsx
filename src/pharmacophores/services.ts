@@ -53,14 +53,13 @@ export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer
   pharmacophore.visible = index < initialShownMolecules;
   pharmacophore.pharmacophore.visible = true;
   pharmacophore.pharmacophore.solid = index < initialShownMolecules;
-  if (pharmacophore.protein !== undefined) {
+  if (pharmacophore.protein) {
     pharmacophore.protein.visible = true;
     pharmacophore.protein.hasHetero = detectHetero(pharmacophore.protein);
     pharmacophore.protein.pocketVisible = pharmacophore.protein.hasHetero;
     pharmacophore.protein.ligandVisible = pharmacophore.protein.hasHetero;
   }
-  const proteinHasLigand = pharmacophore.protein !== undefined && pharmacophore.protein.ligandVisible;
-  if (pharmacophore.ligand !== undefined && !(proteinHasLigand)) {
+  if (pharmacophore.ligand) {
     pharmacophore.ligand.visible = true;
   }
   return pharmacophore;
