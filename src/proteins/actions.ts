@@ -3,7 +3,6 @@ import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
-    PROTEINS_FETCH_FAILED,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
@@ -59,16 +58,6 @@ export const fetchSucceeded = (proteins: IProtein[]): IFetchSucceeded => ({
   proteins
 });
 
-export interface IFetchFailed {
-  type: PROTEINS_FETCH_FAILED;
-  error: string;
-}
-
-export const fetchFailed = (error: string): IFetchFailed => ({
-  type: PROTEINS_FETCH_FAILED,
-  error
-});
-
 export interface IShowAll {
   type: PROTEINS_SHOW;
 }
@@ -85,5 +74,5 @@ export const hideAll = (): IHideAll => ({
 
 type toggleAction = IToggleHetVisibility | ITogglePocketVisibility | IToggleVisibility | IShowAll | IHideAll;
 
-export type ProteinAction = toggleAction | IFetchFailed | IFetchRequested | IFetchSucceeded | IOtherAction;
+export type ProteinAction = toggleAction | IFetchRequested | IFetchSucceeded | IOtherAction;
 export { OtherAction };

@@ -14,11 +14,13 @@ export interface IStateProps {
 
 export interface IDispatchProps {
     fetchPharmacophores(): void;
+    pageLoaded(): void;
 }
 
 export class PharmacophoresViewer extends React.Component<IStateProps & IDispatchProps, {}> {
     public componentDidMount() {
         this.props.fetchPharmacophores();
+        this.props.pageLoaded();
     }
 
     public render() {

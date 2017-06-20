@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Button } from 'react-bootstrap';
+
 import { ListActions } from '../../components/ListActions';
 import { ILigand } from '../types';
 import { LigandListItem } from './LigandListItem';
@@ -32,16 +34,12 @@ export const LigandList = ({ligands,
     if (ligands.length > 1) {
         listactions = (
             <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}>
-                <div className="btn-group btn-group-xs" role="group">
-                    <button
-                        type="button"
-                        className="btn btn-default"
-                        onClick={onClickShownLigands(onHiLiteShownClick, ligands)}
-                        title="Make currently shown ligands the hilite selection in KNIME"
-                    >
-                        HiLite shown
-                    </button>
-                </div>
+                <Button
+                    onClick={onClickShownLigands(onHiLiteShownClick, ligands)}
+                    title="Make currently shown ligands the hilite selection in KNIME"
+                >
+                    HiLite shown
+                </Button>
             </ListActions>
         );
     }

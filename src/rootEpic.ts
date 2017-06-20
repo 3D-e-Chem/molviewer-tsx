@@ -1,8 +1,8 @@
 import { combineEpics } from 'redux-observable';
 
 import {
-    epic as ligandsEpic,
-    epicActions as ligandsActions
+    actions as ligandsActions,
+    epic as ligandsEpic
 } from './ligands';
 import {
     epic as pharmacophoreEpic,
@@ -16,17 +16,15 @@ import {
     epic as sseEpic,
     epicActions as sseActions
 } from './sse';
-import {
-    epicActions as toastrEpicActions,
-    toastrEpic
-} from './toastrEpic';
 
-type rootEpicActions = ligandsActions | pharmacophoresActions | proteinsActions | sseActions | toastrEpicActions;
+type rootEpicActions = ligandsActions.LigandAction |
+    pharmacophoresActions |
+    proteinsActions |
+    sseActions;
 
 export const rootEpic = combineEpics<rootEpicActions, {}>(
     ligandsEpic,
     pharmacophoreEpic,
     proteinsEpic,
-    sseEpic,
-    toastrEpic
+    sseEpic
 );

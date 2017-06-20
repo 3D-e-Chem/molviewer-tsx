@@ -11,8 +11,12 @@ import {
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
 type TDispatch = pactions.PocketAction | actions.PharmacophoreAction;
-const mapDispatchToProps = (dispatch: Dispatch<TDispatch>): IDispatchProps => {
+const mapDispatchToProps = (dispatch: Dispatch<TDispatch>, ownProps: IOwnProps): IDispatchProps => {
     return {
+        onHiLiteShownClick: () => {
+            const ids = ownProps.pharmacophores.filter((d) => d.visible).map((d) => d.id);
+            dispatch(actions.hiLiteShown(ids));
+        },
         onHideAllClick: () => dispatch(actions.hideAll()),
         onLigandVisibilityClick: (id: string) => dispatch(actions.toggleLigandVisibility(id)),
         onPharmacophoreContainerVisibilityClick: (id: string) => dispatch(actions.toggleContainerVisibility(id)),

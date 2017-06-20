@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Button } from 'react-bootstrap';
+
 import { ListActions } from '../../components/ListActions';
 import { PocketRadius } from '../../pocketradius';
 import { IPharmacophoreContainer } from '../types';
@@ -20,6 +22,7 @@ export interface IDispatchProps {
     onPharmacophoreSolidClick(id: string): void;
     onShowAllClick(): void;
     onHideAllClick(): void;
+    onHiLiteShownClick(): void;
 }
 
 type IProps = IOwnProps & IDispatchProps;
@@ -27,7 +30,16 @@ type IProps = IOwnProps & IDispatchProps;
 export const PharmacophoreList = (props: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (props.pharmacophores.length > 1) {
-        listactions = <ListActions hideAll={props.onHideAllClick} showAll={props.onShowAllClick}/>;
+        listactions = (
+            <ListActions hideAll={props.onHideAllClick} showAll={props.onShowAllClick}>
+                <Button
+                    onClick={props.onHiLiteShownClick}
+                    title="Make currently shown pharmacophores the hilite selection in KNIME"
+                >
+                    HiLite shown
+                </Button>
+            </ListActions>
+        );
     }
     const items = props.pharmacophores.map((phar) => (
         <PharmacophoreListItem

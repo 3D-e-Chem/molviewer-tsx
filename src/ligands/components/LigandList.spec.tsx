@@ -122,7 +122,7 @@ describe('<LigandList />', () => {
 
             describe('when HiLite shown button is clicked', () => {
                 it('should call onHiLiteShownClick()', () => {
-                    wrapper.find('button').simulate('click');
+                    wrapper.find('Button').simulate('click');
                     expect(clickers.onHiLiteShownClick).toHaveBeenCalledWith(['id1']);
                 });
             });

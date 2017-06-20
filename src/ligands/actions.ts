@@ -1,11 +1,10 @@
 import {IOtherAction, OtherAction} from '../actions';
 import {
     LIGAND_TOGGLE_VISIBILITY,
-    LIGANDS_FETCH_FAILED,
     LIGANDS_FETCH_REQUESTED,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
-    LIGANDS_HILITE_FETCH_FAILED,
+    LIGANDS_HILITE_FETCH_REQUESTED,
     LIGANDS_HILITE_FETCH_SUCCEEDED,
     LIGANDS_HILITE_SHOWN,
     LIGANDS_SHOW
@@ -40,16 +39,6 @@ export const fetchSucceeded = (ligands: ILigand[]): IFetchSucceeded => ({
   ligands
 });
 
-export interface IFetchFailed {
-  type: LIGANDS_FETCH_FAILED;
-  error: string;
-}
-
-export const fetchFailed = (error: string): IFetchFailed => ({
-  type: LIGANDS_FETCH_FAILED,
-  error
-});
-
 export interface IShowAll {
   type: LIGANDS_SHOW;
 }
@@ -66,34 +55,35 @@ export const hideAll = (): IHideAll => ({
 
 export interface IHiLiteShown {
   type: LIGANDS_HILITE_SHOWN;
-  highlightedLigands: string[];
+  payload: string[];
 }
-export const hiLiteShown = (highlightedLigands: string[]): IHiLiteShown => ({
+export const hiLiteShown = (payload: string[]): IHiLiteShown => ({
   type: LIGANDS_HILITE_SHOWN,
-  highlightedLigands
+  payload
 });
 
 export interface IHiLitefetchSucceeded {
   type: LIGANDS_HILITE_FETCH_SUCCEEDED;
-  highlightedLigands: string[];
+  payload: string[];
 }
-export const hiLitefetchSucceeded = (highlightedLigands: string[]): IHiLitefetchSucceeded => ({
+export const hiLitefetchSucceeded = (payload: string[]): IHiLitefetchSucceeded => ({
   type: LIGANDS_HILITE_FETCH_SUCCEEDED,
-  highlightedLigands
+  payload
 });
 
-export interface IHiLitefetchFailed {
-  type: LIGANDS_HILITE_FETCH_FAILED;
-  error: string;
+export interface IHiLitefetchRequested {
+  type: LIGANDS_HILITE_FETCH_REQUESTED;
 }
-export const hiLitefetchFailed = (error: string): IHiLitefetchFailed => ({
-  type: LIGANDS_HILITE_FETCH_FAILED,
-  error
+export const hiLitefetchRequested = (): IHiLitefetchRequested => ({
+  type: LIGANDS_HILITE_FETCH_REQUESTED
 });
+
+export type HiLiteActions = IHiLiteShown | IHiLitefetchRequested | IHiLitefetchSucceeded;
+export type FetchActions = IFetchRequested | IFetchSucceeded;
 
 export type LigandAction = IToggleVisibility | IShowAll | IHideAll |
-  IHiLiteShown | IHiLitefetchFailed | IHiLitefetchSucceeded |
-  IFetchFailed | IFetchRequested | IFetchSucceeded |
+  HiLiteActions |
+  FetchActions |
   IOtherAction;
 
 export { OtherAction };

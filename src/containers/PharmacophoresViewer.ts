@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { actions } from '../pharmacophores';
+import { pageLoaded } from '../actions';
+import { actions, constants } from '../pharmacophores';
 
 import {
     IDispatchProps,
@@ -12,7 +13,8 @@ import {
 const mapStateToProps = (state: IStateProps) => state;
 const mapDispatchToProps = (dispatch: Dispatch<actions.IFetchRequested>): IDispatchProps => {
     return {
-        fetchPharmacophores: () => dispatch(actions.fetchRequested())
+        fetchPharmacophores: () => dispatch(actions.fetchRequested()),
+        pageLoaded: () => dispatch(pageLoaded(constants.PHARMACOPHORES_HILITE_FETCH_REQUESTED))
     };
 };
 

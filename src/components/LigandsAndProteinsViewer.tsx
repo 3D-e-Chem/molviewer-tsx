@@ -19,12 +19,14 @@ export interface IStateProps {
 export interface IDispatchProps {
     fetchLigands(): void;
     fetchProteins(): void;
+    pageLoaded(): void;
 }
 
 export class LigandsAndProteinsViewer extends React.Component<IStateProps & IDispatchProps, {}> {
     public componentDidMount() {
         this.props.fetchLigands();
         this.props.fetchProteins();
+        this.props.pageLoaded();
     }
 
     public render() {

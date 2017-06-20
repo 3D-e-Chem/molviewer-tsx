@@ -34,7 +34,7 @@ export function reducer(state: ILigand[] = [], action: LigandAction = OtherActio
         case LIGANDS_FETCH_SUCCEEDED:
             return action.ligands;
         case LIGANDS_HILITE_FETCH_SUCCEEDED:
-            const ids2show = new Set(action.highlightedLigands);
+            const ids2show = new Set(action.payload);
             return state.map((ligand) => {
                 const mustShow = ids2show.has(ligand.id);
                 if (ligand.visible !== mustShow) {

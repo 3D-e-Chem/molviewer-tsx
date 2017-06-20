@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Button, ButtonGroup } from 'react-bootstrap';
+
 interface IProps {
     children?: React.ReactNode[];
     hideAll(): void;
@@ -8,14 +10,10 @@ interface IProps {
 
 export const ListActions = (props: IProps) => {
     return (
-        <div className="btn-group btn-group-justified" role="group" aria-label="...">
-            <div className="btn-group btn-group-xs" role="group">
-                <button type="button" className="btn btn-default" onClick={props.showAll}>Show all</button>
-            </div>
-            <div className="btn-group btn-group-xs" role="group">
-                <button type="button" className="btn btn-default" onClick={props.hideAll}>Hide all</button>
-            </div>
+        <ButtonGroup bsSize="small">
+            <Button onClick={props.showAll}>Show all</Button>
+            <Button onClick={props.hideAll}>Hide all</Button>
             {props.children}
-        </div>
+        </ButtonGroup>
     );
 };

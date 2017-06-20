@@ -70,3 +70,19 @@ export function fetchPharmacophores(url: string = '/api/pharmacophores') {
     .then<IRestPharmacophoreContainer[]>((response) => response.json())
     .then<IPharmacophoreContainer[]>((restPharmacophores) => restPharmacophores.map(prepPharmacophore));
 }
+
+export function fetchHiLitePharmacophores(url: string = '/api/pharmacophores/hilite') {
+  return fetch(url)
+    .then<string[]>((response) => response.json());
+}
+
+export function submitHiLitePharmacophores(highlighted: string[], url: string = '/api/pharmacophores/hilite') {
+  const init = {
+    body: JSON.stringify(highlighted),
+    headers: new Headers({
+      'Content-Type': 'application/json'
+    }),
+    method: 'POST'
+  };
+  return fetch(url, init);
+}

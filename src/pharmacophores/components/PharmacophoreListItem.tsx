@@ -68,12 +68,16 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                 </td>
                 <td style={{textAlign: 'right'}}>
                     <ButtonGroup>
-                        <Button bsSize="small" title="All" onClick={this.onPharmacophoreContainerVisibilityClick}>
+                        <Button
+                            bsSize="small"
+                            title={p.visible ? 'Hide all' : 'Show all'}
+                            onClick={this.onPharmacophoreContainerVisibilityClick}
+                        >
                             <Glyphicon glyph={p.visible ? 'eye-open' : 'eye-close'} />
                         </Button>
                         <DropdownButton pullRight={true} bsSize="small" id={p.id} title="">
                                 <MenuItem
-                                    title="Pharmacophore"
+                                    title={p.visible ? 'Hide pharmacophore' : 'Show pharmacophore'}
                                     disabled={!(p.visible)}
                                     onSelect={this.onPharmacophoreVisibilityClick}
                                 >
@@ -82,7 +86,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                     Pharmacophore
                                 </MenuItem>
                                 <MenuItem
-                                    title="Protein"
+                                    title={p.visible ? 'Hide protein' : 'Show protein'}
                                     disabled={!(p.visible && p.protein)}
                                     onSelect={this.onProteinVisibilityClick}
                                 >
@@ -93,7 +97,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                     Protein
                                 </MenuItem>
                                 <MenuItem
-                                    title="Ligand"
+                                    title={p.visible ? 'Hide ligand' : 'Show ligand'}
                                     disabled={!(p.visible && (p.ligand || (p.protein && p.protein.hasHetero)))}
                                     onSelect={this.onLigandVisibilityClick}
                                 >
@@ -104,7 +108,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                     Ligand
                                 </MenuItem>
                                 <MenuItem
-                                    title="Pocket"
+                                    title={p.visible ? 'Hide pocket' : 'Show pocket'}
                                     disabled={!(p.visible && p.protein && p.protein.hasHetero && p.protein.visible)}
                                     onSelect={this.onPocketVisibilityClick}
                                 >
@@ -116,7 +120,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                 </MenuItem>
                                 <MenuItem divider={true}/>
                                 <MenuItem
-                                    title="Solid pharmacophore"
+                                    title={p.pharmacophore.solid ? 'Solid pharmacophore' : 'Transparent pharmacophore'}
                                     disabled={!(p.visible)}
                                     onSelect={this.onPharmacophoreSolidClick}
                                 >

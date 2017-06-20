@@ -81,16 +81,6 @@ export const fetchSucceeded = (payload: IPharmacophoreContainer[]): IFetchSuccee
   payload
 });
 
-export interface IFetchFailed {
-  type: constants.PHARMACOPHORES_FETCH_FAILED;
-  error: string;
-}
-
-export const fetchFailed = (error: string): IFetchFailed => ({
-  type: constants.PHARMACOPHORES_FETCH_FAILED,
-  error
-});
-
 export interface IShowAll {
   type: constants.PHARMACOPHORES_SHOW;
 }
@@ -105,6 +95,24 @@ export const hideAll = (): IHideAll => ({
   type: constants.PHARMACOPHORES_HIDE
 });
 
+export interface IHiLiteShown {
+  type: constants.PHARMACOPHORES_HILITE_SHOWN;
+  payload: string[];
+}
+export const hiLiteShown = (payload: string[]): IHiLiteShown => ({
+  type: constants.PHARMACOPHORES_HILITE_SHOWN,
+  payload
+});
+
+export interface IHiLitefetchSucceeded {
+  type: constants.PHARMACOPHORES_HILITE_FETCH_SUCCEEDED;
+  payload: string[];
+}
+export const hiLitefetchSucceeded = (payload: string[]): IHiLitefetchSucceeded => ({
+  type: constants.PHARMACOPHORES_HILITE_FETCH_SUCCEEDED,
+  payload
+});
+
 type IToggleAction = IToggleContainerVisibility |
   ITogglePharmacophoreVisibility |
   ITogglePharamacophoreOpacity |
@@ -113,5 +121,8 @@ type IToggleAction = IToggleContainerVisibility |
   IToggleProteinVisibility |
   IShowAll |
   IHideAll;
-export type PharmacophoreAction = IToggleAction | IFetchFailed | IFetchRequested | IFetchSucceeded | IOtherAction;
+export type IFetchAction = IFetchRequested | IFetchSucceeded;
+export type IHiLiteAction = IHiLiteShown | IHiLitefetchSucceeded;
+
+export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction| IOtherAction;
 export { OtherAction };

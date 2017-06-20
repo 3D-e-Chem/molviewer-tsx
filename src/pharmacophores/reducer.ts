@@ -90,6 +90,14 @@ export function reducer(state: IPharmacophoreContainer[] = [],
             });
         case constants.PHARMACOPHORES_FETCH_SUCCEEDED:
             return action.payload;
+        case constants.PHARMACOPHORES_HILITE_FETCH_SUCCEEDED:
+            return state.map((phar) => {
+                const mustShow = action.payload.indexOf(phar.id) > -1;
+                if (phar.visible !== mustShow) {
+                    return { ...phar, visible: !phar.visible};
+                }
+                return phar;
+            });
         default:
             return state;
     }
