@@ -1,4 +1,4 @@
-interface IRestAnonymousMolecule {
+export interface IRestAnonymousMolecule {
     data: string;
     format: string;
 }
@@ -12,7 +12,7 @@ export interface IRestPharmacophoreContainer {
 }
 
 interface IAnonymousMolecule extends IRestAnonymousMolecule {
-    visible: true;
+    visible: boolean;
 }
 
 interface IPharmacophore extends IAnonymousMolecule {

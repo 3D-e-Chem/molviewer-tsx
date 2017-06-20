@@ -7,16 +7,25 @@ function sampleState(): IPharmacophoreContainer[] {
     return [{
         id: 'id1',
         label: 'label1',
-        ligand: '...',
-        ligandFormat: 'sdf',
-        ligandVisible: true,
-        pharmacophore: '...',
-        pharmacophoreFormat: 'phar',
-        pharmacophoreVisible: true,
-        pocketVisible: true,
-        protein: '...',
-        proteinFormat: 'pdb',
-        proteinVisible: true,
+        ligand: {
+            data: '...',
+            format: 'sdf',
+            visible: true
+        },
+        pharmacophore: {
+            data: '...',
+            format: 'phar',
+            solid: true,
+            visible: true
+        },
+        protein: {
+            data: '...',
+            format: 'pdb',
+            hasHetero: true,
+            ligandVisible: true,
+            pocketVisible: true,
+            visible: true
+        },
         visible: true
     }];
 }
@@ -60,7 +69,7 @@ describe('reducer', () => {
             const newState = reducer(state, action);
 
             const expected = sampleState();
-            expected[0].pharmacophoreVisible = false;
+            expected[0].pharmacophore.visible = false;
             expect(newState).toEqual(expected);
         });
     });
@@ -73,7 +82,10 @@ describe('reducer', () => {
             const newState = reducer(state, action);
 
             const expected = sampleState();
-            expected[0].proteinVisible = false;
+            const expectedProtein = expected[0].protein;
+            if (expectedProtein) {
+                expectedProtein.visible = false;
+            }
             expect(newState).toEqual(expected);
         });
     });
@@ -86,20 +98,30 @@ describe('reducer', () => {
             const newState = reducer(state, action);
 
             const expected = sampleState();
-            expected[0].pocketVisible = false;
+            const expectedProtein = expected[0].protein;
+            if (expectedProtein) {
+                expectedProtein.pocketVisible = false;
+            }
             expect(newState).toEqual(expected);
         });
     });
 
     describe(constants.PHARMACOPHORE_TOGGLE_LIGAND_VISIBILITY, () => {
-        it('should set ligand visible to !visible', () => {
+        it('should set ligand visible to !visible and set protein.ligandVisible to !visible', () => {
             const state = sampleState();
             const action = actions.toggleLigandVisibility('id1');
 
             const newState = reducer(state, action);
 
             const expected = sampleState();
-            expected[0].ligandVisible = false;
+            const expectedLigand = expected[0].ligand;
+            if (expectedLigand) {
+                expectedLigand.visible = false;
+            }
+            const expectedProtein = expected[0].protein;
+            if (expectedProtein) {
+                expectedProtein.ligandVisible = false;
+            }
             expect(newState).toEqual(expected);
         });
     });

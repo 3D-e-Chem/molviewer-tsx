@@ -12,34 +12,37 @@ interface IProps {
 
 export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProps) => {
     let protein;
-    if (pharmacophore.protein !== undefined && pharmacophore.proteinFormat !== undefined) {
+    const pp = pharmacophore.protein;
+    if (pp) {
         protein = (
             <ProteinGLModel
-                visible={pharmacophore.visible && pharmacophore.proteinVisible}
-                data={pharmacophore.protein}
-                format={pharmacophore.proteinFormat}
+                visible={pharmacophore.visible && pp.visible}
+                data={pp.data}
+                format={pp.format}
                 pocketRadius={pocketRadius}
-                pocketVisible={pharmacophore.pocketVisible}
-                hetVisible={pharmacophore.ligandVisible}
+                pocketVisible={pp.pocketVisible}
+                hetVisible={pp.ligandVisible}
             />
         );
     }
     let ligand;
-    if (pharmacophore.ligand !== undefined && pharmacophore.ligandFormat !== undefined) {
+    const pl = pharmacophore.ligand;
+    if (pl) {
         ligand = (
             <LigandGLModel
-                visible={pharmacophore.visible && pharmacophore.ligandVisible}
-                data={pharmacophore.ligand}
-                format={pharmacophore.ligandFormat}
+                visible={pharmacophore.visible && pl.visible}
+                data={pl.data}
+                format={pl.format}
             />
         );
     }
+    const p = pharmacophore.pharmacophore;
     return (
         <div>
             <PharmacophoreGLModel
-                visible={pharmacophore.visible && pharmacophore.pharmacophoreVisible}
-                data={pharmacophore.pharmacophore}
-                format={pharmacophore.pharmacophoreFormat}
+                visible={pharmacophore.visible && p.visible}
+                data={p.data}
+                format={p.format}
             />
             {protein}
             {ligand}

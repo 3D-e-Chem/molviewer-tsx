@@ -1,20 +1,15 @@
-import { IPharmacophoreContainer, IProtein, IRestPharmacophoreContainer } from './types';
+import { IPharmacophoreContainer, IRestAnonymousMolecule, IRestPharmacophoreContainer } from './types';
 
 const initialShownMolecules = 1;
 
+// Copied from https://github.com/arose/ngl/blob/master/src/structure/structure-constants.js
+// as it is not part of ngl distribution
 const WaterNames = [
     'SOL', 'WAT', 'HOH', 'H2O', 'W', 'DOD', 'D3O', 'TIP3', 'TIP4'
 ];
 
-// all chemical components with the word 'ion' in their name, Sep 2016
-//
-// SET SESSION group_concat_max_len = 1000000;
-// SELECT GROUP_CONCAT(id_ ORDER BY id_ ASC SEPARATOR '', '') from
-// (
-//     SELECT count(obj_id) as c, id_
-//     FROM pdb.chem_comp WHERE name LIKE '% ION%'
-//     GROUP BY id_
-// ) AS t1;
+// Copied from https://github.com/arose/ngl/blob/master/src/structure/structure-constants.js
+// as it is not part of ngl distribution
 const IonNames = [
     '118', '119', '1AL', '1CU', '2FK', '2HP', '2OF', '3CO',
     '3MT', '3NI', '3OF', '3P8', '4MO', '4PU', '543', '6MO', 'ACT', 'AG', 'AL',
@@ -38,14 +33,14 @@ const IonNames = [
     'OHX'
 ];
 
-export function detectHetero(protein: IProtein) {
+export function detectHetero(protein: IRestAnonymousMolecule) {
   if (protein.format === 'pdb') {
     return protein.data.split(/\n/).some((line) => {
       if (line.substr(0, 6) === 'HETATM') {
-        const hetatmName = line.split(/\s+/)[1];
-        if (IonNames.indexOf(hetatmName) ) {
-          hetatmNames.append();
-        }
+        const hetatmName = line.substr(17, 3).trim();
+        const isIon = IonNames.indexOf(hetatmName) > -1;
+        const isWater = WaterNames.indexOf(hetatmName) > -1;
+        return (!(isIon || isWater));
       }
       return false;
     });
@@ -56,10 +51,17 @@ export function detectHetero(protein: IProtein) {
 export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer, index: number) {
   const pharmacophore = restPharmacophore as IPharmacophoreContainer;
   pharmacophore.visible = index < initialShownMolecules;
-  pharmacophore.pharmacophoreVisible = true;
-  pharmacophore.proteinVisible = pharmacophore.protein !== undefined;
-  pharmacophore.pocketVisible = pharmacophore.proteinVisible;
-  pharmacophore.ligandVisible = (pharmacophore.ligand !== undefined || pharmacophore.proteinVisible);
+  pharmacophore.pharmacophore.visible = true;
+  if (pharmacophore.protein !== undefined) {
+    pharmacophore.protein.visible = true;
+    pharmacophore.protein.hasHetero = detectHetero(pharmacophore.protein);
+    pharmacophore.protein.pocketVisible = pharmacophore.protein.hasHetero;
+    pharmacophore.protein.ligandVisible = pharmacophore.protein.hasHetero;
+  }
+  const proteinHasLigand = pharmacophore.protein !== undefined && pharmacophore.protein.ligandVisible;
+  if (pharmacophore.ligand !== undefined && !(proteinHasLigand)) {
+    pharmacophore.ligand.visible = true;
+  }
   return pharmacophore;
 }
 
