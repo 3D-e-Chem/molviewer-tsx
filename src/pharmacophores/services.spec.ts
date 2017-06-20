@@ -1,5 +1,5 @@
 import { detectHetero, prepPharmacophore } from './services';
-import { IPharmacophoreContainer, IRestAnonymousMolecule, IRestPharmacophoreContainer } from './types';
+import { IPharmacophoreContainer } from './types';
 
 describe('pharmacophore/services', () => {
     describe('detectHetero()', () => {
@@ -123,13 +123,13 @@ describe('pharmacophore/services', () => {
                 const input = {
                     id: 'id1',
                     label: 'label1',
-                    pharmacophore: {
-                        data: '...',
-                        format: 'phar'
-                    },
                     ligand: {
                         data: '...',
                         format: 'mol2'
+                    },
+                    pharmacophore: {
+                        data: '...',
+                        format: 'phar'
                     }
                 };
                 result = prepPharmacophore(input, 0);
@@ -212,6 +212,6 @@ describe('pharmacophore/services', () => {
                     expect(result.protein && result.protein.pocketVisible).toBeTruthy();
                 });
             });
-        })
+        });
     });
 });
