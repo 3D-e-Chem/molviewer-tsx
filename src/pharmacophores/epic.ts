@@ -30,7 +30,7 @@ const fetchEpic: Epic<EpicActions, {}> = (action$) =>
     action$.ofType(PHARMACOPHORES_FETCH_REQUESTED)
         .mergeMap(
             () => Observable.fromPromise(fetchPharmacophores())
-            .map((pharmacophores) => fetchSucceeded(pharmacophores))
+            .map(fetchSucceeded)
             .catch((error: Error) => Observable.of(
                 toastrActions.add({
                     message: error.message,
@@ -62,7 +62,7 @@ const fetchHiLiteEpic: Epic<EpicActions, {}> = (action$) =>
     action$.ofType(PHARMACOPHORES_HILITE_FETCH_REQUESTED)
         .mergeMap(
             () => Observable.fromPromise(fetchHiLitePharmacophores())
-            .map((ids) => hiLitefetchSucceeded(ids))
+            .map(hiLitefetchSucceeded)
             .catch((error: Error) => Observable.of(
                     toastrActions.add({
                         message: error.message,

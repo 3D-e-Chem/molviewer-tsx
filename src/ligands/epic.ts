@@ -22,7 +22,7 @@ const fetchEpic: Epic<LigandAction, {}> = (action$) =>
     action$.ofType(LIGANDS_FETCH_REQUESTED)
         .mergeMap(
             () => Observable.fromPromise(fetchLigands())
-            .map((ligands) => fetchSucceeded(ligands))
+            .map(fetchSucceeded)
             .catch((error: Error) => Observable.of(
                 toastrActions.add({
                     message: error.message,
@@ -54,7 +54,7 @@ const fetchHiLiteEpic: Epic<LigandAction, {}> = (action$) =>
     action$.ofType(LIGANDS_HILITE_FETCH_REQUESTED)
         .mergeMap(
             () => Observable.fromPromise(fetchHiLiteLigands())
-            .map((ids) => hiLitefetchSucceeded(ids))
+            .map(hiLitefetchSucceeded)
             .catch((error: Error) => Observable.of(
                 toastrActions.add({
                     message: error.message,

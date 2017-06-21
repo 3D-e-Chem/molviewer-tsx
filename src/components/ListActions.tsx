@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Button, ButtonGroup } from 'react-bootstrap';
 
 interface IProps {
-    children?: React.ReactNode[];
+    children?: React.ReactNode;
     hideAll(): void;
     showAll(): void;
 }

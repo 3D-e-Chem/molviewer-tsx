@@ -28,7 +28,7 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
         this.context.stage.remove(this.model);
     }
 
-    public shouldComponentUpdate(nextProps: IGLModelProps) {
+    public shouldComponentUpdate(nextProps: P) {
         return this.props.visible !== nextProps.visible;
     }
 

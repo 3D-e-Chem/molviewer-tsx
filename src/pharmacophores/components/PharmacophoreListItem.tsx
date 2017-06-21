@@ -120,7 +120,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                 </MenuItem>
                                 <MenuItem divider={true}/>
                                 <MenuItem
-                                    title={p.pharmacophore.solid ? 'Solid pharmacophore' : 'Transparent pharmacophore'}
+                                    title={p.pharmacophore.solid ? 'Transparent pharmacophore' : 'Solid pharmacophore'}
                                     disabled={!(p.visible)}
                                     onSelect={this.onPharmacophoreSolidClick}
                                 >
