@@ -50,20 +50,20 @@ export function detectHetero(protein: IRestAnonymousMolecule) {
 }
 
 export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer, index: number) {
-  const pharmacophore = restPharmacophore as IPharmacophoreContainer;
-  pharmacophore.visible = index < initialShownMolecules;
-  pharmacophore.pharmacophore.visible = true;
-  pharmacophore.pharmacophore.solid = index < initialShownMolecules;
-  if (pharmacophore.protein) {
-    pharmacophore.protein.visible = true;
-    pharmacophore.protein.hasHetero = detectHetero(pharmacophore.protein);
-    pharmacophore.protein.pocketVisible = pharmacophore.protein.hasHetero;
-    pharmacophore.protein.ligandVisible = pharmacophore.protein.hasHetero;
+  const container = restPharmacophore as IPharmacophoreContainer;
+  container.visible = index < initialShownMolecules;
+  container.pharmacophore.visible = true;
+  container.pharmacophore.solid = index < initialShownMolecules;
+  if (container.protein) {
+    container.protein.visible = true;
+    container.protein.hasHetero = detectHetero(container.protein);
+    container.protein.pocketVisible = container.protein.hasHetero;
+    container.protein.ligandVisible = container.protein.hasHetero;
   }
-  if (pharmacophore.ligand) {
-    pharmacophore.ligand.visible = true;
+  if (container.ligand) {
+    container.ligand.visible = true;
   }
-  return pharmacophore;
+  return container;
 }
 
 export function fetchPharmacophores(url: string = '/api/pharmacophores') {

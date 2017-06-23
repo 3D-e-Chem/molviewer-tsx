@@ -1,8 +1,8 @@
 export interface IRestLigand {
-  id: string;
-  label: string;
-  data: string;
-  format: string;
+  readonly id: string;
+  readonly label: string;
+  readonly data: string;
+  readonly format: string;
 }
 
 export interface ILigand extends IRestLigand {

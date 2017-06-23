@@ -15,6 +15,7 @@ declare module 'ngl' {
     class RepresentationComponent {
         getParameter(): void;
         setVisibility(value: boolean): void;
+        setTransform(m: THREE.Matrix4): void;
     }
 
     class Structure {
@@ -25,7 +26,7 @@ declare module 'ngl' {
 
     class TypedFastBitSet {
         toSeleString(): string;
-        new_difference(map: TypedFastBitSet): TypedFastBitSet;
+        difference(map: TypedFastBitSet): TypedFastBitSet;
     }
 
     class Selection{
@@ -38,6 +39,7 @@ declare module 'ngl' {
         autoView(duration?: number): void;
         addRepresentation(type: string, params?: any): RepresentationComponent;
         removeAllRepresentations(): void;
+        setTransform(matrix: THREE.Matrix4): void;
     }
 
     class StructureComponent extends Component {

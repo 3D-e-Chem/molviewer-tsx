@@ -54,7 +54,7 @@ export class PharParser {
                 }
                 const color = CODE2COLOR[name];
                 shape.addSphere(
-                    pos,
+                    pos.toArray() as [number, number, number],
                     color,
                     radius,
                     name
@@ -68,8 +68,8 @@ export class PharParser {
                     // move arrow on top of sphere surface
                     const offset = normal.clone().add(normal.clone().sub(pos));
                     shape.addArrow(
-                        normal,
-                        offset,
+                        normal.toArray() as [number, number, number],
+                        offset.toArray() as [number, number, number],
                         color,
                         DEFAULT_NORMAL_RADIUS,
                         name

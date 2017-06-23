@@ -48,7 +48,9 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
             this.definePocket(props.pocketRadius);
         }
 
-        this.pocket.setVisibility(props.pocketVisible);
+        if (this.pocket) {
+            this.pocket.setVisibility(props.pocketVisible);
+        }
 
         super.componentDidUpdate();
     }
@@ -66,7 +68,7 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
             colorScheme: 'element',
             colorValue: '#D9D9D9',
             multipleBond: 'symmetric',
-            sele: pocketResidues.new_difference(heteroAtoms).toSeleString()
+            sele: pocketResidues.difference(heteroAtoms).toSeleString()
         });
     }
 }
