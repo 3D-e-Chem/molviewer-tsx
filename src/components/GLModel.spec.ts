@@ -1,10 +1,12 @@
 import * as NGL from 'ngl';
+import { Matrix4 } from 'three';
 
 import { GLModel, IGLModelProps } from './GLModel';
 
 function mockedComponent() {
     return {
         autoView: jest.fn(),
+        setTransform: jest.fn(),
         setVisibility: jest.fn()
     } as any as NGL.StructureComponent;
 }
@@ -95,6 +97,32 @@ describe('<GLModel />', () => {
 
             it('should not call autoView on component when it is not visible', () => {
                 expect(comp.autoView).not.toHaveBeenCalled();
+            });
+        });
+
+        describe('with transform', () => {
+            it('should call setTransform on component', () => {
+                const props = {
+                    data: '...',
+                    format: 'mol2',
+                    transform: [
+                        -0.14138083,  -0.96738216,   0.21019803,  19.50468079,
+                        0.60452008,   0.08377813,   0.79217214,  -0.93966894,
+                        -0.78394319,   0.23906689,   0.57295732,  -1.66750974,
+                        0.0        ,   0.0        ,   0.0        ,   1.0
+                    ],
+                    visible: true
+                };
+                model = new GLModel(props);
+                model.modelLoaded(comp);
+
+                const expected = new Matrix4().fromArray([
+                    -0.14138083, 0.60452008, -0.78394319, 0,
+                    -0.96738216, 0.08377813, 0.23906689, 0,
+                    0.21019803, 0.79217214, 0.57295732, 0,
+                    19.50468079, -0.93966894, -1.66750974, 1
+                ]);
+                expect(comp.setTransform).toHaveBeenCalledWith(expected);
             });
         });
     });

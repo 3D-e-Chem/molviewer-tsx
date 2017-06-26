@@ -1,14 +1,15 @@
 export interface IRestAnonymousMolecule {
-    data: string;
-    format: string;
+    readonly data: string;
+    readonly format: string;
 }
 
 export interface IRestPharmacophoreContainer {
-    id: string;
-    label: string;
-    pharmacophore: IRestAnonymousMolecule;
-    protein?: IRestAnonymousMolecule;
-    ligand?: IRestAnonymousMolecule;
+    readonly id: string;
+    readonly label: string;
+    readonly pharmacophore: IRestAnonymousMolecule;
+    readonly protein?: IRestAnonymousMolecule;
+    readonly ligand?: IRestAnonymousMolecule;
+    readonly transform?: number[];
 }
 
 interface IAnonymousMolecule extends IRestAnonymousMolecule {
@@ -32,6 +33,7 @@ export interface IPharmacophoreContainer {
     protein?: IProtein;
     ligand?: IAnonymousMolecule;
     visible: boolean;
+    transform?: number[];
 }
 
 export interface IPharmacophoreFunctionalType {

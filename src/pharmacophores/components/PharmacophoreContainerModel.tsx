@@ -22,6 +22,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 pocketRadius={pocketRadius}
                 pocketVisible={pp.pocketVisible}
                 hetVisible={pp.ligandVisible}
+                transform={pharmacophore.transform}
             />
         );
     }
@@ -33,6 +34,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 visible={pharmacophore.visible && pl.visible}
                 data={pl.data}
                 format={pl.format}
+                transform={pharmacophore.transform}
             />
         );
     }
@@ -44,6 +46,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 data={p.data}
                 format={p.format}
                 solid={p.solid}
+                transform={pharmacophore.transform}
             />
             {protein}
             {ligand}

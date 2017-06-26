@@ -1,11 +1,13 @@
 import * as React from 'react';
 
 import * as NGL from 'ngl';
+import { Matrix4 } from 'three';
 
 export interface IGLModelProps {
     visible: boolean;
     data: string;
     format: string;
+    transform?: number[];
 }
 
 export interface IContext {
@@ -38,6 +40,11 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
 
     public modelLoaded(comp: NGL.Component) {
         this.model = comp;
+        const transform: number[] | undefined = this.props.transform;
+        if (transform) {
+            const matrix = new Matrix4().fromArray(transform).transpose();
+            this.model.setTransform(matrix);
+        }
         this.model.setVisibility(this.props.visible);
         if (this.props.visible) {
             this.model.autoView();
