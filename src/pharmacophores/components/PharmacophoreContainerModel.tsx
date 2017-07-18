@@ -24,6 +24,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 pocketVisible={pp.pocketVisible}
                 hetVisible={pp.hetVisible}
                 transform={pharmacophore.transform}
+                hetColor={pharmacophore.ligandColor}
             />
         );
     }
@@ -36,6 +37,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 data={pl.data}
                 format={pl.format}
                 transform={pharmacophore.transform}
+                color={pharmacophore.ligandColor}
             />
         );
     }

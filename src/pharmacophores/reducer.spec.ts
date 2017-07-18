@@ -12,6 +12,7 @@ function sampleState(): IPharmacophoreContainer[] {
             format: 'sdf',
             visible: true
         },
+        ligandColor: '#32CD32',
         pharmacophore: {
             data: '...',
             format: 'phar',

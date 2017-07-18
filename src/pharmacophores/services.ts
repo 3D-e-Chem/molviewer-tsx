@@ -9,6 +9,10 @@ export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer
   container.visible = index < initialShownMolecules;
   container.pharmacophore.visible = true;
   container.pharmacophore.solid = index < initialShownMolecules;
+  container.ligandColor = '#32CD32';
+  if (index < initialShownMolecules) {
+    container.ligandColor = '#FF8C00';
+  }
   if (container.protein) {
     container.protein.visible = true;
     container.protein.proteinVisible = true;

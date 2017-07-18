@@ -7,6 +7,7 @@ interface IProteinGLModelProps extends IGLModelProps {
     pocketVisible: boolean;
     pocketRadius: number;
     proteinVisible: boolean;
+    hetColor: string;
 }
 
 export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
@@ -29,7 +30,7 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
         const heteroAtoms = this.model.structure.getAtomSet( this.heteroSelection );
         this.hetero = this.model.addRepresentation('licorice', {
             colorScheme: 'element',
-            colorValue: '#FF8C00',
+            colorValue: this.props.hetColor,
             multipleBond: 'symmetric',
             sele: heteroAtoms.toSeleString()
         });
@@ -44,13 +45,15 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
             || props.proteinVisible !== nextProps.proteinVisible
             || props.hetVisible !== nextProps.hetVisible
             || props.pocketVisible !== nextProps.pocketVisible
-            || props.pocketRadius !== nextProps.pocketRadius;
+            || props.pocketRadius !== nextProps.pocketRadius
+            || props.hetColor !== nextProps.hetColor;
     }
 
     public componentDidUpdate() {
         const props = this.props as IProteinGLModelProps;
         this.homo.setVisibility(props.proteinVisible);
         this.hetero.setVisibility(props.hetVisible);
+        this.hetero.setParameters({colorValue: props.hetColor});
 
         if (props.pocketRadius !== this.pocketRadius) {
             this.definePocket(props.pocketRadius);

@@ -63,6 +63,16 @@ export const togglePocketVisibility = (id: string): ITogglePocketVisibility => (
   id
 });
 
+export interface IAdjustLigandColor {
+  type: constants.PHARMACOPHORE_ADJUST_LIGAND_COLOR;
+  id: string;
+}
+
+export const adjustLigandColor = (id: string): IAdjustLigandColor => ({
+  type: constants.PHARMACOPHORE_ADJUST_LIGAND_COLOR,
+  id
+});
+
 export interface IFetchRequested {
   type: constants.PHARMACOPHORES_FETCH_REQUESTED;
 }
@@ -131,5 +141,5 @@ type IToggleAction = IToggleContainerVisibility |
 export type IFetchAction = IFetchRequested | IFetchSucceeded;
 export type IHiLiteAction = IHiLiteShown | IHiLitefetchRequested | IHiLitefetchSucceeded;
 
-export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction| IOtherAction;
+export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction | IAdjustLigandColor | IOtherAction;
 export { OtherAction };

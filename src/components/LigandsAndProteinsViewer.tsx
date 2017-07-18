@@ -36,10 +36,10 @@ export class LigandsAndProteinsViewer extends React.Component<IStateProps & IDis
             <ProteinList key="proteins" proteins={this.props.proteins} pocketRadius={this.props.pocketRadius}/>
         ];
         const ligands = this.props.ligands.map((ligand) => (
-            <LigandGLModel key={ligand.id} {...ligand}/>
+            <LigandGLModel key={ligand.id} {...ligand} color="#32CD32"/>
         ));
         const proteins = this.props.proteins.map((protein) => (
-            <ProteinGLModel key={protein.id} {...protein} pocketRadius={this.props.pocketRadius}/>
+            <ProteinGLModel key={protein.id} {...protein} pocketRadius={this.props.pocketRadius} hetColor="#FF8C00"/>
         ));
         const main = (
             <MolCanvas id="canvas">

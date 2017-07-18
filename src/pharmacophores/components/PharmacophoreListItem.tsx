@@ -77,56 +77,56 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                             <Glyphicon glyph={p.visible ? 'eye-open' : 'eye-close'} />
                         </Button>
                         <DropdownButton pullRight={true} bsSize="small" id={p.id} title="">
-                                <MenuItem
-                                    title={p.visible ? 'Hide pharmacophore' : 'Show pharmacophore'}
-                                    disabled={!(p.visible)}
-                                    onSelect={this.onPharmacophoreVisibilityClick}
-                                >
-                                    <Glyphicon glyph={p.pharmacophore.visible ? 'eye-open' : 'eye-close'} />
-                                    &nbsp;
-                                    Pharmacophore
-                                </MenuItem>
-                                <MenuItem
-                                    title={showProtein ? 'Hide protein' : 'Show protein'}
-                                    disabled={!(p.visible && p.protein)}
-                                    onSelect={this.onProteinVisibilityClick}
-                                >
-                                    <Glyphicon glyph={showProtein ? 'eye-open' : 'eye-close'}/>
-                                    &nbsp;
-                                    Protein
-                                </MenuItem>
-                                <MenuItem
-                                    title={showLigand ? 'Hide ligand' : 'Show ligand'}
-                                    disabled={!(p.visible && (p.ligand || (p.protein && p.protein.hasHetero)))}
-                                    onSelect={this.onLigandVisibilityClick}
-                                >
-                                    <Glyphicon
-                                        glyph={showLigand ? 'eye-open' : 'eye-close'}
-                                    />
-                                    &nbsp;
-                                    Ligand
-                                </MenuItem>
-                                <MenuItem
-                                    title={p.protein && p.protein.pocketVisible ? 'Hide pocket' : 'Show pocket'}
-                                    disabled={!(p.visible && p.protein && p.protein.hasHetero && p.protein.visible)}
-                                    onSelect={this.onPocketVisibilityClick}
-                                >
-                                    <Glyphicon
-                                        glyph={p.protein && p.protein.pocketVisible ? 'eye-open' : 'eye-close'}
-                                    />
-                                    &nbsp;
-                                    Pocket
-                                </MenuItem>
-                                <MenuItem divider={true}/>
-                                <MenuItem
-                                    title={p.pharmacophore.solid ? 'Transparent pharmacophore' : 'Solid pharmacophore'}
-                                    disabled={!(p.visible)}
-                                    onSelect={this.onPharmacophoreSolidClick}
-                                >
-                                    {p.pharmacophore.solid ? <Glyphicon glyph="ok"/> : <span style={uncheckedStyle}/>}
-                                    &nbsp;
-                                    Solid
-                                </MenuItem>
+                            <MenuItem
+                                title={p.visible ? 'Hide pharmacophore' : 'Show pharmacophore'}
+                                disabled={!(p.visible)}
+                                onSelect={this.onPharmacophoreVisibilityClick}
+                            >
+                                <Glyphicon glyph={p.pharmacophore.visible ? 'eye-open' : 'eye-close'} />
+                                &nbsp;
+                                Pharmacophore
+                            </MenuItem>
+                            <MenuItem
+                                title={showProtein ? 'Hide protein' : 'Show protein'}
+                                disabled={!(p.visible && p.protein)}
+                                onSelect={this.onProteinVisibilityClick}
+                            >
+                                <Glyphicon glyph={showProtein ? 'eye-open' : 'eye-close'}/>
+                                &nbsp;
+                                Protein
+                            </MenuItem>
+                            <MenuItem
+                                title={showLigand ? 'Hide ligand' : 'Show ligand'}
+                                disabled={!(p.visible && (p.ligand || (p.protein && p.protein.hasHetero)))}
+                                onSelect={this.onLigandVisibilityClick}
+                            >
+                                <Glyphicon
+                                    glyph={showLigand ? 'eye-open' : 'eye-close'}
+                                />
+                                &nbsp;
+                                Ligand
+                            </MenuItem>
+                            <MenuItem
+                                title={p.protein && p.protein.pocketVisible ? 'Hide pocket' : 'Show pocket'}
+                                disabled={!(p.visible && p.protein && p.protein.hasHetero && p.protein.visible)}
+                                onSelect={this.onPocketVisibilityClick}
+                            >
+                                <Glyphicon
+                                    glyph={p.protein && p.protein.pocketVisible ? 'eye-open' : 'eye-close'}
+                                />
+                                &nbsp;
+                                Pocket
+                            </MenuItem>
+                            <MenuItem divider={true}/>
+                            <MenuItem
+                                title={p.pharmacophore.solid ? 'Transparent pharmacophore' : 'Solid pharmacophore'}
+                                disabled={!(p.visible)}
+                                onSelect={this.onPharmacophoreSolidClick}
+                            >
+                                {p.pharmacophore.solid ? <Glyphicon glyph="ok"/> : <span style={uncheckedStyle}/>}
+                                &nbsp;
+                                Solid
+                            </MenuItem>
                         </DropdownButton>
                     </ButtonGroup>
                 </td>

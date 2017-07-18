@@ -2,13 +2,31 @@ import * as NGL from 'ngl';
 
 import { GLModel, IGLModelProps } from '../../components/GLModel';
 
-export class LigandGLModel extends GLModel<IGLModelProps, {}> {
+interface IProps extends IGLModelProps {
+    color: string;
+}
+
+export class LigandGLModel extends GLModel<IProps, {}> {
+    private representation: NGL.RepresentationComponent;
+
     public modelLoaded(comp: NGL.StructureComponent) {
         super.modelLoaded(comp);
-        this.model.addRepresentation('licorice', {
+        this.representation = this.model.addRepresentation('licorice', {
             colorScheme: 'element',
-            colorValue: '#32CD32',
+            colorValue: this.props.color,
             multipleBond: 'symmetric'
         });
+    }
+
+    public shouldComponentUpdate(nextProps: IProps) {
+        const props = this.props as IProps;
+        return super.shouldComponentUpdate(nextProps)
+            || props.color !== nextProps.color;
+    }
+
+    public componentDidUpdate() {
+        const props = this.props as IProps;
+        this.representation.setParameters({colorValue: props.color});
+        super.componentDidUpdate();
     }
 }

@@ -22,6 +22,7 @@ export interface IPharmacophoreContainer {
     ligand?: IAnonymousMolecule;
     visible: boolean;
     transform?: number[];
+    ligandColor: string;
 }
 
 export interface IPharmacophoreFunctionalType {

@@ -16,6 +16,7 @@ declare module 'ngl' {
         getParameter(): void;
         setVisibility(value: boolean): void;
         setTransform(m: THREE.Matrix4): void;
+        setParameters(params: any): void;
     }
 
     class Structure {
