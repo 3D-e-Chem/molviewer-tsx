@@ -17,11 +17,12 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
         protein = (
             <ProteinGLModel
                 visible={pharmacophore.visible && pp.visible}
+                proteinVisible={pp.proteinVisible}
                 data={pp.data}
                 format={pp.format}
                 pocketRadius={pocketRadius}
                 pocketVisible={pp.pocketVisible}
-                hetVisible={pp.ligandVisible}
+                hetVisible={pp.hetVisible}
                 transform={pharmacophore.transform}
             />
         );

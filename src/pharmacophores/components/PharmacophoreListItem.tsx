@@ -55,8 +55,9 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
         const showLigand = (
             (p.ligand && p.ligand.visible)
             ||
-            (p.protein && p.protein.hasHetero && p.protein.ligandVisible)
+            (p.protein && p.protein.hasHetero && p.protein.hetVisible)
         );
+        const showProtein = p.protein && p.protein.visible && p.protein.proteinVisible;
         return (
             <tr>
                 <td>
@@ -86,18 +87,16 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                     Pharmacophore
                                 </MenuItem>
                                 <MenuItem
-                                    title={p.visible ? 'Hide protein' : 'Show protein'}
+                                    title={showProtein ? 'Hide protein' : 'Show protein'}
                                     disabled={!(p.visible && p.protein)}
                                     onSelect={this.onProteinVisibilityClick}
                                 >
-                                    <Glyphicon
-                                        glyph={p.protein && p.protein.visible ? 'eye-open' : 'eye-close'}
-                                    />
+                                    <Glyphicon glyph={showProtein ? 'eye-open' : 'eye-close'}/>
                                     &nbsp;
                                     Protein
                                 </MenuItem>
                                 <MenuItem
-                                    title={p.visible ? 'Hide ligand' : 'Show ligand'}
+                                    title={showLigand ? 'Hide ligand' : 'Show ligand'}
                                     disabled={!(p.visible && (p.ligand || (p.protein && p.protein.hasHetero)))}
                                     onSelect={this.onLigandVisibilityClick}
                                 >
@@ -108,7 +107,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                     Ligand
                                 </MenuItem>
                                 <MenuItem
-                                    title={p.visible ? 'Hide pocket' : 'Show pocket'}
+                                    title={p.protein && p.protein.pocketVisible ? 'Hide pocket' : 'Show pocket'}
                                     disabled={!(p.visible && p.protein && p.protein.hasHetero && p.protein.visible)}
                                     onSelect={this.onPocketVisibilityClick}
                                 >

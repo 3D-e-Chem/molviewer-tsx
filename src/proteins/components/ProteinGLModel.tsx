@@ -6,22 +6,26 @@ interface IProteinGLModelProps extends IGLModelProps {
     hetVisible: boolean;
     pocketVisible: boolean;
     pocketRadius: number;
+    proteinVisible: boolean;
 }
 
 export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
     protected model: NGL.StructureComponent;
+    private homo: NGL.RepresentationComponent;
+    private homeSelection: NGL.Selection = new NGL.Selection( 'not hetero' );
     private hetero: NGL.RepresentationComponent;
-    private heteroSelection: NGL.Selection;
+    private heteroSelection: NGL.Selection = new NGL.Selection( 'hetero and not ( water or ion )' );
     private pocket: NGL.RepresentationComponent;
     private pocketRadius: number;
 
     public modelLoaded(comp: NGL.StructureComponent) {
         super.modelLoaded(comp);
-        this.model.addRepresentation('cartoon', {
-            colorScheme: 'sstruc'
+
+        this.homo = this.model.addRepresentation('cartoon', {
+            colorScheme: 'sstruc',
+            sele: this.homeSelection
         });
 
-        this.heteroSelection = new NGL.Selection( 'hetero and not ( water or ion )' );
         const heteroAtoms = this.model.structure.getAtomSet( this.heteroSelection );
         this.hetero = this.model.addRepresentation('licorice', {
             colorScheme: 'element',
@@ -36,12 +40,16 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
 
     public shouldComponentUpdate(nextProps: IProteinGLModelProps) {
         const props = this.props as IProteinGLModelProps;
-        return super.shouldComponentUpdate(nextProps) || props.hetVisible !== nextProps.hetVisible
-            || props.pocketVisible !== nextProps.pocketVisible || props.pocketRadius !== nextProps.pocketRadius;
+        return super.shouldComponentUpdate(nextProps)
+            || props.proteinVisible !== nextProps.proteinVisible
+            || props.hetVisible !== nextProps.hetVisible
+            || props.pocketVisible !== nextProps.pocketVisible
+            || props.pocketRadius !== nextProps.pocketRadius;
     }
 
     public componentDidUpdate() {
         const props = this.props as IProteinGLModelProps;
+        this.homo.setVisibility(props.proteinVisible);
         this.hetero.setVisibility(props.hetVisible);
 
         if (props.pocketRadius !== this.pocketRadius) {

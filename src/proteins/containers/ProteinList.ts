@@ -16,8 +16,9 @@ const mapDispatchToProps = (dispatch: Dispatch<pactions.PocketAction | actions.P
         onHideAllClick: () => dispatch(actions.hideAll()),
         onPocketRadiusChange: (radius: number) => dispatch(pactions.adjustPocketRadius(radius)),
         onPocketVisibilityClick: (id: string) => dispatch(actions.togglePocketVisibility(id)),
-        onProteinVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id)),
-        onShowAllClick: () => dispatch(actions.showAll())
+        onProteinVisibilityClick: (id: string) => dispatch(actions.toggleProteinVisibility(id)),
+        onShowAllClick: () => dispatch(actions.showAll()),
+        onWholeProteinVisibilityClick: (id: string) => dispatch(actions.toggleVisibility(id))
     };
 };
 

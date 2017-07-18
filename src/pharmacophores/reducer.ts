@@ -1,15 +1,16 @@
+import { IAnonymousProtein } from '../proteins';
 import { OtherAction, PharmacophoreAction } from './actions';
 import * as constants from './constants';
-import { IPharmacophore, IPharmacophoreContainer, IProtein } from './types';
+import { IPharmacophore, IPharmacophoreContainer } from './types';
 
-function proteinReducer(state: IProtein, action: PharmacophoreAction = OtherAction): IProtein {
+function proteinReducer(state: IAnonymousProtein, action: PharmacophoreAction = OtherAction): IAnonymousProtein {
     switch (action.type) {
         case constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY:
-            return { ...state, visible: !state.visible};
+            return { ...state, proteinVisible: !state.proteinVisible};
         case constants.PHARMACOPHORE_TOGGLE_POCKET_VISIBILITY:
             return { ...state, pocketVisible: !state.pocketVisible};
         case constants.PHARMACOPHORE_TOGGLE_LIGAND_VISIBILITY:
-            return { ...state, ligandVisible: !state.ligandVisible};
+            return { ...state, hetVisible: !state.hetVisible};
         default:
             return state;
     }

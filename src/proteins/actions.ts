@@ -2,6 +2,7 @@ import { IOtherAction, OtherAction } from '../actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
+    PROTEIN_TOGGLE_PROTEINVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_REQUESTED,
     PROTEINS_FETCH_SUCCEEDED,
@@ -40,6 +41,16 @@ export const togglePocketVisibility = (id: string): ITogglePocketVisibility => (
     id
 });
 
+export interface IToggleProteinVisibility {
+  type: PROTEIN_TOGGLE_PROTEINVISIBILITY;
+  id: string;
+}
+
+export const toggleProteinVisibility = (id: string): IToggleProteinVisibility => ({
+    type: PROTEIN_TOGGLE_PROTEINVISIBILITY,
+    id
+});
+
 export interface IFetchRequested {
   type: PROTEINS_FETCH_REQUESTED;
 }
@@ -72,7 +83,8 @@ export const hideAll = (): IHideAll => ({
   type: PROTEINS_HIDE
 });
 
-type toggleAction = IToggleHetVisibility | ITogglePocketVisibility | IToggleVisibility | IShowAll | IHideAll;
+type toggleAction = IToggleHetVisibility | ITogglePocketVisibility | IToggleProteinVisibility | IToggleVisibility
+  | IShowAll | IHideAll;
 
 export type ProteinAction = toggleAction | IFetchRequested | IFetchSucceeded | IOtherAction;
 export { OtherAction };

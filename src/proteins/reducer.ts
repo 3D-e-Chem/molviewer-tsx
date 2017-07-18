@@ -2,6 +2,7 @@ import { OtherAction, ProteinAction } from './actions';
 import {
     PROTEIN_TOGGLE_HETVISIBILITY,
     PROTEIN_TOGGLE_POCKETVISIBILITY,
+    PROTEIN_TOGGLE_PROTEINVISIBILITY,
     PROTEIN_TOGGLE_VISIBILITY,
     PROTEINS_FETCH_SUCCEEDED,
     PROTEINS_HIDE,
@@ -9,26 +10,44 @@ import {
 } from './constants';
 import { IProtein } from './types';
 
+function proteinReducer(state: IProtein, action: ProteinAction = OtherAction): IProtein {
+    let visible: boolean;
+    switch (action.type) {
+        case PROTEIN_TOGGLE_VISIBILITY:
+            const anyChildrenVisible = (state.hetVisible || state.pocketVisible || state.proteinVisible);
+            if (!state.visible && !anyChildrenVisible) {
+                return {
+                    ...state,
+                    hetVisible: state.hasHetero,
+                    pocketVisible: state.hasHetero,
+                    proteinVisible: true,
+                    visible: !state.visible
+                };
+            }
+            return { ...state, visible: !state.visible};
+        case PROTEIN_TOGGLE_HETVISIBILITY:
+            visible = (!state.hetVisible || state.pocketVisible || state.proteinVisible);
+            return { ...state, hetVisible: !state.hetVisible, visible};
+        case PROTEIN_TOGGLE_POCKETVISIBILITY:
+            visible = (state.hetVisible || !state.pocketVisible || state.proteinVisible);
+            return { ...state, pocketVisible: !state.pocketVisible, visible};
+        case PROTEIN_TOGGLE_PROTEINVISIBILITY:
+            visible = (state.hetVisible || state.pocketVisible || !state.proteinVisible);
+            return { ...state, proteinVisible: !state.proteinVisible, visible};
+        default:
+            return state;
+    }
+}
+
 export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
-            return state.map((protein) => {
-                if (protein.id === action.id) {
-                    return { ...protein, visible: !protein.visible};
-                }
-                return protein;
-            });
         case PROTEIN_TOGGLE_HETVISIBILITY:
-            return state.map((protein) => {
-                if (protein.id === action.id) {
-                    return { ...protein, hetVisible: !protein.hetVisible};
-                }
-                return protein;
-            });
         case PROTEIN_TOGGLE_POCKETVISIBILITY:
+        case PROTEIN_TOGGLE_PROTEINVISIBILITY:
             return state.map((protein) => {
                 if (protein.id === action.id) {
-                    return { ...protein, pocketVisible: !protein.pocketVisible};
+                    return proteinReducer(protein, action);
                 }
                 return protein;
             });

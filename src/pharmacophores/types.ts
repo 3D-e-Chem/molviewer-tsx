@@ -1,7 +1,5 @@
-export interface IRestAnonymousMolecule {
-    readonly data: string;
-    readonly format: string;
-}
+import { IAnonymousProtein } from '../proteins';
+import { IAnonymousMolecule, IRestAnonymousMolecule } from '../types';
 
 export interface IRestPharmacophoreContainer {
     readonly id: string;
@@ -12,25 +10,15 @@ export interface IRestPharmacophoreContainer {
     readonly transform?: number[];
 }
 
-interface IAnonymousMolecule extends IRestAnonymousMolecule {
-    visible: boolean;
-}
-
 export interface IPharmacophore extends IAnonymousMolecule {
     solid: boolean;
-}
-
-export interface IProtein extends IAnonymousMolecule {
-    hasHetero: boolean;
-    ligandVisible: boolean;
-    pocketVisible: boolean;
 }
 
 export interface IPharmacophoreContainer {
     id: string;
     label: string;
     pharmacophore: IPharmacophore;
-    protein?: IProtein;
+    protein?: IAnonymousProtein;
     ligand?: IAnonymousMolecule;
     visible: boolean;
     transform?: number[];

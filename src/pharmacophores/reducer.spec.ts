@@ -22,8 +22,9 @@ function sampleState(): IPharmacophoreContainer[] {
             data: '...',
             format: 'pdb',
             hasHetero: true,
-            ligandVisible: true,
+            hetVisible: true,
             pocketVisible: true,
+            proteinVisible: true,
             visible: true
         },
         visible: true
@@ -88,7 +89,7 @@ describe('reducer', () => {
     });
 
     describe(constants.PHARMACOPHORE_TOGGLE_PROTEIN_VISIBILITY, () => {
-        it('should set protein visible to !visible', () => {
+        it('should set protein proteinVisible to !proteinVisible', () => {
             const state = sampleState();
             const action = actions.toggleProteinVisibility('id1');
 
@@ -97,7 +98,7 @@ describe('reducer', () => {
             const expected = sampleState();
             const expectedProtein = expected[0].protein;
             if (expectedProtein) {
-                expectedProtein.visible = false;
+                expectedProtein.proteinVisible = false;
             }
             expect(newState).toEqual(expected);
         });
@@ -120,7 +121,7 @@ describe('reducer', () => {
     });
 
     describe(constants.PHARMACOPHORE_TOGGLE_LIGAND_VISIBILITY, () => {
-        it('should set ligand visible to !visible and set protein.ligandVisible to !visible', () => {
+        it('should set ligand visible to !visible and set protein.hetVisible to !visible', () => {
             const state = sampleState();
             const action = actions.toggleLigandVisibility('id1');
 
@@ -133,7 +134,7 @@ describe('reducer', () => {
             }
             const expectedProtein = expected[0].protein;
             if (expectedProtein) {
-                expectedProtein.ligandVisible = false;
+                expectedProtein.hetVisible = false;
             }
             expect(newState).toEqual(expected);
         });
