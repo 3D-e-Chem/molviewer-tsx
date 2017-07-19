@@ -7,12 +7,13 @@ import { LegendItem } from './LegendItem';
 
 interface IProps {
     types: IPharmacophoreFunctionalType[];
+    onToggleType(label: string): void;
 }
 
 const accordionStyle = {marginBottom: 5};
 
-export const Legend = ({types}: IProps) => {
-    const items = types.map((d) => <LegendItem key={d.label} {...d}/>);
+export const Legend = ({onToggleType, types}: IProps) => {
+    const items = types.map((d) => <LegendItem key={d.label} {...d} onToggle={onToggleType}/>);
     return (
         <Accordion style={accordionStyle}>
             <Panel header="Functional types" defaultExpanded={true}>

@@ -2,19 +2,25 @@ import * as React from 'react';
 
 import { Layout } from '../components/Layout';
 import { MolCanvas } from '../components/MolCanvas';
-import { IPharmacophoreContainer, pharmacophoreFunctionalTypes } from '../pharmacophores';
+import { IPharmacophoreContainer, IPharmacophoreFunctionalType } from '../pharmacophores';
 import { Legend } from '../pharmacophores/components/Legend';
 import { PharmacophoreContainerModel } from '../pharmacophores/components/PharmacophoreContainerModel';
 import { PharmacophoreList } from '../pharmacophores/containers/PharmacophoreList';
 
+interface IPharmacophores {
+    items: IPharmacophoreContainer[];
+    types: IPharmacophoreFunctionalType[];
+}
+
 export interface IStateProps {
-    pharmacophores: IPharmacophoreContainer[];
+    pharmacophores: IPharmacophores;
     pocketRadius: number;
 }
 
 export interface IDispatchProps {
     fetchPharmacophores(): void;
     pageLoaded(): void;
+    onToggleType(label: string): void;
 }
 
 export class PharmacophoresViewer extends React.Component<IStateProps & IDispatchProps, {}> {
@@ -29,17 +35,19 @@ export class PharmacophoresViewer extends React.Component<IStateProps & IDispatc
             (
                 <PharmacophoreList
                     key="list"
-                    pharmacophores={this.props.pharmacophores}
+                    pharmacophores={this.props.pharmacophores.items}
                     pocketRadius={this.props.pocketRadius}
                 />
             ),
-            <Legend key="legend" types={pharmacophoreFunctionalTypes}/>
+            <Legend key="legend" types={this.props.pharmacophores.types} onToggleType={this.props.onToggleType}/>
         ];
-        const pharmacophores = this.props.pharmacophores.map((pharmacophore) => (
+        const shownTypes = this.props.pharmacophores.types.filter((t) => t.checked).map((t) => t.label);
+        const pharmacophores = this.props.pharmacophores.items.map((pharmacophore) => (
             <PharmacophoreContainerModel
                 key={pharmacophore.id}
                 pharmacophore={pharmacophore}
                 pocketRadius={this.props.pocketRadius}
+                shownTypes={shownTypes}
             />
         ));
         const main = (

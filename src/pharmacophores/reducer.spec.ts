@@ -1,6 +1,6 @@
 import * as actions from './actions';
 import * as constants from './constants';
-import { reducer } from './reducer';
+import { pharmacophoresReducer } from './reducer';
 import { IPharmacophoreContainer } from './types';
 
 function sampleState(): IPharmacophoreContainer[] {
@@ -32,9 +32,9 @@ function sampleState(): IPharmacophoreContainer[] {
     }];
 }
 
-describe('reducer', () => {
+describe('pharmacophoresReducer', () => {
     it('should return the initial state', () => {
-        const state = reducer(undefined, actions.OtherAction);
+        const state = pharmacophoresReducer(undefined, actions.OtherAction);
 
         expect(state).toEqual([]);
     });
@@ -44,7 +44,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.OtherAction;
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             expect(newState).toEqual(state);
         });
@@ -55,7 +55,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.toggleContainerVisibility('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             expected[0].visible = false;
@@ -68,7 +68,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.togglePharmacophoreVisibility('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             expected[0].pharmacophore.visible = false;
@@ -81,7 +81,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.togglePharmacophoreOpacity('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             expected[0].pharmacophore.solid = false;
@@ -94,7 +94,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.toggleProteinVisibility('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             const expectedProtein = expected[0].protein;
@@ -110,7 +110,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.togglePocketVisibility('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             const expectedProtein = expected[0].protein;
@@ -126,7 +126,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.toggleLigandVisibility('id1');
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             const expectedLigand = expected[0].ligand;
@@ -146,7 +146,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.hideAll();
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             expected[0].visible = false;
@@ -159,7 +159,7 @@ describe('reducer', () => {
             const state = sampleState();
             const action = actions.showAll();
 
-            const newState = reducer(state, action);
+            const newState = pharmacophoresReducer(state, action);
 
             const expected = sampleState();
             expected[0].visible = true;
@@ -172,7 +172,7 @@ describe('reducer', () => {
             const fetched = sampleState();
             const action = actions.fetchSucceeded(fetched);
 
-            const state = reducer(undefined, action);
+            const state = pharmacophoresReducer(undefined, action);
 
             expect(state).toEqual(fetched);
         });

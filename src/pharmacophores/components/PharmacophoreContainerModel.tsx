@@ -8,9 +8,10 @@ import { PharmacophoreGLModel } from './PharmacophoreGLModel';
 interface IProps {
     pharmacophore: IPharmacophoreContainer;
     pocketRadius: number;
+    shownTypes: string[];
 }
 
-export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProps) => {
+export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius, shownTypes}: IProps) => {
     let protein;
     const pp = pharmacophore.protein;
     if (pp) {
@@ -50,6 +51,7 @@ export const PharmacophoreContainerModel = ({pharmacophore, pocketRadius}: IProp
                 format={p.format}
                 solid={p.solid}
                 transform={pharmacophore.transform}
+                shownTypes={shownTypes}
             />
             {protein}
             {ligand}

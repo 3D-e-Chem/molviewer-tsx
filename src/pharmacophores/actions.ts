@@ -130,6 +130,16 @@ export const hiLitefetchRequested = (): IHiLitefetchRequested => ({
   type: constants.PHARMACOPHORES_HILITE_FETCH_REQUESTED
 });
 
+export interface ITogglePharmacophoreType {
+  type: constants.PHARMACOPHORE_TOGGLE_TYPE;
+  label: string;
+}
+
+export const togglePharmacophoreType = (label: string): ITogglePharmacophoreType => ({
+  type: constants.PHARMACOPHORE_TOGGLE_TYPE,
+  label
+});
+
 type IToggleAction = IToggleContainerVisibility |
   ITogglePharmacophoreVisibility |
   ITogglePharamacophoreOpacity |
@@ -141,5 +151,6 @@ type IToggleAction = IToggleContainerVisibility |
 export type IFetchAction = IFetchRequested | IFetchSucceeded;
 export type IHiLiteAction = IHiLiteShown | IHiLitefetchRequested | IHiLitefetchSucceeded;
 
-export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction | IAdjustLigandColor | IOtherAction;
+export type PharmacophoreAction = IToggleAction | IFetchAction | IHiLiteAction |
+  IAdjustLigandColor | ITogglePharmacophoreType| IOtherAction;
 export { OtherAction };

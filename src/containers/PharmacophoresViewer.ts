@@ -14,6 +14,7 @@ const mapStateToProps = (state: IStateProps) => state;
 const mapDispatchToProps = (dispatch: Dispatch<actions.IFetchRequested>): IDispatchProps => {
     return {
         fetchPharmacophores: () => dispatch(actions.fetchRequested()),
+        onToggleType: (label: string) => dispatch(actions.togglePharmacophoreType(label)),
         pageLoaded: () => dispatch(sseActions.pageLoaded('PharmacophoresViewer'))
     };
 };

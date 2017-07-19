@@ -1,7 +1,14 @@
+import { combineReducers } from 'redux';
+
 import { IAnonymousProtein } from '../proteins';
 import { OtherAction, PharmacophoreAction } from './actions';
 import * as constants from './constants';
-import { IPharmacophore, IPharmacophoreContainer } from './types';
+import {
+    IPharmacophore,
+    IPharmacophoreContainer,
+    IPharmacophoreFunctionalType,
+    pharmacophoreFunctionalTypes
+} from './types';
 
 function proteinReducer(state: IAnonymousProtein, action: PharmacophoreAction = OtherAction): IAnonymousProtein {
     switch (action.type) {
@@ -66,8 +73,8 @@ function pharmacophoreContainerReducer(state: IPharmacophoreContainer,
     }
 }
 
-export function reducer(state: IPharmacophoreContainer[] = [],
-                        action: PharmacophoreAction = OtherAction): IPharmacophoreContainer[] {
+export function pharmacophoresReducer(state: IPharmacophoreContainer[] = [],
+                                      action: PharmacophoreAction = OtherAction): IPharmacophoreContainer[] {
     switch (action.type) {
         case constants.PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY:
         case constants.PHARMACOPHORE_TOGGLE_PHARMACOPHORE_VISIBILITY:
@@ -103,3 +110,23 @@ export function reducer(state: IPharmacophoreContainer[] = [],
             return state;
     }
 }
+
+function typesReducer(state: IPharmacophoreFunctionalType[] = pharmacophoreFunctionalTypes,
+                      action: PharmacophoreAction = OtherAction): IPharmacophoreFunctionalType[] {
+    switch (action.type) {
+        case constants.PHARMACOPHORE_TOGGLE_TYPE:
+           return state.map((t) => {
+               if (t.label === action.label) {
+                    return { ...t, checked: !t.checked};
+               }
+               return t;
+           });
+        default:
+          return state;
+    }
+}
+
+export const reducer = combineReducers({
+    items: pharmacophoresReducer,
+    types: typesReducer
+});
