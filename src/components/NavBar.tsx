@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, Glyphicon } from 'react-bootstrap';
+import { Button, Glyphicon, OverlayTrigger, Popover } from 'react-bootstrap';
 
 export interface IDispatchProps {
     serverDisconnect(): void;
@@ -12,10 +12,9 @@ export interface IOwnProps {
 }
 
 export const NavBar = (props: IDispatchProps & IOwnProps) => {
-    let debugButtons = <div/>;
+    let debugButtons: JSX.Element[] = [];
     if (process.env.NODE_ENV === 'development') {
-        debugButtons = (
-            <div>
+        debugButtons = [(
                 <Button
                     onClick={props.serverModelChanged}
                     className="navbar-btn navbar-right"
@@ -23,6 +22,7 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
                 >
                     <Glyphicon glyph="refresh"/>
                 </Button>
+        ), (
                 <Button
                     onClick={props.serverDisconnect}
                     className="navbar-btn navbar-right"
@@ -30,16 +30,32 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
                 >
                     <Glyphicon glyph="ban-circle"/>
                 </Button>
-            </div>
-        );
+        )];
     }
+    const helpPopover = (
+        <Popover title="Help">
+            <span>Mouse controls:</span>
+            <ul>
+                <li>Left button hold and move to rotate camera around center.</li>
+                <li>Left button click to pick atom.</li>
+                <li>Middle button hold and move to zoom camera in and out.</li>
+                <li>Middle button click to center camera on atom.</li>
+                <li>Right button hold and move to translate camera in the screen plane.</li>
+            </ul>
+        </Popover>
+    );
     return (
         <nav className="navbar navbar-default" style={{marginBottom: 0, borderRadius: '0px'}}>
             <div className="container-fluid">
                 <div className="navbar-header">
                     <span className="navbar-brand">{props.title}</span>
                 </div>
-                {debugButtons}
+                <div>
+                    {debugButtons}
+                    <OverlayTrigger trigger="click" placement="bottom" overlay={helpPopover} rootClose={true}>
+                        <Button title="Help" className="navbar-btn navbar-right"><b>?</b></Button>
+                    </OverlayTrigger>
+                </div>
             </div>
         </nav>
     );
