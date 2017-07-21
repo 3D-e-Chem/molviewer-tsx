@@ -16,6 +16,7 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
     if (process.env.NODE_ENV === 'development') {
         debugButtons = [(
                 <Button
+                    key="refresh"
                     onClick={props.serverModelChanged}
                     className="navbar-btn navbar-right"
                     title="Refresh"
@@ -24,6 +25,7 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
                 </Button>
         ), (
                 <Button
+                    key="disconnect"
                     onClick={props.serverDisconnect}
                     className="navbar-btn navbar-right"
                     title="Disconnect"
@@ -33,7 +35,7 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
         )];
     }
     const helpPopover = (
-        <Popover title="Help">
+        <Popover id="help" title="Help">
             <span>Mouse controls:</span>
             <ul>
                 <li>Left button hold and move to rotate camera around center.</li>
