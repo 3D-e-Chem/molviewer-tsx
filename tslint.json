@@ -4,6 +4,7 @@
     ],
     "rules": {
         "prefer-type-cast": false,
-        "no-angle-bracket-type-assertion": true
+        "no-angle-bracket-type-assertion": true,
+        "no-backbone-get-set-outside-model": false
     }
 }

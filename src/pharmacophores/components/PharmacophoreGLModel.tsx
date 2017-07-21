@@ -1,31 +1,16 @@
-import { Component, RepresentationComponent, Selection } from 'ngl';
+import { Component, RepresentationComponent, Shape } from 'ngl';
 
 import { GLModel, IGLModelProps } from '../../components/GLModel';
 import { PharParser } from '../parser/PharParser';
-import { pharmacophoreFunctionalTypes } from '../types';
 
-interface IProps extends IGLModelProps {
+export interface IProps extends IGLModelProps {
     solid: boolean;
     shownTypes: string[];
 }
 
-const allTypes = pharmacophoreFunctionalTypes.map((t) => t.label);
-
 export class PharmacophoreGLModel extends GLModel<IProps, {}> {
-    reps: {[key: string]: RepresentationComponent} = {};
-
-    public modelLoaded(comp: Component) {
-        super.modelLoaded(comp);
-        allTypes.forEach((t) => {
-            const opacity = this.props.solid ? 1.0 : 0.6;
-            this.reps[t] = this.model.addRepresentation('buffer', {
-                opacity,
-                // TODO figure out how to select all spheres/arrows with name===t
-                sele: new Selection(t)
-            });
-            this.reps[t].setVisibility(this.props.shownTypes.indexOf(t) !== -1);
-        });
-    }
+    models = new Map<string, Component>();
+    reps = new Map<string, RepresentationComponent>();
 
     public shouldComponentUpdate(nextProps: IProps) {
         return super.shouldComponentUpdate(nextProps) ||
@@ -35,12 +20,34 @@ export class PharmacophoreGLModel extends GLModel<IProps, {}> {
     }
 
     public componentDidUpdate() {
-        super.componentDidUpdate();
-        allTypes.forEach((t) => {
-            const opacity = this.props.solid ? 1.0 : 0.6;
-            this.reps[t].setParameters({opacity});
-            this.reps[t].setVisibility(this.props.shownTypes.indexOf(t) !== -1);
+        const opacity = this.props.solid ? 1.0 : 0.6;
+        this.reps.forEach((rep, type) => {
+            rep.setParameters({opacity});
+            const shown = this.props.visible && this.props.shownTypes.indexOf(type) !== -1;
+            rep.setVisibility(shown);
+            const model = this.models.get(type);
+            if (model) {
+                model.setVisibility(shown);
+            }
         });
+    }
+
+    public componentWillUnmount() {
+        this.models.forEach((model) => {
+            this.context.stage.remove(model);
+        });
+    }
+
+    processShape = (shape: Shape, type: string) => {
+        const model = this.context.stage.addComponentFromObject(shape, {});
+        this.models.set(type, model);
+        this.applyTransform(model);
+        const opacity = this.props.solid ? 1.0 : 0.6;
+        const rep = model.addRepresentation('buffer', {opacity});
+        const shown = this.props.visible && this.props.shownTypes.indexOf(type) !== -1;
+        model.setVisibility(shown);
+        rep.setVisibility(shown);
+        this.reps.set(type, rep);
     }
 
     public componentDidMount() {
@@ -48,8 +55,7 @@ export class PharmacophoreGLModel extends GLModel<IProps, {}> {
             asText: () => this.props.data
         };
         const parser = new PharParser(streamer, {});
-        const shape = parser.parse();
-        const comp = this.context.stage.addComponentFromObject(shape, {});
-        this.modelLoaded(comp);
+        const shapes = parser.parse();
+        shapes.forEach(this.processShape);
     }
 }

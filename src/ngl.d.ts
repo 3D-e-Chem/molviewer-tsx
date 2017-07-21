@@ -62,11 +62,16 @@ declare module 'ngl' {
         asText(): string;
     }
 
+    class Buffer {
+        setVisibility(value: boolean): void;
+    }
+
     class Shape {
         name: string;
         sphereName: string[];
         constructor(name: string);
         addArrow(position1: [number, number, number] | THREE.Vector3, position2: [number, number, number] | THREE.Vector3, color: [number, number, number] | THREE.Color, radius: number, name: string): void;
         addSphere(position: [number, number, number] | THREE.Vector3, color: [number, number, number] | THREE.Color, radius: number, name: string): void;
+        getBufferList(): Buffer[];
     }
 }

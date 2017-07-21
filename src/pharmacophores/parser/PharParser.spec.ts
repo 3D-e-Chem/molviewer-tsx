@@ -15,9 +15,15 @@ $$$$
 `
             };
             const parser = new PharParser(stream, {});
-            const shape = parser.parse();
-            expect(shape.name).toEqual('3j7u_NDP_frag24');
-            // Test more content, but Shape has no api for it
+            const shapes = parser.parse();
+            expect(shapes.size).toEqual(5);
+            expect(Array.from(shapes.keys())).toEqual(expect.arrayContaining(['HACC', 'HDON', 'AROM', 'POSC', 'LIPO']));
+            const hacc = shapes.get('HACC');
+            if (hacc) {
+                expect(hacc.name).toEqual('3j7u_NDP_frag24');
+                expect(hacc.sphereName).toEqual(expect.arrayContaining(['HACC']));
+                expect(hacc.getBufferList().length).toEqual(1);
+            }
         });
     });
 });

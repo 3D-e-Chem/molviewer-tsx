@@ -27,8 +27,12 @@ export class PharParser {
     get type() { return 'phar'; }
     get __objName() { return 'phar'; }
 
+    /**
+     * Returns for each pharamcophore type a shape with points/arrows
+     */
     parse() {
-        let shape = new Shape('');
+        const typeshapes = new Map<string, Shape>();
+        let id = '';
         const text = this.streamer.asText();
         const lines = text.split('\n');
         lines.forEach((line, index) => {
@@ -39,7 +43,7 @@ export class PharParser {
             } else if (line === '') {
                 // Last line
             } else if (index === 0) {
-                shape = new Shape(line);
+                id = line;
             } else {
                 const cols = line.split(/\s/);
                 const name = cols[0];
@@ -53,6 +57,13 @@ export class PharParser {
                     radius = parseFloat(cols[4]);
                 }
                 const color = CODE2COLOR[name];
+
+                let shape = typeshapes.get(name);
+                if (!shape) {
+                    shape = new Shape(id);
+                    typeshapes.set(name, shape);
+                }
+
                 shape.addSphere(
                     pos.toArray() as [number, number, number],
                     color,
@@ -77,7 +88,7 @@ export class PharParser {
                 }
             }
         });
-        return shape;
+        return typeshapes;
     }
 
 }

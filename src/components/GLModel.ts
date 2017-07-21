@@ -38,17 +38,21 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
         this.model.setVisibility(this.props.visible);
     }
 
-    public modelLoaded(comp: NGL.Component) {
-        this.model = comp;
+    public applyTransform(comp: NGL.Component) {
         const transform: number[] | undefined = this.props.transform;
         if (transform) {
             const matrix = new Matrix4().fromArray(transform).transpose();
-            this.model.setTransform(matrix);
+            comp.setTransform(matrix);
         }
-        this.model.setVisibility(this.props.visible);
+        comp.setVisibility(this.props.visible);
         if (this.props.visible) {
-            this.model.autoView();
+            comp.autoView();
         }
+        return comp;
+    }
+
+    public modelLoaded(comp: NGL.Component) {
+        this.model = this.applyTransform(comp);
     }
 
     public componentDidMount() {
