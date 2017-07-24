@@ -29,6 +29,7 @@ export interface IPharmacophoreFunctionalType {
     label: string;
     description: string;
     color: string;
+    textColor: string;
     checked: boolean;
 }
 
@@ -38,45 +39,54 @@ export const pharmacophoreFunctionalTypes: IPharmacophoreFunctionalType[] = [{
     checked: true,
     color: 'yellow',
     description: 'Aromatic ring',
-    label: 'AROM'
+    label: 'AROM',
+    textColor: 'black'
 }, {
     checked: true,
     color: 'gray',
     description: 'Exclusion sphere',
-    label: 'EXCL'
+    label: 'EXCL',
+    textColor: 'white'
 }, {
     checked: true,
     color: 'fuchsia',
     description: 'Hydrogen bond acceptor',
-    label: 'HACC'
+    label: 'HACC',
+    textColor: 'black'
 }, {
     checked: true,
     color: 'aqua',
     description: 'Hydrogen bond donor',
-    label: 'HDON'
+    label: 'HDON',
+    textColor: 'black'
 }, {
     checked: true,
     color: '#f781bf',
     description: 'Hydrogen bond donor and acceptor',
-    label: 'HYBH'
+    label: 'HYBH',
+    textColor: 'black'
 }, {
     checked: true,
     color: 'greenyellow',
     description: 'Aromatic and lipophilic',
-    label: 'HYBL'
+    label: 'HYBL',
+    textColor: 'black'
 }, {
     checked: true,
     color: 'green',
     description: 'Lipophilic region',
-    label: 'LIPO'
+    label: 'LIPO',
+    textColor: 'white'
 }, {
     checked: true,
     color: 'red',
     description: 'Negative charge center',
-    label: 'NEGC'
+    label: 'NEGC',
+    textColor: 'white'
 }, {
     checked: true,
     color: 'blue',
     description: 'Positive charge center',
-    label: 'POSC'
+    label: 'POSC',
+    textColor: 'white'
 }];

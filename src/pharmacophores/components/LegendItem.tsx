@@ -14,10 +14,14 @@ export class LegendItem extends React.Component<IProps, {}> {
     }
 
     render() {
-        const { checked, description, label, color } = this.props;
+        const { checked, description, label, color, textColor } = this.props;
+        const style = {
+            backgroundColor: color,
+            color: textColor
+        };
         return (
             <ListGroupItem
-                style={{backgroundColor: color}}
+                style={style}
                 alt={label}
                 onClick={this.onToggle}
             >
