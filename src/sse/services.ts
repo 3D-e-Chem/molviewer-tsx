@@ -14,7 +14,7 @@ export class ServerListener {
     private source: EventSource;
     private dispatch: Dispatch<TDispatchActions>;
 
-    constructor(dispatch: Dispatch<TDispatchActions>, url: string = '/api/broadcast') {
+    constructor(dispatch: Dispatch<TDispatchActions>, url = '/api/broadcast') {
         this.dispatch = dispatch;
         this.url = url;
     }

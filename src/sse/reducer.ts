@@ -5,7 +5,7 @@ import { PAGE_LOADED, SERVER_DISCONNECT } from './constants';
 
 type Actions = connectedAction | IPageLoaded;
 
-const connected = (state: boolean = true, action: Actions = OtherAction): boolean => {
+const connected = (state = true, action: Actions = OtherAction): boolean => {
     switch (action.type) {
         case SERVER_DISCONNECT:
             return false;
@@ -14,7 +14,7 @@ const connected = (state: boolean = true, action: Actions = OtherAction): boolea
     }
 };
 
-const currentPage = (state: string = '', action: Actions | IOtherAction = OtherAction): string => {
+const currentPage = (state = '', action: Actions | IOtherAction = OtherAction): string => {
     switch (action.type) {
         case PAGE_LOADED:
             return action.page;

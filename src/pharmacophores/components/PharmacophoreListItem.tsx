@@ -16,32 +16,23 @@ export interface IPharmacophoreListItemProps extends IPharmacophoreContainer {
 }
 
 export class PharmacophoreListItem extends React.Component<IPharmacophoreListItemProps, {}> {
-    constructor() {
-        super();
-        this.onLigandVisibilityClick = this.onLigandVisibilityClick.bind(this);
-        this.onPocketVisibilityClick = this.onPocketVisibilityClick.bind(this);
-        this.onProteinVisibilityClick = this.onProteinVisibilityClick.bind(this);
-        this.onPharmacophoreVisibilityClick = this.onPharmacophoreVisibilityClick.bind(this);
-        this.onPharmacophoreContainerVisibilityClick = this.onPharmacophoreContainerVisibilityClick.bind(this);
-    }
-
-    onLigandVisibilityClick() {
+    onLigandVisibilityClick = () => {
         this.props.onLigandVisibilityClick(this.props.id);
     }
 
-    onPocketVisibilityClick() {
+    onPocketVisibilityClick = () => {
         this.props.onPocketVisibilityClick(this.props.id);
     }
 
-    onProteinVisibilityClick() {
+    onProteinVisibilityClick = () => {
         this.props.onProteinVisibilityClick(this.props.id);
     }
 
-    onPharmacophoreVisibilityClick() {
+    onPharmacophoreVisibilityClick = () => {
         this.props.onPharmacophoreVisibilityClick(this.props.id);
     }
 
-    onPharmacophoreContainerVisibilityClick() {
+    onPharmacophoreContainerVisibilityClick = () => {
         this.props.onPharmacophoreContainerVisibilityClick(this.props.id);
     }
 

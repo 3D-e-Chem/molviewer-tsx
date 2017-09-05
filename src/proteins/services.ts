@@ -60,7 +60,7 @@ export function prepProtein(restProtein: IRestAnonymousMolecule, index: number) 
   return protein;
 }
 
-export function fetchProteins(url: string = '/api/proteins') {
+export function fetchProteins(url = '/api/proteins') {
   return fetch(url)
     .then(processStatus)
     .then<IRestAnonymousMolecule[]>((response) => response.json())

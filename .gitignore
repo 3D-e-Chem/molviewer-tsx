@@ -19,3 +19,7 @@ npm-debug.log
 
 # Editor
 .vscode
+
+# SonarCloud
+.sonar
+

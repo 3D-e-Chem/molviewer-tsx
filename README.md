@@ -1,8 +1,8 @@
 Web application to visualize protein with it's natural ligand and candidates.
 
 [![Build Status](https://travis-ci.org/3D-e-Chem/molviewer-tsx.svg?branch=master)](https://travis-ci.org/3D-e-Chem/molviewer-tsx)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e80c537a04c34a508709c839940d5bfe)](https://www.codacy.com/app/3D-e-Chem/molviewer-tsx?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=3D-e-Chem/molviewer-tsx&amp;utm_campaign=Badge_Grade)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/e80c537a04c34a508709c839940d5bfe)](https://www.codacy.com/app/3D-e-Chem/molviewer-tsx?utm_source=github.com&utm_medium=referral&utm_content=3D-e-Chem/molviewer-tsx&utm_campaign=Badge_Coverage)
+[![SonarCloud Gate](https://sonarcloud.io/api/badges/gate?key=e3dchem:molviewer)](https://sonarcloud.io/dashboard?id=e3dchem:molviewer)
+[![SonarCloud Coverage](https://sonarcloud.io/api/badges/measure?key=e3dchem:molviewere&metric=coverage)](https://sonarcloud.io/component_measures/domain/Coverage?id=e3dchem:molviewer)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) using scripts package [@nlesc/react-scripts](https://github.com/NLeSC/create-react-app).
 

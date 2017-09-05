@@ -26,7 +26,7 @@ export function prepPharmacophore(restPharmacophore: IRestPharmacophoreContainer
   return container;
 }
 
-export function fetchPharmacophores(url: string = '/api/pharmacophores') {
+export function fetchPharmacophores(url = '/api/pharmacophores') {
   return fetch(url)
     .then(processStatus)
     .then<IRestPharmacophoreContainer[]>((response) => response.json())
@@ -34,14 +34,14 @@ export function fetchPharmacophores(url: string = '/api/pharmacophores') {
   ;
 }
 
-export function fetchHiLitePharmacophores(url: string = '/api/pharmacophores/hilite') {
+export function fetchHiLitePharmacophores(url = '/api/pharmacophores/hilite') {
   return fetch(url)
     .then(processStatus)
     .then<string[]>((response) => response.json())
   ;
 }
 
-export function submitHiLitePharmacophores(highlighted: string[], url: string = '/api/pharmacophores/hilite') {
+export function submitHiLitePharmacophores(highlighted: string[], url = '/api/pharmacophores/hilite') {
   const init = {
     body: JSON.stringify(highlighted),
     headers: new Headers({

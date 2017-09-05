@@ -10,7 +10,7 @@ export function prepLigand(restLigand: IRestLigand, index: number) {
   return ligand;
 }
 
-export function fetchLigands(url: string = '/api/ligands') {
+export function fetchLigands(url = '/api/ligands') {
   return fetch(url)
     .then(processStatus)
     .then<IRestLigand[]>((response) => response.json())
@@ -18,14 +18,14 @@ export function fetchLigands(url: string = '/api/ligands') {
   ;
 }
 
-export function fetchHiLiteLigands(url: string = '/api/ligands/hilite') {
+export function fetchHiLiteLigands(url = '/api/ligands/hilite') {
   return fetch(url)
     .then(processStatus)
     .then<string[]>((response) => response.json())
   ;
 }
 
-export function submitHiLiteLigands(highlightedLigands: string[], url: string = '/api/ligands/hilite') {
+export function submitHiLiteLigands(highlightedLigands: string[], url = '/api/ligands/hilite') {
   const init = {
     body: JSON.stringify(highlightedLigands),
     headers: new Headers({

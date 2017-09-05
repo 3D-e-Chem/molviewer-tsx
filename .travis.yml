@@ -3,6 +3,6 @@ node_js: 7
 sudo: false
 script:
 - yarn test -- --coverage --no-cache -w 1
-- cat coverage/remapped/lcov.info | ./node_modules/.bin/codacy-coverage -p .
 - yarn lint
+- sonar-scanner -Dsonar.login=$SONAR_TOKEN
 cache: yarn
