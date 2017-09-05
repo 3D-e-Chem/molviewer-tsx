@@ -20,6 +20,7 @@
     "@types/three": "^0.84.11",
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.1",
+    "concurrently": "^3.5.0",
     "enzyme": "^2.7.7",
     "react-addons-test-utils": "^15.4.2",
     "redux-mock-store": "^1.2.3"
@@ -43,7 +44,7 @@
     "three": "^0.85.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently \"caddy\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",

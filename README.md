@@ -23,18 +23,15 @@ yarn install
 The api/ directory contains an example dataset which can be used during development and testing.
 In production the /api url is server by an application server.
 
-1. Start web server on port 2015 to host api/ directory.
-```
-caddy
-```
-
-2. Start development web server
+Start development web server
 
 ```
 yarn start
 ```
 
 Browser should open on http://localhost:3000
+
+It will also start a [Caddy web server](https://caddyserver.com/) on port 2015 to host api/ directory.
 
 # Editing
 
