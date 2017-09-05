@@ -6,6 +6,7 @@ const initialShownMolecules = 1;
 export function prepLigand(restLigand: IRestLigand, index: number) {
   const ligand = restLigand as ILigand;
   ligand.visible = index < initialShownMolecules;
+  ligand.color = '#32CD32';
   return ligand;
 }
 

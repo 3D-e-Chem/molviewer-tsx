@@ -3,9 +3,8 @@ import * as React from 'react';
 import { Button, ButtonGroup, DropdownButton, Glyphicon, MenuItem } from 'react-bootstrap';
 
 import { EllipsisText } from '../../components/EllipsisText';
+import { EmptyGlyphIcon } from '../../components/EmptyGlyphIcon';
 import { IPharmacophoreContainer } from '../types';
-
-const uncheckedStyle = {display: 'inline-block', width: 14};
 
 export interface IPharmacophoreListItemProps extends IPharmacophoreContainer {
     onPharmacophoreVisibilityClick(id: string): void;
@@ -123,7 +122,7 @@ export class PharmacophoreListItem extends React.Component<IPharmacophoreListIte
                                 disabled={!(p.visible)}
                                 onSelect={this.onPharmacophoreSolidClick}
                             >
-                                {p.pharmacophore.solid ? <Glyphicon glyph="ok"/> : <span style={uncheckedStyle}/>}
+                                {p.pharmacophore.solid ? <Glyphicon glyph="ok"/> : <EmptyGlyphIcon/>}
                                 &nbsp;
                                 Solid
                             </MenuItem>

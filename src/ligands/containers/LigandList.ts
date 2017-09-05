@@ -11,6 +11,7 @@ import {
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps;
 const mapDispatchToProps = (dispatch: Dispatch<actions.LigandAction>): IDispatchProps => {
     return {
+        onColorClick: (id: string, color: string) => dispatch(actions.pickColor(id, color)),
         onHiLiteShownClick: (ids: string[]) => dispatch(actions.hiLiteShown(ids)),
         onHideAllClick: () => dispatch(actions.hideAll()),
         onShowAllClick: () => dispatch(actions.showAll()),

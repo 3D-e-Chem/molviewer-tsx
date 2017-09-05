@@ -1,5 +1,6 @@
 import { LigandAction, OtherAction } from './actions';
 import {
+    LIGAND_PICK_COLOR,
     LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_SUCCEEDED,
     LIGANDS_HIDE,
@@ -8,12 +9,24 @@ import {
 } from './constants';
 import { ILigand } from './types';
 
+function ligandReducer(state: ILigand, action: LigandAction = OtherAction): ILigand {
+    switch (action.type) {
+        case LIGAND_PICK_COLOR:
+            return { ...state, color: action.color};
+        case LIGAND_TOGGLE_VISIBILITY:
+            return { ...state, visible: !state.visible};
+        default:
+           return state;
+    }
+}
+
 export function reducer(state: ILigand[] = [], action: LigandAction = OtherAction): ILigand[] {
     switch (action.type) {
+        case LIGAND_PICK_COLOR:
         case LIGAND_TOGGLE_VISIBILITY:
             return state.map((ligand) => {
                 if (ligand.id === action.id) {
-                    return { ...ligand, visible: !ligand.visible};
+                    return ligandReducer(ligand, action);
                 }
                 return ligand;
             });

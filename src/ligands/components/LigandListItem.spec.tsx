@@ -8,10 +8,14 @@ describe('<LigandListItem />', () => {
     describe('render', () => {
         it('should contain single button', () => {
             const props = {
+                color: '#32CD32',
                 data: '...',
                 format: 'sdf',
                 id: 'id1',
                 label: 'label1',
+                onColorClick: () => {
+                    // change color
+                },
                 onVisibilityClick: (id: string) => {
                     expect(id).toEqual('id1');
                 },

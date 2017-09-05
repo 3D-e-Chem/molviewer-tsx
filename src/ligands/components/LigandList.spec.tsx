@@ -13,10 +13,11 @@ describe('<LigandList />', () => {
 
         beforeEach(() => {
             clickers = {
+                onColorClick: jest.fn(),
                 onHiLiteShownClick: jest.fn(),
                 onHideAllClick: jest.fn(),
                 onShowAllClick: jest.fn(),
-                onVisibilityClick: jest.fn()
+                onVisibilityClick: jest.fn(),
             };
         });
 
@@ -29,6 +30,7 @@ describe('<LigandList />', () => {
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
                         onShowAllClick={clickers.onShowAllClick}
+                        onColorClick={clickers.onColorClick}
                     />
                 );
                 wrapper = shallow(comp);
@@ -50,6 +52,7 @@ describe('<LigandList />', () => {
         describe('single item', () => {
             beforeEach(() => {
                 const ligands = [{
+                    color: '#32CD32',
                     data: '...',
                     format: 'sdf',
                     id: 'id1',
@@ -63,6 +66,7 @@ describe('<LigandList />', () => {
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
                         onShowAllClick={clickers.onShowAllClick}
+                        onColorClick={clickers.onColorClick}
                     />
                 );
                 wrapper = shallow(comp);
@@ -84,12 +88,14 @@ describe('<LigandList />', () => {
         describe('two items', () => {
             beforeEach(() => {
                 const ligands = [{
+                    color: '#32CD32',
                     data: '...',
                     format: 'sdf',
                     id: 'id1',
                     label: 'label1',
                     visible: true
                 }, {
+                    color: '#32CD32',
                     data: '...',
                     format: 'sdf',
                     id: 'id2',
@@ -103,6 +109,7 @@ describe('<LigandList />', () => {
                         onHideAllClick={clickers.onHideAllClick}
                         onHiLiteShownClick={clickers.onHiLiteShownClick}
                         onShowAllClick={clickers.onShowAllClick}
+                        onColorClick={clickers.onColorClick}
                     />
                 );
                 wrapper = shallow(comp);

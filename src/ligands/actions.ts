@@ -1,5 +1,6 @@
 import {IOtherAction, OtherAction} from '../actions';
 import {
+    LIGAND_PICK_COLOR,
     LIGAND_TOGGLE_VISIBILITY,
     LIGANDS_FETCH_REQUESTED,
     LIGANDS_FETCH_SUCCEEDED,
@@ -19,6 +20,18 @@ export interface IToggleVisibility {
 export const toggleVisibility = (id: string): IToggleVisibility => ({
     type: LIGAND_TOGGLE_VISIBILITY,
     id
+});
+
+export interface IPickColor {
+  type: LIGAND_PICK_COLOR;
+  id: string;
+  color: string;
+}
+
+export const pickColor = (id: string, color: string): IPickColor => ({
+    type: LIGAND_PICK_COLOR,
+    id,
+    color
 });
 
 export interface IFetchRequested {
@@ -81,7 +94,8 @@ export const hiLitefetchRequested = (): IHiLitefetchRequested => ({
 export type HiLiteActions = IHiLiteShown | IHiLitefetchRequested | IHiLitefetchSucceeded;
 export type FetchActions = IFetchRequested | IFetchSucceeded;
 
-export type LigandAction = IToggleVisibility | IShowAll | IHideAll |
+export type LigandAction = IPickColor | IToggleVisibility |
+  IShowAll | IHideAll |
   HiLiteActions |
   FetchActions |
   IOtherAction;

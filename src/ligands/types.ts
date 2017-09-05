@@ -7,4 +7,5 @@ export interface IRestLigand {
 
 export interface ILigand extends IRestLigand {
   visible: boolean;
+  color: string;
 }

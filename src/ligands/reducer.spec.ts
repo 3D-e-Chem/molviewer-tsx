@@ -4,12 +4,14 @@ import { ILigand } from './types';
 
 function sampleState(): ILigand[] {
     return [{
+        color: '#32CD32',
         data: '...',
         format: 'sdf',
         id: 'id1',
         label: 'label1',
         visible: true
     }, {
+        color: '#32CD32',
         data: '...',
         format: 'sdf',
         id: 'id2',
@@ -44,12 +46,14 @@ describe('reducer', () => {
             const newState = reducer(state, action);
 
             const expected = [{
+                color: '#32CD32',
                 data: '...',
                 format: 'sdf',
                 id: 'id1',
                 label: 'label1',
                 visible: false
             }, {
+                color: '#32CD32',
                 data: '...',
                 format: 'sdf',
                 id: 'id2',

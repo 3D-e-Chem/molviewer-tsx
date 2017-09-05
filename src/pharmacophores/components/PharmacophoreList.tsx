@@ -27,6 +27,8 @@ export interface IDispatchProps {
 
 type IProps = IOwnProps & IDispatchProps;
 
+const style: React.CSSProperties = { height: '100%', overflowY: 'auto'};
+
 export const PharmacophoreList = (props: IProps) => {
     let listactions: JSX.Element = <div/>;
     if (props.pharmacophores.length > 1) {
@@ -54,7 +56,7 @@ export const PharmacophoreList = (props: IProps) => {
         />
     ));
     return (
-        <div style={{ height: '100%', overflowY: 'auto'}}>
+        <div style={style}>
             <h5>Pharmacophores</h5>
             <PocketRadius value={props.pocketRadius} onChange={props.onPocketRadiusChange}/>
             {listactions}

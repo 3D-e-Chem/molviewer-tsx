@@ -11,7 +11,7 @@ import {
     LigandsAndProteinsViewer as LigandsAndProteinsViewerComponent
 } from '../components/LigandsAndProteinsViewer';
 
-type fetchRequested = ligands.actions.IFetchRequested | ligands.actions.IFetchRequested;
+type fetchRequested = ligands.actions.IFetchRequested | proteins.actions.IFetchRequested;
 
 const mapStateToProps = (state: IStateProps) => state;
 const mapDispatchToProps = (dispatch: Dispatch<fetchRequested>): IDispatchProps => {

@@ -12,6 +12,7 @@ export interface IOwnProps {
 
 export interface IDispatchProps {
     onVisibilityClick(id: string): void;
+    onColorClick(id: string, color: string): void;
     onHideAllClick(): void;
     onHiLiteShownClick(ids: string[]): void;
     onShowAllClick(): void;
@@ -25,8 +26,11 @@ function onClickShownLigands(func: (ids: string[]) => void, ligands: ILigand[]) 
     return () => func(ids);
 }
 
+const style: React.CSSProperties = { height: '100%', overflowY: 'auto' };
+
 export const LigandList = ({ligands,
                             onVisibilityClick,
+                            onColorClick,
                             onShowAllClick,
                             onHideAllClick,
                             onHiLiteShownClick}: IProps) => {
@@ -48,10 +52,11 @@ export const LigandList = ({ligands,
             key={ligand.id}
             {...ligand}
             onVisibilityClick={onVisibilityClick}
+            onColorClick={onColorClick}
         />
     ));
     return (
-        <div style={{ overflowY: 'auto'}}>
+        <div style={style}>
             <h5>Ligands</h5>
             {listactions}
             <table className="table table-condensed"><tbody>
