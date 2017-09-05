@@ -3,7 +3,7 @@ import { Glyphicon, MenuItem } from 'react-bootstrap';
 
 import { EmptyGlyphIcon } from '../../components/EmptyGlyphIcon';
 
-interface IProps {
+export interface IProps {
     checked: boolean;
     color: string;
     onClick(color: string): void;

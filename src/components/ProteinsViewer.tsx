@@ -17,7 +17,9 @@ export interface IDispatchProps {
     pageLoaded(): void;
 }
 
-export class ProteinsViewer extends React.Component<IStateProps & IDispatchProps, {}> {
+export type IProps = IStateProps & IDispatchProps;
+
+export class ProteinsViewer extends React.Component<IProps, {}> {
     public componentDidMount() {
         this.props.fetchProteins();
         this.props.pageLoaded();

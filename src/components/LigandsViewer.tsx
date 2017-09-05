@@ -16,7 +16,9 @@ export interface IDispatchProps {
     pageLoaded(): void;
 }
 
-export class LigandsViewer extends React.Component<IStateProps & IDispatchProps, {}> {
+export type IProps = IStateProps & IDispatchProps;
+
+export class LigandsViewer extends React.Component<IProps, {}> {
     public componentDidMount() {
         this.props.fetchLigands();
         this.props.pageLoaded();
