@@ -5,4 +5,10 @@ script:
 - yarn test -- --coverage --no-cache -w 1
 - yarn lint
 - sonar-scanner -Dsonar.login=$SONAR_TOKEN
-cache: yarn
+cache: 
+- yarn
+- directories:
+  - $HOME/.sonar/cache
+addons:
+  sonarcloud:
+    organization: "3d-e-chem"
