@@ -4280,9 +4280,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-ngl@0.10.3:
-  version "0.10.3"
-  resolved "https://registry.yarnpkg.com/ngl/-/ngl-0.10.3.tgz#c706558b6f9c12e52686bf61329098725bf02a3a"
+ngl@0.10.4:
+  version "0.10.4"
+  resolved "https://registry.yarnpkg.com/ngl/-/ngl-0.10.4.tgz#118562f3344b8dbbd730411e82d4b5cc2229a8e8"
 
 no-case@^2.2.0:
   version "2.3.1"
