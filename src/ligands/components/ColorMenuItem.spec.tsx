@@ -49,7 +49,7 @@ describe('<ColorMenuItem/>', () => {
 
         describe('checked', () => {
             beforeEach(() => {
-                const props = {
+                props = {
                     checked: true,
                     color: 'blue',
                     onClick: jest.fn()

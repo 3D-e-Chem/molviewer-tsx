@@ -17,7 +17,7 @@ describe('<LigandList />', () => {
                 onHiLiteShownClick: jest.fn(),
                 onHideAllClick: jest.fn(),
                 onShowAllClick: jest.fn(),
-                onVisibilityClick: jest.fn(),
+                onVisibilityClick: jest.fn()
             };
         });
 
