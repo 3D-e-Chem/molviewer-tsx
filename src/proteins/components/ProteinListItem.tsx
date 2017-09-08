@@ -31,8 +31,7 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
 
     render() {
         const p = this.props;
-        const showHetero = (p.hasHetero && p.hetVisible);
-        const showPocket = (p.hasHetero && p.pocketVisible);
+        const dropDown = this.renderDropdown();
         return (
             <tr>
                 <td>
@@ -51,40 +50,49 @@ export class ProteinListItem extends React.Component<IProteinListItemProps, {}> 
                         >
                             <Glyphicon glyph={this.props.visible ? 'eye-open' : 'eye-close'} />
                         </Button>
-                        <DropdownButton
-                            pullRight={true}
-                            disabled={!p.visible}
-                            bsSize="small"
-                            title=""
-                            id={this.props.id}
-                            dropup={true}
-                        >
-                            <MenuItem
-                                title={p.proteinVisible ? 'Hide structure' : 'Show structure'}
-                                onSelect={this.onProteinVisibilityClick}
-                            >
-                                <Glyphicon glyph={this.props.proteinVisible ? 'eye-open' : 'eye-close'} />
-                                &nbsp;Structure
-                            </MenuItem>
-                            <MenuItem
-                                title={showHetero ? 'Hide hetero' : 'Show hetero'}
-                                disabled={!p.hasHetero}
-                                onSelect={this.onHeteroVisibilityClick}
-                            >
-                                <Glyphicon glyph={showHetero ? 'eye-open' : 'eye-close'} />
-                                &nbsp;Hetero
-                            </MenuItem>
-                            <MenuItem
-                                title={showPocket ? 'Hide pocket' : 'Show pocket'}
-                                onSelect={this.onPocketVisibilityClick}
-                            >
-                                <Glyphicon glyph={showPocket ? 'eye-open' : 'eye-close'} />
-                                &nbsp;Pocket
-                            </MenuItem>
-                        </DropdownButton>
+                        {dropDown}
                     </ButtonGroup>
                 </td>
             </tr>
+        );
+    }
+
+    renderDropdown() {
+        const p = this.props;
+        const showHetero = (p.hasHetero && p.hetVisible);
+        const showPocket = (p.hasHetero && p.pocketVisible);
+        return (
+            <DropdownButton
+                pullRight={true}
+                disabled={!p.visible}
+                bsSize="small"
+                title=""
+                id={this.props.id}
+                dropup={true}
+            >
+                <MenuItem
+                    title={p.proteinVisible ? 'Hide structure' : 'Show structure'}
+                    onSelect={this.onProteinVisibilityClick}
+                >
+                    <Glyphicon glyph={this.props.proteinVisible ? 'eye-open' : 'eye-close'} />
+                    &nbsp;Structure
+                </MenuItem>
+                <MenuItem
+                    title={showHetero ? 'Hide hetero' : 'Show hetero'}
+                    disabled={!p.hasHetero}
+                    onSelect={this.onHeteroVisibilityClick}
+                >
+                    <Glyphicon glyph={showHetero ? 'eye-open' : 'eye-close'} />
+                    &nbsp;Hetero
+                </MenuItem>
+                <MenuItem
+                    title={showPocket ? 'Hide pocket' : 'Show pocket'}
+                    onSelect={this.onPocketVisibilityClick}
+                >
+                    <Glyphicon glyph={showPocket ? 'eye-open' : 'eye-close'} />
+                    &nbsp;Pocket
+                </MenuItem>
+            </DropdownButton>
         );
     }
 }

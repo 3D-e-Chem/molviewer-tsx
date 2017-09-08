@@ -14,17 +14,7 @@ function proteinReducer(state: IProtein, action: ProteinAction = OtherAction): I
     let visible: boolean;
     switch (action.type) {
         case PROTEIN_TOGGLE_VISIBILITY:
-            const anyChildrenVisible = (state.hetVisible || state.pocketVisible || state.proteinVisible);
-            if (!state.visible && !anyChildrenVisible) {
-                return {
-                    ...state,
-                    hetVisible: state.hasHetero,
-                    pocketVisible: state.hasHetero,
-                    proteinVisible: true,
-                    visible: !state.visible
-                };
-            }
-            return { ...state, visible: !state.visible};
+            return toggleProteinVisibility(state);
         case PROTEIN_TOGGLE_HETVISIBILITY:
             visible = (!state.hetVisible || state.pocketVisible || state.proteinVisible);
             return { ...state, hetVisible: !state.hetVisible, visible};
@@ -37,6 +27,20 @@ function proteinReducer(state: IProtein, action: ProteinAction = OtherAction): I
         default:
             return state;
     }
+}
+
+function toggleProteinVisibility(state: IProtein): IProtein {
+    const anyChildrenVisible = (state.hetVisible || state.pocketVisible || state.proteinVisible);
+    if (!state.visible && !anyChildrenVisible) {
+        return {
+            ...state,
+            hetVisible: state.hasHetero,
+            pocketVisible: state.hasHetero,
+            proteinVisible: true,
+            visible: !state.visible
+        };
+    }
+    return { ...state, visible: !state.visible};
 }
 
 export function reducer(state: IProtein[] = [], action: ProteinAction = OtherAction): IProtein[] {
