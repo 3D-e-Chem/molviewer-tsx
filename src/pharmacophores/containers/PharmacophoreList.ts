@@ -10,9 +10,13 @@ import {
 } from '../components/PharmacophoreList'
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps
+
 type TDispatch = pactions.PocketAction | actions.PharmacophoreAction
-const mapDispatchToProps = (
-  dispatch: Dispatch<TDispatch>,
+
+export type IDispatch = Dispatch<TDispatch>
+
+export const mapDispatchToProps = (
+  dispatch: IDispatch,
   ownProps: IOwnProps
 ): IDispatchProps => {
   return {

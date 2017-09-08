@@ -1,7 +1,7 @@
 import * as actions from './actions'
 import * as constants from './constants'
-import { pharmacophoresReducer } from './reducer'
-import { IPharmacophoreContainer } from './types'
+import { pharmacophoresReducer, typesReducer } from './reducer'
+import { IPharmacophoreContainer, IPharmacophoreFunctionalType } from './types'
 
 function sampleState(): IPharmacophoreContainer[] {
   return [
@@ -34,7 +34,7 @@ function sampleState(): IPharmacophoreContainer[] {
   ]
 }
 
-describe('pharmacophoresReducer', () => {
+describe('pharmacophoresReducer()', () => {
   it('should return the initial state', () => {
     const state = pharmacophoresReducer(undefined, actions.OtherAction)
 
@@ -177,6 +177,78 @@ describe('pharmacophoresReducer', () => {
       const state = pharmacophoresReducer(undefined, action)
 
       expect(state).toEqual(fetched)
+    })
+  })
+
+  describe(constants.PHARMACOPHORES_HILITE_FETCH_SUCCEEDED, () => {
+    it('should hide when id not in response', () => {
+      const state = sampleState()
+      state[0].id = 'id1'
+      state[0].visible = true
+      const ids = ['otherid']
+      const action = actions.hiLitefetchSucceeded(ids)
+
+      const newState = pharmacophoresReducer(state, action)
+
+      expect(newState[0].visible).toBeFalsy()
+    })
+
+    it('should show when id in response', () => {
+      const state = sampleState()
+      state[0].id = 'id1'
+      state[0].visible = false
+      const ids = ['id1']
+      const action = actions.hiLitefetchSucceeded(ids)
+
+      const newState = pharmacophoresReducer(state, action)
+
+      expect(newState[0].visible).toBeTruthy()
+    })
+
+    it('should not change visiblility when shown and id in response', () => {
+      const state = sampleState()
+      state[0].id = 'id1'
+      state[0].visible = true
+      const ids = ['id1']
+      const action = actions.hiLitefetchSucceeded(ids)
+
+      const newState = pharmacophoresReducer(state, action)
+
+      expect(newState[0].visible).toBeTruthy()
+    })
+  })
+})
+
+describe('typesReducer()', () => {
+  describe(constants.PHARMACOPHORE_TOGGLE_TYPE, () => {
+    let state: IPharmacophoreFunctionalType[]
+
+    beforeEach(() => {
+      state = [
+        {
+          checked: true,
+          color: 'yellow',
+          description: 'Aromatic ring',
+          label: 'AROM',
+          textColor: 'black'
+        },
+        {
+          checked: true,
+          color: 'gray',
+          description: 'Exclusion sphere',
+          label: 'EXCL',
+          textColor: 'white'
+        }
+      ]
+    })
+
+    it('should checked=!checked when label matches', () => {
+      const action = actions.togglePharmacophoreType('AROM')
+
+      const newState = typesReducer(state, action)
+
+      expect(newState[0].checked).toBeFalsy()
+      expect(newState[1].checked).toBeTruthy()
     })
   })
 })

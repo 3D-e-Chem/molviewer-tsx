@@ -25,7 +25,7 @@ export interface IDispatchProps {
   onHiLiteShownClick(): void
 }
 
-type IProps = IOwnProps & IDispatchProps
+export type IProps = IOwnProps & IDispatchProps
 
 const style: React.CSSProperties = { height: '100%', overflowY: 'auto' }
 

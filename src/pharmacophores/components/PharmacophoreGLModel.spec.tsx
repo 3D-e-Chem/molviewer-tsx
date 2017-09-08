@@ -1,5 +1,10 @@
 import * as NGL from 'ngl'
 
+import {
+  mockedComponent,
+  mockedRepresentation,
+  mockedStage
+} from '../../nglTestHelpers'
 import { IProps, PharmacophoreGLModel } from './PharmacophoreGLModel'
 
 function getProps(): IProps {
@@ -25,22 +30,9 @@ describe('<PharmacophoreGLModel />', () => {
   beforeEach(() => {
     const props = getProps()
     comp = new PharmacophoreGLModel(props)
-    nglRep = ({
-      setParameters: jest.fn(),
-      setVisibility: jest.fn()
-    } as any) as NGL.RepresentationComponent
-    nglComp = ({
-      addRepresentation: jest.fn(() => nglRep),
-      autoView: jest.fn(),
-      setTransform: jest.fn(),
-      setVisibility: jest.fn()
-    } as any) as NGL.Component
-    const mockedStage = {
-      addComponentFromObject: jest.fn(() => nglComp),
-      loadFile: jest.fn(),
-      remove: jest.fn()
-    }
-    stage = mockedStage as NGL.Stage
+    nglRep = mockedRepresentation()
+    nglComp = mockedComponent(nglRep)
+    stage = mockedStage(nglComp)
     comp.context = { stage }
   })
 

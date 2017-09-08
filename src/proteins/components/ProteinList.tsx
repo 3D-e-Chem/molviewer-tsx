@@ -20,7 +20,7 @@ export interface IDispatchProps {
   onHideAllClick(): void
 }
 
-type IProps = IOwnProps & IDispatchProps
+export type IProps = IOwnProps & IDispatchProps
 
 export const ProteinList = (props: IProps) => {
   let listactions: JSX.Element = <div />

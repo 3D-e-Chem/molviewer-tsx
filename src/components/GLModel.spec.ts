@@ -1,19 +1,13 @@
 import * as NGL from 'ngl'
 import { Matrix4 } from 'three'
 
+import { mockedComponent, mockedStage } from '../nglTestHelpers'
 import { GLModel, IGLModelProps } from './GLModel'
-
-function mockedComponent() {
-  return ({
-    autoView: jest.fn(),
-    setTransform: jest.fn(),
-    setVisibility: jest.fn()
-  } as any) as NGL.StructureComponent
-}
 
 describe('<GLModel />', () => {
   let stage: NGL.Stage
   let model: GLModel<IGLModelProps, {}>
+  let comp: NGL.StructureComponent
 
   beforeEach(() => {
     const props = {
@@ -22,12 +16,8 @@ describe('<GLModel />', () => {
       visible: true
     }
     model = new GLModel(props)
-    const mockedStage = {
-      addComponentFromObject: jest.fn(),
-      loadFile: jest.fn(),
-      remove: jest.fn()
-    }
-    stage = mockedStage as NGL.Stage
+    comp = mockedComponent()
+    stage = mockedStage(comp)
     model.context = { stage }
   })
 
@@ -59,101 +49,92 @@ describe('<GLModel />', () => {
     })
   })
 
-  describe('modelLoaded()', () => {
-    let comp: NGL.StructureComponent
-
+  describe('visible===true', () => {
     beforeEach(() => {
-      comp = mockedComponent()
+      model.modelLoaded(comp)
     })
 
-    describe('visible===true', () => {
-      beforeEach(() => {
-        model.modelLoaded(comp)
-      })
-
-      it('should call setVisibility on component', () => {
-        expect(comp.setVisibility).toHaveBeenCalledWith(true)
-      })
-
-      it('should call autoView on component when it is visible', () => {
-        expect(comp.autoView).toHaveBeenCalled()
-      })
+    it('should call setVisibility on component', () => {
+      expect(comp.setVisibility).toHaveBeenCalledWith(true)
     })
 
-    describe('visible===false', () => {
-      beforeEach(() => {
-        const props = {
-          data: '...',
-          format: 'mol2',
-          visible: false
-        }
-        model = new GLModel(props)
-        model.modelLoaded(comp)
-      })
+    it('should call autoView on component when it is visible', () => {
+      expect(comp.autoView).toHaveBeenCalled()
+    })
+  })
 
-      it('should call setVisibility on component', () => {
-        expect(comp.setVisibility).toHaveBeenCalledWith(false)
-      })
-
-      it('should not call autoView on component when it is not visible', () => {
-        expect(comp.autoView).not.toHaveBeenCalled()
-      })
+  describe('visible===false', () => {
+    beforeEach(() => {
+      const props = {
+        data: '...',
+        format: 'mol2',
+        visible: false
+      }
+      model = new GLModel(props)
+      model.modelLoaded(comp)
     })
 
-    describe('with transform', () => {
-      it('should call setTransform on component', () => {
-        const props = {
-          data: '...',
-          format: 'mol2',
-          transform: [
-            -0.14138083,
-            -0.96738216,
-            0.21019803,
-            19.50468079,
-            0.60452008,
-            0.08377813,
-            0.79217214,
-            -0.93966894,
-            -0.78394319,
-            0.23906689,
-            0.57295732,
-            -1.66750974,
-            0.0,
-            0.0,
-            0.0,
-            1.0
-          ],
-          visible: true
-        }
-        model = new GLModel(props)
-        model.modelLoaded(comp)
+    it('should call setVisibility on component', () => {
+      expect(comp.setVisibility).toHaveBeenCalledWith(false)
+    })
 
-        const expected = new Matrix4().fromArray([
+    it('should not call autoView on component when it is not visible', () => {
+      expect(comp.autoView).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('with transform', () => {
+    it('should call setTransform on component', () => {
+      const props = {
+        data: '...',
+        format: 'mol2',
+        transform: [
           -0.14138083,
-          0.60452008,
-          -0.78394319,
-          0,
           -0.96738216,
-          0.08377813,
-          0.23906689,
-          0,
           0.21019803,
-          0.79217214,
-          0.57295732,
-          0,
           19.50468079,
+          0.60452008,
+          0.08377813,
+          0.79217214,
           -0.93966894,
+          -0.78394319,
+          0.23906689,
+          0.57295732,
           -1.66750974,
-          1
-        ])
-        expect(comp.setTransform).toHaveBeenCalledWith(expected)
-      })
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        visible: true
+      }
+      model = new GLModel(props)
+      model.modelLoaded(comp)
+
+      const expected = new Matrix4().fromArray([
+        -0.14138083,
+        0.60452008,
+        -0.78394319,
+        0,
+        -0.96738216,
+        0.08377813,
+        0.23906689,
+        0,
+        0.21019803,
+        0.79217214,
+        0.57295732,
+        0,
+        19.50468079,
+        -0.93966894,
+        -1.66750974,
+        1
+      ])
+      expect(comp.setTransform).toHaveBeenCalledWith(expected)
     })
   })
 
   describe('componentWillUnmount()', () => {
     it('should remove model from stage', () => {
-      const comp = mockedComponent()
       model.modelLoaded(comp)
 
       model.componentWillUnmount()

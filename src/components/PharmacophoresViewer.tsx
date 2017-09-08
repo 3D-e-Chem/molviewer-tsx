@@ -26,10 +26,9 @@ export interface IDispatchProps {
   onToggleType(label: string): void
 }
 
-export class PharmacophoresViewer extends React.Component<
-  IStateProps & IDispatchProps,
-  {}
-> {
+export type IProps = IStateProps & IDispatchProps
+
+export class PharmacophoresViewer extends React.Component<IProps, {}> {
   public componentDidMount() {
     this.props.fetchPharmacophores()
     this.props.pageLoaded()

@@ -8,10 +8,11 @@ import {
   LigandList as LigandListComponent
 } from '../components/LigandList'
 
-const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps
-const mapDispatchToProps = (
-  dispatch: Dispatch<actions.LigandAction>
-): IDispatchProps => {
+export const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps
+
+export type IDispatch = Dispatch<actions.LigandAction>
+
+export const mapDispatchToProps = (dispatch: IDispatch): IDispatchProps => {
   return {
     onColorClick: (id: string, color: string) =>
       dispatch(actions.pickColor(id, color)),

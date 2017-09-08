@@ -12,7 +12,7 @@ import { EllipsisText } from '../../components/EllipsisText'
 import { EmptyGlyphIcon } from '../../components/EmptyGlyphIcon'
 import { IPharmacophoreContainer } from '../types'
 
-export interface IPharmacophoreListItemProps extends IPharmacophoreContainer {
+export interface IProps extends IPharmacophoreContainer {
   onPharmacophoreVisibilityClick(id: string): void
   onPharmacophoreContainerVisibilityClick(id: string): void
   onPharmacophoreSolidClick(id: string): void
@@ -21,10 +21,7 @@ export interface IPharmacophoreListItemProps extends IPharmacophoreContainer {
   onPocketVisibilityClick(id: string): void
 }
 
-export class PharmacophoreListItem extends React.Component<
-  IPharmacophoreListItemProps,
-  {}
-> {
+export class PharmacophoreListItem extends React.Component<IProps, {}> {
   onLigandVisibilityClick = () => {
     this.props.onLigandVisibilityClick(this.props.id)
   }

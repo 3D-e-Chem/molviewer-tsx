@@ -7,17 +7,19 @@ import { IProps, LigandsAndProteinsViewer } from './LigandsAndProteinsViewer'
 describe('<LigandsAndProteinsViewer/>', () => {
   let props: IProps
 
+  beforeEach(() => {
+    props = {
+      fetchLigands: jest.fn(),
+      fetchProteins: jest.fn(),
+      ligands: [],
+      pageLoaded: jest.fn(),
+      pocketRadius: 4.5,
+      proteins: []
+    }
+  })
+
   describe('componentDidMount()', () => {
     beforeEach(() => {
-      props = {
-        fetchLigands: jest.fn(),
-        fetchProteins: jest.fn(),
-        ligands: [],
-        pageLoaded: jest.fn(),
-        pocketRadius: 4.5,
-        proteins: []
-      }
-
       const comp = new LigandsAndProteinsViewer(props)
       comp.componentDidMount()
     })
@@ -39,15 +41,6 @@ describe('<LigandsAndProteinsViewer/>', () => {
     let wrapper: ShallowWrapper<IProps, {}>
 
     beforeEach(() => {
-      props = {
-        fetchLigands: jest.fn(),
-        fetchProteins: jest.fn(),
-        ligands: [],
-        pageLoaded: jest.fn(),
-        pocketRadius: 4.5,
-        proteins: []
-      }
-
       wrapper = shallow(<LigandsAndProteinsViewer {...props} />)
     })
 

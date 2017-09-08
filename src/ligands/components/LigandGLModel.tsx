@@ -2,12 +2,12 @@ import * as NGL from 'ngl'
 
 import { GLModel, IGLModelProps } from '../../components/GLModel'
 
-interface IProps extends IGLModelProps {
+export interface IProps extends IGLModelProps {
   color: string
 }
 
 export class LigandGLModel extends GLModel<IProps, {}> {
-  private representation: NGL.RepresentationComponent
+  public representation: NGL.RepresentationComponent
 
   public modelLoaded(comp: NGL.StructureComponent) {
     super.modelLoaded(comp)

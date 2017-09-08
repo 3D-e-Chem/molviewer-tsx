@@ -127,7 +127,7 @@ export function pharmacophoresReducer(
   }
 }
 
-function typesReducer(
+export function typesReducer(
   state: IPharmacophoreFunctionalType[] = pharmacophoreFunctionalTypes,
   action: PharmacophoreAction = OtherAction
 ): IPharmacophoreFunctionalType[] {

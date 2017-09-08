@@ -5,7 +5,7 @@ import { ProteinGLModel } from '../../proteins'
 import { IPharmacophoreContainer } from '../types'
 import { PharmacophoreGLModel } from './PharmacophoreGLModel'
 
-interface IProps {
+export interface IProps {
   pharmacophore: IPharmacophoreContainer
   pocketRadius: number
   shownTypes: string[]

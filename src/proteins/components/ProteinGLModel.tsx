@@ -2,7 +2,7 @@ import * as NGL from 'ngl'
 
 import { GLModel, IGLModelProps } from '../../components/GLModel'
 
-interface IProteinGLModelProps extends IGLModelProps {
+interface IProps extends IGLModelProps {
   hetVisible: boolean
   pocketVisible: boolean
   pocketRadius: number
@@ -10,7 +10,7 @@ interface IProteinGLModelProps extends IGLModelProps {
   hetColor: string
 }
 
-export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
+export class ProteinGLModel extends GLModel<IProps, {}> {
   protected model: NGL.StructureComponent
   private homo: NGL.RepresentationComponent
   private homeSelection: NGL.Selection = new NGL.Selection('not hetero')
@@ -41,8 +41,8 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
     }
   }
 
-  public shouldComponentUpdate(nextProps: IProteinGLModelProps) {
-    const props = this.props as IProteinGLModelProps
+  public shouldComponentUpdate(nextProps: IProps) {
+    const props = this.props as IProps
     return (
       super.shouldComponentUpdate(nextProps) ||
       props.proteinVisible !== nextProps.proteinVisible ||
@@ -54,7 +54,7 @@ export class ProteinGLModel extends GLModel<IProteinGLModelProps, {}> {
   }
 
   public componentDidUpdate() {
-    const props = this.props as IProteinGLModelProps
+    const props = this.props as IProps
     this.homo.setVisibility(props.proteinVisible)
     this.hetero.setVisibility(props.hetVisible)
     this.hetero.setParameters({ colorValue: props.hetColor })

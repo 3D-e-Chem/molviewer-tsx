@@ -11,7 +11,7 @@ import {
 } from './proteins'
 import { epic as sseEpic, epicActions as sseActions } from './sse'
 
-type rootEpicActions =
+export type rootEpicActions =
   | ligandsActions.LigandAction
   | pharmacophoresActions
   | proteinsActions

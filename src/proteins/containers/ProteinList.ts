@@ -10,9 +10,10 @@ import {
 } from '../components/ProteinList'
 
 const mapStateToProps = (_state: {}, ownProps: IOwnProps) => ownProps
-const mapDispatchToProps = (
-  dispatch: Dispatch<pactions.PocketAction | actions.ProteinAction>
-): IDispatchProps => {
+
+export type IDispatch = Dispatch<pactions.PocketAction | actions.ProteinAction>
+
+export const mapDispatchToProps = (dispatch: IDispatch): IDispatchProps => {
   return {
     onHeteroVisibilityClick: (id: string) =>
       dispatch(actions.toggleHetVisibility(id)),
