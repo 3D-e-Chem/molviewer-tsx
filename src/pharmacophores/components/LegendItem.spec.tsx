@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { shallow, ShallowWrapper } from 'enzyme'
 
-import { LegendItem, IProps } from './LegendItem'
+import { IProps, LegendItem } from './LegendItem'
 
 describe('<LegenItem/>', () => {
   describe('onToggle()', () => {
