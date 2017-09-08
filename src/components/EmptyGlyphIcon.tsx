@@ -1,7 +1,5 @@
-import * as React from 'react';
+import * as React from 'react'
 
-const style = {display: 'inline-block', width: 14};
+const style = { display: 'inline-block', width: 14 }
 
-export const EmptyGlyphIcon = () => (
-    <span style={style}/>
-);
+export const EmptyGlyphIcon = () => <span style={style} />

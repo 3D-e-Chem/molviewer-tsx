@@ -1,24 +1,21 @@
 export interface IRestAnonymousMolecule {
-    readonly data: string;
-    readonly format: string;
+  readonly data: string
+  readonly format: string
 }
 
 export interface ILabel {
-    readonly id: string;
-    readonly label: string;
+  readonly id: string
+  readonly label: string
 }
 
-export interface IRestMolecule extends IRestAnonymousMolecule, ILabel {
-
-}
+export interface IRestMolecule extends IRestAnonymousMolecule, ILabel {}
 
 export interface IToggleable {
-    visible: boolean;
+  visible: boolean
 }
 
-export interface IAnonymousMolecule extends IRestAnonymousMolecule, IToggleable {
-}
+export interface IAnonymousMolecule
+  extends IRestAnonymousMolecule,
+    IToggleable {}
 
-export interface IMolecule extends IRestMolecule, IToggleable {
-
-}
+export interface IMolecule extends IRestMolecule, IToggleable {}
