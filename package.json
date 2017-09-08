@@ -22,8 +22,10 @@
     "codacy-coverage": "^2.0.1",
     "concurrently": "^3.5.0",
     "enzyme": "^2.7.7",
+    "prettier": "^1.6.1",
     "react-addons-test-utils": "^15.4.2",
     "redux-mock-store": "^1.2.3",
+    "tslint-config-prettier": "^1.5.0",
     "tslint-sonarts": "^1.0.0"
   },
   "dependencies": {
@@ -49,6 +51,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "lint": "react-scripts lint"
+    "lint": "react-scripts lint",
+    "prettier": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.css\""
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }

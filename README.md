@@ -50,6 +50,16 @@ yarn test -- --coverage --no-cache -w 1
 ```
 The coverage reports will be written to `coverage/remapped` directory.
 
+# Format
+
+```
+yarn prettier
+```
+
+Will format files in `src/`.
+
+See https://github.com/prettier/prettier how to setup your editor.
+
 # Linting
 
 ```

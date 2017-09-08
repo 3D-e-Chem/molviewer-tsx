@@ -1,6 +1,8 @@
 {
     "extends": [
-        "@nlesc/tslint-config-react-app", "tslint-sonarts"
+        "@nlesc/tslint-config-react-app", 
+        "tslint-sonarts",
+        "tslint-config-prettier"
     ],
     "rules": {
         "prefer-type-cast": false,
