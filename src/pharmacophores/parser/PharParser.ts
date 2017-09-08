@@ -34,8 +34,8 @@ export class PharParser {
   }
 
   /**
-     * Returns for each pharamcophore type a shape with points/arrows
-     */
+   * Returns for each pharamcophore type a shape with points/arrows
+   */
   parse() {
     const typeshapes = new Map<string, Shape>()
     let id = ''
