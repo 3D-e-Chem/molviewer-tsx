@@ -2,7 +2,9 @@ language: node_js
 node_js: 7
 sudo: false
 script:
-- yarn test -- --coverage --no-cache -w 1
+- yarn test -- --coverage
+# The linter errors on js used in lcov-report, so remove it before linting
+- rm -r coverage/lcov-report
 - yarn lint
 - sonar-scanner -Dsonar.login=$SONAR_TOKEN
 cache: 
