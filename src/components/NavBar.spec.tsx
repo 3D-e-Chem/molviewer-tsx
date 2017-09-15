@@ -2,11 +2,11 @@ import * as React from 'react'
 
 import { shallow, ShallowWrapper } from 'enzyme'
 
-import { IDispatchProps, NavBar } from './NavBar'
+import { IDispatchProps, IProps, NavBar } from './NavBar'
 
 describe('<NavBar />', () => {
   describe('render', () => {
-    let wrapper: ShallowWrapper<any, {}>
+    let wrapper: ShallowWrapper<IProps, {}>
     let clickers: IDispatchProps
 
     beforeEach(() => {

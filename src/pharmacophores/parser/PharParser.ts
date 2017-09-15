@@ -17,13 +17,9 @@ pharmacophoreFunctionalTypes.forEach(
 
 export class PharParser {
   streamer: Streamer
-  name: string
-  path: string
 
-  constructor(streamer: Streamer, params: any) {
+  constructor(streamer: Streamer) {
     this.streamer = streamer
-    this.name = params.name
-    this.path = params.path
   }
 
   get type() {

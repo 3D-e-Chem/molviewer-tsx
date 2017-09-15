@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { Routes } from './components/Routes'
 import { configureStore } from './configureStore'
 import { ServerListener } from './sse'
+import registerServiceWorker from './registerServiceWorker'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
@@ -21,3 +22,4 @@ ReactDOM.render(
   </Provider>,
   container
 )
+registerServiceWorker()

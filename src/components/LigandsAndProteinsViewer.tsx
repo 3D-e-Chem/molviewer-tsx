@@ -41,10 +41,10 @@ export class LigandsAndProteinsViewer extends React.Component<IProps, {}> {
         pocketRadius={this.props.pocketRadius}
       />
     ]
-    const ligands = this.props.ligands.map(ligand => (
+    const ligandGLModels = this.props.ligands.map(ligand => (
       <LigandGLModel key={ligand.id} {...ligand} />
     ))
-    const proteins = this.props.proteins.map(protein => (
+    const proteinGLModels = this.props.proteins.map(protein => (
       <ProteinGLModel
         key={protein.id}
         {...protein}
@@ -54,8 +54,8 @@ export class LigandsAndProteinsViewer extends React.Component<IProps, {}> {
     ))
     const main = (
       <MolCanvas id="canvas">
-        {ligands}
-        {proteins}
+        {ligandGLModels}
+        {proteinGLModels}
       </MolCanvas>
     )
     return <Layout title={title} sidebar={sidebar} main={main} />

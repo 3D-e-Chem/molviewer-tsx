@@ -59,10 +59,3 @@ interface IOnMessageEvent {
   data: string
 }
 // End of Type definitions for Server-Sent Events
-
-// @types/jest v15.1.32 is missing toContainEqual
-declare namespace jest {
-  interface Matchers {
-    toContainEqual(expected: any): void
-  }
-}

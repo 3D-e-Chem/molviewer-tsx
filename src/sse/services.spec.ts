@@ -17,7 +17,7 @@ function reducer(
 }
 
 describe('ServerListener', () => {
-  let store: Store<any>
+  let store: Store<{ type: string }>
   let listener: ServerListener
 
   beforeEach(() => {

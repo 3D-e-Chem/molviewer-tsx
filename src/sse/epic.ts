@@ -7,11 +7,12 @@ import { actions as ligands } from '../ligands'
 import { actions as pharmacophores } from '../pharmacophores'
 import { actions as proteins } from '../proteins'
 
-import { IServerModelChanged } from './actions'
+import { IServerHiLiteChanged, IServerModelChanged } from './actions'
 import { SERVER_HILITE_CHANGED, SERVER_MODEL_CHANGED } from './constants'
 import { IState } from './reducer'
 
 export type epicActions =
+  | IServerHiLiteChanged
   | IServerModelChanged
   | ligands.IFetchRequested
   | proteins.IFetchRequested

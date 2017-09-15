@@ -14,7 +14,7 @@ LIPO -10.0140 -7.0397 -73.6983 0 0 0 0 0
 $$$$
 `
       }
-      const parser = new PharParser(stream, {})
+      const parser = new PharParser(stream)
       const shapes = parser.parse()
       expect(shapes.size).toEqual(5)
       expect(Array.from(shapes.keys())).toEqual(

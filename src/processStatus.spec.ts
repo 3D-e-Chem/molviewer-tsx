@@ -26,8 +26,7 @@ describe('processStatus', () => {
       const result = processStatus(response)
 
       return result.catch(e => {
-        const expected = new Error(response.statusText)
-        expect(e).toEqual(expected)
+        expect(e).toEqual(response)
       })
     })
   })
@@ -39,8 +38,7 @@ describe('processStatus', () => {
       const result = processStatus(response)
 
       return result.catch(e => {
-        const expected = new Error(response.statusText)
-        expect(e).toEqual(expected)
+        expect(e).toEqual(response)
       })
     })
   })

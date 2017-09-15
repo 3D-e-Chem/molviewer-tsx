@@ -27,11 +27,11 @@ export class LigandsViewer extends React.Component<IProps, {}> {
   public render() {
     const title = 'Ligands viewer'
     const sidebar = <LigandList key="ligands" ligands={this.props.ligands} />
-    const ligands = this.props.ligands.map(ligand => (
+    const ligandGLModels = this.props.ligands.map(ligand => (
       <LigandGLModel key={ligand.id} {...ligand} />
     ))
 
-    const main = <MolCanvas id="canvas">{ligands}</MolCanvas>
+    const main = <MolCanvas id="canvas">{ligandGLModels}</MolCanvas>
     return <Layout title={title} sidebar={sidebar} main={main} />
   }
 }

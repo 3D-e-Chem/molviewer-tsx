@@ -12,6 +12,6 @@ export const processStatus = (response: Response) => {
   ) {
     return Promise.resolve(response)
   } else {
-    return Promise.reject(new Error(response.statusText))
+    return Promise.reject(response)
   }
 }

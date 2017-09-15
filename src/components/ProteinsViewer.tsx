@@ -34,7 +34,7 @@ export class ProteinsViewer extends React.Component<IProps, {}> {
         pocketRadius={this.props.pocketRadius}
       />
     ]
-    const proteins = this.props.proteins.map(protein => (
+    const proteinGLModels = this.props.proteins.map(protein => (
       <ProteinGLModel
         key={protein.id}
         {...protein}
@@ -42,7 +42,7 @@ export class ProteinsViewer extends React.Component<IProps, {}> {
         hetColor="#FF8C00"
       />
     ))
-    const main = <MolCanvas id="canvas">{proteins}</MolCanvas>
+    const main = <MolCanvas id="canvas">{proteinGLModels}</MolCanvas>
     return <Layout title={title} sidebar={sidebar} main={main} />
   }
 }

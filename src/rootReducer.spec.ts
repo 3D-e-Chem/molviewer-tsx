@@ -2,7 +2,7 @@ import { OtherAction } from './actions'
 import { rootReducer } from './rootReducer'
 
 describe('rootReducer()', () => {
-  let state: { [key: string]: any }
+  let state: {}
 
   describe('initialize state', () => {
     beforeAll(() => {

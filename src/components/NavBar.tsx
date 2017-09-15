@@ -11,7 +11,9 @@ export interface IOwnProps {
   title: string
 }
 
-export const NavBar = (props: IDispatchProps & IOwnProps) => {
+export type IProps = IDispatchProps & IOwnProps
+
+export const NavBar = (props: IProps) => {
   let debugButtons: JSX.Element[] = []
   if (process.env.NODE_ENV === 'development') {
     debugButtons = [

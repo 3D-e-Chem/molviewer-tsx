@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as PropTypes from 'prop-types'
 
 import * as NGL from 'ngl'
 
@@ -7,9 +8,11 @@ export interface IProps {
   children?: React.ReactNode[]
 }
 
+const style: React.CSSProperties = { height: '100%' }
+
 export class MolCanvas extends React.Component<IProps, {}> {
   static childContextTypes = {
-    stage: React.PropTypes.object
+    stage: PropTypes.object
   }
   private stage: NGL.Stage
 
@@ -24,7 +27,7 @@ export class MolCanvas extends React.Component<IProps, {}> {
 
   render() {
     return (
-      <div style={{ height: '100%' }} ref={this.canvasRefHandler}>
+      <div style={style} ref={this.canvasRefHandler}>
         {this.props.children}
       </div>
     )
@@ -35,7 +38,9 @@ export class MolCanvas extends React.Component<IProps, {}> {
     this.stage = new NGL.Stage(this.props.id, config)
   }
 
-  private canvasRefHandler(ref: Element) {
-    ref.id = this.props.id
+  private canvasRefHandler(ref: Element | null) {
+    if (ref !== null) {
+      ref.id = this.props.id
+    }
   }
 }

@@ -20,7 +20,7 @@ const mapDispatchToProps = (
   }
 }
 
-const connector = connect<IStateProps, IDispatchProps, void>(
+const connector = connect<IStateProps, IDispatchProps, {}>(
   mapStateToProps,
   mapDispatchToProps
 )

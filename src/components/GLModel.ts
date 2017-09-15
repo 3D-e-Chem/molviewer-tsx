@@ -1,4 +1,5 @@
 import * as React from 'react'
+import * as PropTypes from 'prop-types'
 
 import * as NGL from 'ngl'
 import { Matrix4 } from 'three'
@@ -16,7 +17,7 @@ export interface IContext {
 
 export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
   static contextTypes = {
-    stage: React.PropTypes.object
+    stage: PropTypes.object
   }
 
   public context: IContext

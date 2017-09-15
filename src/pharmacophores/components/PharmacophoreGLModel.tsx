@@ -57,7 +57,7 @@ export class PharmacophoreGLModel extends GLModel<IProps, {}> {
     const streamer = {
       asText: () => this.props.data
     }
-    const parser = new PharParser(streamer, {})
+    const parser = new PharParser(streamer)
     const shapes = parser.parse()
     shapes.forEach(this.processShape)
   }
