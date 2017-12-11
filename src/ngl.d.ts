@@ -58,6 +58,7 @@ declare module 'ngl' {
     ): Promise<Component>
     removeComponent(component: Component): void
     addComponentFromObject(object: any, params: any): Component
+    autoView(duration?: Number): void
   }
 
   namespace ParserRegistry {

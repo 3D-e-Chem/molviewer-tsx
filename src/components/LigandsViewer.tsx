@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as ligands from '../ligands'
 
 import { Layout } from '../components/Layout'
-import { MolCanvas } from '../components/MolCanvas'
+import { MolCanvas } from '../containers/MolCanvas'
 import { LigandGLModel } from '../ligands/components/LigandGLModel'
 import { LigandList } from '../ligands/containers/LigandList'
 

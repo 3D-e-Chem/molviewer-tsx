@@ -6,6 +6,7 @@ import { reducer as pharmacophores } from './pharmacophores'
 import { reducer as pocketRadius } from './pocketradius'
 import { reducer as proteins } from './proteins'
 import { reducer as sse } from './sse'
+import { reducer as stage } from './stage'
 
 export const rootReducer = combineReducers({
   sse,
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers({
   pharmacophores,
   pocketRadius,
   proteins,
+  stage,
   toastr: toastrReducer
 })

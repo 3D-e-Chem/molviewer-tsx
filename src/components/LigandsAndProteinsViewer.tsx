@@ -4,7 +4,7 @@ import * as ligands from '../ligands'
 import * as proteins from '../proteins'
 
 import { Layout } from '../components/Layout'
-import { MolCanvas } from '../components/MolCanvas'
+import { MolCanvas } from '../containers/MolCanvas'
 import { LigandGLModel } from '../ligands/components/LigandGLModel'
 import { LigandList } from '../ligands/containers/LigandList'
 import { ProteinGLModel } from '../proteins/components/ProteinGLModel'

@@ -22,9 +22,10 @@ export function mockedComponent(rep = mockedRepresentation()) {
   } as any) as NGL.StructureComponent
 }
 
-export function mockedStage(comp: NGL.Component) {
+export function mockedStage(comp: NGL.Component = mockedComponent()) {
   const mockedStage = {
     addComponentFromObject: jest.fn(() => comp),
+    autoView: jest.fn(),
     loadFile: jest.fn(),
     removeComponent: jest.fn()
   }

@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Layout } from '../components/Layout'
-import { MolCanvas } from '../components/MolCanvas'
+import { MolCanvas } from '../containers/MolCanvas'
 import {
   IPharmacophoreContainer,
   IPharmacophoreFunctionalType

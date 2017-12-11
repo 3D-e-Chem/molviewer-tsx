@@ -3,7 +3,7 @@ import * as React from 'react'
 import * as proteins from '../proteins'
 
 import { Layout } from '../components/Layout'
-import { MolCanvas } from '../components/MolCanvas'
+import { MolCanvas } from '../containers/MolCanvas'
 import { ProteinGLModel } from '../proteins/components/ProteinGLModel'
 import { ProteinList } from '../proteins/containers/ProteinList'
 

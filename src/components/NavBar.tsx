@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Button, Glyphicon, OverlayTrigger, Popover } from 'react-bootstrap'
 
 export interface IDispatchProps {
+  onCenter(): void
   serverDisconnect(): void
   serverModelChanged(): void
 }
@@ -58,6 +59,13 @@ export const NavBar = (props: IDispatchProps & IOwnProps) => {
         </div>
         <div>
           {debugButtons}
+          <Button
+            title="Center"
+            className="navbar-btn navbar-right"
+            onClick={props.onCenter}
+          >
+            <Glyphicon glyph="record" />
+          </Button>
           <OverlayTrigger
             trigger="click"
             placement="bottom"

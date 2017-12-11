@@ -2,21 +2,26 @@ import * as React from 'react'
 
 import * as NGL from 'ngl'
 
-export interface IProps {
+export interface IOwnProps {
   id: string
   children?: React.ReactNode[]
 }
+
+export interface IStateProps {
+  center: boolean
+}
+
+export interface IDispatchProps {
+  onCenterSucceeded(): void
+}
+
+export type IProps = IOwnProps & IStateProps & IDispatchProps
 
 export class MolCanvas extends React.Component<IProps, {}> {
   static childContextTypes = {
     stage: React.PropTypes.object
   }
-  private stage: NGL.Stage
-
-  constructor() {
-    super()
-    this.canvasRefHandler = this.canvasRefHandler.bind(this)
-  }
+  public stage: NGL.Stage
 
   getChildContext() {
     return { stage: this.stage }
@@ -30,12 +35,25 @@ export class MolCanvas extends React.Component<IProps, {}> {
     )
   }
 
+  componentDidUpdate() {
+    if (this.props.center) {
+      this.onCenter()
+    }
+  }
+
   componentDidMount() {
     const config = { backgroundColor: 'white' }
     this.stage = new NGL.Stage(this.props.id, config)
   }
 
-  private canvasRefHandler(ref: Element) {
+  private onCenter() {
+    // autoView zooms/centers on visible and invisible representations
+    // TODO zooms/centers on only visible representations
+    this.stage.autoView(1000)
+    this.props.onCenterSucceeded()
+  }
+
+  private canvasRefHandler = (ref: Element) => {
     ref.id = this.props.id
   }
 }
