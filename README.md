@@ -1,12 +1,11 @@
-Web application to visualize protein with it's natural ligand and candidates.
+Web application to visualize proteins, ligands and pharmacophores.
+Web application is used in [Molviewer KNIME nodes](https://github.com/3D-e-Chem/knime-molviewer).
 
 [![Build Status](https://travis-ci.org/3D-e-Chem/molviewer-tsx.svg?branch=master)](https://travis-ci.org/3D-e-Chem/molviewer-tsx)
 [![SonarCloud Gate](https://sonarcloud.io/api/badges/gate?key=e3dchem:molviewer)](https://sonarcloud.io/dashboard?id=e3dchem:molviewer)
 [![SonarCloud Coverage](https://sonarcloud.io/api/badges/measure?key=e3dchem:molviewere&metric=coverage)](https://sonarcloud.io/component_measures/domain/Coverage?id=e3dchem:molviewer)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app) using scripts package [@nlesc/react-scripts](https://github.com/NLeSC/create-react-app).
-
-* [User Guide](https://github.com/NLeSC/create-react-app/blob/master/packages/react-scripts/template/README.md) – How to develop apps bootstrapped with Create React App.
 
 # Dependencies
 
