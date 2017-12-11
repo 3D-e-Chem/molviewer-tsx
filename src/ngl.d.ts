@@ -56,7 +56,7 @@ declare module 'ngl' {
       path: String | File | Blob,
       params: loadFileParameters
     ): Promise<Component>
-    remove(component: Component): void
+    removeComponent(component: Component): void
     addComponentFromObject(object: any, params: any): Component
   }
 

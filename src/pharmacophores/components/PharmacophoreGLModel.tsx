@@ -36,7 +36,7 @@ export class PharmacophoreGLModel extends GLModel<IProps, {}> {
 
   public componentWillUnmount() {
     this.models.forEach(model => {
-      this.context.stage.remove(model)
+      this.context.stage.removeComponent(model)
     })
   }
 

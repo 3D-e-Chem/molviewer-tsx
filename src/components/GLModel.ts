@@ -27,7 +27,7 @@ export class GLModel<P extends IGLModelProps, S> extends React.Component<P, S> {
   }
 
   public componentWillUnmount() {
-    this.context.stage.remove(this.model)
+    this.context.stage.removeComponent(this.model)
   }
 
   public shouldComponentUpdate(nextProps: P) {

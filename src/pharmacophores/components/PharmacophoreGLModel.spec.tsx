@@ -87,5 +87,17 @@ describe('<PharmacophoreGLModel />', () => {
         })
       })
     })
+
+    describe('componentWillUnmount', () => {
+      beforeEach(() => {
+        comp.componentWillUnmount()
+      })
+
+      it('should remove all models from stage', () => {
+        comp.models.forEach(model => {
+          expect(comp.context.stage.removeComponent).toHaveBeenCalledWith(model)
+        })
+      })
+    })
   })
 })

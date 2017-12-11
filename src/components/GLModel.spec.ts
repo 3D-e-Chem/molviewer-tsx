@@ -139,7 +139,7 @@ describe('<GLModel />', () => {
 
       model.componentWillUnmount()
 
-      expect(stage.remove).toHaveBeenCalledWith(comp)
+      expect(stage.removeComponent).toHaveBeenCalledWith(comp)
     })
   })
 })
