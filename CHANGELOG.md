@@ -8,6 +8,7 @@ The file is formatted as described on http://keepachangelog.com/.
 ### Added
 
 * Pharmacphores viewer (#14)
+* Centering on current scene (#21)
 
 ### Changed
 

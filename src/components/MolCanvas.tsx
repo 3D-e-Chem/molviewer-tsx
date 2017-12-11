@@ -48,8 +48,33 @@ export class MolCanvas extends React.Component<IProps, {}> {
 
   private onCenter() {
     // autoView zooms/centers on visible and invisible representations
-    // TODO zooms/centers on only visible representations
-    this.stage.autoView(1000)
+    // this.stage.autoView(1000)
+    // below is an ugly workaround to that zooms/centers on only visible representations
+    let currentBox: any
+    const mystage: any = this.stage
+    mystage.eachRepresentation((r: any) => {
+      const selection = r.repr.selection
+      if (r.repr.visible) {
+        let boundingBox: any
+        if ('structure' in r.parent) {
+          boundingBox = r.parent.structure.getBoundingBox(selection)
+        } else if ('shape' in r.parent) {
+          boundingBox = r.parent.shape.boundingBox
+        } else {
+          // other representation parents are not supported
+        }
+        const transformedBox = boundingBox.clone().applyMatrix4(r.matrix)
+        if (currentBox) {
+          currentBox = currentBox.union(transformedBox)
+        } else {
+          currentBox = transformedBox
+        }
+      }
+    })
+    const center = currentBox.getCenter()
+    const zoom = mystage.getZoomForBox(currentBox)
+    mystage.animationControls.zoomMove(center, zoom, 1000)
+
     this.props.onCenterSucceeded()
   }
 
