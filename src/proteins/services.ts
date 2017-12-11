@@ -249,9 +249,9 @@ export function prepProtein(
   const protein = restProtein as IProtein
   protein.visible = index < initialShownMolecules
   protein.proteinVisible = index < initialShownMolecules
-  protein.pocketVisible = true
+  protein.pocketVisible = index < initialShownMolecules
   protein.hasHetero = detectHetero(protein)
-  protein.hetVisible = protein.hasHetero
+  protein.hetVisible = protein.visible && protein.hasHetero
   return protein
 }
 

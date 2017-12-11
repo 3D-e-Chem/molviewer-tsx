@@ -17,3 +17,4 @@ The file is formatted as described on http://keepachangelog.com/.
 
 * sourceMappingURL-issue for Safari/Edge
 * Height embedded div in flex-div issue (webkit bug)
+* Default representation of first and other entries different in Proteins viewer (#22)
