@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@nlesc/react-scripts": "0.2.0",
     "@types/chai": "^3.4.35",
     "@types/enzyme": "2.7.7",
     "@types/isomorphic-fetch": "0.0.33",
@@ -26,7 +25,54 @@
     "react-addons-test-utils": "^15.4.2",
     "redux-mock-store": "^1.2.3",
     "tslint-config-prettier": "^1.5.0",
-    "tslint-sonarts": "^1.0.0"
+    "tslint-sonarts": "^1.0.0",
+    "@nlesc/tslint-config-react-app": "2.0.0",
+    "@types/jest": "18.1.0",
+    "autoprefixer": "6.7.7",
+    "awesome-typescript-loader": "3.1.2",
+    "babel-core": "6.22.1",
+    "babel-eslint": "7.1.1",
+    "babel-jest": "18.0.0",
+    "babel-loader": "6.2.10",
+    "babel-preset-react-app": "^2.1.1",
+    "babel-runtime": "^6.20.0",
+    "case-sensitive-paths-webpack-plugin": "1.1.4",
+    "chalk": "1.1.3",
+    "connect-history-api-fallback": "1.3.0",
+    "cross-spawn": "4.0.2",
+    "css-loader": "0.26.1",
+    "detect-port": "1.1.0",
+    "dotenv": "2.0.0",
+    "eslint": "3.16.1",
+    "eslint-config-react-app": "^0.6.1",
+    "eslint-loader": "1.6.0",
+    "eslint-plugin-flowtype": "2.21.0",
+    "eslint-plugin-import": "2.0.1",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "6.4.1",
+    "extract-text-webpack-plugin": "1.0.1",
+    "file-loader": "0.10.0",
+    "fs-extra": "0.30.0",
+    "glob-all": "3.1.0",
+    "html-webpack-plugin": "2.24.0",
+    "http-proxy-middleware": "0.17.3",
+    "jest": "18.1.0",
+    "jest-util": "18.1.0",
+    "json-loader": "0.5.4",
+    "object-assign": "4.1.1",
+    "postcss-loader": "1.2.2",
+    "promise": "7.1.1",
+    "react-dev-utils": "^0.5.2",
+    "style-loader": "0.13.1",
+    "ts-jest": "18.0.3",
+    "tslint": "4.5.1",
+    "tslint-loader": "3.4.3",
+    "typescript": "2.2.0",
+    "url-loader": "0.5.7",
+    "webpack": "1.14.0",
+    "webpack-dev-server": "1.16.2",
+    "webpack-manifest-plugin": "1.1.0",
+    "whatwg-fetch": "2.0.2"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -47,15 +93,70 @@
     "three": "^0.85.2"
   },
   "scripts": {
-    "start": "concurrently \"caddy\" \"react-scripts start\"",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "lint": "react-scripts lint",
+    "start": "concurrently \"caddy\" \"node scripts/start.js\"",
+    "build": "node scripts/build.js",
+    "test": "node scripts/test.js --env=jsdom",
+    "lint": "node scripts/lint.js",
     "prettier": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.css\""
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "moduleFileExtensions": [
+      "jsx",
+      "js",
+      "json",
+      "ts",
+      "tsx"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>[/\\\\](build|docs|node_modules|scripts)[/\\\\]"
+    ],
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|.(test|spec)).(ts|tsx|js|jsx)$",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(ts|tsx)$": "<rootDir>/config/jest/tsTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "testResultsProcessor": "/home/stefanv/git/molviewer-tsx/node_modules/ts-jest/coverageprocessor.js",
+    "globals": {
+      "__TS_CONFIG__": {
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": true,
+        "strictNullChecks": true,
+        "target": "es6"
+      }
+    }
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
   }
 }
