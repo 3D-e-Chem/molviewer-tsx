@@ -77,7 +77,7 @@ First build with:
 yarn build
 ```
 
-Then copy essential build files to deployment target:
+Then copy essential build files to the knime-molviewer repo:
 ```
-./deploy.sh <target>/
+./deploy.sh
 ```
