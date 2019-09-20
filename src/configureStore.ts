@@ -1,5 +1,6 @@
-import { createStore } from 'redux'
+import { applyMiddleware, createStore, Middleware } from 'redux'
 
 import { rootReducer } from './rootReducer'
 
-export const configureStore = () => createStore(rootReducer)
+export const configureStore = (middleware: Middleware) =>
+  createStore(rootReducer, applyMiddleware(middleware))
