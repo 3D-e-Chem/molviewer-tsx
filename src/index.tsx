@@ -6,5 +6,6 @@ import './index.css'
 
 import { ProteinsViewerApp } from './proteins/app'
 import {LigandsViewerApp } from './ligands/app'
+import { PharmacophoresViewerApp } from "./pharmacophores/app";
 
-export {ProteinsViewerApp, LigandsViewerApp}
+export {ProteinsViewerApp, LigandsViewerApp, PharmacophoresViewerApp}
