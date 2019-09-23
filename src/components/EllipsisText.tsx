@@ -15,6 +15,9 @@ export const EllipsisText = ({
   tooltipId,
   placement = 'right'
 }: IProps) => {
+  if (!text) {
+    text = ''
+  }
   if (text.length < maxLength) {
     return <span>{text}</span>
   }
