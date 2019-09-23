@@ -36,20 +36,12 @@ export const LigandList = ({
   onVisibilityClick,
   onColorClick,
   onShowAllClick,
-  onHideAllClick,
-  onHiLiteShownClick
+  onHideAllClick
 }: IProps) => {
   let listactions: JSX.Element = <div />
   if (ligands.length > 1) {
     listactions = (
-      <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}>
-        <Button
-          onClick={onClickShownLigands(onHiLiteShownClick, ligands)}
-          title="Make currently shown ligands the hilite selection in KNIME"
-        >
-          HiLite shown
-        </Button>
-      </ListActions>
+      <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}/>
     )
   }
   const ligandItems = ligands.map(ligand => (

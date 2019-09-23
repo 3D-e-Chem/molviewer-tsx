@@ -27,7 +27,8 @@ export function mockedStage(comp: NGL.Component = mockedComponent()) {
     addComponentFromObject: jest.fn(() => comp),
     autoView: jest.fn(),
     loadFile: jest.fn(),
-    removeComponent: jest.fn()
+    removeComponent: jest.fn(),
+    handleResize: jest.fn()
   }
   return mockedStage as NGL.Stage
 }

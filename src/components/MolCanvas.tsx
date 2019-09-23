@@ -44,6 +44,12 @@ export class MolCanvas extends React.Component<IProps, {}> {
   componentDidMount() {
     const config = { backgroundColor: 'white' }
     this.stage = new NGL.Stage(this.props.id, config)
+    // Handle window resizing
+    window.addEventListener("resize", this.stage.handleResize, false)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.stage.handleResize)
   }
 
   private onCenter() {
