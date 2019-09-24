@@ -4,17 +4,16 @@ import { Provider } from 'react-redux'
 import { Store } from "redux";
 
 import { configureStore } from './configureStore'
-import { IRestMolecule } from "./types";
-import { LIGANDS_HIDE, LIGANDS_SHOW, LIGAND_TOGGLE_VISIBILITY } from "./ligands/constants";
-import { LigandsViewer } from "./containers/LigandsViewer";
+import { LigandsAndProteinsViewer } from "./containers/LigandsAndProteinsViewer";
+import { fetchSucceeded as ligandsFetchSucceeded, toggleVisibility as toggleLigandVisibility} from "./ligands/actions";
+import { LIGAND_TOGGLE_VISIBILITY, LIGANDS_HIDE, LIGANDS_SHOW } from "./ligands/constants";
 import { ILigand } from "./ligands/index";
 import { prepLigand } from "./ligands/services";
-import { fetchSucceeded as ligandsFetchSucceeded, toggleVisibility as toggleLigandVisibility} from "./ligands/actions";
-import { prepProtein } from "./proteins/services";
 import { fetchSucceeded as proteinsFetchSucceeded, toggleVisibility as toggleProteinVisibility} from "./proteins/actions";
-import { LigandsAndProteinsViewer } from "./containers/LigandsAndProteinsViewer";
-import { PROTEIN_TOGGLE_VISIBILITY, PROTEINS_SHOW, PROTEINS_HIDE } from "./proteins/constants";
+import { PROTEIN_TOGGLE_VISIBILITY, PROTEINS_HIDE, PROTEINS_SHOW } from "./proteins/constants";
 import { IProtein } from "./proteins/index";
+import { prepProtein } from "./proteins/services";
+import { IRestMolecule } from "./types";
 
 export class LigandsAndProteinsViewerApp {
     container: Element;

@@ -5,11 +5,11 @@ import { Store } from "redux";
 
 import { configureStore } from '../configureStore'
 import { ProteinsViewer } from '../containers/ProteinsViewer';
-import { fetchSucceeded, toggleVisibility } from "./actions";
-import { prepProtein } from "./services";
 import { IRestMolecule } from "../types";
-import { PROTEIN_TOGGLE_VISIBILITY, PROTEINS_SHOW, PROTEINS_HIDE } from "./constants";
+import { fetchSucceeded, toggleVisibility } from "./actions";
+import { PROTEIN_TOGGLE_VISIBILITY, PROTEINS_HIDE, PROTEINS_SHOW } from "./constants";
 import { IProtein } from "./index";
+import { prepProtein } from "./services";
 
 export class ProteinsViewerApp {
     container: Element;

@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-import { Button } from 'react-bootstrap'
-
 import { ListActions } from '../../components/ListActions'
 import { ILigand } from '../types'
 import { LigandListItem } from './LigandListItem'
@@ -19,15 +17,6 @@ export interface IDispatchProps {
 }
 
 export type IProps = IOwnProps & IDispatchProps
-
-function onClickShownLigands(
-  func: (ids: string[]) => void,
-  ligands: ILigand[]
-) {
-  // ids of all shown ligands
-  const ids = ligands.filter(l => l.visible).map(l => l.id)
-  return () => func(ids)
-}
 
 const style: React.CSSProperties = { height: '100%', overflowY: 'auto' }
 

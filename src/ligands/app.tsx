@@ -5,11 +5,10 @@ import { Store } from "redux";
 
 import { configureStore } from '../configureStore'
 import { IRestMolecule } from "../types";
-import { LIGANDS_HIDE, LIGANDS_SHOW, LIGAND_TOGGLE_VISIBILITY } from "./constants";
-import { LigandsViewer } from "../containers/LigandsViewer";
+import { fetchSucceeded, toggleVisibility } from "./actions";
+import { LIGAND_TOGGLE_VISIBILITY, LIGANDS_HIDE, LIGANDS_SHOW } from "./constants";
 import { ILigand } from "./index";
 import { prepLigand } from "./services";
-import { fetchSucceeded, toggleVisibility } from "./actions";
 
 export class LigandsViewerApp {
     container: Element;

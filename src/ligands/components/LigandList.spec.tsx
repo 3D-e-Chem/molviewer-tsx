@@ -132,12 +132,6 @@ describe('<LigandList />', () => {
         expect(wrapper.find(ListActions).length).toEqual(1)
       })
 
-      describe('when HiLite shown button is clicked', () => {
-        it('should call onHiLiteShownClick()', () => {
-          wrapper.find('Button').simulate('click')
-          expect(clickers.onHiLiteShownClick).toHaveBeenCalledWith(['id1'])
-        })
-      })
     })
   })
 })

@@ -4,13 +4,11 @@ import { Provider } from 'react-redux'
 import { Store } from "redux";
 
 import { configureStore } from '../configureStore'
-import { IRestMolecule } from "../types";
-import { PHARMACOPHORES_HIDE, PHARMACOPHORES_SHOW, PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY } from "./constants";
 import { PharmacophoresViewer } from "../containers/PharmacophoresViewer";
-import { IPharmacophore } from "./index";
-import { prepPharmacophore } from "./services";
 import { fetchSucceeded, toggleContainerVisibility } from "./actions";
-import { IRestPharmacophoreContainer, IPharmacophoreContainer } from "./types";
+import { PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY, PHARMACOPHORES_HIDE, PHARMACOPHORES_SHOW } from "./constants";
+import { prepPharmacophore } from "./services";
+import { IPharmacophoreContainer, IRestPharmacophoreContainer } from "./types";
 
 export class PharmacophoresViewerApp {
     container: Element;
