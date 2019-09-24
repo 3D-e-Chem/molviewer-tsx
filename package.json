@@ -132,7 +132,7 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web"
     },
-    "testResultsProcessor": "/home/stefanv/git/molviewer-tsx/node_modules/ts-jest/coverageprocessor.js",
+    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
     "globals": {
       "__TS_CONFIG__": {
         "forceConsistentCasingInFileNames": true,
