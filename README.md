@@ -19,18 +19,8 @@ yarn install
 
 # Development setup
 
-The api/ directory contains an example dataset which can be used during development and testing.
-In production the /api url is server by an application server.
-
-Start development web server
-
-```
-yarn start
-```
-
-Browser should open on http://localhost:3000
-
-It will also start a [Caddy web server](https://caddyserver.com/) on port 2015 to host api/ directory.
+Development needs to be done together with [Molviewer KNIME nodes](https://github.com/3D-e-Chem/knime-molviewer).
+The KNIME nodes will use the MolViewer global variable to render one of the app classes.
 
 # Editing
 

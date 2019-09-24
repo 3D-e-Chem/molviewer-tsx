@@ -19,7 +19,6 @@
     "@types/three": "^0.84.11",
     "chai": "^3.5.0",
     "codacy-coverage": "^2.0.1",
-    "concurrently": "^3.5.0",
     "enzyme": "^2.7.7",
     "prettier": "^1.6.1",
     "react-addons-test-utils": "^15.4.2",
@@ -93,7 +92,7 @@
     "three": "^0.85.2"
   },
   "scripts": {
-    "start": "concurrently \"caddy\" \"node scripts/start.js\"",
+    "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "lint": "node scripts/lint.js",
