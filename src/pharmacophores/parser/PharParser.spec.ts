@@ -27,5 +27,15 @@ $$$$
         expect(hacc.getBufferList().length).toEqual(1)
       }
     })
+
+    it('should return no features if empty string', () => {
+      const stream = {
+        // tslint:disable-next-line:no-multiline-string
+        asText: () => ''
+      }
+      const parser = new PharParser(stream, {})
+      const shapes = parser.parse()
+      expect(shapes.size).toEqual(0)
+    })
   })
 })

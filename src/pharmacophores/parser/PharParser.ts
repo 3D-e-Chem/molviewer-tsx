@@ -40,6 +40,9 @@ export class PharParser {
     const typeshapes = new Map<string, Shape>()
     let id = ''
     const text = this.streamer.asText()
+    if (!text) {
+      return typeshapes
+    }
     const lines = text.split('\n')
     lines.forEach((line, index) => {
       if (line.startsWith('$$$$')) {

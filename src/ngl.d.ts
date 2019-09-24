@@ -59,6 +59,7 @@ declare module 'ngl' {
     removeComponent(component: Component): void
     addComponentFromObject(object: any, params: any): Component
     autoView(duration?: Number): void
+    handleResize(): void
   }
 
   namespace ParserRegistry {

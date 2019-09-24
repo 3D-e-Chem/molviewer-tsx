@@ -228,7 +228,7 @@ const IonNames = [
 ]
 
 export function detectHetero(protein: IRestAnonymousMolecule) {
-  if (protein.format === 'pdb') {
+  if (protein.format === 'pdb' && protein.data) {
     return protein.data.split(/\n/).some(line => {
       if (line.substr(0, 6) === 'HETATM') {
         const hetatmName = line.substr(17, 3).trim()
