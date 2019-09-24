@@ -30,7 +30,7 @@ export const LigandList = ({
   let listactions: JSX.Element = <div />
   if (ligands.length > 1) {
     listactions = (
-      <ListActions hideAll={onHideAllClick} showAll={onShowAllClick}/>
+      <ListActions hideAll={onHideAllClick} showAll={onShowAllClick} />
     )
   }
   const ligandItems = ligands.map(ligand => (

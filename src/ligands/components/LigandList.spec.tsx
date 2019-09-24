@@ -131,7 +131,6 @@ describe('<LigandList />', () => {
       it('should have list actions', () => {
         expect(wrapper.find(ListActions).length).toEqual(1)
       })
-
     })
   })
 })
