@@ -37,7 +37,7 @@ export class PharmacophoresViewerApp {
     return (next: any) => (action: any) => {
       let toggles: any[] = []
       if (action.type === PHARMACOPHORE_TOGGLE_CONTAINER_VISIBILITY) {
-        api.getState().pharmacophores.map((p: any) => {
+        api.getState().pharmacophores.items.map((p: any) => {
           if (p.id === action.id) {
             toggles.push({ id: p.id, visible: !p.visible })
           }
@@ -46,7 +46,7 @@ export class PharmacophoresViewerApp {
       if (action.type === PHARMACOPHORES_SHOW) {
         toggles = api
           .getState()
-          .pharmacophores.filter((p: IPharmacophoreContainer) => !p.visible)
+          .pharmacophores.items.filter((p: IPharmacophoreContainer) => !p.visible)
           .map((p: IPharmacophoreContainer) => {
             return { id: p.id, visible: !p.visible }
           })
@@ -54,7 +54,7 @@ export class PharmacophoresViewerApp {
       if (action.type === PHARMACOPHORES_HIDE) {
         toggles = api
           .getState()
-          .pharmacophores.filter((p: IPharmacophoreContainer) => p.visible)
+          .pharmacophores.items.filter((p: IPharmacophoreContainer) => p.visible)
           .map((p: IPharmacophoreContainer) => {
             return { id: p.id, visible: !p.visible }
           })

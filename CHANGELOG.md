@@ -12,9 +12,9 @@ The file is formatted as described on http://keepachangelog.com/.
 
 ### Changed
 
-
 ### Fixed
 
 * sourceMappingURL-issue for Safari/Edge
 * Height embedded div in flex-div issue (webkit bug)
 * Default representation of first and other entries different in Proteins viewer (#22)
+* Unable to show second pharmacophore (https://github.com/3D-e-Chem/knime-molviewer/issues/31)
