@@ -53,6 +53,7 @@
     "file-loader": "0.10.0",
     "fs-extra": "0.30.0",
     "glob-all": "3.1.0",
+    "handlebars": "^4.5.3",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.3",
     "jest": "18.1.0",
@@ -71,6 +72,7 @@
     "webpack": "1.14.0",
     "webpack-dev-server": "1.16.2",
     "webpack-manifest-plugin": "1.1.0",
+    "websocket-extensions": "^0.1.4",
     "whatwg-fetch": "2.0.2"
   },
   "dependencies": {
